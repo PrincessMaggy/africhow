@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import './App.css';
-import fetchRestaurantData from './fetchData';
+import fetchRestaurantData from './lib/fetchData';
 import EmailForm from './components/emailHandler';
 
 function App() {
