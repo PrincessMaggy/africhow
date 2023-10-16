@@ -1,8 +1,7 @@
 import {useState, useEffect} from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
 import fetchRestaurantData from './fetchData';
+import EmailForm from './components/emailHandler';
 
 function App() {
     const [data, setData] = useState([]);
@@ -19,17 +18,11 @@ function App() {
 
     return (
         <>
+            {/* Vendor Support */}
+            <h1>Vendor support</h1>
+            <EmailForm />
             <div>
-                <a href='https://vitejs.dev'>
-                    <img src={viteLogo} className='logo' alt='Vite logo' />
-                </a>
-                <a href='https://react.dev'>
-                    <img
-                        src={reactLogo}
-                        className='logo react'
-                        alt='React logo'
-                    />
-                </a>
+                <h1>Meals</h1>
             </div>
             <div className='card'>
                 <div>
