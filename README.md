@@ -18,6 +18,8 @@
 
 ## Falcon team
 
+## Resources
+
 - Email JS[https://www.emailjs.com/]
 
 - API for meals[https://www.themealdb.com/api/json/v1/1/categories.php]
