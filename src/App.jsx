@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import './App.css';
 import fetchRestaurantData from './lib/fetchData';
 import EmailForm from './components/emailHandler';
+import Allroutes from './Allroutes';
 
 function App() {
     const [data, setData] = useState([]);
@@ -18,8 +19,9 @@ function App() {
 
     return (
         <>
+        <Allroutes />
             {/* Vendor Support */}
-            <h1>Vendor support</h1>
+            {/* <h1>Vendor support</h1>
             <EmailForm />
             <div>
                 <h1>Meals</h1>
@@ -43,7 +45,7 @@ function App() {
                         ))}
                     </ul>
                 </div>
-            </div>
+            </div> */}
         </>
     );
 }
