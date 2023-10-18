@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import './App.css';
+import './index.css';
 import fetchRestaurantData from './lib/fetchData';
 import EmailForm from './components/emailHandler';
 import Allroutes from './Allroutes';

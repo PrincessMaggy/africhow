@@ -26,12 +26,12 @@ import CatalogDetails from "./components/Rewards/catalog/CatalogDetails";
                 <Route path="rewards">
                     <Route path="" element={<Rewards />} />
                     <Route path="my-rewards" element={<Achievements />} />
-                    <Route path="earn-more-stars" element={<EarnStars />} />
+                    <Route path="earn-stars" element={<EarnStars />} />
                     <Route path="catalog" element={<Catalog />} />
                     <Route path="reward-details" element={<CatalogDetails />} />
                 </Route>
 
-                
+
                 
             </Routes>
         </BrowserRouter>

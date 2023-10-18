@@ -1,8 +1,11 @@
 import React from 'react'
+import RewardNav from './RewardNav'
 
 const Rewards = () => {
   return (
-    <div>Rewards</div>
+    <div>
+        <RewardNav />
+    </div>
   )
 }
 
