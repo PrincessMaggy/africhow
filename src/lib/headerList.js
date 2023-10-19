@@ -1,26 +1,26 @@
 const headerList = [
     {
-      id: 1,
+      id: '/',
       header: 'AfriChow',
     },
-    
+
     {
-      id: 2,
+      id: '/community',
       header: 'Community',
     },
 
     {
-      id: 3,
+      id: '/loyalty-rewards',
       header: 'Rewards',
     },
 
     {
-      id: 4,
+      id: 'documentations',
       header: 'Onboarding',
     },
 
     {
-      id: 4,
+      id: '/contact-us',
       header: 'Support',
     },
 
