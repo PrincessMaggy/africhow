@@ -13,8 +13,8 @@ import Achievements from "./components/Rewards/Achievements";
 import EarnStars from "./components/Rewards/EarnStars";
 import Catalog from "./components/Rewards/catalog/Catalog";
 import CatalogDetails from "./components/Rewards/catalog/CatalogDetails";
-import VendorsDashboard from "./components/vendorsPayment/vendorsDashboard";
-import VendorsTransaction from "./components/vendorsPayment/vendorsTransaction";
+import VendorsDashboard from "./components/vendorsPayment/VendorsDashboard";
+import VendorsTransaction from "./components/vendorsPayment/VendorsTransaction";
   
   const Allroutes = () => {
     return (
