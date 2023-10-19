@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Nav from '../components/nav'
 import Hero from '../components/Hero'
 import SectionOne from '../components/homeSectionOne'
+import SectionThree from '../components/homeSectionThree'
 
 const Home = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -20,7 +21,7 @@ const Home = () => {
             <Hero />
             <SectionOne />
             <sectionTwo />
-            <sectionThree />
+            <SectionThree />
         </div>
         
     </div>

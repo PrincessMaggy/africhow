@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className='w-full pt-20 pb-4 px-10 bg-black '>
+    <div className='w-full flex flex-col items-end pt-20 pb-4 px-10 bg-black '>
         <section className='flex justify-between'>
             <div className='flex flex-col md:text-lg text-white'>
                 <h3 className='text-base md:text-lg lg:text-lg text-left font-bold text-[#33CC9F]'>AfriChow</h3>
