@@ -3,9 +3,16 @@ import dollar from "./assets/dollar.png";
 import cart from "./assets/cart.png";
 import favorite from "./assets/favorite.png";
 import visibility from "./assets/visibility.png";
-import image2 from "./assets/image2.png";
-import image1 from "./assets/image1.png";
-import image3 from "./assets/image3.png";
+import spaghetticarbonara from "./assets/spaghetticarbonara.jpg";
+import beeftacos from "./assets/beeftacos.jpg";
+import sashimi from "./assets/sashimi.jpg";
+import pepperoni from "./assets/pepperoni.jpg";
+import cheeseburger from "./assets/cheeseburger.jpg";
+import dragonroll from "./assets/dragonroll.jpg";
+import chickenburger from "./assets/chickenburger.jpg";
+import margheritapizza from "./assets/margheritapizza.jpg";
+import fishtacos from "./assets/fishtacos.jpg";
+import linguine from "./assets/linguine.jpg";
 
 function StorePerformance() {
   const [totalIncome, setTotalIncome] = useState(0);
@@ -14,25 +21,27 @@ function StorePerformance() {
       id: 1,
       customerName: "John Smith",
       restaurant: "Pizza Palace",
+      image: pepperoni,
       orderedItems: [
         {
           item: "Pepperoni Pizza",
           quantity: 2,
-          price: 5000
+          price: 55
         }
       ],
       orderDate: "2023-10-16T09:30:00",
-      status: "delivered"
+      status: "Completed"
     },
     {
       id: 2,
       customerName: "Alice Johnson",
       restaurant: "Burger Barn",
+      image: cheeseburger,
       orderedItems: [
         {
           item: "Cheeseburger",
           quantity: 1,
-          price: 3000
+          price: 40
         }
       ],
       orderDate: "2023-10-16T12:15:00",
@@ -42,39 +51,42 @@ function StorePerformance() {
       id: 3,
       customerName: "Emily Davis",
       restaurant: "Sushi Express",
+      image: sashimi,
       orderedItems: [
         {
           item: "Sashimi Combo",
           quantity: 1,
-          price: 10000
+          price: 60
         }
       ],
       orderDate: "2023-10-16T19:45:00",
-      status: "delivered"
+      status: "Completed"
     },
     {
       id: 4,
       customerName: "Michael Brown",
       restaurant: "Taco Time",
+      image: beeftacos,
       orderedItems: [
         {
           item: "Beef Tacos",
           quantity: 3,
-          price: 5000
+          price: 25
         }
       ],
       orderDate: "2023-10-17T10:30:00",
-      status: "cancelled"
+      status: "Cancelled"
     },
     {
       id: 5,
       customerName: "Olivia Wilson",
       restaurant: "Pasta House",
+      image: spaghetticarbonara,
       orderedItems: [
         {
           item: "Spaghetti Carbonara",
           quantity: 1,
-          price: 6000
+          price: 25
         }
       ],
       orderDate: "2023-10-17T14:20:00",
@@ -84,39 +96,42 @@ function StorePerformance() {
       id: 6,
       customerName: "William Lee",
       restaurant: "Sushi Express",
+      image: dragonroll,
       orderedItems: [
         {
           item: "Dragon Roll",
           quantity: 2,
-          price: 3000
+          price: 20
         }
       ],
       orderDate: "2023-10-18T17:45:00",
-      status: "delivered"
+      status: "Completed"
     },
     {
       id: 7,
       customerName: "Sophia Davis",
       restaurant: "Burger Barn",
+      image: chickenburger,
       orderedItems: [
         {
           item: "Chicken Burger",
           quantity: 1,
-          price: 2000
+          price: 25
         }
       ],
       orderDate: "2023-10-18T12:45:00",
-      status: "delivered"
+      status: "Completed"
     },
     {
       id: 8,
       customerName: "Liam Miller",
       restaurant: "Pizza Palace",
+      image: margheritapizza,
       orderedItems: [
         {
           item: "Margherita Pizza",
           quantity: 2,
-          price: 10000
+          price: 35
         }
       ],
       orderDate: "2023-10-19T19:10:00",
@@ -126,11 +141,12 @@ function StorePerformance() {
       id: 9,
       customerName: "Isabella Harris",
       restaurant: "Taco Time",
+      image: fishtacos,
       orderedItems: [
         {
           item: "Fish Tacos",
           quantity: 1,
-          price: 10000
+          price: 20
         }
       ],
       orderDate: "2023-10-19T11:55:00",
@@ -140,11 +156,12 @@ function StorePerformance() {
       id: 10,
       customerName: "James Clark",
       restaurant: "Pasta House",
+      image: linguine,
       orderedItems: [
         {
           item: "Linguine Alfredo",
           quantity: 1,
-          price: 20000
+          price: 35
         }
       ],
       orderDate: "2023-10-20T13:30:00",
@@ -152,7 +169,39 @@ function StorePerformance() {
     }
   ];
 
+  const findMostOrderedMeal = (orderedFoods) => {
+    let mealCount = {}; // Object to store the total quantity of each meal
+
+    // Iterate through the orderedFoods array
+    orderedFoods.forEach((order) => {
+      // Iterate through the orderedItems array
+      order.orderedItems.forEach((item) => {
+        // If the meal already exists in the mealCount object, increment its count
+        // If not, add it to the mealCount object with its count
+        mealCount[item.item] = (mealCount[item.item] || 0) + item.quantity;
+      });
+    });
+
+    // Find the meal with the highest quantity
+    let mostOrderedMeal = Object.keys(mealCount).reduce((a, b) =>
+      mealCount[a] > mealCount[b] ? a : b
+    );
+
+    // Find the order with the most ordered meal
+    let orderWithMostOrderedMeal = orderedFoods.find(
+      (order) => order.orderedItems[0].item === mostOrderedMeal
+    );
+
+    return orderWithMostOrderedMeal;
+  };
+
+  let mostOrderedMeal = findMostOrderedMeal(orderedFoods);
+
   const ids = [1, 2, 3, 4, 5];
+
+  const getRandomInt = (max) => {
+    return Math.floor(Math.random() * max);
+  };
 
   useEffect(() => {
     const income = orderedFoods
@@ -181,6 +230,8 @@ function StorePerformance() {
         phoneNumber: "Not Available"
       };
     });
+
+  const randomMeals = orderedFoods.sort(() => 0.5 - Math.random()).slice(0, 3);
 
   return (
     <section>
@@ -223,7 +274,9 @@ function StorePerformance() {
             className="visibility w-10 h-10 mb-2"
           />
           <p className="p text-start text-2xl mb-8">Most ordered meal</p>
-          <h3 className="h3 text-start text-4xl font-semibold">-</h3>
+          <h3 className="h3 text-start text-4xl font-semibold">
+            {mostOrderedMeal.orderedItems[0].item}
+          </h3>
         </div>
       </section>
 
@@ -253,7 +306,15 @@ function StorePerformance() {
             <hr />
             <span className="flex flex-row justify-between mt-5 mb-5 text-2xl">
               <span className="text-gray-500 ">Status</span>{" "}
-              <span>{order.status}</span>
+              <span
+                className={
+                  order.status === "Completed"
+                    ? "text-green-500"
+                    : "text-red-500"
+                }
+              >
+                {order.status}
+              </span>
             </span>
             <hr />
             <span className="flex flex-row justify-between mt-5 text-2xl">
@@ -267,21 +328,23 @@ function StorePerformance() {
       <h2 className="top-meals text-start mt-10 mb-6 text-2xl font-semibold">
         Top meals in your store
       </h2>
-      <section className="top-meals-section grid grid-cols-3 gap-20">
-        <section>
-          <img src={image2} alt="Jollof Rice" />
-          <p className="text-start">Jollof Rice</p>
-        </section>
-
-        <section>
-          <img src={image3} alt="Pepper Soup" />
-          <p className="text-start">Pepper Soup</p>
-        </section>
-
-        <section>
-          <img src={image1} alt="Nkwobi" />
-          <p className="text-start">Nkwobi</p>
-        </section>
+      <section className="top-meals-section grid grid-cols-3 gap-10">
+        {randomMeals.map((meal, i) => (
+          <motion.div
+          animate={{ scale: [1, 2, 2, 1, 1], opacity: [1, 0.5, 0.5, 0.5, 1] }}
+          transition={{ duration: getRandomInt(5) }}
+          key={i}
+          className="border border-gray-300 p-5 rounded"
+        >
+          <img className="h-60 w-100" src={meal.image} alt={meal.orderedItems[0].item} />
+          <div className="flex flex-row justify-between mt-5">
+              <h2 className="text-2xl">{meal.orderedItems[0].item}</h2>
+              <p className="text-2xl font-bold">
+              ${meal.orderedItems[0].price}
+              </p>
+          </div>
+        </motion.div>
+        ))}
       </section>
     </section>
   );
