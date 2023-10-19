@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import Smartphone from "../../assets/Smartphone.png";
-import arrow_forward from "../../assets/arrow_forward.png";
-import dollar from "../../assets/dollar.png";
-import cart from "../../assets/cart.png";
-import favorite from "../../assets/favorite.png";
-import visibility from "../../assets/visibility.png";
-import "./Style.css";
+import Smartphone from "./assets/smartphone.png";
+import arrow_forward from "./assets/arrow_forward.png";
+import dollar from "./assets/dollar.png";
+import cart from "./assets/cart.png";
+import favorite from "./assets/favorite.png";
+import visibility from "./assets/visibility.png";
 
 function StoreOverview() {
   return (

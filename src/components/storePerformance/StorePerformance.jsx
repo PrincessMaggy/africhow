@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import dollar from "../../assets/dollar.png";
-import cart from "../../assets/cart.png";
-import favorite from "../../assets/favorite.png";
-import visibility from "../../assets/visibility.png";
-import image2 from "../../assets/image2.png";
-import image1 from "../../assets/image1.png";
-import image3 from "../../assets/image3.png";
-import "./Style.css";
+import dollar from "./assets/dollar.png";
+import cart from "./assets/cart.png";
+import favorite from "./assets/favorite.png";
+import visibility from "./assets/visibility.png";
+import image2 from "./assets/image2.png";
+import image1 from "./assets/image1.png";
+import image3 from "./assets/image3.png";
 
 function StorePerformance2() {
   const [totalIncome, setTotalIncome] = useState(0);
