@@ -11,6 +11,7 @@
 ## Beta team
 
 ## Charlie team
+- Felicity Essien (https://github.com/felabel/africhow)
 
 ## Delta team
 
