@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import dollar from "./assets/dollar.png";
 import cart from "./assets/cart.png";
 import favorite from "./assets/favorite.png";
