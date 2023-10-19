@@ -13,6 +13,8 @@ import Achievements from "./components/Rewards/Achievements";
 import EarnStars from "./components/Rewards/EarnStars";
 import Catalog from "./components/Rewards/catalog/Catalog";
 import CatalogDetails from "./components/Rewards/catalog/CatalogDetails";
+import VendorsDashboard from "./components/vendorsPayment/vendorsDashboard";
+import VendorsTransaction from "./components/vendorsPayment/vendorsTransaction";
   
   const Allroutes = () => {
     return (
@@ -30,9 +32,10 @@ import CatalogDetails from "./components/Rewards/catalog/CatalogDetails";
                     <Route path="catalog" element={<Catalog />} />
                     <Route path="reward-details" element={<CatalogDetails />} />
                 </Route>
-
-
-                
+                <Route path="vendors-payment">
+                    <Route path="" element={<VendorsDashboard />} />
+                    <Route path="vendors-transaction" element={<VendorsTransaction />} />
+                </Route>
             </Routes>
         </BrowserRouter>
       </>
