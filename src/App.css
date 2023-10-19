@@ -1,0 +1,65 @@
+
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+#root {
+  width: 100%;
+  font-family: 'Poppins';
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.bkground {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-image {
+  background-image: url(./assets/banners/hero.webp);
+  background-position: center;
+}
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.hero-text {
+  font-size: 2.6rem;
+  line-height: 2.1rem;
+  font-family: 'Manrope';
+}
+
+.italic {
+  font-family:'Times New Roman', Times, serif
+}
+
+.meal_price  {
+  font-size: 6px;
+}
+
+.meal_name , .add_meal, .banner-btn {
+  font-size: 8px;
+}
+
+.feature-btn h3 {
+  font-size: 13px;
+}
+.feature-btn a {
+  font-size: 11px;
+}

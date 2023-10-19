@@ -1,4 +1,4 @@
-const fetchRestaurantData = async () => {
+const restaurantData = async () => {
     const apiUrl = 'https://www.themealdb.com/api/json/v1/1/categories.php';
 
     try {
@@ -43,4 +43,4 @@ const getRandomStatus = () => {
     return statuses[Math.floor(Math.random() * statuses.length)];
 };
 
-export default fetchRestaurantData;
+export default restaurantData;

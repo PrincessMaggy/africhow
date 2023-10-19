@@ -1,30 +1,25 @@
-
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import Home from "./pages/Home"
-import './App.css';
-import Footer from './components/Footer'
-import Nav from "./components/nav"
 import {useState, useEffect} from 'react';
-import './index.css';
+import './App.css';
 import fetchRestaurantData from './lib/fetchData';
 import EmailForm from './components/emailHandler';
-import Allroutes from './Allroutes';
 
+function Listings() {
+    const [data, setData] = useState([]);
 
-function App() {
+    useEffect(() => {
+        fetchRestaurantData()
+            .then((result) => {
+                setData(result);
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+            });
+    }, []);
 
     return (
-        <Router>
-         
-            <Routes>
-                <Route path='/' element={<Home />} />
-            </Routes>
-            <Footer />
-        </Router>
         <>
-        <Allroutes />
             {/* Vendor Support */}
-            {/* <h1>Vendor support</h1>
+            <h1>Vendor support</h1>
             <EmailForm />
             <div>
                 <h1>Meals</h1>
@@ -48,9 +43,9 @@ function App() {
                         ))}
                     </ul>
                 </div>
-            </div> */}
+            </div>
         </>
     );
 }
 
-export default App;
+export default Listings;
