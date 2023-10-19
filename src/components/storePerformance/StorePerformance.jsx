@@ -7,7 +7,7 @@ import image2 from "./assets/image2.png";
 import image1 from "./assets/image1.png";
 import image3 from "./assets/image3.png";
 
-function StorePerformance2() {
+function StorePerformance() {
   const [totalIncome, setTotalIncome] = useState(0);
   const orderedFoods = [
     {
@@ -287,4 +287,4 @@ function StorePerformance2() {
   );
 }
 
-export default StorePerformance2;
+export default StorePerformance;

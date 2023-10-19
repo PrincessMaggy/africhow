@@ -15,6 +15,8 @@ import Catalog from "./components/Rewards/catalog/Catalog";
 import CatalogDetails from "./components/Rewards/catalog/CatalogDetails";
 import VendorsDashboard from "./components/vendorsPayment/VendorsDashboard";
 import VendorsTransaction from "./components/vendorsPayment/VendorsTransaction";
+import StoreOverview from "./components/storePerformance/StoreOverview";
+import StorePerformance from "./components/storePerformance/StorePerformance";
   
   const Allroutes = () => {
     return (
@@ -35,6 +37,10 @@ import VendorsTransaction from "./components/vendorsPayment/VendorsTransaction";
                 <Route path="vendors-payment">
                     <Route path="" element={<VendorsDashboard />} />
                     <Route path="vendors-transaction" element={<VendorsTransaction />} />
+                </Route>
+                <Route path="store-performance">
+                    <Route path="" element={<StoreOverview />} />
+                    <Route path="details" element={<StorePerformance />} />
                 </Route>
             </Routes>
         </BrowserRouter>

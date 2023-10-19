@@ -47,7 +47,7 @@ function StoreOverview() {
         <h2 className="recent-orders text-start mt-10 text-2xl font-semibold">Recent orders</h2>
         <section className="orders-section text-center mt-10">
             <p className="mb-6 text-2xl">You have no sales record yet.</p>
-            <Link to="/storeperformance" className="button text-black text-2xl border bg-custom-green px-12 py-2">Start selling</Link>
+            <Link to="/store-performance/details" className="button text-black text-2xl border bg-custom-green px-12 py-2">Start selling</Link>
         </section>
 
         <h2 className="top-meals text-start mt-10 mb-6 text-2xl font-semibold">Top meals in your store</h2>
