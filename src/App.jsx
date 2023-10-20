@@ -12,8 +12,8 @@ import Catalog from './components/Rewards/catalog/Catalog';
 import CatalogDetails from './components/Rewards/catalog/CatalogDetails';
 import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
-import StoreOverview from './components/storePerformance/storeOverview';
-import StorePerformance from './components/storePerformance/storePerformance';
+import StoreOverview from './components/storePerformance/StoreOverview';
+import StorePerformance from './components/storePerformance/StorePerformance';
 
 function App() {
     const [menuOpen, setMenuOpen] = useState(false);
