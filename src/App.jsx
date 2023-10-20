@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import Home from './pages/Home';
 import './App.css';
 import Footer from './components/Footer';
@@ -18,7 +18,6 @@ function App() {
     return (
         <>
             <Nav />
-            <Router>
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='/rewards' element={<Rewards />} />
@@ -36,9 +35,8 @@ function App() {
                     />
                     <Route path='/store-overview' element={<StoreOverview />} />
                     <Route path='/store-performance' element={<StorePerformance />} />
-                </Routes>
-                <Footer />
-            </Router>
+                </Routes>            
+            <Footer />
         </>
     );
 }
