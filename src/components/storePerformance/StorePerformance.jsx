@@ -1,180 +1,16 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import dollar from "./assets/dollar.png";
-import cart from "./assets/cart.png";
-import favorite from "./assets/favorite.png";
-import visibility from "./assets/visibility.png";
-import spaghetticarbonara from "./assets/spaghetticarbonara.jpg";
-import beeftacos from "./assets/beeftacos.jpg";
-import sashimi from "./assets/sashimi.jpg";
-import pepperoni from "./assets/pepperoni.jpg";
-import cheeseburger from "./assets/cheeseburger.jpg";
-import dragonroll from "./assets/dragonroll.jpg";
-import chickenburger from "./assets/chickenburger.jpg";
-import margheritapizza from "./assets/margheritapizza.jpg";
-import fishtacos from "./assets/fishtacos.jpg";
-import linguine from "./assets/linguine.jpg";
+import dollar from "../../assets/icons/dollar.png";
+import cart from "../../assets/icons/cart.png";
+import favorite from "../../assets/icons/favorite.png";
+import visibility from "../../assets/icons/visibility.png";
+import orders  from '../../lib/orders.js';
 
 // Define a React functional component named StorePerformance
 function StorePerformance() {
 
   // Initialize a state variable for total income using the useState hook
   const [totalIncome, setTotalIncome] = useState(0);
-
-  // Define an array of ordered foods with details of customer orders
-  const orderedFoods = [
-    // ... (List of ordered food items with customer details)
-    {
-      id: 1,
-      customerName: "John Smith",
-      restaurant: "Pizza Palace",
-      image: pepperoni,
-      orderedItems: [
-        {
-          item: "Pepperoni Pizza",
-          quantity: 2,
-          price: 55
-        }
-      ],
-      orderDate: "2023-10-16T09:30:00",
-      status: "Completed"
-    },
-    {
-      id: 2,
-      customerName: "Alice Johnson",
-      restaurant: "Burger Barn",
-      image: cheeseburger,
-      orderedItems: [
-        {
-          item: "Cheeseburger",
-          quantity: 1,
-          price: 40
-        }
-      ],
-      orderDate: "2023-10-16T12:15:00",
-      status: "Pending"
-    },
-    {
-      id: 3,
-      customerName: "Emily Davis",
-      restaurant: "Sushi Express",
-      image: sashimi,
-      orderedItems: [
-        {
-          item: "Sashimi Combo",
-          quantity: 1,
-          price: 60
-        }
-      ],
-      orderDate: "2023-10-16T19:45:00",
-      status: "Completed"
-    },
-    {
-      id: 4,
-      customerName: "Michael Brown",
-      restaurant: "Taco Time",
-      image: beeftacos,
-      orderedItems: [
-        {
-          item: "Beef Tacos",
-          quantity: 3,
-          price: 25
-        }
-      ],
-      orderDate: "2023-10-17T10:30:00",
-      status: "Cancelled"
-    },
-    {
-      id: 5,
-      customerName: "Olivia Wilson",
-      restaurant: "Pasta House",
-      image: spaghetticarbonara,
-      orderedItems: [
-        {
-          item: "Spaghetti Carbonara",
-          quantity: 1,
-          price: 25
-        }
-      ],
-      orderDate: "2023-10-17T14:20:00",
-      status: "Pending"
-    },
-    {
-      id: 6,
-      customerName: "William Lee",
-      restaurant: "Sushi Express",
-      image: dragonroll,
-      orderedItems: [
-        {
-          item: "Dragon Roll",
-          quantity: 2,
-          price: 20
-        }
-      ],
-      orderDate: "2023-10-18T17:45:00",
-      status: "Completed"
-    },
-    {
-      id: 7,
-      customerName: "Sophia Davis",
-      restaurant: "Burger Barn",
-      image: chickenburger,
-      orderedItems: [
-        {
-          item: "Chicken Burger",
-          quantity: 1,
-          price: 25
-        }
-      ],
-      orderDate: "2023-10-18T12:45:00",
-      status: "Completed"
-    },
-    {
-      id: 8,
-      customerName: "Liam Miller",
-      restaurant: "Pizza Palace",
-      image: margheritapizza,
-      orderedItems: [
-        {
-          item: "Margherita Pizza",
-          quantity: 2,
-          price: 35
-        }
-      ],
-      orderDate: "2023-10-19T19:10:00",
-      status: "delivered"
-    },
-    {
-      id: 9,
-      customerName: "Isabella Harris",
-      restaurant: "Taco Time",
-      image: fishtacos,
-      orderedItems: [
-        {
-          item: "Fish Tacos",
-          quantity: 1,
-          price: 20
-        }
-      ],
-      orderDate: "2023-10-19T11:55:00",
-      status: "Pending"
-    },
-    {
-      id: 10,
-      customerName: "James Clark",
-      restaurant: "Pasta House",
-      image: linguine,
-      orderedItems: [
-        {
-          item: "Linguine Alfredo",
-          quantity: 1,
-          price: 35
-        }
-      ],
-      orderDate: "2023-10-20T13:30:00",
-      status: "cancelled"
-    }
-  ];
 
   // Define a function to find the most ordered meal from the orderedFoods array
   const findMostOrderedMeal = (orderedFoods) => {
@@ -204,7 +40,7 @@ function StorePerformance() {
   };
 
   // Call the findMostOrderedMeal function to get the most ordered meal
-  let mostOrderedMeal = findMostOrderedMeal(orderedFoods);
+  let mostOrderedMeal = findMostOrderedMeal(orders);
 
   // Define an array of selected order IDs
   const ids = [1, 2, 3, 4, 5];
@@ -216,7 +52,7 @@ function StorePerformance() {
 
 // Use the useEffect hook to update totalIncome when orderedFoods change
   useEffect(() => {
-    const income = orderedFoods
+    const income = orders
       .filter((food) => ids.includes(food.id))
       .reduce((total, food) => {
         return (
@@ -229,10 +65,10 @@ function StorePerformance() {
       }, 0);
 
     setTotalIncome(income);
-  }, [orderedFoods]);
+  }, [orders]);
 
   // Filter and map selected orders to a new array
-  const selectedOrders = orderedFoods
+  const selectedOrders = orders
     .filter((food) => ids.includes(food.id))
     .map((food) => {
       return {
@@ -245,63 +81,63 @@ function StorePerformance() {
     });
 
   // Create an array of three random meals from orderedFoods
-  const randomMeals = orderedFoods.sort(() => 0.5 - Math.random()).slice(0, 3);
+  const randomMeals = orders.sort(() => 0.5 - Math.random()).slice(0, 3);
 
   // Render the components and data on the page
   return (
     <section>
       {/* Overview section */}
-      <h2 className="overview lg:text-start text-start mt-10 lg:text-2xl text-lg  font-semibold">
+      <h2 className="lg:text-start text-start mt-10 lg:text-2xl text-lg  font-semibold">
         Overview
       </h2>
       <section className="grid lg:grid-cols-2 grid-cols-2 lg:gap-6 gap-2">
         {/* ... (Render components and data for the overview section) */}
-        <div className="overview-grid-item border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green">
+        <div className="border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green">
           <img
             src={dollar}
             alt="dollar-image"
-            className="dollar lg:w-10 lg:h-10 w-8 h-8 mb-2"
+            className="lg:w-10 lg:h-10 w-8 h-8 mb-2"
           />
-          <p className="p text-start lg:text-2xl text-lg mb-8">Total income</p>
-          <h3 className="h3 text-start lg:text-4xl text-xl font-semibold">
+          <p className="text-start lg:text-2xl text-lg mb-8">Total income</p>
+          <h3 className="text-start lg:text-4xl text-xl font-semibold">
             ${totalIncome}
           </h3>
         </div>
 
-        <div className="overview-grid-item border pt-10 lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green">
-          <img src={cart} alt="cart-image" className="cart lg:w-10 lg:h-10 w-8 h-8 mb-2" />
-          <p className="p text-start lg:text-2xl text-lg mb-8">Total order</p>
-          <h3 className="h3 text-start lg:text-4xl text-xl font-semibold">5</h3>
+        <div className="border pt-10 lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green">
+          <img src={cart} alt="cart-image" className="lg:w-10 lg:h-10 w-8 h-8 mb-2" />
+          <p className="text-start lg:text-2xl text-lg mb-8">Total order</p>
+          <h3 className="text-start lg:text-4xl text-xl font-semibold">5</h3>
         </div>
 
-        <div className="overview-grid-item border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 bg-light-green">
+        <div className="border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 bg-light-green">
           <img
             src={favorite}
             alt="favorite-image"
-            className="favorite lg:w-10 lg:h-10 w-8 h-8 mb-2"
+            className="lg:w-10 lg:h-10 w-8 h-8 mb-2"
           />
-          <p className="p text-start lg:text-2xl text-lg mb-8">Impressions</p>
-          <h3 className="h3 text-start lg:text-4xl text-xl font-semibold">12</h3>
+          <p className="text-start lg:text-2xl text-lg mb-8">Impressions</p>
+          <h3 className="text-start lg:text-4xl text-xl font-semibold">12</h3>
         </div>
 
-        <div className="overview-grid-item border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 bg-light-green">
+        <div className="border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 bg-light-green">
           <img
             src={visibility}
             alt="visibility-image"
-            className="visibility lg:w-10 lg:h-10 w-8 h-8 mb-2"
+            className="lg:w-10 lg:h-10 w-8 h-8 mb-2"
           />
-          <p className="p text-start lg:text-2xl text-lg mb-8">Most ordered meal</p>
-          <h3 className="h3 text-start lg:text-4xl text-xl font-semibold">
+          <p className="text-start lg:text-2xl text-lg mb-8">Most ordered meal</p>
+          <h3 className="text-start lg:text-4xl text-xl font-semibold">
             #001 - {mostOrderedMeal.orderedItems[0].item}
           </h3>
         </div>
       </section>
 
       {/* Recent orders section */}
-      <h2 className="recent-orders text-start lg:mt-10 mt-10 lg:text-2xl text-lg font-semibold">
+      <h2 className="text-start lg:mt-10 mt-10 lg:text-2xl text-lg font-semibold">
         Recent orders
       </h2>
-      <section className="orders-section">
+      <section >
         {/* Map and render selectedOrders data */}
         {selectedOrders.map((order, i) => (
           <div
@@ -310,7 +146,7 @@ function StorePerformance() {
           >
             <span className="flex flex-row justify-between mb-5 lg:text-2xl text-lg">
               <span className="text-gray-500">Order ID</span>
-              <span className="">{order.id}</span>
+              <span >{order.id}</span>
             </span>
             <hr />
             <span className="flex flex-row justify-between mt-5 mb-5 lg:text-2xl text-lg ">
@@ -327,7 +163,7 @@ function StorePerformance() {
               <span className="text-gray-500 ">Status</span>{" "}
               <span
                 className={
-                  order.status === "Completed"
+                  order.status === "Delivered"
                     ? "text-green-500" 
                     : order.status === "Pending" ?
                     "text-yellow-500": "text-red-500"
@@ -346,10 +182,10 @@ function StorePerformance() {
       </section>
 
       {/* Top meals section */}
-      <h2 className="top-meals text-start lg:mt-10 mt-10 mb-6 lg:text-2xl text-lg font-semibold">
+      <h2 className="text-start lg:mt-10 mt-10 mb-6 lg:text-2xl text-lg font-semibold">
         Top meals in your store
       </h2>
-      <section className="top-meals-section grid lg:grid-cols-3 grid-cols-1 lg:gap-10 gap-6">
+      <section className="grid lg:grid-cols-3 grid-cols-1 lg:gap-10 gap-6">
         {/* Map and render randomMeals data */}
         {randomMeals.map((meal, i) => (
           <motion.div
