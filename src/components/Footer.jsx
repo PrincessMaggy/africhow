@@ -1,4 +1,3 @@
-import React from 'react'
 
 const Footer = () => {
   return (
@@ -25,7 +24,7 @@ const Footer = () => {
                         <li className='text-white'>X (Twitter)</li>
                     </ul>
                 </div>
-                
+
             </div>
         </section>
         <hr className='mt-12'/>

@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import Nav from '../components/nav'
-import Hero from '../components/Hero'
-import SectionOne from '../components/homeSectionOne'
-import SectionThree from '../components/homeSectionThree'
+import {useState} from 'react';
+import Nav from '../components/nav';
+import Hero from '../components/Hero';
+import HomeSectionOne from '../components/homeSectionOne';
+import HomeSectionThree from '../components/homeSectionThree';
 
 const Home = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -14,18 +14,21 @@ const Home = () => {
         setMenuOpen(!menuOpen);
     };
 
-  return (
-    <div>
-        <Nav toggleMenu={toggleMenu} menuOpen={menuOpen} />
+    return (
         <div>
-            <Hero />
-            <SectionOne />
-            <sectionTwo />
-            <SectionThree />
+            <Nav
+                toggleMenu={toggleMenu}
+                menuOpen={menuOpen}
+                toggleDropdown={toggleDropdown}
+            />
+            <div>
+                <Hero />
+                <HomeSectionOne />
+                {/* <sectionTwo /> */}
+                <HomeSectionThree />
+            </div>
         </div>
-        
-    </div>
-  )
-}
+    );
+};
 
-export default Home
+export default Home;

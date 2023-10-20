@@ -1,9 +1,5 @@
-import React from 'react'
-
 const Achievements = () => {
-  return (
-    <div>Achievements</div>
-  )
-}
+    return <div>Achievements</div>;
+};
 
-export default Achievements
+export default Achievements;

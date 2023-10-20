@@ -1,12 +1,11 @@
-import React from 'react'
-import RewardNav from './RewardNav'
+import RewardNav from './RewardNav';
 
 const Rewards = () => {
-  return (
-    <div>
-        <RewardNav />
-    </div>
-  )
-}
+    return (
+        <div>
+            <RewardNav />
+        </div>
+    );
+};
 
-export default Rewards
+export default Rewards;
