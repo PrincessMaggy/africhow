@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import Smartphone from "./assets/smartphone.png";
-import arrow_forward from "./assets/arrow_forward.png";
-import dollar from "./assets/dollar.png";
-import cart from "./assets/cart.png";
-import favorite from "./assets/favorite.png";
-import visibility from "./assets/visibility.png";
+import Smartphone from "../../assets/banners/smartphone.png";
+import arrow_forward from "../../assets/icons/arrow_forward.png";
+import dollar from "../../assets/icons/dollar.png";
+import cart from "../../assets/icons/cart.png";
+import favorite from "../../assets/icons/favorite.png";
+import visibility from "../../assets/icons/visibility.png";
 
 // Define a React functional component named StoreOverview
 function StoreOverview() {

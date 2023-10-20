@@ -1,180 +1,16 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import dollar from "./assets/dollar.png";
-import cart from "./assets/cart.png";
-import favorite from "./assets/favorite.png";
-import visibility from "./assets/visibility.png";
-import spaghetticarbonara from "./assets/spaghetticarbonara.jpg";
-import beeftacos from "./assets/beeftacos.jpg";
-import sashimi from "./assets/sashimi.jpg";
-import pepperoni from "./assets/pepperoni.jpg";
-import cheeseburger from "./assets/cheeseburger.jpg";
-import dragonroll from "./assets/dragonroll.jpg";
-import chickenburger from "./assets/chickenburger.jpg";
-import margheritapizza from "./assets/margheritapizza.jpg";
-import fishtacos from "./assets/fishtacos.jpg";
-import linguine from "./assets/linguine.jpg";
+import dollar from "../../assets/icons/dollar.png";
+import cart from "../../assets/icons/cart.png";
+import favorite from "../../assets/icons/favorite.png";
+import visibility from "../../assets/icons/visibility.png";
+import orders  from '../../lib/orders.js';
 
 // Define a React functional component named StorePerformance
 function StorePerformance() {
 
   // Initialize a state variable for total income using the useState hook
   const [totalIncome, setTotalIncome] = useState(0);
-
-  // Define an array of ordered foods with details of customer orders
-  const orderedFoods = [
-    // ... (List of ordered food items with customer details)
-    {
-      id: 1,
-      customerName: "John Smith",
-      restaurant: "Pizza Palace",
-      image: pepperoni,
-      orderedItems: [
-        {
-          item: "Pepperoni Pizza",
-          quantity: 2,
-          price: 55
-        }
-      ],
-      orderDate: "2023-10-16T09:30:00",
-      status: "Completed"
-    },
-    {
-      id: 2,
-      customerName: "Alice Johnson",
-      restaurant: "Burger Barn",
-      image: cheeseburger,
-      orderedItems: [
-        {
-          item: "Cheeseburger",
-          quantity: 1,
-          price: 40
-        }
-      ],
-      orderDate: "2023-10-16T12:15:00",
-      status: "Pending"
-    },
-    {
-      id: 3,
-      customerName: "Emily Davis",
-      restaurant: "Sushi Express",
-      image: sashimi,
-      orderedItems: [
-        {
-          item: "Sashimi Combo",
-          quantity: 1,
-          price: 60
-        }
-      ],
-      orderDate: "2023-10-16T19:45:00",
-      status: "Completed"
-    },
-    {
-      id: 4,
-      customerName: "Michael Brown",
-      restaurant: "Taco Time",
-      image: beeftacos,
-      orderedItems: [
-        {
-          item: "Beef Tacos",
-          quantity: 3,
-          price: 25
-        }
-      ],
-      orderDate: "2023-10-17T10:30:00",
-      status: "Cancelled"
-    },
-    {
-      id: 5,
-      customerName: "Olivia Wilson",
-      restaurant: "Pasta House",
-      image: spaghetticarbonara,
-      orderedItems: [
-        {
-          item: "Spaghetti Carbonara",
-          quantity: 1,
-          price: 25
-        }
-      ],
-      orderDate: "2023-10-17T14:20:00",
-      status: "Pending"
-    },
-    {
-      id: 6,
-      customerName: "William Lee",
-      restaurant: "Sushi Express",
-      image: dragonroll,
-      orderedItems: [
-        {
-          item: "Dragon Roll",
-          quantity: 2,
-          price: 20
-        }
-      ],
-      orderDate: "2023-10-18T17:45:00",
-      status: "Completed"
-    },
-    {
-      id: 7,
-      customerName: "Sophia Davis",
-      restaurant: "Burger Barn",
-      image: chickenburger,
-      orderedItems: [
-        {
-          item: "Chicken Burger",
-          quantity: 1,
-          price: 25
-        }
-      ],
-      orderDate: "2023-10-18T12:45:00",
-      status: "Completed"
-    },
-    {
-      id: 8,
-      customerName: "Liam Miller",
-      restaurant: "Pizza Palace",
-      image: margheritapizza,
-      orderedItems: [
-        {
-          item: "Margherita Pizza",
-          quantity: 2,
-          price: 35
-        }
-      ],
-      orderDate: "2023-10-19T19:10:00",
-      status: "delivered"
-    },
-    {
-      id: 9,
-      customerName: "Isabella Harris",
-      restaurant: "Taco Time",
-      image: fishtacos,
-      orderedItems: [
-        {
-          item: "Fish Tacos",
-          quantity: 1,
-          price: 20
-        }
-      ],
-      orderDate: "2023-10-19T11:55:00",
-      status: "Pending"
-    },
-    {
-      id: 10,
-      customerName: "James Clark",
-      restaurant: "Pasta House",
-      image: linguine,
-      orderedItems: [
-        {
-          item: "Linguine Alfredo",
-          quantity: 1,
-          price: 35
-        }
-      ],
-      orderDate: "2023-10-20T13:30:00",
-      status: "cancelled"
-    }
-  ];
 
   // Define a function to find the most ordered meal from the orderedFoods array
   const findMostOrderedMeal = (orderedFoods) => {
@@ -204,7 +40,7 @@ function StorePerformance() {
   };
 
   // Call the findMostOrderedMeal function to get the most ordered meal
-  let mostOrderedMeal = findMostOrderedMeal(orderedFoods);
+  let mostOrderedMeal = findMostOrderedMeal(orders);
 
   // Define an array of selected order IDs
   const ids = [1, 2, 3, 4, 5];
@@ -216,7 +52,7 @@ function StorePerformance() {
 
 // Use the useEffect hook to update totalIncome when orderedFoods change
   useEffect(() => {
-    const income = orderedFoods
+    const income = orders
       .filter((food) => ids.includes(food.id))
       .reduce((total, food) => {
         return (
@@ -229,10 +65,10 @@ function StorePerformance() {
       }, 0);
 
     setTotalIncome(income);
-  }, [orderedFoods]);
+  }, [orders]);
 
   // Filter and map selected orders to a new array
-  const selectedOrders = orderedFoods
+  const selectedOrders = orders
     .filter((food) => ids.includes(food.id))
     .map((food) => {
       return {
@@ -245,7 +81,7 @@ function StorePerformance() {
     });
 
   // Create an array of three random meals from orderedFoods
-  const randomMeals = orderedFoods.sort(() => 0.5 - Math.random()).slice(0, 3);
+  const randomMeals = orders.sort(() => 0.5 - Math.random()).slice(0, 3);
 
   // Render the components and data on the page
   return (
@@ -327,7 +163,7 @@ function StorePerformance() {
               <span className="text-gray-500 ">Status</span>{" "}
               <span
                 className={
-                  order.status === "Completed"
+                  order.status === "Delivered"
                     ? "text-green-500" 
                     : order.status === "Pending" ?
                     "text-yellow-500": "text-red-500"
