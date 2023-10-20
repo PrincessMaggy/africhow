@@ -12,7 +12,7 @@ const Achievements = () => {
             <RewardNav />
             <div className='achievements_wrapper px-6'>
                     <div className="flex w-full justify-between">
-                        <p>Here are your achievements so far</p>
+                        <p>Here are your achievement so far</p>
                     </div>
                     <div className="card flex my-2 rounded-md border border-#000f08 items-center">
                             <div className="left_side">
