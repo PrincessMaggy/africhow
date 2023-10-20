@@ -15,9 +15,15 @@ import margheritapizza from "./assets/margheritapizza.jpg";
 import fishtacos from "./assets/fishtacos.jpg";
 import linguine from "./assets/linguine.jpg";
 
+// Define a React functional component named StorePerformance
 function StorePerformance() {
+
+  // Initialize a state variable for total income using the useState hook
   const [totalIncome, setTotalIncome] = useState(0);
+
+  // Define an array of ordered foods with details of customer orders
   const orderedFoods = [
+    // ... (List of ordered food items with customer details)
     {
       id: 1,
       customerName: "John Smith",
@@ -46,7 +52,7 @@ function StorePerformance() {
         }
       ],
       orderDate: "2023-10-16T12:15:00",
-      status: "pending"
+      status: "Pending"
     },
     {
       id: 3,
@@ -91,7 +97,7 @@ function StorePerformance() {
         }
       ],
       orderDate: "2023-10-17T14:20:00",
-      status: "pending"
+      status: "Pending"
     },
     {
       id: 6,
@@ -151,7 +157,7 @@ function StorePerformance() {
         }
       ],
       orderDate: "2023-10-19T11:55:00",
-      status: "pending"
+      status: "Pending"
     },
     {
       id: 10,
@@ -170,6 +176,7 @@ function StorePerformance() {
     }
   ];
 
+  // Define a function to find the most ordered meal from the orderedFoods array
   const findMostOrderedMeal = (orderedFoods) => {
     let mealCount = {}; // Object to store the total quantity of each meal
 
@@ -196,14 +203,18 @@ function StorePerformance() {
     return orderWithMostOrderedMeal;
   };
 
+  // Call the findMostOrderedMeal function to get the most ordered meal
   let mostOrderedMeal = findMostOrderedMeal(orderedFoods);
 
+  // Define an array of selected order IDs
   const ids = [1, 2, 3, 4, 5];
-
+  
+  // Define a function to generate a random integer
   const getRandomInt = (max) => {
     return Math.floor(Math.random() * max);
   };
 
+// Use the useEffect hook to update totalIncome when orderedFoods change
   useEffect(() => {
     const income = orderedFoods
       .filter((food) => ids.includes(food.id))
@@ -220,6 +231,7 @@ function StorePerformance() {
     setTotalIncome(income);
   }, [orderedFoods]);
 
+  // Filter and map selected orders to a new array
   const selectedOrders = orderedFoods
     .filter((food) => ids.includes(food.id))
     .map((food) => {
@@ -232,93 +244,100 @@ function StorePerformance() {
       };
     });
 
+  // Create an array of three random meals from orderedFoods
   const randomMeals = orderedFoods.sort(() => 0.5 - Math.random()).slice(0, 3);
 
+  // Render the components and data on the page
   return (
     <section>
-      <h2 className="overview text-start mt-10 text-2xl font-semibold">
+      {/* Overview section */}
+      <h2 className="overview lg:text-start text-start mt-10 lg:text-2xl text-lg  font-semibold">
         Overview
       </h2>
-      <section className="grid grid-cols-2 gap-6">
-        <div className="overview-grid-item border pt-10 pb-10 p-5 mt-8 bg-light-green">
+      <section className="grid lg:grid-cols-2 grid-cols-2 lg:gap-6 gap-2">
+        {/* ... (Render components and data for the overview section) */}
+        <div className="overview-grid-item border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green">
           <img
             src={dollar}
             alt="dollar-image"
-            className="dollar w-10 h-10 mb-2"
+            className="dollar lg:w-10 lg:h-10 w-8 h-8 mb-2"
           />
-          <p className="p text-start text-2xl mb-8">Total income</p>
-          <h3 className="h3 text-start text-4xl font-semibold">
+          <p className="p text-start lg:text-2xl text-lg mb-8">Total income</p>
+          <h3 className="h3 text-start lg:text-4xl text-xl font-semibold">
             ${totalIncome}
           </h3>
         </div>
 
-        <div className="overview-grid-item border pt-10 pb-10 p-5 mt-8 bg-light-green">
-          <img src={cart} alt="cart-image" className="cart w-10 h-10 mb-2" />
-          <p className="p text-start text-2xl mb-8">Total order</p>
-          <h3 className="h3 text-start text-4xl font-semibold">5</h3>
+        <div className="overview-grid-item border pt-10 lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green">
+          <img src={cart} alt="cart-image" className="cart lg:w-10 lg:h-10 w-8 h-8 mb-2" />
+          <p className="p text-start lg:text-2xl text-lg mb-8">Total order</p>
+          <h3 className="h3 text-start lg:text-4xl text-xl font-semibold">5</h3>
         </div>
 
-        <div className="overview-grid-item border pt-10 pb-10 p-5 bg-light-green">
+        <div className="overview-grid-item border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 bg-light-green">
           <img
             src={favorite}
             alt="favorite-image"
-            className="favorite w-10 h-10 mb-2"
+            className="favorite lg:w-10 lg:h-10 w-8 h-8 mb-2"
           />
-          <p className="p text-start text-2xl mb-8">Impressions</p>
-          <h3 className="h3 text-start text-4xl font-semibold">12</h3>
+          <p className="p text-start lg:text-2xl text-lg mb-8">Impressions</p>
+          <h3 className="h3 text-start lg:text-4xl text-xl font-semibold">12</h3>
         </div>
 
-        <div className="overview-grid-item border pt-10 pb-10 p-5 bg-light-green">
+        <div className="overview-grid-item border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 bg-light-green">
           <img
             src={visibility}
             alt="visibility-image"
-            className="visibility w-10 h-10 mb-2"
+            className="visibility lg:w-10 lg:h-10 w-8 h-8 mb-2"
           />
-          <p className="p text-start text-2xl mb-8">Most ordered meal</p>
-          <h3 className="h3 text-start text-4xl font-semibold">
-            {mostOrderedMeal.orderedItems[0].item}
+          <p className="p text-start lg:text-2xl text-lg mb-8">Most ordered meal</p>
+          <h3 className="h3 text-start lg:text-4xl text-xl font-semibold">
+            #001 - {mostOrderedMeal.orderedItems[0].item}
           </h3>
         </div>
       </section>
 
-      <h2 className="recent-orders text-start mt-10 text-2xl font-semibold">
+      {/* Recent orders section */}
+      <h2 className="recent-orders text-start lg:mt-10 mt-10 lg:text-2xl text-lg font-semibold">
         Recent orders
       </h2>
       <section className="orders-section">
+        {/* Map and render selectedOrders data */}
         {selectedOrders.map((order, i) => (
           <div
             className="border border-gray-300 p-5 bg-light-red mt-10 rounded"
             key={i}
           >
-            <span className="flex flex-row justify-between mb-5 text-2xl">
+            <span className="flex flex-row justify-between mb-5 lg:text-2xl text-lg">
               <span className="text-gray-500">Order ID</span>
               <span className="">{order.id}</span>
             </span>
             <hr />
-            <span className="flex flex-row justify-between mt-5 mb-5 text-2xl ">
+            <span className="flex flex-row justify-between mt-5 mb-5 lg:text-2xl text-lg ">
               <span className="text-gray-500">Meal</span>
               <span>{order.meal}</span>
             </span>
             <hr />
-            <span className="flex flex-row justify-between mt-5 mb-5 text-2xl">
+            <span className="flex flex-row justify-between mt-5 mb-5 lg:text-2xl text-lg">
               <span className="text-gray-500">Quantity</span>{" "}
               <span>{order.quantity}</span>
             </span>
             <hr />
-            <span className="flex flex-row justify-between mt-5 mb-5 text-2xl">
+            <span className="flex flex-row justify-between mt-5 mb-5 lg:text-2xl text-lg">
               <span className="text-gray-500 ">Status</span>{" "}
               <span
                 className={
                   order.status === "Completed"
-                    ? "text-green-500"
-                    : "text-red-500"
+                    ? "text-green-500" 
+                    : order.status === "Pending" ?
+                    "text-yellow-500": "text-red-500"
                 }
               >
                 {order.status}
               </span>
             </span>
             <hr />
-            <span className="flex flex-row justify-between mt-5 text-2xl">
+            <span className="flex flex-row justify-between mt-5 lg:text-2xl text-lg">
               <span className="text-gray-500">Phone Number</span>{" "}
               <span>{order.phoneNumber}</span>
             </span>
@@ -326,10 +345,12 @@ function StorePerformance() {
         ))}
       </section>
 
-      <h2 className="top-meals text-start mt-10 mb-6 text-2xl font-semibold">
+      {/* Top meals section */}
+      <h2 className="top-meals text-start lg:mt-10 mt-10 mb-6 lg:text-2xl text-lg font-semibold">
         Top meals in your store
       </h2>
-      <section className="top-meals-section grid grid-cols-3 gap-10">
+      <section className="top-meals-section grid lg:grid-cols-3 grid-cols-1 lg:gap-10 gap-6">
+        {/* Map and render randomMeals data */}
         {randomMeals.map((meal, i) => (
           <motion.div
           animate={{ scale: [1, 2, 2, 1, 1], opacity: [1, 0.5, 0.5, 0.5, 1] }}
@@ -337,10 +358,12 @@ function StorePerformance() {
           key={i}
           className="border border-gray-300 p-5 rounded"
         >
+
+          {/* ... (Render meal details) */}
           <img className="h-60 w-100" src={meal.image} alt={meal.orderedItems[0].item} />
           <div className="flex flex-row justify-between mt-5">
-              <h2 className="text-2xl">{meal.orderedItems[0].item}</h2>
-              <p className="text-2xl font-bold">
+              <h2 className="lg:text-2xl text-lg">{meal.orderedItems[0].item}</h2>
+              <p className="lg:text-2xl text-lg font-bold">
               ${meal.orderedItems[0].price}
               </p>
           </div>
