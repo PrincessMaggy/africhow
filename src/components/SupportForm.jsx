@@ -64,7 +64,7 @@ export default function SupportForm() {
                         <ComplaintArea />
 
                         <Link to="./supportsuccess" className="flex justify-end">
-                            <button className="pb-2 px-6 font-medium text-base bg-primary mt-6">
+                            <button className="pb-2 px-5 font-medium text-base bg-primary mt-6">
                                 SEND
                             </button>
                         </Link>
