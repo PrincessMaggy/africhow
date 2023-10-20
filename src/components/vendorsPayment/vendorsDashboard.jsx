@@ -1,9 +1,5 @@
-import React from 'react'
-
 const VendorsDashboard = () => {
-  return (
-    <div>VendorsDashboard</div>
-  )
-}
+    return <div>VendorsDashboard</div>;
+};
 
-export default VendorsDashboard
+export default VendorsDashboard;
