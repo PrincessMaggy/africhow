@@ -14,8 +14,8 @@ import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
 import StoreOverview from './components/storePerformance/StoreOverview';
 import StorePerformance from './components/storePerformance/StorePerformance';
-import VendorSupport from './components/VendorSupport';
-import SupportForm from './components/SupportForm';
+import VendorSupport from './components/VendorSupportPage/VendorSupport';
+import SupportForm from './components/VendorSupportPage/SupportForm';
 
 import Order from './components/Order/order';
 
