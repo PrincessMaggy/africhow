@@ -22,20 +22,20 @@ function App() {
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='/rewards' element={<Rewards />} />
-                    <Route path='my-rewards' element={<Achievements />} />
-                    <Route path='earn-stars' element={<EarnStars />} />
-                    <Route path='catalog' element={<Catalog />} />
-                    <Route path='reward-details' element={<CatalogDetails />} />
+                    <Route path='/my-rewards' element={<Achievements />} />
+                    <Route path='/earn-stars' element={<EarnStars />} />
+                    <Route path='/catalog' element={<Catalog />} />
+                    <Route path='/reward-details' element={<CatalogDetails />} />
                     <Route
                         path='/vendorDashboard'
                         element={<VendorsDashboard />}
                     />
                     <Route
-                        path='vendors-transaction'
+                        path='/vendors-transaction'
                         element={<VendorsTransaction />}
                     />
-                    <Route path='/storeOverview' element={<StoreOverview />} />
-                    <Route path='details' element={<StorePerformance />} />
+                    <Route path='/store-overview' element={<StoreOverview />} />
+                    <Route path='/store-performance' element={<StorePerformance />} />
                 </Routes>
                 <Footer />
             </Router>

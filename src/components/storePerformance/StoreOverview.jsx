@@ -85,7 +85,7 @@ function StoreOverview() {
 
         {/* Button to navigate to the store performance page to start selling */}
         <Link
-          to="/store-performance/details"
+          to="/store-performance"
           className="button text-black lg:text-2xl text-xl border bg-custom-green lg:px-12 px-8 py-2"
         >
           Start selling
