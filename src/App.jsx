@@ -12,8 +12,8 @@ import Catalog from './components/Rewards/catalog/Catalog.jsx';
 import CatalogDetails from './components/Rewards/catalog/CatalogDetails.jsx';
 import VendorsDashboard from './components/vendorsPayment/vendorsDashboard.jsx';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction.jsx';
-import StoreOverview from './components/storePerformance/StoreOverview.jsx';
-import StorePerformance from './components/storePerformance/StorePerformance.jsx';
+import StoreOverview from './components/storePerformance/storeOverview.jsx';
+import StorePerformance from './components/storePerformance/storePerformance.jsx';
 
 function App() {
     const [menuOpen, setMenuOpen] = useState(false);
