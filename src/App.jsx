@@ -33,11 +33,11 @@ function App() {
             />
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/rewards' element={<Rewards />} />
-                <Route path='/my-rewards' element={<Achievements />} />
-                <Route path='/earn-stars' element={<EarnStars />} />
-                <Route path='/catalog' element={<Catalog />} />
-                <Route path='/reward-details' element={<CatalogDetails />} />
+                    <Route path='/rewards' element={<Rewards />} />
+                    <Route path='/rewards/my-rewards' element={<Achievements />} />
+                    <Route path='/rewards/earn-stars' element={<EarnStars />} />
+                    <Route path='/rewards/catalog' element={<Catalog />} />
+                    <Route path='/rewards/reward-details' element={<CatalogDetails />} />
                 <Route
                     path='/vendorDashboard'
                     element={<VendorsDashboard />}
