@@ -87,57 +87,57 @@ function StorePerformance() {
   return (
     <section>
       {/* Overview section */}
-      <h2 className="overview lg:text-start text-start mt-10 lg:text-2xl text-lg  font-semibold">
+      <h2 className="lg:text-start text-start mt-10 lg:text-2xl text-lg  font-semibold">
         Overview
       </h2>
       <section className="grid lg:grid-cols-2 grid-cols-2 lg:gap-6 gap-2">
         {/* ... (Render components and data for the overview section) */}
-        <div className="overview-grid-item border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green">
+        <div className="border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green">
           <img
             src={dollar}
             alt="dollar-image"
-            className="dollar lg:w-10 lg:h-10 w-8 h-8 mb-2"
+            className="lg:w-10 lg:h-10 w-8 h-8 mb-2"
           />
-          <p className="p text-start lg:text-2xl text-lg mb-8">Total income</p>
-          <h3 className="h3 text-start lg:text-4xl text-xl font-semibold">
+          <p className="text-start lg:text-2xl text-lg mb-8">Total income</p>
+          <h3 className="text-start lg:text-4xl text-xl font-semibold">
             ${totalIncome}
           </h3>
         </div>
 
-        <div className="overview-grid-item border pt-10 lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green">
-          <img src={cart} alt="cart-image" className="cart lg:w-10 lg:h-10 w-8 h-8 mb-2" />
-          <p className="p text-start lg:text-2xl text-lg mb-8">Total order</p>
-          <h3 className="h3 text-start lg:text-4xl text-xl font-semibold">5</h3>
+        <div className="border pt-10 lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green">
+          <img src={cart} alt="cart-image" className="lg:w-10 lg:h-10 w-8 h-8 mb-2" />
+          <p className="text-start lg:text-2xl text-lg mb-8">Total order</p>
+          <h3 className="text-start lg:text-4xl text-xl font-semibold">5</h3>
         </div>
 
-        <div className="overview-grid-item border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 bg-light-green">
+        <div className="border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 bg-light-green">
           <img
             src={favorite}
             alt="favorite-image"
-            className="favorite lg:w-10 lg:h-10 w-8 h-8 mb-2"
+            className="lg:w-10 lg:h-10 w-8 h-8 mb-2"
           />
-          <p className="p text-start lg:text-2xl text-lg mb-8">Impressions</p>
-          <h3 className="h3 text-start lg:text-4xl text-xl font-semibold">12</h3>
+          <p className="text-start lg:text-2xl text-lg mb-8">Impressions</p>
+          <h3 className="text-start lg:text-4xl text-xl font-semibold">12</h3>
         </div>
 
-        <div className="overview-grid-item border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 bg-light-green">
+        <div className="border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 bg-light-green">
           <img
             src={visibility}
             alt="visibility-image"
-            className="visibility lg:w-10 lg:h-10 w-8 h-8 mb-2"
+            className="lg:w-10 lg:h-10 w-8 h-8 mb-2"
           />
-          <p className="p text-start lg:text-2xl text-lg mb-8">Most ordered meal</p>
-          <h3 className="h3 text-start lg:text-4xl text-xl font-semibold">
+          <p className="text-start lg:text-2xl text-lg mb-8">Most ordered meal</p>
+          <h3 className="text-start lg:text-4xl text-xl font-semibold">
             #001 - {mostOrderedMeal.orderedItems[0].item}
           </h3>
         </div>
       </section>
 
       {/* Recent orders section */}
-      <h2 className="recent-orders text-start lg:mt-10 mt-10 lg:text-2xl text-lg font-semibold">
+      <h2 className="text-start lg:mt-10 mt-10 lg:text-2xl text-lg font-semibold">
         Recent orders
       </h2>
-      <section className="orders-section">
+      <section >
         {/* Map and render selectedOrders data */}
         {selectedOrders.map((order, i) => (
           <div
@@ -146,7 +146,7 @@ function StorePerformance() {
           >
             <span className="flex flex-row justify-between mb-5 lg:text-2xl text-lg">
               <span className="text-gray-500">Order ID</span>
-              <span className="">{order.id}</span>
+              <span >{order.id}</span>
             </span>
             <hr />
             <span className="flex flex-row justify-between mt-5 mb-5 lg:text-2xl text-lg ">
@@ -182,10 +182,10 @@ function StorePerformance() {
       </section>
 
       {/* Top meals section */}
-      <h2 className="top-meals text-start lg:mt-10 mt-10 mb-6 lg:text-2xl text-lg font-semibold">
+      <h2 className="text-start lg:mt-10 mt-10 mb-6 lg:text-2xl text-lg font-semibold">
         Top meals in your store
       </h2>
-      <section className="top-meals-section grid lg:grid-cols-3 grid-cols-1 lg:gap-10 gap-6">
+      <section className="grid lg:grid-cols-3 grid-cols-1 lg:gap-10 gap-6">
         {/* Map and render randomMeals data */}
         {randomMeals.map((meal, i) => (
           <motion.div
