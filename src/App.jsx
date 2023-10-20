@@ -2,8 +2,8 @@ import {Route, Routes} from 'react-router-dom';
 import {useState} from 'react';
 import Home from './pages/Home';
 import './App.css';
-import Footer from './components/Footer';
-import Nav from './components/nav';
+// import Footer from './components/Footer';
+// import Nav from './components/nav';
 import './index.css';
 import Rewards from './components/Rewards/Rewards';
 import Achievements from './components/Rewards/Achievements';
@@ -14,12 +14,11 @@ import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
 import StoreOverview from './components/storePerformance/StoreOverview';
 import StorePerformance from './components/storePerformance/StorePerformance';
-<<<<<<< HEAD
 import VendorSupport from './components/VendorSupport';
 import SupportForm from './components/SupportForm';
-=======
+
 import Order from './components/Order/order';
->>>>>>> 870740245f0ce07d9d59c89b18cb04adec1f9f30
+
 
 function App() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -54,12 +53,9 @@ function App() {
                 />
                 <Route path='/store-overview' element={<StoreOverview />} />
                 <Route path='/store-performance' element={<StorePerformance />} />
-<<<<<<< HEAD
-                <Route path='/vendor-support' element={<VendorSupport />} />
-                <Route path='/support-form' element={<SupportForm />} />
-=======
                 <Route path='/order-summary' element={<Order/>} />
->>>>>>> 870740245f0ce07d9d59c89b18cb04adec1f9f30
+                <Route path='/vendorsupport' element={<VendorSupport />}/>
+                <Route path='/supportform' element={<SupportForm />}/>
             </Routes>            
             {/* <Footer /> */}
         </>
