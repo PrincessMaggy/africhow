@@ -14,6 +14,7 @@ import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
 import StoreOverview from './components/storePerformance/StoreOverview';
 import StorePerformance from './components/storePerformance/StorePerformance';
+import Order from './components/Order/order';
 
 function App() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -48,6 +49,7 @@ function App() {
                 />
                 <Route path='/store-overview' element={<StoreOverview />} />
                 <Route path='/store-performance' element={<StorePerformance />} />
+                <Route path='/order-summary' element={<Order/>} />
             </Routes>            
             {/* <Footer /> */}
         </>
