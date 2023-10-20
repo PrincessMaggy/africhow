@@ -4,15 +4,15 @@ import './App.css';
 import Footer from './components/Footer';
 import Nav from './components/nav';
 import './index.css';
-// import Rewards from './components/Rewards/Rewards';
-// import Achievements from './components/Rewards/Achievements';
-// import EarnStars from './components/Rewards/EarnStars';
-// import Catalog from './components/Rewards/catalog/Catalog';
-// import CatalogDetails from './components/Rewards/catalog/CatalogDetails';
-// import VendorsDashboard from './components/vendorsPayment/VendorsDashboard';
-// import VendorsTransaction from './components/vendorsPayment/VendorsTransaction';
-// import StoreOverview from './components/storePerformance/StoreOverview';
-// import StorePerformance from './components/storePerformance/StorePerformance';
+import Rewards from './components/Rewards/Rewards';
+import Achievements from './components/Rewards/Achievements';
+import EarnStars from './components/Rewards/EarnStars';
+import Catalog from './components/Rewards/catalog/Catalog';
+import CatalogDetails from './components/Rewards/catalog/CatalogDetails';
+import VendorsDashboard from './components/vendorsPayment/VendorsDashboard';
+import VendorsTransaction from './components/vendorsPayment/VendorsTransaction';
+import StoreOverview from './components/storePerformance/StoreOverview';
+import StorePerformance from './components/storePerformance/StorePerformance';
 
 function App() {
     return (
@@ -21,7 +21,7 @@ function App() {
             <Router>
                 <Routes>
                     <Route path='/' element={<Home />} />
-                    {/* <Route path='/rewards' element={<Rewards />} />
+                    <Route path='/rewards' element={<Rewards />} />
                     <Route path='my-rewards' element={<Achievements />} />
                     <Route path='earn-stars' element={<EarnStars />} />
                     <Route path='catalog' element={<Catalog />} />
@@ -35,7 +35,7 @@ function App() {
                         element={<VendorsTransaction />}
                     />
                     <Route path='/storeOverview' element={<StoreOverview />} />
-                    <Route path='details' element={<StorePerformance />} /> */}
+                    <Route path='details' element={<StorePerformance />} />
                 </Routes>
                 <Footer />
             </Router>
