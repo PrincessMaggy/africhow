@@ -14,8 +14,12 @@ import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
 import StoreOverview from './components/storePerformance/StoreOverview';
 import StorePerformance from './components/storePerformance/StorePerformance';
+<<<<<<< HEAD
 import VendorSupport from './components/VendorSupport';
 import SupportForm from './components/SupportForm';
+=======
+import Order from './components/Order/order';
+>>>>>>> 870740245f0ce07d9d59c89b18cb04adec1f9f30
 
 function App() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -28,18 +32,18 @@ function App() {
     };
     return (
         <>
-            <Nav
+            {/* <Nav
                 toggleMenu={toggleMenu}
                 menuOpen={menuOpen}
                 toggleDropdown={toggleDropdown}
-            />
+            /> */}
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/rewards' element={<Rewards />} />
-                <Route path='/my-rewards' element={<Achievements />} />
-                <Route path='/earn-stars' element={<EarnStars />} />
-                <Route path='/catalog' element={<Catalog />} />
-                <Route path='/reward-details' element={<CatalogDetails />} />
+                    <Route path='/rewards' element={<Rewards />} />
+                    <Route path='/rewards/my-rewards' element={<Achievements />} />
+                    <Route path='/rewards/earn-stars' element={<EarnStars />} />
+                    <Route path='/rewards/catalog' element={<Catalog />} />
+                    <Route path='/rewards/reward-details' element={<CatalogDetails />} />
                 <Route
                     path='/vendorDashboard'
                     element={<VendorsDashboard />}
@@ -50,10 +54,14 @@ function App() {
                 />
                 <Route path='/store-overview' element={<StoreOverview />} />
                 <Route path='/store-performance' element={<StorePerformance />} />
+<<<<<<< HEAD
                 <Route path='/vendor-support' element={<VendorSupport />} />
                 <Route path='/support-form' element={<SupportForm />} />
+=======
+                <Route path='/order-summary' element={<Order/>} />
+>>>>>>> 870740245f0ce07d9d59c89b18cb04adec1f9f30
             </Routes>            
-            <Footer />
+            {/* <Footer /> */}
         </>
     );
 }
