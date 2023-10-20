@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className='w-full flex flex-col items-end pt-20 pb-4 px-10 bg-black '>
+    <div className='w-full flex flex-col pt-20 pb-4 px-10 bg-black '>
         <section className='flex justify-between'>
             <div className='flex flex-col md:text-lg text-white'>
                 <h3 className='text-base md:text-lg lg:text-lg text-left font-bold text-[#33CC9F]'>AfriChow</h3>
@@ -25,13 +25,11 @@ const Footer = () => {
                         <li className='text-white'>X (Twitter)</li>
                     </ul>
                 </div>
-                
             </div>
         </section>
-        <hr className='mt-12'/>
-        <div className='flex mt-3 text-xs justify-between gap-2'>
-            <h3 className='text-white '>All rights reserved <span>&copy;</span> AfriChow2023</h3>
-            <p>Terms of Use</p>
+        <hr className='mt-12 white'/>
+        <div className='flex justify-between mt-3 text-xs gap-2'>
+            <h3 className='text-white text-left '>All rights reserved <span>&copy;</span> AfriChow2023</h3>
         </div>
     </div>
   )

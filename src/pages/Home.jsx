@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import Nav from '../components/nav'
+import Nav from '../components/Nav'
 import Hero from '../components/Hero'
 import SectionOne from '../components/homeSectionOne'
+import SectionTwo from '../components/homeSectionTwo'
 import SectionThree from '../components/homeSectionThree'
 
 const Home = () => {
@@ -20,7 +21,7 @@ const Home = () => {
         <div>
             <Hero />
             <SectionOne />
-            <sectionTwo />
+            <SectionTwo />
             <SectionThree />
         </div>
         
