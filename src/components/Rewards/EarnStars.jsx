@@ -5,7 +5,11 @@ import './rewards.css'
 const EarnStars = () => {
   return (
     <div>
-      <Nav />
+      <Nav
+                toggleMenu={toggleMenu}
+                menuOpen={menuOpen}
+                toggleDropdown={toggleDropdown}
+            />
       <RewardNav />
       <div className="earn_wrapper text-left px-10 py-8">
       <p className="text-lg font-semibold 	">A guide on how to earn more stars</p>

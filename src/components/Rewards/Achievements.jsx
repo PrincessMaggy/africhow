@@ -8,7 +8,11 @@ import rewards from '../../../public/images/rewards.png'
 const Achievements = () => {
     return (
         <>
-            <Nav />
+            <Nav
+                toggleMenu={toggleMenu}
+                menuOpen={menuOpen}
+                toggleDropdown={toggleDropdown}
+            />
             <RewardNav />
             <div className='achievements_wrapper px-6'>
                     <div className="flex w-full justify-between">

@@ -6,7 +6,11 @@ import { Link } from 'react-router-dom';
 const Rewards = () => {
     return (
         <div>
-            <Nav />
+            <Nav
+                toggleMenu={toggleMenu}
+                menuOpen={menuOpen}
+                toggleDropdown={toggleDropdown}
+            />
             <RewardNav />
             <div className='earn_wrapper'>
                  <div className="rewards_wrapper ">
