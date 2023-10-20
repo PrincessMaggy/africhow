@@ -5,16 +5,16 @@ const Footer = () => {
     <div className='w-full flex flex-col pt-20 pb-4 px-10 bg-black '>
         <section className='flex justify-between'>
             <div className='flex flex-col md:text-lg text-white'>
-                <h3 className='text-base md:text-lg lg:text-lg text-left font-bold text-[#33CC9F]'>AfriChow</h3>
-                <p className='text-xs md:text-base lg:text-base text-left pr-16'>Join us today and experience a more efficient way to serve your customers</p>
+                <h3 className='text-base md:text-lg lg:text-lg pb-2 text-left font-bold text-[#33CC9F]'>AfriChow</h3>
+                <p className='text-xs md:text-base md:pr-64 lg:text-base text-left pr-16'>Experience a more efficient way to serve customers</p>
             </div>
             <div className='flex justify-between gap-4 lg:px-16 md:px-16 text-base'>
                 <div className='lg:px-10 flex flex-col text-left text-sm'>
                     <h3 className='pb-2 underline text-[#33CC9F]'>Links </h3>
                     <ul>
-                        <li className='text-white'>About</li>
+                        <li className='text-white'>Community</li>
                         <li className='text-white'>Support</li>
-                        <li className='text-white'>FAQs</li>
+                        <li className='text-white'>Rewards</li>
                     </ul>
                 </div>
                 <div className='flex flex-col text-left text-sm'>
