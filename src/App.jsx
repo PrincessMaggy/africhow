@@ -5,15 +5,15 @@ import './App.css';
 import Footer from './components/Footer';
 import Nav from './components/nav';
 import './index.css';
-import Rewards from './components/Rewards/Rewards.jsx';
-import Achievements from './components/Rewards/Achievements.jsx';
-import EarnStars from './components/Rewards/EarnStars.jsx';
-import Catalog from './components/Rewards/catalog/Catalog.jsx';
-import CatalogDetails from './components/Rewards/catalog/CatalogDetails.jsx';
-import VendorsDashboard from './components/vendorsPayment/vendorsDashboard.jsx';
-import VendorsTransaction from './components/vendorsPayment/vendorsTransaction.jsx';
-import StoreOverview from './components/storePerformance/storeOverview.jsx';
-import StorePerformance from './components/storePerformance/storePerformance.jsx';
+import Rewards from './components/Rewards/Rewards';
+import Achievements from './components/Rewards/Achievements';
+import EarnStars from './components/Rewards/EarnStars';
+import Catalog from './components/Rewards/catalog/Catalog';
+import CatalogDetails from './components/Rewards/catalog/CatalogDetails';
+import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
+import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
+import StoreOverview from './components/storePerformance/storeOverview';
+import StorePerformance from './components/storePerformance/storePerformance';
 
 function App() {
     const [menuOpen, setMenuOpen] = useState(false);
