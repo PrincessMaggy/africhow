@@ -11,6 +11,7 @@
 ## Beta team
 
 ## Charlie team
+- Felicity Essien (https://github.com/felabel/africhow)
 
 ## Delta team
 
@@ -30,4 +31,4 @@
 
 - Stripe API [https://stripe.com/docs/api]
 
-Link to hosted page -
+Link to hosted page -[https://africhow.vercel.app/]
