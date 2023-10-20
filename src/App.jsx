@@ -26,11 +26,11 @@ function App() {
     };
     return (
         <>
-            <Nav
+            {/* <Nav
                 toggleMenu={toggleMenu}
                 menuOpen={menuOpen}
                 toggleDropdown={toggleDropdown}
-            />
+            /> */}
             <Routes>
                 <Route path='/' element={<Home />} />
                     <Route path='/rewards' element={<Rewards />} />
@@ -49,7 +49,7 @@ function App() {
                 <Route path='/store-overview' element={<StoreOverview />} />
                 <Route path='/store-performance' element={<StorePerformance />} />
             </Routes>            
-            <Footer />
+            {/* <Footer /> */}
         </>
     );
 }
