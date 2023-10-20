@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Smartphone from "../../assets/banners/smartphone.png";
+import Smartphone from "../../assets/banners/Smartphone.png";
 import arrow_forward from "../../assets/icons/arrow_forward.png";
 import dollar from "../../assets/icons/dollar.png";
 import cart from "../../assets/icons/cart.png";
