@@ -1,122 +1,144 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import dollar from "./assets/dollar.png";
 import cart from "./assets/cart.png";
 import favorite from "./assets/favorite.png";
 import visibility from "./assets/visibility.png";
-import image2 from "./assets/image2.png";
-import image1 from "./assets/image1.png";
-import image3 from "./assets/image3.png";
+import spaghetticarbonara from "./assets/spaghetticarbonara.jpg";
+import beeftacos from "./assets/beeftacos.jpg";
+import sashimi from "./assets/sashimi.jpg";
+import pepperoni from "./assets/pepperoni.jpg";
+import cheeseburger from "./assets/cheeseburger.jpg";
+import dragonroll from "./assets/dragonroll.jpg";
+import chickenburger from "./assets/chickenburger.jpg";
+import margheritapizza from "./assets/margheritapizza.jpg";
+import fishtacos from "./assets/fishtacos.jpg";
+import linguine from "./assets/linguine.jpg";
 
+// Define a React functional component named StorePerformance
 function StorePerformance() {
+
+  // Initialize a state variable for total income using the useState hook
   const [totalIncome, setTotalIncome] = useState(0);
+
+  // Define an array of ordered foods with details of customer orders
   const orderedFoods = [
+    // ... (List of ordered food items with customer details)
     {
       id: 1,
       customerName: "John Smith",
       restaurant: "Pizza Palace",
+      image: pepperoni,
       orderedItems: [
         {
           item: "Pepperoni Pizza",
           quantity: 2,
-          price: 5000
+          price: 55
         }
       ],
       orderDate: "2023-10-16T09:30:00",
-      status: "delivered"
+      status: "Completed"
     },
     {
       id: 2,
       customerName: "Alice Johnson",
       restaurant: "Burger Barn",
+      image: cheeseburger,
       orderedItems: [
         {
           item: "Cheeseburger",
           quantity: 1,
-          price: 3000
+          price: 40
         }
       ],
       orderDate: "2023-10-16T12:15:00",
-      status: "pending"
+      status: "Pending"
     },
     {
       id: 3,
       customerName: "Emily Davis",
       restaurant: "Sushi Express",
+      image: sashimi,
       orderedItems: [
         {
           item: "Sashimi Combo",
           quantity: 1,
-          price: 10000
+          price: 60
         }
       ],
       orderDate: "2023-10-16T19:45:00",
-      status: "delivered"
+      status: "Completed"
     },
     {
       id: 4,
       customerName: "Michael Brown",
       restaurant: "Taco Time",
+      image: beeftacos,
       orderedItems: [
         {
           item: "Beef Tacos",
           quantity: 3,
-          price: 5000
+          price: 25
         }
       ],
       orderDate: "2023-10-17T10:30:00",
-      status: "cancelled"
+      status: "Cancelled"
     },
     {
       id: 5,
       customerName: "Olivia Wilson",
       restaurant: "Pasta House",
+      image: spaghetticarbonara,
       orderedItems: [
         {
           item: "Spaghetti Carbonara",
           quantity: 1,
-          price: 6000
+          price: 25
         }
       ],
       orderDate: "2023-10-17T14:20:00",
-      status: "pending"
+      status: "Pending"
     },
     {
       id: 6,
       customerName: "William Lee",
       restaurant: "Sushi Express",
+      image: dragonroll,
       orderedItems: [
         {
           item: "Dragon Roll",
           quantity: 2,
-          price: 3000
+          price: 20
         }
       ],
       orderDate: "2023-10-18T17:45:00",
-      status: "delivered"
+      status: "Completed"
     },
     {
       id: 7,
       customerName: "Sophia Davis",
       restaurant: "Burger Barn",
+      image: chickenburger,
       orderedItems: [
         {
           item: "Chicken Burger",
           quantity: 1,
-          price: 2000
+          price: 25
         }
       ],
       orderDate: "2023-10-18T12:45:00",
-      status: "delivered"
+      status: "Completed"
     },
     {
       id: 8,
       customerName: "Liam Miller",
       restaurant: "Pizza Palace",
+      image: margheritapizza,
       orderedItems: [
         {
           item: "Margherita Pizza",
           quantity: 2,
-          price: 10000
+          price: 35
         }
       ],
       orderDate: "2023-10-19T19:10:00",
@@ -126,25 +148,27 @@ function StorePerformance() {
       id: 9,
       customerName: "Isabella Harris",
       restaurant: "Taco Time",
+      image: fishtacos,
       orderedItems: [
         {
           item: "Fish Tacos",
           quantity: 1,
-          price: 10000
+          price: 20
         }
       ],
       orderDate: "2023-10-19T11:55:00",
-      status: "pending"
+      status: "Pending"
     },
     {
       id: 10,
       customerName: "James Clark",
       restaurant: "Pasta House",
+      image: linguine,
       orderedItems: [
         {
           item: "Linguine Alfredo",
           quantity: 1,
-          price: 20000
+          price: 35
         }
       ],
       orderDate: "2023-10-20T13:30:00",
@@ -152,8 +176,45 @@ function StorePerformance() {
     }
   ];
 
-  const ids = [1, 2, 3, 4, 5];
+  // Define a function to find the most ordered meal from the orderedFoods array
+  const findMostOrderedMeal = (orderedFoods) => {
+    let mealCount = {}; // Object to store the total quantity of each meal
 
+    // Iterate through the orderedFoods array
+    orderedFoods.forEach((order) => {
+      // Iterate through the orderedItems array
+      order.orderedItems.forEach((item) => {
+        // If the meal already exists in the mealCount object, increment its count
+        // If not, add it to the mealCount object with its count
+        mealCount[item.item] = (mealCount[item.item] || 0) + item.quantity;
+      });
+    });
+
+    // Find the meal with the highest quantity
+    let mostOrderedMeal = Object.keys(mealCount).reduce((a, b) =>
+      mealCount[a] > mealCount[b] ? a : b
+    );
+
+    // Find the order with the most ordered meal
+    let orderWithMostOrderedMeal = orderedFoods.find(
+      (order) => order.orderedItems[0].item === mostOrderedMeal
+    );
+
+    return orderWithMostOrderedMeal;
+  };
+
+  // Call the findMostOrderedMeal function to get the most ordered meal
+  let mostOrderedMeal = findMostOrderedMeal(orderedFoods);
+
+  // Define an array of selected order IDs
+  const ids = [1, 2, 3, 4, 5];
+  
+  // Define a function to generate a random integer
+  const getRandomInt = (max) => {
+    return Math.floor(Math.random() * max);
+  };
+
+// Use the useEffect hook to update totalIncome when orderedFoods change
   useEffect(() => {
     const income = orderedFoods
       .filter((food) => ids.includes(food.id))
@@ -170,6 +231,7 @@ function StorePerformance() {
     setTotalIncome(income);
   }, [orderedFoods]);
 
+  // Filter and map selected orders to a new array
   const selectedOrders = orderedFoods
     .filter((food) => ids.includes(food.id))
     .map((food) => {
@@ -182,81 +244,100 @@ function StorePerformance() {
       };
     });
 
+  // Create an array of three random meals from orderedFoods
+  const randomMeals = orderedFoods.sort(() => 0.5 - Math.random()).slice(0, 3);
+
+  // Render the components and data on the page
   return (
     <section>
-      <h2 className="overview text-start mt-10 text-2xl font-semibold">
+      {/* Overview section */}
+      <h2 className="overview lg:text-start text-start mt-10 lg:text-2xl text-lg  font-semibold">
         Overview
       </h2>
-      <section className="grid grid-cols-2 gap-6">
-        <div className="overview-grid-item border pt-10 pb-10 p-5 mt-8 bg-light-green">
+      <section className="grid lg:grid-cols-2 grid-cols-2 lg:gap-6 gap-2">
+        {/* ... (Render components and data for the overview section) */}
+        <div className="overview-grid-item border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green">
           <img
             src={dollar}
             alt="dollar-image"
-            className="dollar w-10 h-10 mb-2"
+            className="dollar lg:w-10 lg:h-10 w-8 h-8 mb-2"
           />
-          <p className="p text-start text-2xl mb-8">Total income</p>
-          <h3 className="h3 text-start text-4xl font-semibold">
+          <p className="p text-start lg:text-2xl text-lg mb-8">Total income</p>
+          <h3 className="h3 text-start lg:text-4xl text-xl font-semibold">
             ${totalIncome}
           </h3>
         </div>
 
-        <div className="overview-grid-item border pt-10 pb-10 p-5 mt-8 bg-light-green">
-          <img src={cart} alt="cart-image" className="cart w-10 h-10 mb-2" />
-          <p className="p text-start text-2xl mb-8">Total order</p>
-          <h3 className="h3 text-start text-4xl font-semibold">5</h3>
+        <div className="overview-grid-item border pt-10 lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green">
+          <img src={cart} alt="cart-image" className="cart lg:w-10 lg:h-10 w-8 h-8 mb-2" />
+          <p className="p text-start lg:text-2xl text-lg mb-8">Total order</p>
+          <h3 className="h3 text-start lg:text-4xl text-xl font-semibold">5</h3>
         </div>
 
-        <div className="overview-grid-item border pt-10 pb-10 p-5 bg-light-green">
+        <div className="overview-grid-item border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 bg-light-green">
           <img
             src={favorite}
             alt="favorite-image"
-            className="favorite w-10 h-10 mb-2"
+            className="favorite lg:w-10 lg:h-10 w-8 h-8 mb-2"
           />
-          <p className="p text-start text-2xl mb-8">Impressions</p>
-          <h3 className="h3 text-start text-4xl font-semibold">12</h3>
+          <p className="p text-start lg:text-2xl text-lg mb-8">Impressions</p>
+          <h3 className="h3 text-start lg:text-4xl text-xl font-semibold">12</h3>
         </div>
 
-        <div className="overview-grid-item border pt-10 pb-10 p-5 bg-light-green">
+        <div className="overview-grid-item border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 bg-light-green">
           <img
             src={visibility}
             alt="visibility-image"
-            className="visibility w-10 h-10 mb-2"
+            className="visibility lg:w-10 lg:h-10 w-8 h-8 mb-2"
           />
-          <p className="p text-start text-2xl mb-8">Most ordered meal</p>
-          <h3 className="h3 text-start text-4xl font-semibold">-</h3>
+          <p className="p text-start lg:text-2xl text-lg mb-8">Most ordered meal</p>
+          <h3 className="h3 text-start lg:text-4xl text-xl font-semibold">
+            #001 - {mostOrderedMeal.orderedItems[0].item}
+          </h3>
         </div>
       </section>
 
-      <h2 className="recent-orders text-start mt-10 text-2xl font-semibold">
+      {/* Recent orders section */}
+      <h2 className="recent-orders text-start lg:mt-10 mt-10 lg:text-2xl text-lg font-semibold">
         Recent orders
       </h2>
       <section className="orders-section">
+        {/* Map and render selectedOrders data */}
         {selectedOrders.map((order, i) => (
           <div
             className="border border-gray-300 p-5 bg-light-red mt-10 rounded"
             key={i}
           >
-            <span className="flex flex-row justify-between mb-5 text-2xl">
+            <span className="flex flex-row justify-between mb-5 lg:text-2xl text-lg">
               <span className="text-gray-500">Order ID</span>
               <span className="">{order.id}</span>
             </span>
             <hr />
-            <span className="flex flex-row justify-between mt-5 mb-5 text-2xl ">
+            <span className="flex flex-row justify-between mt-5 mb-5 lg:text-2xl text-lg ">
               <span className="text-gray-500">Meal</span>
               <span>{order.meal}</span>
             </span>
             <hr />
-            <span className="flex flex-row justify-between mt-5 mb-5 text-2xl">
+            <span className="flex flex-row justify-between mt-5 mb-5 lg:text-2xl text-lg">
               <span className="text-gray-500">Quantity</span>{" "}
               <span>{order.quantity}</span>
             </span>
             <hr />
-            <span className="flex flex-row justify-between mt-5 mb-5 text-2xl">
+            <span className="flex flex-row justify-between mt-5 mb-5 lg:text-2xl text-lg">
               <span className="text-gray-500 ">Status</span>{" "}
-              <span>{order.status}</span>
+              <span
+                className={
+                  order.status === "Completed"
+                    ? "text-green-500" 
+                    : order.status === "Pending" ?
+                    "text-yellow-500": "text-red-500"
+                }
+              >
+                {order.status}
+              </span>
             </span>
             <hr />
-            <span className="flex flex-row justify-between mt-5 text-2xl">
+            <span className="flex flex-row justify-between mt-5 lg:text-2xl text-lg">
               <span className="text-gray-500">Phone Number</span>{" "}
               <span>{order.phoneNumber}</span>
             </span>
@@ -264,24 +345,30 @@ function StorePerformance() {
         ))}
       </section>
 
-      <h2 className="top-meals text-start mt-10 mb-6 text-2xl font-semibold">
+      {/* Top meals section */}
+      <h2 className="top-meals text-start lg:mt-10 mt-10 mb-6 lg:text-2xl text-lg font-semibold">
         Top meals in your store
       </h2>
-      <section className="top-meals-section grid grid-cols-3 gap-20">
-        <section>
-          <img src={image2} alt="Jollof Rice" />
-          <p className="text-start">Jollof Rice</p>
-        </section>
+      <section className="top-meals-section grid lg:grid-cols-3 grid-cols-1 lg:gap-10 gap-6">
+        {/* Map and render randomMeals data */}
+        {randomMeals.map((meal, i) => (
+          <motion.div
+          animate={{ scale: [1, 2, 2, 1, 1], opacity: [1, 0.5, 0.5, 0.5, 1] }}
+          transition={{ duration: getRandomInt(5) }}
+          key={i}
+          className="border border-gray-300 p-5 rounded"
+        >
 
-        <section>
-          <img src={image3} alt="Pepper Soup" />
-          <p className="text-start">Pepper Soup</p>
-        </section>
-
-        <section>
-          <img src={image1} alt="Nkwobi" />
-          <p className="text-start">Nkwobi</p>
-        </section>
+          {/* ... (Render meal details) */}
+          <img className="h-60 w-100" src={meal.image} alt={meal.orderedItems[0].item} />
+          <div className="flex flex-row justify-between mt-5">
+              <h2 className="lg:text-2xl text-lg">{meal.orderedItems[0].item}</h2>
+              <p className="lg:text-2xl text-lg font-bold">
+              ${meal.orderedItems[0].price}
+              </p>
+          </div>
+        </motion.div>
+        ))}
       </section>
     </section>
   );
