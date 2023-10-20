@@ -9,8 +9,8 @@ import Achievements from './components/Rewards/Achievements';
 import EarnStars from './components/Rewards/EarnStars';
 import Catalog from './components/Rewards/catalog/Catalog';
 import CatalogDetails from './components/Rewards/catalog/CatalogDetails';
-import VendorsDashboard from './components/vendorsPayment/VendorsDashboard';
-import VendorsTransaction from './components/vendorsPayment/VendorsTransaction';
+import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
+import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
 import StoreOverview from './components/storePerformance/StoreOverview';
 import StorePerformance from './components/storePerformance/StorePerformance';
 
