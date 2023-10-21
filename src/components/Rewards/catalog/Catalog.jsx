@@ -1,5 +1,13 @@
+import Nav from "../../nav";
+import RewardNav from "../RewardNav";
+
 const Catalog = () => {
-    return <div>Catalog</div>;
+    return (
+        <>
+            <Nav />
+            <RewardNav />
+        </>
+    )
 };
 
 export default Catalog;

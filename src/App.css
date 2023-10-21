@@ -18,6 +18,11 @@
   background-size: cover;
 }
 
+.section-banner {
+  background-image: url(./assets/banners/promo.webp);
+  background-position: center;
+}
+
 .hero-image {
   background-image: url(./assets/banners/hero.webp);
   background-position: center;
