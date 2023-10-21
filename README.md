@@ -59,7 +59,7 @@ Thank you for choosing Africhow. We look forward to providing you with a seamles
 
 ## Charlie team
 - Felicity Essien(Charlie's Team leader) (https://github.com/felabel/africhow)
-- Daphne Oyibode (https://github.com/derhuv/africhow)
+- Daphne Oyibode-Olokpa (https://github.com/derhuv/africhow)
 
 
 ## Delta team
