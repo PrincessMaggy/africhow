@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import Nav from "../../nav";
 import RewardNav from "../RewardNav";
-import bronze from '../../../assets/images/bronze.svg';
+import stars from '../../../assets/images/stars.png';
 import catalogs from "../../../lib/catalog";
 import '../rewards.css'
 
@@ -9,23 +10,26 @@ const CatalogPage = () => {
         <>
             <Nav />
             <RewardNav />
-            <div className="catalog_wrapper mx-8 mt-14">
+            <div className="catalog_wrapper mx-2 mt-14">
                 {catalogs.map((item, i) => (
-                    <div className="card catalog-card flex my-8  gap-6 rounded-md border border-#000f08 items-center">
+                    <Link to={`/rewards/reward-details/${item.id}`} key={i}>
+                        <a>
+                           <div className="catalog-card flex my-8 p-2 gap-6 rounded-md border border-#000f08 items-center">
                             <div className="left_side">
                                 <img src={item.image} alt={item.title}/>
                             </div>
                             <div className="right-side">
                                 <div className="text-left">
                                   <h3 className='text-lg font-semibold'>{item.name}</h3>
-                                <p className='text-base'>{item.header}</p> 
-
-                                <p className='text-base'>{item.task}</p>  
-                               
+                                <p className='text-sm'>{item.header}</p> 
+                                <p className='text-sm'>{item.task}<img src={stars} alt="rating"/></p>  
                                 </div>
-                                 
                             </div>
-                    </div>
+                    </div> 
+                        </a>
+                     
+                    </Link>
+                   
                 ))}
                 </div> 
             

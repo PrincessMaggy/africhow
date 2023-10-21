@@ -55,7 +55,7 @@ function App() {
                 <Route path='/rewards/earn-stars' element={<EarnStars />} />
                 <Route path='/rewards/catalog' element={<Catalog />} />
                 <Route
-                    path='/rewards/reward-details'
+                    path='/rewards/reward-details/:itemId'
                     element={<CatalogDetails />}
                 />
                 <Route path='/vendorDashboard' element={<VendorsDashboard />} />
