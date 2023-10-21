@@ -18,8 +18,8 @@ import Catalog from './components/Rewards/catalog/Catalog';
 import CatalogDetails from './components/Rewards/catalog/CatalogDetails';
 import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
-import StoreOverview from './components/storePerformance/StoreOverview';
-import StorePerformance from './components/storePerformance/StorePerformance';
+import StoreOverview from './components/storePerformance/storeOverview';
+import StorePerformance from './components/storePerformance/storePerformance';
 import VendorSupport from './components/VendorSupportPage/VendorSupport';
 import SupportForm from './components/VendorSupportPage/SupportForm';
 import Order from './components/Order/order';
@@ -63,7 +63,7 @@ function App() {
                     path='/vendors-transaction'
                     element={<VendorsTransaction />}
                 />
-                <Route path='/store-overview' element={<StoreOverview />} />
+                <Route path='/store-overview' element={< StoreOverview />} />
                 <Route
                     path='/store-performance'
                     element={<StorePerformance />}

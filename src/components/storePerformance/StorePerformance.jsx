@@ -85,7 +85,7 @@ function StorePerformance() {
 
   // Render the components and data on the page
   return (
-    <section>
+    <section className="font-Manrope mx-10">
       {/* Overview section */}
       <h2 className="lg:text-start text-start mt-10 lg:text-2xl text-lg  font-semibold">
         Overview
@@ -185,7 +185,7 @@ function StorePerformance() {
       <h2 className="text-start lg:mt-10 mt-10 mb-6 lg:text-2xl text-lg font-semibold">
         Top meals in your store
       </h2>
-      <section className="grid lg:grid-cols-3 grid-cols-1 lg:gap-10 gap-6">
+      <section className="grid lg:grid-cols-3 grid-cols-1 lg:gap-10 gap-6 mb-10 mt-10">
         {/* Map and render randomMeals data */}
         {randomMeals.map((meal, i) => (
           <motion.div
