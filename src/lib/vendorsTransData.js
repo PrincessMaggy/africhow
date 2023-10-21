@@ -1,4 +1,7 @@
+//imports cashicon
 import Cashicon from '../assets/icons/cashicon.png';
+
+//object for all transaction data
 
 const transactionsdata = [
     {   id: 1,
