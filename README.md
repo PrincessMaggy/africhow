@@ -56,6 +56,9 @@ Thank you for choosing Africhow. We look forward to providing you with a seamles
 ## 5. Tools
       React and tailwind css
 ## Beta team
+- Mutiat Adepoju
+- Taofeekat Olorunkosebi (https://github.com/Taofeeqah/africhow)
+- Maria-goretti Jiwuaku 
 
 ## Charlie team
 - Felicity Essien (https://github.com/felabel/africhow)
