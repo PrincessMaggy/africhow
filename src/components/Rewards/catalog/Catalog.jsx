@@ -3,7 +3,8 @@ import RewardNav from "../RewardNav";
 import bronze from '../../../assets/images/bronze.svg';
 import catalogs from "../../../lib/catalog";
 import '../rewards.css'
-const Catalog = () => {
+
+const CatalogPage = () => {
     return (
         <>
             <Nav />
@@ -27,9 +28,9 @@ const Catalog = () => {
                     </div>
                 ))}
                 </div> 
-           
+            
         </>
     )
 };
 
-export default Catalog;
+export default CatalogPage;

@@ -10,7 +10,7 @@ import arrow from '../../assets/images/beenhere.png'
 import fb from '../../assets/images/facebook.png'
 import Ig from '../../assets/images/Ig.png'
 import twitter from '../../assets/images/twitter.png'
-const Rewards = () => {
+const RewardsPage = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -78,4 +78,4 @@ const Rewards = () => {
     );
 };
 
-export default Rewards;
+export default RewardsPage;

@@ -10,12 +10,12 @@ const headerList = [
     },
 
     {
-      id: '/loyalty-rewards',
+      id: '/rewards',
       header: 'Rewards',
     },
 
     {
-      id: 'documentations',
+      id: '/onboarding-documentations',
       header: 'Onboarding',
     },
 

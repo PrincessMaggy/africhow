@@ -1,13 +1,13 @@
-const navHeaderData = () =>
-    // { data, targetId}
-    {
-        // const selectedItem= data.find((item) => item.id === targetId);
+const navHeaderData = () => {
+    // const selectedItem = data.find((item) => item.id === targetId);
 
-        return (
-            <div>
-                {/* <h2 className='text-base text-white font-bold'>{selectedItem.header}</h2> */}
-            </div>
-        );
-    };
+    return (
+        <div>
+            {/* <h2 className='text-base text-[#33CC9F] font-bold'>
+                {selectedItem.header}
+            </h2> */}
+        </div>
+    );
+};
 
 export default navHeaderData;
