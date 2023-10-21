@@ -45,7 +45,7 @@ const Achievements = () => {
                                     <img src={arrow}  alt='arrow'/>
                                 </span>
                             </div>
-                        </div>
+                    </div>
                     <div className="share_section my-12">
                         <p className='text-small font-medium'>Share your wins and progress with your friends on social media</p>
                         <div className="social_share flex  w-4/6 mx-auto gap-6 justify-around my-4">

@@ -27,7 +27,7 @@ const Rewards = () => {
                 toggleDropdown={toggleDropdown}
             />
             <RewardNav />
-            <div className='earn_wrapper'>
+            <div className='earn_wrapper px-4'>
                  <div className="rewards_wrapper ">
                     <img src={rewards} alt='rewards progress'/>
                     <p className='text-lg'>Yaay! You are doing great, earn more<br /> Points  to get great rewards</p>
