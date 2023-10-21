@@ -155,12 +155,12 @@ function StorePerformance() {
             </span>
             <hr />
             <span className="flex flex-row justify-between mt-5 mb-5 lg:text-2xl text-lg">
-              <span className="text-gray-500">Quantity</span>{" "}
+              <span className="text-gray-500">Quantity</span>
               <span>{order.quantity}</span>
             </span>
             <hr />
             <span className="flex flex-row justify-between mt-5 mb-5 lg:text-2xl text-lg">
-              <span className="text-gray-500 ">Status</span>{" "}
+              <span className="text-gray-500 ">Status</span>
               <span
                 className={
                   order.status === "Delivered"
