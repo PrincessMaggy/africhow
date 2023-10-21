@@ -1,5 +1,5 @@
 import React from 'react'
-import Accordion from "../Database/faqData"
+import Accordion from "../lib/faqData"
 import FAQs from "../lib/faqs"
 
 
