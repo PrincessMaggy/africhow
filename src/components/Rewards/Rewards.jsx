@@ -1,9 +1,24 @@
 import Nav from '../nav';
 import RewardNav from './RewardNav';
-import rewards from '../../../public/images/rewards.png'
+import { useState } from 'react';
 import './rewards.css'
 import { Link } from 'react-router-dom';
+import rewards from '../../assets/images/rewards.png'
+import right_icon from '../../assets/images/right-arrow.png'
+import bronze from '../../assets/images/bronze.svg'
+import arrow from '../../assets/images/beenhere.png'
+import fb from '../../assets/images/facebook.png'
+import Ig from '../../assets/images/Ig.png'
+import twitter from '../../assets/images/twitter.png'
 const Rewards = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+    const toggleDropdown = () => {
+        setMenuOpen(!menuOpen);
+    };
     return (
         <div>
             <Nav
@@ -24,7 +39,7 @@ const Rewards = () => {
                            <a>
                             <div className="flex items-center cursor-pointer">
                         <span className='mr-1 text-base font-bold text-#145062'>View all </span>
-                        <img src='/images/right-arrow.png' alt='forward' /> 
+                        <img src={right_icon} alt='forward' /> 
                         </div>
                             </a> 
                         </Link>
@@ -34,7 +49,7 @@ const Rewards = () => {
                     </div>
                     <div className="card flex my-2 rounded-md border border-#000f08 items-center">
                             <div className="left_side">
-                                <img src='/images/bronze.svg'/>
+                                <img src={bronze} alt='bronze'/>
                             </div>
                             <div className="right-side flex w-full justify-between">
                                 <div className="text-left">
@@ -43,16 +58,16 @@ const Rewards = () => {
                                
                                 </div>
                                  <span>
-                                    <img src='/images/beenhere.png' />
+                                    <img src={arrow} />
                                 </span>
                             </div>
                         </div>
                     <div className="share_section mt-12">
                         <p className='text-small font-medium'>Share your wins and progress with your friends on social media</p>
                         <div className="social_share flex  w-4/6 mx-auto gap-6 justify-around">
-                            <img src='/images/facebook.png'  alt='facebook'/>
-                            <img src='/images/Ig.png'  alt='Ig'/>
-                            <img src='/images/twitter.png'  alt='facebook'/>
+                            <img src={fb} alt='facebook'/>
+                            <img src={Ig}  alt='Ig'/>
+                            <img src={twitter}  alt='facebook'/>
                         </div>
                     </div>
                 </div>

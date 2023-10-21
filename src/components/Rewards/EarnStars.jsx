@@ -1,8 +1,19 @@
+import { useState } from 'react';
+
+
 import Nav from "../nav"
 import RewardNav from "./RewardNav"
 import './rewards.css'
 
 const EarnStars = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+    const toggleDropdown = () => {
+        setMenuOpen(!menuOpen);
+    };
   return (
     <div>
       <Nav
