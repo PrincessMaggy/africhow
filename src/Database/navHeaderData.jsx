@@ -1,7 +1,6 @@
-
-const navHeaderData = ({ data, targetId}) => {
-
-    const selectedItem= data.find((item) => item.id === targetId);
+const navHeaderData = () =>
+    
+  const selectedItem= data.find((item) => item.id === targetId);
 
   return (
     <div>

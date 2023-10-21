@@ -30,9 +30,9 @@ const Nav = ({ toggleMenu, menuOpen, toggleDropdown }) => {
             <img src={Close} alt='' srcSet='' className='z-30 relative stroke-current bg-black p-2 border-2 w-7'onClick={toggleMenu} />
             <h1 className='z-30 text-black font-bold '>AfriChow</h1>
           </div>
-        </div>
-      )}
 
+
+            {/* Full-screen menu */}  
       {menuOpen && (
         <div className="fixed top-0 left-0 right-24 bottom-0 pt-32 bg-green-100 text-black flex flex-col items-center ease-out delay-500s duration-300">
           <ul className="text-xl lg:text-6xl md:text-4xl font-semibold mb-5 lg:text-center md:text-center text-left">

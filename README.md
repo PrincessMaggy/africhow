@@ -31,4 +31,4 @@
 
 - Stripe API [https://stripe.com/docs/api]
 
-Link to hosted page -
+Link to hosted page -[https://africhow.vercel.app/]

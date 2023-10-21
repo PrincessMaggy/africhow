@@ -1,6 +1,7 @@
 import React from 'react';
 
   const NavBarData = ({ data }) => {
+
   return (
     <div>
       <div className='flex -mt-24 mb-28  ml-32'>

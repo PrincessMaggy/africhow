@@ -1,5 +1,5 @@
-import React from 'react'
-import Canada from "../assets/meals/Onay.jpg"
+import Canada from '../assets/meals/Onay.jpg';
+
 
 const homeSectionThree = () => {
   return (
@@ -33,9 +33,9 @@ const homeSectionThree = () => {
                         </button>
                     </div>
             </section>
+            </div>
         </div>
-    </div>
-  )
-}
+    );
+};
 
-export default homeSectionThree
+export default HomeSectionThree;
