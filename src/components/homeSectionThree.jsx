@@ -4,7 +4,7 @@ import Canada from "../assets/meals/Onay.jpg"
 const homeSectionThree = () => {
   return (
     <div className='w-full min-h-full bg-opacity-25'>
-        <div className='relative flex flex-col justify-center px-8'>
+        <div className='relative flex flex-col justify-center px-8 lg:mx-12 md:mx-12'>
             <section className=' section-header w-full flex flex-col'>
                 <div className='text-center'>
                     <h3 className='text-4xl font-black mt-2 uppercase'>Our Locations</h3>
