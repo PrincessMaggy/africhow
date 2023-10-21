@@ -1,19 +1,19 @@
-
+import React, { useState } from 'react';
 import Hero from '../components/Hero';
-import HomeSectionOne from '../components/homeSectionOne';
-import HomeSectionThree from '../components/homeSectionThree';
+import SectionOne from '../components/homeSectionOne';
+import SectionTwo from '../components/homeSectionTwo';
+import SectionThree from '../components/homeSectionThree';
 
 const Home = () => {
-    
 
-    return (
-        <div>
-            <Hero />
-            <HomeSectionOne />
-            {/* <sectionTwo /> */}
-            <HomeSectionThree />
-        </div>
-    );
-};
+  return (
+    <div>
+        <Hero />
+        <SectionOne />
+        <SectionTwo />
+        <SectionThree />
+    </div>
+  )
+}
 
-export default Home;
+export default Home
