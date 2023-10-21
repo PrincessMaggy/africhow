@@ -1,28 +1,28 @@
 import transactionsdata from './vendorsTransData';
 
-const filteredData = transactionsdata.filter(item => item.transstatus === 'pending');
+const filteredPendingData = transactionsdata.filter(item => item.transstatus === 'pending');
 
-const filteredDesignData = transactionsdata.filter(item => item.transstatus === 'settled');
+const filteredSettledData = transactionsdata.filter(item => item.transstatus === 'settled');
 
-const allMappedData = transactionsdata;
+const firstthreeData = transactionsdata.slice(0, 3);
 
 const transactions =[
   {
     id:1,
     tabtitle:"All",
-    content: allMappedData
+    content: firstthreeData
 
   },
   {
     id:2,
     tabtitle:"Pending",
-    content: filteredData 
+    content:  filteredPendingData 
       
   },
   {
     id:3,
     tabtitle:"Settled",
-    content: filteredDesignData
+    content: filteredSettledData
       
   }
 ];
