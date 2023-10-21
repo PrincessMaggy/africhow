@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {useState} from 'react';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+
+// importing pages
 import Home from './pages/Home';
-import Support from "./pages/Support";
-import Rewards from "./pages/Rewards";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
-import Community from "./pages/Community";	
+import Support from './pages/Support';
+import Rewards from './pages/Rewards';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
+import Community from './pages/Community';
 import './App.css';
-
-
-
 import './index.css';
-import Rewards from './components/Rewards/Rewards';
+
+// importing components
 import Achievements from './components/Rewards/Achievements';
 import EarnStars from './components/Rewards/EarnStars';
 import Catalog from './components/Rewards/catalog/Catalog';
@@ -22,9 +22,9 @@ import StoreOverview from './components/storePerformance/StoreOverview';
 import StorePerformance from './components/storePerformance/StorePerformance';
 import VendorSupport from './components/VendorSupportPage/VendorSupport';
 import SupportForm from './components/VendorSupportPage/SupportForm';
-
 import Order from './components/Order/order';
-
+import Nav from './components/nav';
+import Footer from './components/Footer';
 
 function App() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -36,10 +36,13 @@ function App() {
         setMenuOpen(!menuOpen);
     };
 
-
     return (
-        <Router>
-            <Nav toggleMenu={toggleMenu} menuOpen={menuOpen} />
+        <>
+            <Nav
+                toggleMenu={toggleMenu}
+                menuOpen={menuOpen}
+                toggleDropdown={toggleDropdown}
+            />
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/community' element={<Community />} />
@@ -47,37 +50,29 @@ function App() {
                 <Route path='/login' element={<Login />} />
                 <Route path='/rewards' element={<Rewards />} />
                 <Route path='/contact-us' element={<Support />} />
-            </Routes>
-            <Footer />
-        </Router>
-        <>
-            {/* <Nav
-                toggleMenu={toggleMenu}
-                menuOpen={menuOpen}
-                toggleDropdown={toggleDropdown}
-            /> */}
-            <Routes>
-                <Route path='/' element={<Home />} />
-                    <Route path='/rewards' element={<Rewards />} />
-                    <Route path='/rewards/my-rewards' element={<Achievements />} />
-                    <Route path='/rewards/earn-stars' element={<EarnStars />} />
-                    <Route path='/rewards/catalog' element={<Catalog />} />
-                    <Route path='/rewards/reward-details' element={<CatalogDetails />} />
+
+                <Route path='/rewards/my-rewards' element={<Achievements />} />
+                <Route path='/rewards/earn-stars' element={<EarnStars />} />
+                <Route path='/rewards/catalog' element={<Catalog />} />
                 <Route
-                    path='/vendorDashboard'
-                    element={<VendorsDashboard />}
+                    path='/rewards/reward-details'
+                    element={<CatalogDetails />}
                 />
+                <Route path='/vendorDashboard' element={<VendorsDashboard />} />
                 <Route
                     path='/vendors-transaction'
                     element={<VendorsTransaction />}
                 />
                 <Route path='/store-overview' element={<StoreOverview />} />
-                <Route path='/store-performance' element={<StorePerformance />} />
-                <Route path='/order-summary' element={<Order/>} />
-                <Route path='/vendorsupport' element={<VendorSupport />}/>
-                <Route path='/supportform' element={<SupportForm />}/>
-            </Routes>            
-            {/* <Footer /> */}
+                <Route
+                    path='/store-performance'
+                    element={<StorePerformance />}
+                />
+                <Route path='/order-summary' element={<Order />} />
+                <Route path='/vendorsupport' element={<VendorSupport />} />
+                <Route path='/supportform' element={<SupportForm />} />
+            </Routes>
+            <Footer />
         </>
     );
 }
