@@ -1,3 +1,6 @@
+import {Link} from 'react-router-dom';
+
+
 const Hero = () => {
     return (
         <div className=' hero-image bkground h-screen relative bg-black -top-28 -z-10'>
@@ -9,9 +12,11 @@ const Hero = () => {
                         Customers
                     </h1>
                     <div className='flex md:justify-center'>
-                        <button className='text-base bg-[#33CC9F] bg-opacity-80 rounded-md text-white py-3 px-5 font-bold mt-4 pointer'>
-                            Get Started Today <span> &rarr; </span>
-                        </button>
+                        <Link to='./signup'>
+                            <button className='text-base bg-[#33CC9F] bg-opacity-80 rounded-md text-white py-3 px-5 font-bold mt-4 cursor-pointer'>
+                                Get Started Today <span> &rarr; </span>
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </section>

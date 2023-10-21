@@ -24,9 +24,11 @@ const Nav = ({toggleMenu, menuOpen}) => {
                 <HeaderTitle />
             </div>
             <div className='flex md:justify-center'>
-                <button className='text-sm bg-[#33CC9F] rounded-sm bg-opacity-80 text-white py-1 px-5 font-black pointer'>
-                    Login
-                </button>
+                <Link to='/login'>
+                    <button className='text-sm bg-[#33CC9F] rounded-sm bg-opacity-80 text-white py-1 px-5 font-black pointer'>
+                        Login
+                    </button>
+                </Link>
             </div>
 
             {/* Close button */}
@@ -61,7 +63,7 @@ const Nav = ({toggleMenu, menuOpen}) => {
                         </li>
                         <li className='cursor-pointer mb-2'>
                             <Link
-                                to='/onboarding-documentation'
+                                to='/onboarding'
                                 onClick={closeMenu}
                             >
                                 KYC Onboarding
