@@ -7,8 +7,9 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Community from "./pages/Community";	
 import './App.css';
-import Footer from './components/Footer';
-import Nav from './components/Nav';
+
+
+
 import './index.css';
 import Rewards from './components/Rewards/Rewards';
 import Achievements from './components/Rewards/Achievements';
@@ -19,7 +20,11 @@ import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
 import StoreOverview from './components/storePerformance/StoreOverview';
 import StorePerformance from './components/storePerformance/StorePerformance';
+import VendorSupport from './components/VendorSupportPage/VendorSupport';
+import SupportForm from './components/VendorSupportPage/SupportForm';
+
 import Order from './components/Order/order';
+
 
 function App() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -69,6 +74,8 @@ function App() {
                 <Route path='/store-overview' element={<StoreOverview />} />
                 <Route path='/store-performance' element={<StorePerformance />} />
                 <Route path='/order-summary' element={<Order/>} />
+                <Route path='/vendorsupport' element={<VendorSupport />}/>
+                <Route path='/supportform' element={<SupportForm />}/>
             </Routes>            
             {/* <Footer /> */}
         </>
