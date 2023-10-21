@@ -1,4 +1,4 @@
-import NavHeader from '../Database/navHeaderData';
+import NavHeader from '../lib/navHeaderData';
 
 const NavHeaderTitle = () => {
     return (
