@@ -1,9 +1,12 @@
-import Canada from '../assets/meals/Onay.jpg';
+import unitedKingdom from "../assets/images/location-2.webp"
+import America from "../assets/images/location-3.webp"
+import Canada from "../assets/images/location-1.webp"
+
 
 const HomeSectionThree = () => {
     return (
-        <div className='w-full min-h-full bg-opacity-25'>
-            <div className='relative flex flex-col justify-center px-8 lg:mx-12 md:mx-12'>
+        <div className='w-full min-h-full bg-opacity-25 px-2'>
+            <div className='relative flex flex-col justify-center px-8 lg:mx-12'>
                 <section className=' section-header w-full flex flex-col'>
                     <div className='text-center'>
                         <h3 className='text-4xl font-black mt-2 uppercase'>
@@ -18,23 +21,23 @@ const HomeSectionThree = () => {
                     </div>
                 </section>
                 <section className='flex flex-col justify-center'>
-                    <div className='flex flex-col lg:flex-row md:flex-row grow gap-6 mb-12 basis-8 mr-4 md:mr-8'>
+                    <div className='flex flex-col lg:flex-row md:flex-row grow gap-6 mb-12 '>
                         <div className=' location-canada flex flex-col justify-center font-bold'>
-                            <img src={Canada} alt='' />
-                            <h3 className='-mt-12 flex justify-center bg-green-100 bg-opacity-50 py-3 text-xl'>
-                                Canada
+                            <img src={ unitedKingdom } alt='' className="md:h-44 lg:h-60"/>
+                            <h3 className='-mt-12 flex justify-center bg-green-100 bg-opacity-70 py-3 text-xl'>
+                                United Kingdom
                             </h3>
                         </div>
                         <section className=' location-canada flex flex-col justify-center font-bold'>
-                            <img src={Canada} alt='' />
-                            <h3 className='-mt-12 flex justify-center bg-green-100 bg-opacity-50 py-3 text-xl'>
+                            <img src={Canada} alt='' className="md:h-44 lg:h-60"/>
+                            <h3 className='-mt-12 flex justify-center bg-green-100 bg-opacity-70 py-3 text-xl'>
                                 Canada
                             </h3>
                         </section>
                         <section className=' location-canada flex flex-col justify-center font-bold'>
-                            <img src={Canada} alt='' />
-                            <h3 className='-mt-12 flex justify-center bg-green-100 bg-opacity-50 py-3 text-xl '>
-                                Canada
+                            <img src={ America } alt='' className="md:h-44 lg:h-60" />
+                            <h3 className='-mt-12 flex justify-center bg-green-100 bg-opacity-70 py-3 text-xl '>
+                                America
                             </h3>
                         </section>
                     </div>
