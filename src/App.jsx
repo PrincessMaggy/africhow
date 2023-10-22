@@ -58,7 +58,7 @@ function App() {
                     path='/rewards/reward-details'
                     element={<CatalogDetails />}
                 />
-                <Route path='/vendorDashboard' element={<VendorsDashboard />} />
+                <Route path='/vendors-dashboard' element={<VendorsDashboard />} />
                 <Route
                     path='/vendors-transaction'
                     element={<VendorsTransaction />}
