@@ -2,17 +2,17 @@
 Welcome to the Africhow, a web application designed to enhance the customer experience while ordering delicious take-outs and efficiently manage orders for restaurant owners.
 
 ## Table of Contents
-1. [Features](#1-features)
-2. [Landing Page](#2-landing-page)
-3. [Sign Up](#3-sign-up)
-4. [Log In](#4-log-in)
-5. [OTP Authentication](#5-otp-authentication)
-6. [KYC Verification](#6-kyc-verification)
-7. [Meal listings](#7-meal-listing)
-8. [Team Members](#8-team-members)
-9. [Tools](#9-tools)
-10. [Resources](#10-resources)
-11. [Hosted Project](#11-hosted-project) 
+1. [Features](#features)
+2. [Landing Page](#landing-page)
+3. [Sign Up](#sign-up)
+4. [Log In](#log-in)
+5. [OTP Authentication](#otp-authentication)
+6. [KYC Verification](#kyc-verification)
+7. [Meal listings](#meal-listings)
+8. [Team Members](#team-members)
+9. [Tools](#tools)
+10. [Resources](#resources)
+11. [Hosted Project](#hosted-project) 
 
 
 ## Features
@@ -66,8 +66,8 @@ As part of our commitment to safety and security, we require KYC verification fo
 - Maria-goretti Jiwuaku 
 
 ## Charlie team
-- Felicity Essien(Charlie's Team leader) (https://github.com/felabel/africhow)
-- Daphne Oyibode-Olokpa (https://github.com/derhuv/africhow)
+- Felicity Essien(Charlie's Team leader) [Felabel](https://github.com/felabel/africhow)
+- Daphne Oyibode-Olokpa [Derhuv](https://github.com/derhuv/africhow)
 
 
 ## Delta team
