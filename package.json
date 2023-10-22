@@ -11,12 +11,19 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
+    "axios": "^1.5.1",
     "firebase": "^10.5.0",
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
     "react-router-dom": "^6.17.0",
     "recharts": "^2.9.0"
+=======
+    "react-hook-form": "^7.47.0",
+    "react-player": "^2.13.0",
+    "react-router-dom": "^6.17.0"
+>>>>>>> 648184e985f548b56580f28bf89d9e7bcc0ce64c
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
