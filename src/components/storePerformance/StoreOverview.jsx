@@ -10,6 +10,7 @@ import visibility from "../../assets/icons/visibility.png";
 function StoreOverview() {
   return (
     <section className="font-manrope mx-10">
+    <hr/>
       {/* Section for completing KYC (Know Your Customer) */}
       <section className="flex items-center justify-between gap-30 bg-secondary text-white text-center lg:pt-2 lg:px-8 pt-2 px-2">
         <img
