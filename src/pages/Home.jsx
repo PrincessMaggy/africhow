@@ -1,17 +1,15 @@
-
 import Hero from '../components/Hero';
-import HomeSectionOne from '../components/homeSectionOne';
-import HomeSectionThree from '../components/homeSectionThree';
+import SectionOne from '../components/homeSectionOne';
+import SectionTwo from '../components/homeSectionTwo';
+import SectionThree from '../components/homeSectionThree';
 
 const Home = () => {
-    
-
     return (
         <div>
             <Hero />
-            <HomeSectionOne />
-            {/* <sectionTwo /> */}
-            <HomeSectionThree />
+            <SectionOne />
+            <SectionTwo />
+            <SectionThree />
         </div>
     );
 };

@@ -1,13 +1,13 @@
 import {useState, useEffect} from 'react';
-import './App.css';
-import fetchRestaurantData from './lib/fetchData';
-import EmailForm from './components/emailHandler';
+import restaurantData from '../lib/restaurantData';
+// import EmailForm from '../components/emailHandler';
+import AddMealItem from '../components/addMealItem';
 
 function Listings() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetchRestaurantData()
+        restaurantData()
             .then((result) => {
                 setData(result);
             })
@@ -20,10 +20,11 @@ function Listings() {
         <>
             {/* Vendor Support */}
             <h1>Vendor support</h1>
-            <EmailForm />
+            {/* <EmailForm /> */}
             <div>
                 <h1>Meals</h1>
             </div>
+            <AddMealItem />
             <div className='card'>
                 <div>
                     <ul>
