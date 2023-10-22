@@ -61,6 +61,9 @@ As part of our commitment to safety and security, we require KYC verification fo
 - Uchechukwu Nwanja (link to github repo)
 
 ## Beta team
+- Mutiat Adepoju
+- Taofeekat Olorunkosebi (https://github.com/Taofeeqah/africhow)
+- Maria-goretti Jiwuaku 
 
 ## Charlie team
 - Felicity Essien(Charlie's Team leader) (https://github.com/felabel/africhow)
