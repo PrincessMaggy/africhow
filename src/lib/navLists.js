@@ -14,7 +14,7 @@ const navList = [
     {
       id: 3,
       title: 'KYC Onboarding', 
-      route: '/onboarding-documentation',
+      route: '/onboarding',
       
     },
     {

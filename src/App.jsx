@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 
 // importing pages
 import Home from './pages/Home';
@@ -13,8 +13,8 @@ import './index.css';
 
 // importing components
 import Achievements from './components/Rewards/Achievements';
-import EarnStars from './components/Rewards/EarnStars';
 import Catalog from './components/Rewards/catalog/Catalog';
+import EarnStars from './components/Rewards/EarnStars';
 import CatalogDetails from './components/Rewards/catalog/CatalogDetails';
 import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
@@ -48,17 +48,20 @@ function App() {
                 <Route path='/community' element={<Community />} />
                 <Route path='/signup' element={<Signup />} />
                 <Route path='/login' element={<Login />} />
-                <Route path='/rewards' element={<Rewards />} />
                 <Route path='/contact-us' element={<Support />} />
 
+                <Route path='/rewards' element={<Rewards />} />
                 <Route path='/rewards/my-rewards' element={<Achievements />} />
                 <Route path='/rewards/earn-stars' element={<EarnStars />} />
                 <Route path='/rewards/catalog' element={<Catalog />} />
                 <Route
-                    path='/rewards/reward-details'
+                    path='/rewards/reward-details/:itemId'
                     element={<CatalogDetails />}
                 />
-                <Route path='/vendorDashboard' element={<VendorsDashboard />} />
+                <Route
+                    path='/vendors-dashboard'
+                    element={<VendorsDashboard />}
+                />
                 <Route
                     path='/vendors-transaction'
                     element={<VendorsTransaction />}
