@@ -38,24 +38,24 @@ function App() {
 
     return (
         <>
-            <Nav
+            {/* <Nav
                 toggleMenu={toggleMenu}
                 menuOpen={menuOpen}
                 toggleDropdown={toggleDropdown}
-            />
+            /> */}
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/community' element={<Community />} />
                 <Route path='/signup' element={<Signup />} />
                 <Route path='/login' element={<Login />} />
-                <Route path='/rewards' element={<Rewards />} />
                 <Route path='/contact-us' element={<Support />} />
 
+                <Route path='/rewards' element={<Rewards />} />
                 <Route path='/rewards/my-rewards' element={<Achievements />} />
                 <Route path='/rewards/earn-stars' element={<EarnStars />} />
                 <Route path='/rewards/catalog' element={<Catalog />} />
                 <Route
-                    path='/rewards/reward-details'
+                    path='/rewards/reward-details/:itemId'
                     element={<CatalogDetails />}
                 />
                 <Route path='/vendors-dashboard' element={<VendorsDashboard />} />
@@ -72,7 +72,7 @@ function App() {
                 <Route path='/vendorsupport' element={<VendorSupport />} />
                 <Route path='/supportform' element={<SupportForm />} />
             </Routes>
-            <Footer />
+            {/* <Footer /> */}
         </>
     );
 }

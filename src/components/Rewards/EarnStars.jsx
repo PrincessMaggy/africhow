@@ -1,8 +1,19 @@
+import { useState } from 'react';
+
+
 import Nav from "../nav"
 import RewardNav from "./RewardNav"
 import './rewards.css'
 
-const EarnStars = () => {
+const EarnStarsPage = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+    const toggleDropdown = () => {
+        setMenuOpen(!menuOpen);
+    };
   return (
     <div>
       <Nav
@@ -11,7 +22,7 @@ const EarnStars = () => {
                 toggleDropdown={toggleDropdown}
             />
       <RewardNav />
-      <div className="earn_wrapper text-left px-10 py-8">
+      <div className="earn_wrapper text-left px-10 py-8 min-h-screen">
       <p className="text-lg font-semibold 	">A guide on how to earn more stars</p>
       <ul className="list-disc pl-6 text-base">
         <li>Star ratings earned can be used to earn Rewards and make upgrades</li>
@@ -24,4 +35,4 @@ const EarnStars = () => {
   )
 }
 
-export default EarnStars
+export default EarnStarsPage
