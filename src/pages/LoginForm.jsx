@@ -49,7 +49,7 @@ export default function LoginForm() {
   <>
     <div>
     {newUser && <Header />}
-    <div className="grid gap-6 w-4/5 max-[398px]:w-[358px] mx-auto relative">
+    <div className="grid gap-6 min-[391px]:w-4/5 max-[398px]:w-[358px] mx-auto relative">
       
       <div className="grid items-end">
         <OnboardingWelcome

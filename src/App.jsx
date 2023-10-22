@@ -28,7 +28,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import LoginForm from './pages/LoginForm';
 import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
-import FormSuccess from './components/FormSuccess';
+import FormSuccess from './pages/FormSuccess';
 // import Loader from './components/LoaderOnboarding';
 import ConfirmPassword from './pages/ConfirmPassword';
 import ForgotPassword from './pages/ForgotPassword';
