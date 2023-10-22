@@ -8,7 +8,7 @@ import Support from './pages/Support';
 import Rewards from './pages/Rewards';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Community from './pages/Community';
+import Community from './pages/Trending';
 import './App.css';
 import './index.css';
 
