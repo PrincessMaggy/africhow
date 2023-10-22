@@ -9,13 +9,14 @@ import visibility from "../../assets/icons/visibility.png";
 // Define a React functional component named StoreOverview
 function StoreOverview() {
   return (
-    <section>
+    <section className="font-manrope mx-10">
+    <hr/>
       {/* Section for completing KYC (Know Your Customer) */}
-      <section className="flex items-center justify-between gap-30 bg-custom-blue text-white text-center lg:pt-2 lg:px-8 pt-2 px-2">
+      <section className="flex items-center justify-between gap-30 bg-secondary text-white text-center lg:pt-2 lg:px-8 pt-2 px-2">
         <img
           src={Smartphone}
           alt="Phone-Security-image"
-          className="lg:w-40 lg:h-30 w-10 h-10"
+          className="lg:w-40 lg:h-40 w-10 h-10"
         />
         {/* Title for completing KYC */}
         <section className="flex ">
@@ -86,7 +87,7 @@ function StoreOverview() {
         {/* Button to navigate to the store performance page to start selling */}
         <Link
           to="/store-performance"
-          className="text-black lg:text-2xl text-xl border bg-custom-green lg:px-12 px-8 py-2"
+          className="text-black lg:text-2xl text-xl border bg-primary lg:px-12 px-8 py-2"
         >
           Start selling
         </Link>
@@ -96,7 +97,7 @@ function StoreOverview() {
       <h2 className="text-start lg:mt-10 mt-10 mb-6 lg:text-2xl text-lg font-semibold">
         Top meals in your store
       </h2>
-      <section className="mt-4 lg:text-2xl text-xl">
+      <section className="mt-4 lg:text-2xl text-xl mb-10">
         <p>
           Your bestsellers would appear <br></br> here once you start selling.
         </p>

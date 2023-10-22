@@ -58,6 +58,10 @@ function App() {
                 <Route path='/community' element={<Community />} />
                 <Route path='/signup' element={<Signup />} />
                 {/* <Route path='/login' element={<Login />} /> */}
+                <Route path='/contact-us' element={<Support />} />
+                <Route path='/community' element={<Community />} />
+                <Route path='/signup' element={<Signup />} />
+                {/* <Route path='/login' element={<Login />} /> */}
 
                 <Route path='/contact-us' element={<Support />} />
 
@@ -77,11 +81,14 @@ function App() {
                     path='/vendors-transaction'
                     element={<VendorsTransaction />}
                 />
-                <Route path='/store-overview' element={<StoreOverview />} />
+                <Route path='/store-overview' element={< StoreOverview />} />
                 <Route
                     path='/store-performance'
                     element={<StorePerformance />}
                 />
+                <Route path='/order-summary' element={<Order />} />
+                <Route path='/vendorsupport' element={<VendorSupport />} />
+                <Route path='/supportform' element={<SupportForm />} />
                 <Route path='/order-summary' element={<Order />} />
                 <Route path='/vendorsupport' element={<VendorSupport />} />
                 <Route path='/supportform' element={<SupportForm />} />
