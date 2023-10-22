@@ -21,3 +21,21 @@
 .card{
     background-color: #f7f7f7;
 }
+.catalog-card{
+    background-color: #F9FFFD;
+}
+.terms_button{
+    width: 100%;
+   background-color:#D9D9D9 !important;
+   color: #949494;
+}
+.checked_class{
+    background-color: #145062 !important;
+    color: white;
+    width: 100%;
+
+}
+.bronze_card{
+    background-color: #f7f7f7;
+
+}
