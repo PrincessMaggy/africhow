@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 
 // importing pages
 import Home from './pages/Home';
@@ -13,8 +13,8 @@ import './index.css';
 
 // importing components
 import Achievements from './components/Rewards/Achievements';
-import EarnStars from './components/Rewards/EarnStars';
 import Catalog from './components/Rewards/catalog/Catalog';
+import EarnStars from './components/Rewards/EarnStars';
 import CatalogDetails from './components/Rewards/catalog/CatalogDetails';
 import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
@@ -38,11 +38,11 @@ function App() {
 
     return (
         <>
-            {/* <Nav
+            <Nav
                 toggleMenu={toggleMenu}
                 menuOpen={menuOpen}
                 toggleDropdown={toggleDropdown}
-            /> */}
+            />
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/community' element={<Community />} />
@@ -58,7 +58,10 @@ function App() {
                     path='/rewards/reward-details/:itemId'
                     element={<CatalogDetails />}
                 />
-                <Route path='/vendors-dashboard' element={<VendorsDashboard />} />
+                <Route
+                    path='/vendors-dashboard'
+                    element={<VendorsDashboard />}
+                />
                 <Route
                     path='/vendors-transaction'
                     element={<VendorsTransaction />}
@@ -72,7 +75,7 @@ function App() {
                 <Route path='/vendorsupport' element={<VendorSupport />} />
                 <Route path='/supportform' element={<SupportForm />} />
             </Routes>
-            {/* <Footer /> */}
+            <Footer />
         </>
     );
 }
