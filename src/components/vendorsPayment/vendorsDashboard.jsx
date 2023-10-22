@@ -1,16 +1,20 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
+//imports tags for barchart
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
-
+//imports weeklytransaction data object
 import weeklyTransaction from '../../lib/weeklyTransaction';
-//imports tranaction data object
+//imports transaction data object
 import transactionsdata from '../../lib/vendorsTransData';
 
 
 const VendorsDashboard = () => {
+
+    //adds dollar sign to y-axis of barchart
     const formatDollar = (value) => `$${value}`;
     //filters first 3 transactions
     const firstthreeData = transactionsdata.slice(0, 3);
+
     return (
         <>
         <div className='sm:px-8 px-4'>
@@ -21,7 +25,9 @@ const VendorsDashboard = () => {
                 </div>
                 <div>
                     <button className='rounded text-sm p-2 bg-[#33CC9F]'>Payout method</button>
+                    <Link to='/vendors-transaction'>
                     <button className='rounded text-sm p-2 sm:ms-6 sm:ms-4 ms-2 bg-white'>Transactions</button>
+                    </Link>
                 </div>
 
             </div>
