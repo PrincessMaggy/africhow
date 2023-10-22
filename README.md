@@ -90,6 +90,7 @@ As part of our commitment to safety and security, we require KYC verification fo
 - [Upstream Codebase](https://github.com/PrincessMaggy/africhow)
 - [Paypal API](https://developer.paypal.com/api/rest/)
 - [Stripe API](https://stripe.com/docs/api)
+- [Firebase]()
 
 
 ## Hosted Project

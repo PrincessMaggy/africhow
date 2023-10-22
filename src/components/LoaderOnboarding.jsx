@@ -1,5 +1,5 @@
 import React from 'react'
-import Loading from '../assets/Loader.png'
+import Loading from '../assets/icons/Loader.png'
 export default function Loader() {
   return (
     <div className='h-screen w-full grid place-items-center absolute top-0 backdrop-blur-sm'>

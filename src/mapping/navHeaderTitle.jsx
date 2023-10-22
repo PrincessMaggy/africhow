@@ -1,10 +1,9 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-import headerList from "../lib/headerList";
+import {useLocation} from 'react-router-dom';
+import headerList from '../lib/headerList';
 import NavHeader from '../lib/navHeaderData';
 
 const NavHeaderTitle = () => {
-    const location =useLocation();
+    const location = useLocation();
     const targetId = location.pathname;
 
     return (
