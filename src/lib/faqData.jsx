@@ -1,8 +1,8 @@
 import {useState} from 'react';
-import Arrow from "../assets/icons/arrrow.svg"
+import Arrow from '../assets/icons/arrrow.svg';
 
 const FaqData = (props) => {
-    const [item, setItem] = useState(props.data);
+    const [item, setItem] = useState(props);
 
     const handletoggleActive = () => {
         let newActive = item.active === 1 ? 0 : 1;
@@ -16,11 +16,17 @@ const FaqData = (props) => {
             } `}
         >
             <div className='flex items-center '>
-                <div className='w-full text-xs pr-4 md:text-base group-[.is-active]:font-bold cursor-pointer' onClick={handletoggleActive}>
+                <div
+                    className='w-full text-xs pr-4 md:text-base group-[.is-active]:font-bold cursor-pointer'
+                    onClick={handletoggleActive}
+                >
                     {item.action}
                 </div>
-                <div className='text-xl cursor-pointer rotate-[90deg] group-[.is-active]:rotate-[360deg]' onClick={handletoggleActive} >
-                    <img src= {Arrow} alt="" srcset="" />
+                <div
+                    className='text-xl cursor-pointer rotate-[90deg] group-[.is-active]:rotate-[360deg]'
+                    onClick={handletoggleActive}
+                >
+                    <img src={Arrow} alt='' />
                 </div>
             </div>
             <div className=' text-sm overflow-hidden max-h-0 group-[.is-active]:max-h-[100px]'>

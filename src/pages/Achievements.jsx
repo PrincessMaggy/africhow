@@ -1,12 +1,11 @@
-import React from 'react'
-import AchievementsPage from '../components/Rewards/Achievements'
+import AchievementsPage from '../components/Rewards/Achievements';
 
 const Achievements = () => {
-  return (
-    <>
-        <AchievementsPage />
-    </>
-  )
-}
+    return (
+        <>
+            <AchievementsPage />
+        </>
+    );
+};
 
-export default Achievements
+export default Achievements;
