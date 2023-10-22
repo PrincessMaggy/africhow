@@ -9,6 +9,7 @@
 - Uchechukwu Nwanja (link to github repo)
 
 ## Beta team
+-Mutiat Adepoju (https://github.com/Rike12/Africhow)
 
 ## Charlie team
 
