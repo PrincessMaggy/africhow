@@ -2,7 +2,7 @@ import {useState} from 'react';
 import Arrow from '../assets/icons/arrrow.svg';
 
 const FaqData = (props) => {
-    const [item, setItem] = useState(props);
+    const [item, setItem] = useState(props.data);
 
     const handletoggleActive = () => {
         let newActive = item.active === 1 ? 0 : 1;

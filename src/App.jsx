@@ -1,12 +1,12 @@
-import {useState} from 'react';
 import {Route, Routes} from 'react-router-dom';
+import {useState} from 'react';
 
 // importing pages
 import Home from './pages/Home';
 import Support from './pages/Support';
 import Rewards from './pages/Rewards';
 import Signup from './pages/Signup';
-import Login from './pages/Login';
+// import Login from './pages/Login';
 import Community from './pages/Community';
 import './App.css';
 import './index.css';
@@ -25,6 +25,16 @@ import SupportForm from './components/VendorSupportPage/SupportForm';
 import Order from './components/Order/order';
 import Nav from './components/nav';
 import Footer from './components/Footer';
+import Header from './components/Header';
+import LoginForm from './pages/LoginForm';
+import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
+import FormSuccess from './components/FormSuccess';
+// import Loader from './components/LoaderOnboarding';
+import ConfirmPassword from './pages/ConfirmPassword';
+import ForgotPassword from './pages/ForgotPassword';
+
+// for sample
+import Listings from './mapping/mealListing';
 
 function App() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -45,35 +55,56 @@ function App() {
             />
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='community' element={<Community />} />
-                <Route path='signup' element={<Signup />} />
-                <Route path='login' element={<Login />} />
-                <Route path='contact-us' element={<Support />} />
+                <Route path='/community' element={<Community />} />
+                <Route path='/signup' element={<Signup />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/contact-us' element={<Support />} />
+                <Route path='/community' element={<Community />} />
+                <Route path='/signup' element={<Signup />} />
+                {/* <Route path='/login' element={<Login />} /> */}
 
-                <Route path='rewards' element={<Rewards />} />
-                <Route path='rewards/my-rewards' element={<Achievements />} />
-                <Route path='rewards/earn-stars' element={<EarnStars />} />
-                <Route path='rewards/catalog' element={<Catalog />} />
+                <Route path='/contact-us' element={<Support />} />
+
+                <Route path='/rewards' element={<Rewards />} />
+                <Route path='/rewards/my-rewards' element={<Achievements />} />
+                <Route path='/rewards/earn-stars' element={<EarnStars />} />
+                <Route path='/rewards/catalog' element={<Catalog />} />
                 <Route
-                    path='rewards/reward-details/:itemId'
+                    path='/rewards/reward-details/:itemId'
                     element={<CatalogDetails />}
                 />
                 <Route
-                    path='vendors-dashboard'
+                    path='/vendors-dashboard'
                     element={<VendorsDashboard />}
                 />
                 <Route
-                    path='vendors-transaction'
+                    path='/vendors-transaction'
                     element={<VendorsTransaction />}
                 />
-                <Route path='store-overview' element={< StoreOverview />} />
+                <Route path='/store-overview' element={< StoreOverview />} />
                 <Route
-                    path='store-performance'
+                    path='/store-performance'
                     element={<StorePerformance />}
                 />
-                <Route path='order-summary' element={<Order />} />
-                <Route path='vendorsupport' element={<VendorSupport />} />
-                <Route path='supportform' element={<SupportForm />} />
+                <Route path='/order-summary' element={<Order />} />
+                <Route path='/vendorsupport' element={<VendorSupport />} />
+                <Route path='/supportform' element={<SupportForm />} />
+                <Route path='/order-summary' element={<Order />} />
+                <Route path='/vendorsupport' element={<VendorSupport />} />
+                <Route path='/supportform' element={<SupportForm />} />
+
+                {/*   sample  */}
+                <Route path='/meallisting' element={<Listings />} />
+
+                <Route path='/header' element={<Header />} />
+                <Route path='/loginform' element={<LoginForm />} />
+                <Route
+                    path='/account setup'
+                    element={<OnBoardingSignUpForm />}
+                />
+                <Route path='/login successful' element={<FormSuccess />} />
+                <Route path='/forgot password' element={<ForgotPassword />} />
+                <Route path='/confirm password' element={<ConfirmPassword />} />
             </Routes>
             <Footer />
         </>
