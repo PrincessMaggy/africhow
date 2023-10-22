@@ -1,10 +1,10 @@
-import OnboardingWelcome from './OnboardingWelcome'
+import OnboardingWelcome from '../components/OnboardingWelcome'
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import PasswordEye from "../assets/Vector.png";
-import OnboardingButton from "./OnboardingButton";
-import Header from "./Header";
+import OnboardingButton from "../components/OnboardingButton";
+import Header from "../components/Header";
 import "../onboardingloginsignup.css";
 
 export default function ConfirmPassword() {

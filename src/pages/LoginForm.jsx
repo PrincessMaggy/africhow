@@ -3,10 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import PasswordEye from "../assets/Vector.png";
 import "../onboardingloginsignup.css";
-import OnboardingWelcome from "./OnboardingWelcome";
-import OnboardingButton from "./OnboardingButton";
-import Header from "./Header";
-import Loader from "./LoaderOnboarding";
+import OnboardingWelcome from "../components/OnboardingWelcome";
+import OnboardingButton from "../components/OnboardingButton";
+import Header from "../components/Header";
+import Loader from "../components/LoaderOnboarding";
 
 const style =
   "rounded-xl px-[12px] w-[420px] line-[24px] py-[13px] text-white text-14px";

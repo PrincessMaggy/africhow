@@ -17,13 +17,13 @@ import Order from './components/Order/order';
 import Nav from './components/nav';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import LoginForm from './components/LoginForm';
+import LoginForm from './pages/LoginForm';
 import { Route, Routes } from 'react-router-dom';
-import OnBoardingSignUpForm from './components/OnBoardingSignUpForm';
+import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
 import FormSuccess from './components/FormSuccess';
 import Loader from './components/LoaderOnboarding';
-import ConfirmPassword from './components/ConfirmPassword';
-import ForgotPassword from './components/ForgotPassword';
+import ConfirmPassword from './pages/ConfirmPassword';
+import ForgotPassword from './pages/ForgotPassword';
 
 function App() {
     const [data, setData] = useState([]);

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import OnboardingButton from "./OnboardingButton";
-import OnboardingWelcome from './OnboardingWelcome'
+import OnboardingButton from "../components/OnboardingButton";
+import OnboardingWelcome from '../components/OnboardingWelcome'
 import "../onboardingloginsignup.css";
 
 export default function ForgotPassword() {

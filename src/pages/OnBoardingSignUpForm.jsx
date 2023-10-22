@@ -3,10 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Countries } from "../phone/countrycode";
 import PasswordEye from "../assets/Vector.png";
-import OnboardingButton from "./OnboardingButton";
+import OnboardingButton from "../components/OnboardingButton";
 import axios from "axios";
-import Header from "./Header";
-import OnboardingWelcome from "./OnboardingWelcome";
+import Header from "../components/Header";
+import OnboardingWelcome from "../components/OnboardingWelcome";
 import "../onboardingloginsignup.css";
 
 export default function OnBoardingSignUpForm() {
