@@ -1,0 +1,18 @@
+.input{
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius:4px;
+    padding: 16px 16px;
+    width: 358px;
+  }
+/* .input::placeholder{
+    padding: 16px;
+} */
+  .label{
+    font-weight: 500;
+    font-size: 12px;
+    color:#000F08;
+  }
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear{
+    display:none;visibility:hidden}
