@@ -26,6 +26,9 @@ import Order from './components/Order/order';
 import Nav from './components/nav';
 import Footer from './components/Footer';
 
+// for sample
+import Listings from './mapping/mealListing';
+
 function App() {
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -48,6 +51,7 @@ function App() {
                 <Route path='/community' element={<Community />} />
                 <Route path='/signup' element={<Signup />} />
                 <Route path='/login' element={<Login />} />
+
                 <Route path='/contact-us' element={<Support />} />
 
                 <Route path='/rewards' element={<Rewards />} />
@@ -74,6 +78,8 @@ function App() {
                 <Route path='/order-summary' element={<Order />} />
                 <Route path='/vendorsupport' element={<VendorSupport />} />
                 <Route path='/supportform' element={<SupportForm />} />
+                {/* sample */}
+                <Route path='/meallisting' element={<Listings />} />
             </Routes>
             <Footer />
         </>
