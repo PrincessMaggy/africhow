@@ -34,7 +34,7 @@ const VendorsDashboard = () => {
                     </ResponsiveContainer>
                 </div>
                 <div className='sm:py-8 py-4 sm:w-1/2 w-full'>
-                    <p className='text-start text-md'>Weekly Transaction</p>
+                    <p className='text-start text-lg'>Weekly Transaction</p>
                 </div>
             </div>
         </div>
