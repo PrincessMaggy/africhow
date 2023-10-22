@@ -36,6 +36,15 @@ import ForgotPassword from './pages/ForgotPassword';
 // for sample
 import Listings from './mapping/mealListing';
 
+// import OrderManagement from './pages/OrderManagement';
+import Outgoing from './components/OrderManagement/Outgoing'
+import Incoming from './components/OrderManagement/Incoming'
+import History from './components/OrderManagement/History'
+import Layout from './components/OrderManagement/Layout/Layout'
+
+
+
+
 function App() {
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -98,6 +107,13 @@ function App() {
                 <Route path='/login successful' element={<FormSuccess />} />
                 <Route path='/forgot password' element={<ForgotPassword />} />
                 <Route path='/confirm password' element={<ConfirmPassword />} />
+
+                <Route path='/' element={<Layout/>}>
+                    <Route path='/incoming' element={<Incoming/>} />
+                    <Route path='/outgoing' element={<Outgoing />} />
+                    <Route path='/history' element={<History />} />
+                </Route>
+                
             </Routes>
             <Footer />
         </>
