@@ -1,5 +1,4 @@
 import {Route, Routes} from 'react-router-dom';
-import {useState} from 'react';
 
 // importing pages
 import Home from './pages/Home';
@@ -23,7 +22,6 @@ import StorePerformance from './components/storePerformance/StorePerformance';
 import VendorSupport from './components/VendorSupportPage/VendorSupport';
 import SupportForm from './components/VendorSupportPage/SupportForm';
 import Order from './components/Order/order';
-import Nav from './components/nav';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import LoginForm from './pages/LoginForm';
@@ -37,22 +35,8 @@ import ForgotPassword from './pages/ForgotPassword';
 import Listings from './mapping/mealListing';
 
 function App() {
-    const [menuOpen, setMenuOpen] = useState(false);
-
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
-    const toggleDropdown = () => {
-        setMenuOpen(!menuOpen);
-    };
-
     return (
         <>
-            <Nav
-                toggleMenu={toggleMenu}
-                menuOpen={menuOpen}
-                toggleDropdown={toggleDropdown}
-            />
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/community' element={<Community />} />
