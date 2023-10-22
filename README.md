@@ -2,18 +2,19 @@
 Welcome to the Africhow, a web application designed to enhance the customer experience while ordering delicious take-outs and efficiently manage orders for restaurant owners.
 
 ## Table of Contents
-1. [Features](#features)
-2. [Landing Page](#landing-page)
-3. [Sign Up](#sign-up)
-4. [Log In](#log-in)
-5. [OTP Authentication](#otp-authentication)
-6. [KYC Verification](#kyc-verification)
-7. [Meal listings](#meal-listings)
-8. [Team Members](#team-members)
-9. [Tools](#tools)
-10. [Resources](#resources)
-11. [Hosted Project](#hosted-project) 
 
+
+- [Features](#features)
+  - [Landing Page](#landing-page)
+  - [Sign Up](#sign-up)
+  - [Log In](#log-in)
+  - [OTP Authentication](#otp-authentication)
+  - [KYC Verification](#kyc-verification)
+  - [Meal listings](#meal-listings)
+- [Team Members](#team-members)
+- [Tools](#tools)
+- [Resources](#resources)
+- [Hosted Project](#hosted-project)
 
 ## Features
 
