@@ -74,6 +74,16 @@ const Nav = ({toggleMenu, menuOpen}) => {
                                 Loyalty Support
                             </Link>
                         </li>
+                        <li className='cursor-pointer mb-2'>
+                            <Link to='/vendors-dashboard' onClick={closeMenu}>
+                                Payout
+                            </Link>
+                        </li>
+                        <li className='cursor-pointer mb-2'>
+                            <Link to='/vendors-transaction' onClick={closeMenu}>
+                                Trans.history
+                            </Link>
+                        </li>
                     </ul>
                     <div className='mt-auto p-4 flex items-center gap-4'>
                         <p id='subscribe' className='text-xs font-semibold'>
