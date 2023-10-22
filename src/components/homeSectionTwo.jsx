@@ -26,7 +26,7 @@ const homeSectionTwo = () => {
                     <div className=' w-full flex flex-col justify-center mb-28 pt-12 lg:mx-16'>
                     {
                         filteredData.map((item, key) => (
-                        <Accordion key={key} data={item}/>
+                            <Accordion key={key} data={item}/>
                         ))
                     }
                     </div>
