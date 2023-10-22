@@ -25,7 +25,7 @@ const Nav = ({toggleMenu, menuOpen}) => {
             </div>
             <div className='flex md:justify-center z-10'>
                 <Link to='/login'>
-                    <button className='text-sm bg-[#33CC9F] rounded-sm bg-opacity-80 text-white py-1 px-5 font-black pointer'>
+                    <button className='text-sm bg-[#33CC9F] rounded-sm bg-opacity-70 text-white py-1 px-5 font-black pointer'>
                         Login
                     </button>
                 </Link>
