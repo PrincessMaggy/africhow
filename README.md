@@ -14,6 +14,7 @@
 - Felicity Essien (https://github.com/felabel/africhow)
 
 ## Delta team
+- Ifeoma Okpara Anumege (https://github.com/SylviaifyX/africhow.git)
 
 ## Echo team
 
