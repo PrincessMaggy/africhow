@@ -1,13 +1,11 @@
-import {useState, useEffect} from 'react';
 import {Route, Routes} from 'react-router-dom';
-import {BrowserRouter as Router} from 'react-router-dom';
 
 // importing pages
 import Home from './pages/Home';
 import Support from './pages/Support';
 import Rewards from './pages/Rewards';
 import Signup from './pages/Signup';
-import Login from './pages/Login';
+// import Login from './pages/Login';
 import Community from './pages/Community';
 import './App.css';
 import './index.css';
@@ -24,13 +22,12 @@ import StorePerformance from './components/storePerformance/StorePerformance';
 import VendorSupport from './components/VendorSupportPage/VendorSupport';
 import SupportForm from './components/VendorSupportPage/SupportForm';
 import Order from './components/Order/order';
-import Nav from './components/nav';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import LoginForm from './pages/LoginForm';
 import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
 import FormSuccess from './components/FormSuccess';
-import Loader from './components/LoaderOnboarding';
+// import Loader from './components/LoaderOnboarding';
 import ConfirmPassword from './pages/ConfirmPassword';
 import ForgotPassword from './pages/ForgotPassword';
 
@@ -38,40 +35,13 @@ import ForgotPassword from './pages/ForgotPassword';
 import Listings from './mapping/mealListing';
 
 function App() {
-
-    const [data, setData] = useState([]);
-    const [menuOpen, setMenuOpen] = useState(false);
-
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
-    const toggleDropdown = () => {
-        setMenuOpen(!menuOpen);
-    };
-
-    // useEffect(() => {
-    //     fetchRestaurantData()
-    //         .then((result) => {
-    //             setData(result);
-    //         })
-    //         .catch((error) => {
-    //             console.error('Error fetching data:', error);
-    //         });
-    // }, []);
-
     return (
         <>
-            <Nav
-                toggleMenu={toggleMenu}
-                menuOpen={menuOpen}
-                toggleDropdown={toggleDropdown}
-            />
             <Routes>
-        
                 <Route path='/' element={<Home />} />
                 <Route path='/community' element={<Community />} />
                 <Route path='/signup' element={<Signup />} />
-                <Route path='/login' element={<Login />} />
+                {/* <Route path='/login' element={<Login />} /> */}
 
                 <Route path='/contact-us' element={<Support />} />
 
@@ -99,18 +69,19 @@ function App() {
                 <Route path='/order-summary' element={<Order />} />
                 <Route path='/vendorsupport' element={<VendorSupport />} />
                 <Route path='/supportform' element={<SupportForm />} />
-<<<<<<< HEAD
-                {/* sample */}
-                <Route path='/meallisting' element={<Listings />} />
-=======
 
-                <Route path="/header" element={<Header />}/>
-                <Route path="/loginform" element={<LoginForm />}/>
-                <Route path="/account setup" element={<OnBoardingSignUpForm/>}/>
-                <Route path="/login successful" element={<FormSuccess/>}/>
-                <Route path="/forgot password" element={<ForgotPassword/>}/>
-                <Route path="/confirm password" element={<ConfirmPassword/>}/>
->>>>>>> 648184e985f548b56580f28bf89d9e7bcc0ce64c
+                {/*   sample  */}
+                <Route path='/meallisting' element={<Listings />} />
+
+                <Route path='/header' element={<Header />} />
+                <Route path='/loginform' element={<LoginForm />} />
+                <Route
+                    path='/account setup'
+                    element={<OnBoardingSignUpForm />}
+                />
+                <Route path='/login successful' element={<FormSuccess />} />
+                <Route path='/forgot password' element={<ForgotPassword />} />
+                <Route path='/confirm password' element={<ConfirmPassword />} />
             </Routes>
             <Footer />
         </>
