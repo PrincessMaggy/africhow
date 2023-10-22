@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import restaurantData from '../lib/restaurantData';
-import EmailForm from '../components/emailHandler';
+// import EmailForm from '../components/emailHandler';
 import AddMealItem from '../components/addMealItem';
 
 function Listings() {
@@ -20,7 +20,7 @@ function Listings() {
         <>
             {/* Vendor Support */}
             <h1>Vendor support</h1>
-            <EmailForm />
+            {/* <EmailForm /> */}
             <div>
                 <h1>Meals</h1>
             </div>
