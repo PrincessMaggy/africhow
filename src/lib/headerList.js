@@ -43,6 +43,11 @@ const headerList = [
       id: '/meallisting',
       header: 'Dining Menu',
     },
+
+    {
+      id: '/add-new-meal',
+      header: 'Add meal',
+    },
     
     ];
     
