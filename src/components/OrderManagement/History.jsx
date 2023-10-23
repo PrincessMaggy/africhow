@@ -1,8 +1,14 @@
 import React from 'react'
+import Arrow from '../../assets/icons/arrrow.svg';
+import FoodList from '../../lib/Foodlist';
 
 function History() {
   return (
-    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quibusdam assumenda velit, unde totam reprehenderit quia deleniti tempore doloremque quasi, minus consequatur vitae consectetur corporis tenetur dicta nobis est! Cum.</div>
+    <div>
+      <div>
+        Working on this section
+      </div>
+    </div>
   )
 }
 
