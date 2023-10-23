@@ -76,7 +76,7 @@ As part of our commitment to safety and security, we require KYC verification fo
 - Daphne Oyibode-Olokpa [Derhuv](https://github.com/derhuv/africhow)
 
 ## Delta team
-
+ifeoma Okpara Anumege(https://github.com/SylviaifyX/africhow.git)
 ## Echo team
 
 ## Falcon team
