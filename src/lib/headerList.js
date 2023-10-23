@@ -16,7 +16,7 @@ const headerList = [
 
     {
       id: '/vendors-dashboard',
-      header: 'Transactions',
+      header: 'Payout',
     },
 
     {
@@ -26,7 +26,7 @@ const headerList = [
 
     {
       id: '/vendors-transaction',
-      header: 'Payout History',
+      header: 'Transactions',
     },
 
     {
@@ -37,6 +37,26 @@ const headerList = [
     {
       id: '/rewards/earn-stars',
       header: 'Rewards',
+    },
+
+    {
+      id: '/meallisting',
+      header: 'Dining Menu',
+    },
+
+    {
+      id: '/add-new-meal',
+      header: 'Add meal',
+    },
+
+    {
+      id: '/store-overview',
+      header: 'Sore KPIs',
+    },
+
+    {
+      id: '/order-summary',
+      header: 'Order',
     },
     
     ];
