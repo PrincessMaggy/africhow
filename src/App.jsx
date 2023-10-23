@@ -8,7 +8,7 @@ import Support from './pages/Support';
 import Rewards from './pages/Rewards';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Community from './pages/Trending';
+//import Trending from './pages/Trending';
 import './App.css';
 import './index.css';
 
@@ -33,6 +33,7 @@ import FormSuccess from './components/FormSuccess';
 import Loader from './components/LoaderOnboarding';
 import ConfirmPassword from './pages/ConfirmPassword';
 import ForgotPassword from './pages/ForgotPassword';
+import TrendingComponent from './components/community/trending';
 
 function App() {
 
@@ -66,7 +67,7 @@ function App() {
             <Routes>
         
                 <Route path='/' element={<Home />} />
-                <Route path='/community' element={<Community />} />
+               {/* <Route path='/community' element={<Community/>} /> */}
                 <Route path='/signup' element={<Signup />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/contact-us' element={<Support />} />
@@ -102,8 +103,10 @@ function App() {
                 <Route path="/login successful" element={<FormSuccess/>}/>
                 <Route path="/forgot password" element={<ForgotPassword/>}/>
                 <Route path="/confirm password" element={<ConfirmPassword/>}/>
+                <Route path ="/trending" element = {<TrendingComponent/>}/>
             </Routes>
             <Footer />
+           
         </>
     );
 }
