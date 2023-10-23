@@ -65,6 +65,7 @@ As part of our commitment to safety and security, we require KYC verification fo
 # Team members
 ## Alpha team
 - Uchechukwu Nwanja (link to github repo)
+-Pipeloluwa Aremo 
 
 ## Beta team
 - Mutiat Adepoju
