@@ -1,7 +1,11 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { useNavigate } from 'react-router-dom';
 
 function EmailForm() {
+
+    const navigate = useNavigate()
+
     const [formData, setFormData] = useState({
         from_name: '',
         from_email: '',
@@ -10,9 +14,9 @@ function EmailForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const serviceID = 'service_zft1lfa'; // Replace with your EmailJS service ID
-        const templateID = 'template_aauvizl'; // Replace with your EmailJS template ID
-        const userID = 'Y1LM7C2Bnibun3ZAB'; // Replace with your public key
+        const serviceID = 'service_qhasj94'; // Replace with your EmailJS service ID
+        const templateID = 'template_cpiddps'; // Replace with your EmailJS template ID
+        const userID = '1CQ4xPbdbWZCPvcRD'; // Replace with your public key
 
         emailjs
             .sendForm(serviceID, templateID, e.target, userID)
@@ -23,59 +27,92 @@ function EmailForm() {
             .catch((error) => {
                 alert('Oops... ' + JSON.stringify(error));
             });
+        navigate("/supportsuccess")
     };
 
     const handleChange = (e) => {
-        const {name, value} = e.target;
-        setFormData({...formData, [name]: value});
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
     };
 
     return (
-        <form
-            onSubmit={handleSubmit}
-            className='bg-white shadow-md rounded px-2 pt-2 pb-2 mb-4'
-        >
-            <label htmlFor='from_name'>Name:</label>
-            <input
-                type='text'
-                name='from_name'
-                value={formData.from_name}
-                onChange={handleChange}
-                required
-                className='input-field     bg-white shadow-md rounded px-2 pt-2 pb-2 mb-4
-                '
-            />
-            <br />
-            <br />
-            <label htmlFor='from_email'>Email:</label>
-            <input
-                type='email'
-                name='from_email'
-                value={formData.from_email}
-                onChange={handleChange}
-                required
-                className='input-field shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-white leading-tight focus:outline-none focus:shadow-outline  '
-            />
-            <br />
-            <br />
-            <label htmlFor='message'>Message:</label>
-            <textarea
-                name='message'
-                value={formData.message}
-                onChange={handleChange}
-                rows='4'
-                required
-                className='input-field shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-white leading-tight focus:outline-none focus:shadow-outline'
-            />
-            <br />
-            <br />
-            <button
-                type='submit'
-                className='bg-green-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded focus-outline-none focus-shadow-outline'
-            >
-                Send Email
-            </button>
-        </form>
+
+        <div className="font-body text-words font-normal">
+            <div className="mx-4">
+                <div className="leading-5 text-sm lg:text-xl md:mx-32 lg:mx-50 lg:p-7">
+                    <div className="lg:text-center lg:my-6 my-4">
+                        <p>
+                            For any complaint or feedback, please fill out the following
+                            details.
+                        </p>
+                        <p>Our support team will respond within 1-2 working days.</p>
+                    </div>
+
+                    <form
+                        onSubmit={handleSubmit}
+                        className="my-2 flex flex-col lg:gap-3 justify-start py-2 sm:mb-10 lg:mb-20"
+                    >
+                        <label htmlFor='from_name'>Name <span className="text-red-700 text-xl">*</span></label>
+                        <input
+                            type='text'
+                            name='from_name'
+                            value={formData.from_name}
+                            onChange={handleChange}
+                            required
+                            className= "border  border-words h-12 my-1"
+                        />
+                        <br />
+                        
+                        <label htmlFor='from_email'>Email <span className="text-red-700 text-xl">*</span></label>
+                        <input
+                            type='email'
+                            name='from_email'
+                            value={formData.from_email}
+                            onChange={handleChange}
+                            required
+                            className="border  border-words h-12 my-1"/>
+                        <br />
+                        
+                        <div className="flex gap-x-1 my-3">
+                            <input type="checkbox" required></input>{" "}
+                            <label className="font-medium text-base lg:text-2xl">
+                                Save details
+                            </label>
+                        </div>
+                        <br />
+
+                        <div className="flex flex-col justify-start">
+                            <label>Subject</label>
+                            <input
+                                type="text"
+                                className="border border-words h-12 my-1"
+                                required
+                            ></input>
+                        </div>
+                        <br />
+
+                        <label htmlFor='message'>Complaint/Feedback <span className="text-red-700 text-xl">*</span></label>
+                        <textarea
+                            name='message'
+                            value={formData.message}
+                            onChange={handleChange}
+                            rows="6"
+                            cols="15"
+                            required
+                            className='border  border-words'
+                        />
+                        <br />
+                        
+                        <button
+                            type='submit'
+                            className='w-fit h-fit py-2 px-6 font-medium text-base bg-primary'
+                        >
+                            Send Email
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
     );
 }
 
