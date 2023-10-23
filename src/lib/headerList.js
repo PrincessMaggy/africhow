@@ -16,7 +16,7 @@ const headerList = [
 
     {
       id: '/vendors-dashboard',
-      header: 'Transactions',
+      header: 'Payout',
     },
 
     {
@@ -26,7 +26,7 @@ const headerList = [
 
     {
       id: '/vendors-transaction',
-      header: 'Payout History',
+      header: 'Transactions',
     },
 
     {
