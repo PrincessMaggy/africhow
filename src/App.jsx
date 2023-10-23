@@ -46,7 +46,7 @@ function App() {
                 {/* <Route path='/login' element={<Login />} /> */}
                 <Route path='/contact-us' element={<Support />} />
                 <Route path='/community' element={<Community />} />
-                <Route path='/signup' element={<Signup />} />
+                {/* <Route path='/signup' element={<Signup />} /> */}
                 {/* <Route path='/login' element={<Login />} /> */}
 
                 <Route path='/contact-us' element={<Support />} />
@@ -85,7 +85,7 @@ function App() {
 
 
                 <Route path='/header' element={<Header />} />
-                <Route path='/loginform' element={<LoginForm />} />
+                <Route path='/login' element={<LoginForm />} />
                 <Route
                     path='/account setup'
                     element={<OnBoardingSignUpForm />}
