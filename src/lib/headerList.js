@@ -48,6 +48,16 @@ const headerList = [
       id: '/add-new-meal',
       header: 'Add meal',
     },
+
+    {
+      id: '/store-overview',
+      header: 'Sore KPIs',
+    },
+
+    {
+      id: '/order-summary',
+      header: 'Order',
+    },
     
     ];
     
