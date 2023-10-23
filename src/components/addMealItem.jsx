@@ -128,8 +128,6 @@ function AddMealItem() {
                     </button>
                 </div>
             </form>
-            <p>Fetched items from firebase</p>
-            <FetchMealItem />
         </>
     );
 }

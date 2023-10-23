@@ -38,6 +38,11 @@ const headerList = [
       id: '/rewards/earn-stars',
       header: 'Rewards',
     },
+
+    {
+      id: '/meallisting',
+      header: 'Dining Menu',
+    },
     
     ];
     
