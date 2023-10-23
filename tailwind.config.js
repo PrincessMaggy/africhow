@@ -9,7 +9,9 @@ export default {
       colors: {
         primary: "#33CC9F",
         secondary: "#145062",
-        words: "#000F08"
+        words: "#000F08",
+        'light-green': '#E7FFF8',
+        'light-red': '#FAFAFA'
       },
       fontFamily: {
         body: ['Manrope']

@@ -47,14 +47,16 @@ export default function LoginForm() {
   }
   return (
   <>
-    <div className="grid gap-6 w-[358px] mx-auto relative">
-      {newUser && <Header />}
+    <div>
+    {newUser && <Header />}
+    <div className="grid gap-6 min-[391px]:w-4/5 max-[398px]:w-[358px] mx-auto relative">
+      
       <div className="grid items-end">
         <OnboardingWelcome
           title={newUser ? "Create your business account":"Welcome Back!"}
           text={"Join the AfriChow community now..."}
         />
-        <form className="grid gap-3" onSubmit={handleSubmit(onSubmit, onError)}>
+        <form className="grid gap-3 " onSubmit={handleSubmit(onSubmit, onError)}>
           <div className="grid gap-2">
           <label className="label text flex gap-2">
             Email Address <span className="text-[#CB0000]">*</span></label>
@@ -118,6 +120,7 @@ export default function LoginForm() {
       </div>
     </div>
     {isLoading && <Loader />}
+    </div>
   </>
   );
 }
