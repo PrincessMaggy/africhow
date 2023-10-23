@@ -1,7 +1,7 @@
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import ComplaintArea from "./ComplaintArea"
-import BackArrow from '../assets/icons/arrow_back.png';
+import BackArrow from '../../assets/icons/arrow_back.png';
 
 export default function SupportForm() {
     return (

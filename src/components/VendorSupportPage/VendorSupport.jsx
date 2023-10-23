@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import Navbar from "./Navbar";
-import BackArrow from '../assets/icons/arrow_back.png';
-import NextArrow from '../assets/arrow_back_ios.png';
+import BackArrow from '../../assets/icons/arrow_back.png';
+import NextArrow from '../../assets/arrow_back_ios.png';
 
 
 
