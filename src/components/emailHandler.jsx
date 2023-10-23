@@ -6,9 +6,20 @@ function EmailForm() {
 
     const navigate = useNavigate()
 
+    const [text, setText] = useState('');
+    const maxLength = 150;
+
+    const handleTextChange = (e) => {
+        const inputText = e.target.value;
+        if (inputText.length <= maxLength) {
+            setText(inputText);
+        }
+    };
+
     const [formData, setFormData] = useState({
         from_name: '',
         from_email: '',
+        email_subject: '',
         message: '',
     });
 
@@ -74,7 +85,7 @@ function EmailForm() {
                         <br />
                         
                         <div className="flex gap-x-1 my-3">
-                            <input type="checkbox" required></input>{" "}
+                            <input type="checkbox"></input>{" "}
                             <label className="font-medium text-base lg:text-2xl">
                                 Save details
                             </label>
@@ -82,9 +93,10 @@ function EmailForm() {
                         <br />
 
                         <div className="flex flex-col justify-start">
-                            <label>Subject</label>
+                            <label htmlFor='email_subject'>Subject</label>
                             <input
                                 type="text"
+                                name='email_subject' 
                                 className="border border-words h-12 my-1"
                                 required
                             ></input>
@@ -96,11 +108,17 @@ function EmailForm() {
                             name='message'
                             value={formData.message}
                             onChange={handleChange}
+                            onInput={handleTextChange}
                             rows="6"
                             cols="15"
                             required
                             className='border  border-words'
                         />
+                        <br />
+
+                        <p className="text-end">
+                            {text.length}/{maxLength}
+                        </p>
                         <br />
                         
                         <button
