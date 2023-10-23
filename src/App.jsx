@@ -31,6 +31,8 @@ import FormSuccess from './pages/FormSuccess';
 // import Loader from './components/LoaderOnboarding';
 import ConfirmPassword from './pages/ConfirmPassword';
 import ForgotPassword from './pages/ForgotPassword';
+import Vendorprofile from './pages/Vendorprofile';
+import Vendorworkhour from './pages/Vendorworkhour';0
 
 // for sample
 import Listings from './mapping/mealListing';
@@ -91,6 +93,9 @@ function App() {
                 <Route path='/login successful' element={<FormSuccess />} />
                 <Route path='/forgot password' element={<ForgotPassword />} />
                 <Route path='/confirm password' element={<ConfirmPassword />} />
+                <Route path='/vendorprofile' element={<Vendorprofile/>} />
+                <Route path='/vendorworkhour' element={<Vendorworkhour/>} />
+                
             </Routes>
             <Footer />
         </>
