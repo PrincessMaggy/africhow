@@ -26,12 +26,12 @@ export default function ConfirmPassword() {
     console.log(errors);
     }
   return (
-    <div className="grid gap-6 w-[358px] mx-auto">
+    <div className="grid gap-6 min-[391px]:w-4/5 max-[390px]:w-[358px] mx-auto">
         <OnboardingWelcome 
             title={'Reset Password'}
             text={'Input the fields below to set up new password'}
         />
-        <form className="grid gap-3 w-[358px]" onSubmit={handleSubmit(onSubmit, onError)}>
+        <form className="grid gap-3 max-[390px]:w-[358px] max-[950px]:full w-4/5 mx-auto " onSubmit={handleSubmit(onSubmit, onError)}>
             <label className="label text-[12px] grid gap-2">
                 Password
                 <div className="input flex gap-2 items-center">

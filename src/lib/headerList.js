@@ -15,8 +15,8 @@ const headerList = [
     },
 
     {
-      id: '/onboarding-documentations',
-      header: 'Onboarding',
+      id: '/vendors-dashboard',
+      header: 'Transactions',
     },
 
     {
@@ -25,13 +25,18 @@ const headerList = [
     },
 
     {
-      id: 5,
-      header: 'Links',
+      id: '/vendors-transaction',
+      header: 'Payout History',
     },
 
     {
-      id: 6,
-      header: 'Socials',
+      id: '/rewards/catalog',
+      header: 'Rewards',
+    },
+
+    {
+      id: '/rewards/earn-stars',
+      header: 'Rewards',
     },
     
     ];

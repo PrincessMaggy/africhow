@@ -20,7 +20,7 @@ export default function ForgotPassword() {
     console.log(errors);
     }
   return (
-    <div className="grid gap-6 w-[358px] mx-auto">
+    <div className="grid gap-6 min-[391px]:w-[90%] max-[398px]:w-[358px] mx-auto">
         <OnboardingWelcome 
             title={'Forgot Password?'}
             text={'A link will be sent to your email to reset your password.'}
