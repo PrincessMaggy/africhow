@@ -77,6 +77,7 @@ As part of our commitment to safety and security, we require KYC verification fo
 
 ## Delta team
 - Agbaje Opeyemi Esther (https://github.com/esteriella/africhow)
+- Gloria Jumai Williams (https://github.com/Jumai26/africhow)
 
 ## Echo team
 
