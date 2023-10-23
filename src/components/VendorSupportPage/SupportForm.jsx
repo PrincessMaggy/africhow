@@ -5,6 +5,7 @@ import EmailForm from "../emailHandler";
 
 export default function SupportForm() {
     return (
+        //This contains the layout of the vendor support/ complaint form.
         <div className="font-body text-words font-normal">
             <Navbar />
             <Link to="/">

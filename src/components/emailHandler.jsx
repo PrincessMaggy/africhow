@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom';
 
 function EmailForm() {
 
+    //this will be use to link to the next page immediately after the user clicks the submit button
     const navigate = useNavigate()
 
+    //This change will result in the character count updating in real-time as the user types or pastes text into the textarea
     const [text, setText] = useState('');
     const maxLength = 150;
 
@@ -16,6 +18,7 @@ function EmailForm() {
         }
     };
 
+    //This change will enable us(developer) to use EmailJS to recieve the content of the submitted form.
     const [formData, setFormData] = useState({
         from_name: '',
         from_email: '',
