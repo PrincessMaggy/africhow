@@ -1,4 +1,4 @@
-import BackArrow from './assets/icons/arrow_back.png';
+import BackArrow from '../assets/icons/arrow_back.png';
 
 export default function Navbar() {
     return (
