@@ -30,39 +30,39 @@ const HomeSectionOne = () => {
 
                         <div className='flex w-full gap-3'>
                             <div className='flex justify-between items-center border border-black mb-8 w-1/2 shadow-lg rounded-md pr-3 bg-white '>
-                                <div className='flex items-center gap-2 px-4'>
+                                <div className='flex items-center gap-2 px-1'>
                                     <img
                                         src={Meal}
                                         alt=''
-                                        className='w-4 h-4 rounded-full'
+                                        className='w-4 md:w-10 md:h-10 h-4 rounded-full'
                                     />
-                                    <div className='flex flex-col text-left justify-start my-3'>
-                                        <p className='meal_name font-semibold'>
+                                    <div className='flex flex-col text-left justify-start my-1'>
+                                        <p className='meal_name font-semibold md:text-sm'>
                                             Shrimp rice
                                         </p>
-                                        <p className='meal_price font-bold text-gray-500'>
+                                        <p className='meal_price font-bold text-gray-500 md:text-xs'>
                                             N1,500
                                         </p>
                                     </div>
                                 </div>
-                                <div>
-                                    <p className='add_meal px-1 border border-green-800 bg-lime-300'>
+                                <div className='border-green-800 bg-lime-300 border'>
+                                    <p className='add_meal'>
                                         +
                                     </p>
                                 </div>
                             </div>
                             <div className='flex justify-between items-center border mb-8 w-1/2 shadow-lg rounded-md pr-3 bg-black'>
-                                <div className='flex items-center gap-2 px-4'>
+                                <div className='flex items-center gap-2 px-1'>
                                     <img
                                         src={Meal}
                                         alt=''
-                                        className='w-4 h-4 rounded-full'
+                                        className='w-4 h-4 md:w-8 md:h-8 rounded-full'
                                     />
-                                    <div className='flex flex-col text-left justify-start my-3'>
-                                        <p className='meal_name font-semibold text-white'>
+                                    <div className='flex flex-col text-left justify-start my-1'>
+                                        <p className='meal_name font-semibold text-white md:text-sm'>
                                             Reo noodles
                                         </p>
-                                        <p className='meal_price font-bold text-gray-400'>
+                                        <p className='meal_price font-bold text-gray-400 md:text-xs'>
                                             N3,200
                                         </p>
                                     </div>
@@ -85,7 +85,7 @@ const HomeSectionOne = () => {
                                     Captivate new customers drawn to African
                                     cuisine with your location.{' '}
                                 </p>
-                                <div className='flex justify-between items-center border p-2 banner-btn bg-green-200 font-bold mb-2'>
+                                <div className='flex justify-between items-center border p-2 banner-btn bg-green-200 font-bold mb-4'>
                                     <h3> June 2023 </h3>
                                     <h3> $1,007.20 </h3>
                                 </div>
@@ -98,7 +98,7 @@ const HomeSectionOne = () => {
                                     Maximize your returns through effective
                                     sales monitoring.
                                 </p>
-                                <div className='flex justify-between items-center border p-2 banner-btn bg-green-200 font-bold mb-3'>
+                                <div className='flex justify-between items-center border p-2 banner-btn bg-green-200 font-bold mb-5 md:mb-6'>
                                     <h3> Ego Sadiq </h3>
                                     <h3> x1 Rice bowl </h3>
                                 </div>
@@ -107,7 +107,7 @@ const HomeSectionOne = () => {
                         <div className='flex flex-col w-1/2 h-full gap-2'>
                             <div className='text-center border-2 border-gray-200 rounded-md h-1/2 px-4 pb-2'>
                                 <h3 className='text-base font-bold mt-4'>
-                                    Unlock Efficiency
+                                    Monitor KPIs
                                 </h3>
                                 <p className='text-xs py-4'>
                                     Optimize operations and make informed
@@ -127,7 +127,7 @@ const HomeSectionOne = () => {
                                 </div>
                             </div>
                             <div className='feature-btn text-start border-2 border-gray-200 rounded-md text-white px-4 pb-5 shadow-lg bg-[#073a49] bg-opacity-80'>
-                                <h3 className='text-sm font-bold mt-3'>
+                                <h3 className='md:text-sm text-[10px] font-bold mt-3'>
                                     See other features here
                                 </h3>
                                 <a
