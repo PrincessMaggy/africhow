@@ -63,15 +63,21 @@ const navBar = ({toggleMenu, menuOpen}) => {
                         </li>
                         <li className='cursor-pointer mb-2'>
                             <Link
-                                to='/onboarding'
+                                to='/vendors-dashboard'
                                 onClick={closeMenu}
                             >
-                                KYC Onboarding
+                                Payout
                             </Link>
                         </li>
                         <li className='cursor-pointer mb-2'>
                             <Link to='/contact-us' onClick={closeMenu}>
                                 Loyalty Support
+                            </Link>
+                        </li>
+
+                        <li className='cursor-pointer mb-2'>
+                            <Link to='/vendors-transaction' onClick={closeMenu}>
+                                Trans.history
                             </Link>
                         </li>
                     </ul>
