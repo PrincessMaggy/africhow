@@ -34,7 +34,7 @@ import ForgotPassword from './pages/ForgotPassword';
 
 // for sample
 import Listings from './mapping/mealListing';
-
+import NewMeal from './components/addMealItem';
 function App() {
 
     return (
@@ -81,6 +81,8 @@ function App() {
 
                 {/*   sample  */}
                 <Route path='/meallisting' element={<Listings />} />
+                <Route path='/add-new-meal' element={<NewMeal />} />
+
 
                 <Route path='/header' element={<Header />} />
                 <Route path='/loginform' element={<LoginForm />} />

@@ -1,13 +1,14 @@
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import ComplaintArea from "./ComplaintArea"
+import BackArrow from '../../assets/icons/arrow_back.png';
 
 export default function SupportForm() {
     return (
         <div className="font-body text-words font-normal">
             <Navbar />
             <Link to="/">
-                <img src="./src/assets/arrow_back.png" className="mx-5 mt-4 p-1 "></img>
+                <img src={BackArrow}></img>
             </Link>
             <div className="mx-4">
                 <div className="leading-5 text-sm lg:text-xl md:mx-32 lg:mx-50 lg:p-7">
@@ -37,7 +38,7 @@ export default function SupportForm() {
                                 Email <span className="text-red-700 text-xl">*</span>
                             </label>
                             <input
-                                type="text"
+                                type="Email"
                                 htmlFor="Name"
                                 className="border  border-words h-12 my-2"
                                 required
