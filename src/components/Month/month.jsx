@@ -1,16 +1,26 @@
-function Month() {
+import { useEffect} from "react"
+
+function Month({handleChange, handleFilter, period}) {
+  useEffect(() => {
+    handleFilter()
+  },[period])
+
   return (
-    <div className="flex pl-[10px] pr-[10px]  p-2.5 items-center justify-between bg-red-50  md:pl-8 md:pr-9">
+    <div className="flex pl-[10px] pr-[10px]  p-2.5 items-center justify-between bg-red-50  md:pl-5 md:pr-8">
       <div className="bg-cyan-900 p-1">
-        <p className="text-white text-sm">This week</p>
+        <button className="text-white" onClick={() => handleChange("")}>All</button>
+      </div>
+      <div className="bg-cyan-900 p-1">
+        <button className="text-white" onClick={() => handleChange("thisWeek")}>A week</button>
       </div>
       <div>
-        <p className="text-gray-400 text-sm">1-3 month</p>
+        <button className="text-gray-400" onClick={() => handleChange("lastThreeMonths")}>1-3 month</button>
       </div>
       <div>
-        <p className="text-gray-400 text-sm">Last 6 months</p>
+        <button className="text-gray-400" onClick={() => handleChange("lastSixMonths")}>Last 6 months</button>
       </div>
     </div>
   );
 }
+
 export default Month;
