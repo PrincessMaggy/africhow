@@ -7,7 +7,7 @@ function UpdatedSuccessfully() {
       <img src={Box} alt="checkedbox" />
       <p className="text-2xl mt-4">Updated successfully!</p>
       <Link
-        to="/notification"
+        to="/"
         className="text-black lg:text-2xl text-xl mt-10 mb-4 border bg-primary lg:px-12 px-12 py-2"
       >
         Go to homepage
