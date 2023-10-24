@@ -1,4 +1,4 @@
-import Menu from "../../assets/icons/menu.png"
+
 import Search from "../../assets/images/search.png"
 import Addcircle from "../../assets/images/add_circle.png"
 import Foodzone from "../../assets/images/picture.png"
@@ -11,13 +11,13 @@ const TrendingPage= () => {
     return (
       
 <div className="py-15 max-h-screen  bg-gray-300 m-2 px-2">
-  <div className="max-w-md mx-auto rounded-lg overflow-hidden md:max-w-xl max-w">
-  <div className="md:flex">
-      <div className="w-full p-3 sm:flex sm:items-center ">
-        <div className="mr-3">
+  <div className=" mx-auto rounded-lg overflow-hidden md:max-w-xl max-w">
+  <div className="w-full max-w-lg">
+      <div className="flex flex-1 items-center justify-center p-6 ">
+        <div className="mr-3 sm:flex sm:items-center">
         <div className="relative ">
-        <img src={Search} className='w-[24px] h-[24px] absolute text-gray-400 top-5 left-4'/>
-          <input type="text" placeholder="Search for topics" className="bg-white h-14 w-full px-12  mr-2 rounded-lg border border-gray-400  hover:cursor-pointer" name=""/>
+        <img src={Search} className='w-[24px] h-[24px] absolute text-gray-400 top-6  mx-6  mr-6 '/>
+          <input type="text" placeholder="Search for topics, tips, etc" className="min-w-full left-6 h-16 p-3 mr-6  border border-gray-400 focus:outline-none focus:shadow-outline text-xl  shadow-lg hover:cursor-pointer" name=""/>
          
         </div>
         </div>

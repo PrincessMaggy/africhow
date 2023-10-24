@@ -68,7 +68,7 @@ As part of our commitment to safety and security, we require KYC verification fo
 -Pipeloluwa Aremo [Pipe-justpipe](https://github.com/pipe-justpipe)
 
 ## Beta team
-- Mutiat Adepoju
+- Mutiat Adepoju (https://github.com/Rike12/africhow)
 - Taofeekat Olorunkosebi (https://github.com/Taofeeqah/africhow)
 - Maria-goretti Jiwuaku 
 
