@@ -29,7 +29,7 @@ import Header from './components/Header';
 import LoginForm from './pages/LoginForm';
 import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
 import FormSuccess from './pages/FormSuccess';
-import VendorsPayoutMethod from './components/vendorsPayment/vendorsPayoutMethod';
+import VendorsPayout from './components/vendorsPayment/VendorsPayout';
 // import Loader from './components/LoaderOnboarding';
 import ConfirmPassword from './pages/ConfirmPassword';
 import ForgotPassword from './pages/ForgotPassword';
@@ -90,7 +90,7 @@ function App() {
                 <Route path='/vendorsupport' element={<VendorSupport />} />
                 <Route path='/supportform' element={<SupportForm />} />
                 <Route path='/supportsuccess' element={<SupportSuccess />} />
-                <Route path='/vendors-payoutmethod' element={<VendorsPayoutMethod />}/> 
+                <Route path='/vendors-payout' element={<VendorsPayout />}/> 
                 {/*   sample  */}
                 <Route path='/meallisting' element={<Listings />} />
                 <Route path='/add-new-meal' element={<NewMeal />} />

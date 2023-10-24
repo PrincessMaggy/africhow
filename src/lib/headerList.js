@@ -60,7 +60,7 @@ const headerList = [
     },
     
     {
-      id: '/vendors-payoutmethod',
+      id: '/vendors-payout',
       header: 'Payout method',
     },
     
