@@ -1,5 +1,5 @@
 import React from "react";
-import Hamimage from "../assets/icons/menu.png"
+import Hamimage from "../assets/ProfileImg/Frame.png"
 
 export default function Profilehead () {
   return(

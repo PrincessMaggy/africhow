@@ -6,6 +6,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recha
 import weeklyTransaction from '../../lib/weeklyTransaction';
 //imports transaction data object
 import transactionsdata from '../../lib/vendorsTransData';
+import HomeNav from "../homeNav";
 
 
 const VendorsDashboard = () => {
@@ -17,6 +18,7 @@ const VendorsDashboard = () => {
 
     return (
         <>
+        <HomeNav />
         <div className='sm:px-8 px-4'>
             <div className='text-start sm:p-10 p-4 bg-[#145062]'>
                 <div className=''>

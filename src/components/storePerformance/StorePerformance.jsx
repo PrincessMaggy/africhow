@@ -86,85 +86,85 @@ function StorePerformance() {
   return (
     <section className="font-Manrope mx-10">
       {/* Overview section */}
-      <h2 className="lg:text-start text-start mt-10 lg:text-2xl text-lg  font-semibold">
+      <h2 className="lg:text-start text-start mt-10 lg:text-base text-base font-semibold">
         Overview
       </h2>
       <section className="grid lg:grid-cols-2 grid-cols-2 lg:gap-6 gap-2">
         {/* ... (Render components and data for the overview section) */}
-        <div className="border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green">
+        <div className="border-none lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green">
           <img
             src={dollar}
             alt="dollar-image"
             className="lg:w-10 lg:h-10 w-8 h-8 mb-2"
           />
-          <p className="text-start lg:text-2xl text-lg mb-8">Total income</p>
-          <h3 className="text-start lg:text-4xl text-xl font-semibold">
+          <p className="text-start lg:text-base text-base mb-8">Total income</p>
+          <h3 className="text-start lg:text-base text-base font-semibold">
             ${totalIncome}
           </h3>
         </div>
 
-        <div className="border pt-10 lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green">
+        <div className="border-none pt-10 lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green">
           <img
             src={cart}
             alt="cart-image"
             className="lg:w-10 lg:h-10 w-8 h-8 mb-2"
           />
-          <p className="text-start lg:text-2xl text-lg mb-8">Total order</p>
-          <h3 className="text-start lg:text-4xl text-xl font-semibold">5</h3>
+          <p className="text-start lg:text-base text-base mb-8">Total order</p>
+          <h3 className="text-start lg:text-base text-base font-semibold">5</h3>
         </div>
 
-        <div className="border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 bg-light-green">
+        <div className="border-none lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 bg-light-green">
           <img
             src={favorite}
             alt="favorite-image"
             className="lg:w-10 lg:h-10 w-8 h-8 mb-2"
           />
-          <p className="text-start lg:text-2xl text-lg mb-8">Impressions</p>
-          <h3 className="text-start lg:text-4xl text-xl font-semibold">12</h3>
+          <p className="text-start lg:text-base text-base mb-8">Impressions</p>
+          <h3 className="text-start lg:text-base text-base font-semibold">12</h3>
         </div>
 
-        <div className="border lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 bg-light-green">
+        <div className="border-none lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 bg-light-green">
           <img
             src={visibility}
             alt="visibility-image"
             className="lg:w-10 lg:h-10 w-8 h-8 mb-2"
           />
-          <p className="text-start lg:text-2xl text-lg mb-8">
+          <p className="text-start lg:text-base text-base mb-8">
             Most ordered meal
           </p>
-          <h3 className="text-start lg:text-4xl text-xl font-semibold">
+          <h3 className="text-start lg:text-base text-base font-semibold">
             #001 - {mostOrderedMeal.orderedItems[0].item}
           </h3>
         </div>
       </section>
 
       {/* Recent orders section */}
-      <h2 className="text-start lg:mt-10 mt-10 lg:text-2xl text-lg font-semibold">
+      <h2 className="text-start lg:mt-10 mt-10 lg:text-base text-base font-semibold">
         Recent orders
       </h2>
       <section>
         {/* Map and render selectedOrders data */}
         {selectedOrders.map((order, i) => (
           <div
-            className="border border-gray-300 p-5 bg-light-red mt-10 rounded"
+            className="border-none p-5 bg-light-red mt-10 rounded"
             key={i}
           >
-            <span className="flex flex-row justify-between mb-5 lg:text-2xl text-lg">
+            <span className="flex flex-row justify-between mb-5 lg:text-base text-base">
               <span className="text-gray-500">Order ID</span>
               <span>{order.id}</span>
             </span>
             <hr />
-            <span className="flex flex-row justify-between mt-5 mb-5 lg:text-2xl text-lg ">
+            <span className="flex flex-row justify-between mt-5 mb-5 lg:text-base text-base">
               <span className="text-gray-500">Meal</span>
               <span>{order.meal}</span>
             </span>
             <hr />
-            <span className="flex flex-row justify-between mt-5 mb-5 lg:text-2xl text-lg">
+            <span className="flex flex-row justify-between mt-5 mb-5 lg:text-base text-base">
               <span className="text-gray-500">Quantity</span>
               <span>{order.quantity}</span>
             </span>
             <hr />
-            <span className="flex flex-row justify-between mt-5 mb-5 lg:text-2xl text-lg">
+            <span className="flex flex-row justify-between mt-5 mb-5 lg:text-base text-base">
               <span className="text-gray-500 ">Status</span>
               <span
                 className={
@@ -179,7 +179,7 @@ function StorePerformance() {
               </span>
             </span>
             <hr />
-            <span className="flex flex-row justify-between mt-5 lg:text-2xl text-lg">
+            <span className="flex flex-row justify-between mt-5 lg:text-base text-base">
               <span className="text-gray-500">Phone Number</span>{" "}
               <span>{order.phoneNumber}</span>
             </span>
@@ -188,7 +188,7 @@ function StorePerformance() {
       </section>
 
       {/* Top meals section */}
-      <h2 className="text-start lg:mt-10 mt-10 mb-6 lg:text-2xl text-lg font-semibold">
+      <h2 className="text-start lg:mt-10 mt-10 mb-6 lg:text-base text-base font-semibold">
         Top meals in your store
       </h2>
       <section className="grid lg:grid-cols-3 grid-cols-1 lg:gap-10 gap-6 mb-10 mt-10">
@@ -198,7 +198,7 @@ function StorePerformance() {
             animate={{ scale: [1, 2, 2, 1, 1], opacity: [1, 0.5, 0.5, 0.5, 1] }}
             transition={{ duration: getRandomInt(5) }}
             key={i}
-            className="border border-gray-300 p-5 rounded"
+            className="border border-gray-200 p-5 shadow-lg rounded"
           >
             {/* ... (Render meal details) */}
             <img
@@ -207,10 +207,10 @@ function StorePerformance() {
               alt={meal.orderedItems[0].item}
             />
             <div className="flex flex-row justify-between mt-5">
-              <h2 className="lg:text-2xl text-lg">
+              <h2 className="lg:text-base text-base">
                 {meal.orderedItems[0].item}
               </h2>
-              <p className="lg:text-2xl text-lg font-bold">
+              <p className="lg:text-base text-base font-bold">
                 ${meal.orderedItems[0].price}
               </p>
             </div>
