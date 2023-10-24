@@ -4,7 +4,7 @@ import ReviewNav from '../components/Reviews/ReviewNav'
 const ReviewCard = () => {
   return (
     <div>
-        <ReviewNav/>
+        {/* <ReviewNav/> */}
       Reviews will be here
     </div>
   )
