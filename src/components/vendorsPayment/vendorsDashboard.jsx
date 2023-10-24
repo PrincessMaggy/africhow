@@ -26,7 +26,9 @@ const VendorsDashboard = () => {
                     <p className='sm:my-4 my-2 text-white sm:text-2xl text-xl font-semibold '>$ 82,570.00</p>
                 </div>
                 <div>
+                    <Link to='/vendors-payoutmethod'>
                     <button className='rounded text-sm p-2 bg-[#33CC9F]'>Payout method</button>
+                    </Link>
                     <Link to='/vendors-transaction'>
                     <button className='rounded text-sm p-2 sm:ms-6 sm:ms-4 ms-2 bg-white'>Transactions</button>
                     </Link>

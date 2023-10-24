@@ -17,7 +17,8 @@ const VendorsTransaction = () => {
     return(
         <>
         <HomeNav />
-        <div className="bg-[#f7f7f7] text-[#909090] sm:px-8 px-4 sm:py-6 py-2 border-t border-[#D1D1D6] flex justify-between  ">
+        <div className="min-h-screen">
+        <div className="bg-[#f7f7f7] text-[#909090] sm:px-8 px-4 sm:py-6 py-2 border-t border-[#D1D1D6] flex justify-between ">
             {/*Tab title */}
             {transactions.map((item) => (
                 <button key={item.id} onClick={() => handleclick(item.id)} className={`sm:w-44 w-24 sm:py-3 py-2 sm:text-lg text-sm hover:bg-[#145062] hover:text-white ${checkActive(item.id, "bg-[#145062] text-white")}`}  >{item.tabtitle}</button>
@@ -52,6 +53,7 @@ const VendorsTransaction = () => {
                 </div>
                
             ))}
+        </div>
         </div>
         </>
     )

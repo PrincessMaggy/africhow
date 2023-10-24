@@ -59,6 +59,12 @@ const headerList = [
       header: 'Order',
     },
     
+    {
+      id: '/vendors-payoutmethod',
+      header: 'Payout method',
+    },
+    
+    
     ];
     
     export default headerList;
