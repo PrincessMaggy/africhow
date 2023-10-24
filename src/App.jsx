@@ -45,6 +45,8 @@ import Layout from './components/OrderManagement/Layout/Layout'
 
 
 import NewMeal from './components/addMealItem';
+import ReviewCard from './pages/ReviewCard';
+
 function App() {
 
     return (
@@ -109,6 +111,7 @@ function App() {
                     <Route path='/incoming' element={<Incoming/>} />
                     <Route path='/outgoing' element={<Outgoing />} />
                     <Route path='/history' element={<History />} />
+                    <Route path='/review card' element={<ReviewCard />} />
                 </Route>
                 
             </Routes>
