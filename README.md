@@ -2,17 +2,23 @@
 Welcome to the Africhow, a web application designed to enhance the customer experience while ordering delicious take-outs and efficiently manage orders for restaurant owners.
 
 ## Table of Contents
-1. [Features](#1-features)
-2. [Landing Page](#2-landing-page)
-3. [Sign Up](#3-sign-up)
-4. [Log In](#4-log-in)
-5. [OTP Authentication](#5-otp-authentication)
-6. [KYC Verification](#6-kyc-verification)
-7. [Meal listings](#7-meal-listing)
-8. [Team Members](#8-team-members)
-9. [Tools](#9-tools)
-10. [Resources](#10-resources)
-11. [Hosted Project](#11-hosted-project) 
+- [Features](#features)
+  - [Landing Page](#landing-page)
+  - [Sign Up](#sign-up)
+  - [Log In](#log-in)
+  - [OTP Authentication](#otp-authentication)
+  - [KYC Verification](#kyc-verification)
+  - [Meal listings](#meal-listings)
+- [Team Members](#team-members)
+  - [Alpha team](#alpha-team)
+  - [Beta-team](#beta-team)
+  - [Charlie team](#charlie-team)
+  - [Delta team](#delta-team)
+  - [Echo team](#echo-team)
+  - [Falcon team](#falcon-team)
+- [Tools](#tools)
+- [Resources](#resources)
+- [Hosted Project](#hosted-project)
 
 
 ## Features
@@ -59,6 +65,7 @@ As part of our commitment to safety and security, we require KYC verification fo
 # Team members
 ## Alpha team
 - Uchechukwu Nwanja (link to github repo)
+-Pipeloluwa Aremo [Pipe-justpipe](https://github.com/pipe-justpipe)
 
 ## Beta team
 - Mutiat Adepoju
@@ -66,12 +73,16 @@ As part of our commitment to safety and security, we require KYC verification fo
 - Maria-goretti Jiwuaku 
 
 ## Charlie team
-- Felicity Essien(Charlie's Team leader) (https://github.com/felabel/africhow)
-- Daphne Oyibode-Olokpa (https://github.com/derhuv/africhow)
-
+- Felicity Essien(Charlie's Team leader) [Felabel](https://github.com/felabel/africhow)
+- Daphne Oyibode-Olokpa [Derhuv](https://github.com/derhuv/africhow)
 
 ## Delta team
+
+ifeoma Okpara Anumege(https://github.com/SylviaifyX/africhow.git)
+
 - Agbaje Opeyemi Esther (https://github.com/esteriella/africhow)
+- Gloria Jumai Williams (https://github.com/Jumai26/africhow)
+
 
 ## Echo team
 
@@ -90,7 +101,7 @@ As part of our commitment to safety and security, we require KYC verification fo
 - [Upstream Codebase](https://github.com/PrincessMaggy/africhow)
 - [Paypal API](https://developer.paypal.com/api/rest/)
 - [Stripe API](https://stripe.com/docs/api)
-- [Firebase]()
+- [Firebase](https://firebase.google.com/docs/build)
 
 
 ## Hosted Project

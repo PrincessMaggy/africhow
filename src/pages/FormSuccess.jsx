@@ -1,7 +1,7 @@
 import React from 'react'
-import OnboardingWelcome from './OnboardingWelcome'
-import OnboardingButton from './OnboardingButton'
-import Loader from './LoaderOnboarding'
+import OnboardingWelcome from '../components/OnboardingWelcome'
+import OnboardingButton from '../components/OnboardingButton'
+import Loader from '../components/LoaderOnboarding'
 import ReactPlayer from 'react-player'
 import Gif from '../assets/AnimateOnboarding/animation_lo0ckjix.mp4'
 
