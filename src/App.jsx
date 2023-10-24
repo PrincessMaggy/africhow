@@ -34,7 +34,7 @@ import ForgotPassword from './pages/ForgotPassword';
 
 // for sample
 import Listings from './mapping/mealListing';
-
+import ReviewsCard from './pages/ReviewsCard';
 function App() {
 
     return (
@@ -91,7 +91,8 @@ function App() {
                 <Route path='/login successful' element={<FormSuccess />} />
                 <Route path='/forgot password' element={<ForgotPassword />} />
                 <Route path='/confirm password' element={<ConfirmPassword />} />
-            </Routes>
+                <Route path='/review card' element={<ReviewsCard />} />
+             </Routes>
             <Footer />
         </>
     );
