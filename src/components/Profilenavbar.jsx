@@ -28,4 +28,3 @@ export default function Profilenavbar({ text, hour, onClick }) {
         
         
         
-0
