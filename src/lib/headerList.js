@@ -15,8 +15,8 @@ const headerList = [
     },
 
     {
-      id: '/onboarding-documentations',
-      header: 'Onboarding',
+      id: '/vendors-dashboard',
+      header: 'Payout',
     },
 
     {
@@ -25,13 +25,38 @@ const headerList = [
     },
 
     {
-      id: 5,
-      header: 'Links',
+      id: '/vendors-transaction',
+      header: 'Transactions',
     },
 
     {
-      id: 6,
-      header: 'Socials',
+      id: '/rewards/catalog',
+      header: 'Rewards',
+    },
+
+    {
+      id: '/rewards/earn-stars',
+      header: 'Rewards',
+    },
+
+    {
+      id: '/meallisting',
+      header: 'Dining Menu',
+    },
+
+    {
+      id: '/add-new-meal',
+      header: 'Add meal',
+    },
+
+    {
+      id: '/store-overview',
+      header: 'Sore KPIs',
+    },
+
+    {
+      id: '/order-summary',
+      header: 'Order',
     },
     
     ];

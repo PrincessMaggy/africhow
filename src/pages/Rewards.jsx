@@ -1,5 +1,10 @@
+import RewardsPage from "../components/Rewards/Rewards";
+
+
 const Rewards = () => {
-    return <div>Rewards</div>;
+    return (
+        <RewardsPage />
+    );
 };
 
 export default Rewards;

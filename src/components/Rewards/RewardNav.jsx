@@ -9,7 +9,7 @@ const RewardNav = () => {
 
   return (
     <nav>
-        <div className="reward-nav flex justify-between px-4 py-4 w-full border-b border-#D9D9D9 ">
+        <div className="reward-nav flex justify-between px-8 py-4 w-full border-b border-#D9D9D9 ">
             <div>
               <Link to='/rewards' >
                 <a className={location.pathname === '/rewards' ? 'active-link' : 'font-normal text-base text-#808080'}>Overview</a>

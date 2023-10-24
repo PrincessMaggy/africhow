@@ -1,18 +1,24 @@
 import RewardNav from './RewardNav';
 import './rewards.css';
-// import rewards from '../../assets/images/rewards.png';
+import bronze from '../../assets/images/bronze.svg';
+import fb from '../../assets/images/facebook.png';
+import Ig from '../../assets/images/Ig.png';
+import twitter from '../../assets/images/twitter.png';
+import arrow from '../../assets/images/beenhere.png';
 
-const Achievements = () => {
+const AchievementsPage = () => {
     return (
         <>
             <RewardNav />
             <div className='achievements_wrapper px-6'>
                 <div className='flex w-full justify-between'>
-                    <p>Here are your achievement so far</p>
+                    <p className='font-semibold text-base my-6'>
+                        Here are your achievement so far
+                    </p>
                 </div>
                 <div className='card flex my-2 rounded-md border border-#000f08 items-center'>
                     <div className='left_side'>
-                        <img src='/images/bronze.svg' />
+                        <img src={bronze} alt='bronze medal' />
                     </div>
                     <div className='right-side flex w-full justify-between'>
                         <div className='text-left'>
@@ -22,9 +28,23 @@ const Achievements = () => {
                             </p>
                         </div>
                         <span>
-                            <img src='/images/beenhere.png' />
+                            <img src={arrow} alt='arrow' />
                         </span>
                     </div>
+                </div>
+                <div className='share_section my-12'>
+                    <p className='text-small font-medium'>
+                        Share your wins and progress with your friends on social
+                        media
+                    </p>
+                    <div className='social_share flex  w-4/6 mx-auto gap-6 justify-around my-4'>
+                        <img src={fb} alt='facebook' />
+                        <img src={Ig} alt='Ig' />
+                        <img src={twitter} alt='twitter' />
+                    </div>
+                    <span>
+                        <img src='/images/beenhere.png' />
+                    </span>
                 </div>
                 <div className='share_section'>
                     <p className='text-small font-medium'>
@@ -42,4 +62,4 @@ const Achievements = () => {
     );
 };
 
-export default Achievements;
+export default AchievementsPage;
