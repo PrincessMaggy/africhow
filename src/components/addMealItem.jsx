@@ -34,8 +34,8 @@ function AddMealItem() {
             const reader = new FileReader();
             reader.onload = (e) => {
                 const imagePreview = document.getElementById('imagePreview');
-                imagePreview.src = e.target.result;
-                setUploadedImageUrl(e.reader.result);
+                imagePreview.Src = e.target.result;
+                setUploadedImageUrl(e.target.result);
 
                 setMealItem((prev) => ({
                     ...prev,
@@ -55,12 +55,17 @@ function AddMealItem() {
     const addMealItem = async (e) => {
         e.preventDefault();
 
+        // Generate a unique filename for images
+        const timestamp = new Date().getTime();
+        const uniqueId = Math.random().toString(36).substring(7);
+        const imageFileName = `${timestamp}_${uniqueId}.jpg`;
+
         let imageUrl = '';
 
         // Upload the image to Firebase Storage
         if (mealImageFile) {
             try {
-                const imageRef = ref(storage, 'meal-images', mealItem.name + '.jpg');
+                const imageRef = ref(storage, 'meal-images', imageFileName);
                 await uploadBytes(imageRef, mealImageFile);
                 imageUrl = await getDownloadURL(imageRef);
                 mealItem.imageUrl = imageUrl; // Add the image URL to the meal item data
@@ -83,7 +88,8 @@ function AddMealItem() {
 
             console.log('Document written with ID: ', docRef.id);
             alert('Meal created successfully!');
-            setMealItem(initialMealItem); // Reset fields after successful submission
+            window.location.href = '/meallisting';
+            //setMealItem(initialMealItem); // Reset fields after successful submission
 
         } catch (err) {
             alert(err.message);
@@ -97,7 +103,7 @@ function AddMealItem() {
             <HomeNav />
             <hr className='border-gray-400 -mt-6' />
 
-            <div className='upload_image mx-8 bg-gray-200 pt-32  py-24 mt-12 mb-2 cursor-pointer'>
+            <div className={`upload_image mx-8 py-12 mt-12 mb-2 cursor-pointer ${imageUploaded ? 'image-preview-bg' : 'bg-gray-200'}`}>
                 <input 
                     type='file' 
                     accept='image/*'
@@ -110,11 +116,10 @@ function AddMealItem() {
                         src={imageUploaded ? uploadedImageUrl : CameraIcon}
                         alt="" 
                         srcSet="" 
-                        id='image'
+                        id="imagePreview"
                         name='image'
                         value= {mealItem.image}
-                        onClick={() => document.getElementById('imageUploadInput').click()}  
-                    />
+                    className='w-164 image-preview'/>
                     <p className='text-xs md:text-base'>
                         {imageUploaded? 'Image Successfully Uploaded': 'Upload Image'}
                     </p>
@@ -168,7 +173,8 @@ function AddMealItem() {
                     </select>
                 </div>
 
-                <div className='mb-4 flex gap-4 w-full'>
+
+                <div className='mb-4 flex gap-1 w-full'>
                     <label
                         className='block text-gray-700 text-sm font-bold mb-2'
                         htmlFor='cost'>
@@ -178,7 +184,7 @@ function AddMealItem() {
                         name='cost'
                         onChange={handleChange}
                         value={mealItem.cost}
-                        className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg w-2/6 focus:ring-blue-900 focus:border-blue-900 block p-2.5 dark:bg-gray-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-900 dark:focus:border-blue-900 '>
+                        className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block p-2.5 dark:bg-gray-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-900 dark:focus:border-blue-900 '>
 
                         <option value=''> Currency </option>
                         <option value='$'> USD </option>
@@ -187,7 +193,7 @@ function AddMealItem() {
                     
                     </select>
                     <input
-                        className='shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-4/6'
+                        className='w-5/6 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline '
                         id='cost'
                         type='text'
                         name='cost'
