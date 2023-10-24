@@ -22,6 +22,7 @@ import StoreOverview from './components/storePerformance/StoreOverview';
 import StorePerformance from './components/storePerformance/StorePerformance';
 import VendorSupport from './components/VendorSupportPage/VendorSupport';
 import SupportForm from './components/VendorSupportPage/SupportForm';
+import SupportSuccess from './components/VendorSupportPage/SupportSuccess';
 import Order from './components/Order/order';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -87,6 +88,7 @@ function App() {
                 <Route path='/order-summary' element={<Order />} />
                 <Route path='/vendorsupport' element={<VendorSupport />} />
                 <Route path='/supportform' element={<SupportForm />} />
+                <Route path='/supportsuccess' element={<SupportSuccess />} />
 
                 {/*   sample  */}
                 <Route path='/meallisting' element={<Listings />} />
