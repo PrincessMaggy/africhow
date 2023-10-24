@@ -9,8 +9,8 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 function AddMealItem() {
     const initialMealItem = {
         name: '',
+        currency: '',
         cost: '',
-        location: '',
         status: '',
     };
     const [mealItem, setMealItem] = useState(initialMealItem);
@@ -35,7 +35,7 @@ function AddMealItem() {
             reader.onload = (e) => {
                 const imagePreview = document.getElementById('imagePreview');
                 imagePreview.src = e.target.result;
-                setUploadedImageUrl(reader.result);
+                setUploadedImageUrl(e.reader.result);
 
                 setMealItem((prev) => ({
                     ...prev,
@@ -55,12 +55,14 @@ function AddMealItem() {
     const addMealItem = async (e) => {
         e.preventDefault();
 
+        let imageUrl = '';
+
         // Upload the image to Firebase Storage
         if (mealImageFile) {
             try {
                 const imageRef = ref(storage, 'meal-images', mealItem.name + '.jpg');
                 await uploadBytes(imageRef, mealImageFile);
-                const imageUrl = await getDownloadURL(imageRef);
+                imageUrl = await getDownloadURL(imageRef);
                 mealItem.imageUrl = imageUrl; // Add the image URL to the meal item data
             } catch (err) {
                 alert('Error uploading image: ' + err.message);
@@ -73,8 +75,8 @@ function AddMealItem() {
 
             const docRef = await addDoc(collection(db, 'meals'), {
                 name: mealItem.name,
+                category: mealItem.category,
                 cost: mealItem.cost,
-                location: mealItem.location,
                 status: mealItem.status,
                 imageUrl: imageUrl,
             });
@@ -95,7 +97,7 @@ function AddMealItem() {
             <HomeNav />
             <hr className='border-gray-400 -mt-6' />
 
-            <div className='upload_image mx-8 bg-gray-200 px-32  py-24 mt-12 mb-2 cursor-pointer'>
+            <div className='upload_image mx-8 bg-gray-200 pt-32  py-24 mt-12 mb-2 cursor-pointer'>
                 <input 
                     type='file' 
                     accept='image/*'
@@ -107,10 +109,13 @@ function AddMealItem() {
                     <img 
                         src={imageUploaded ? uploadedImageUrl : CameraIcon}
                         alt="" 
-                        srcset="" 
+                        srcSet="" 
+                        id='image'
+                        name='image'
+                        value= {mealItem.image}
                         onClick={() => document.getElementById('imageUploadInput').click()}  
                     />
-                    <p>
+                    <p className='text-xs md:text-base'>
                         {imageUploaded? 'Image Successfully Uploaded': 'Upload Image'}
                     </p>
                 </label>
@@ -122,12 +127,11 @@ function AddMealItem() {
                 onSubmit={addMealItem}
             >
                 <div className='mb-4'>
-                    {/*<label
+                    <label
                         className='block text-gray-700 text-sm font-bold mb-2'
                         htmlFor='name'
                     >
-                        Name of meal
-                    </label>*/}
+                    </label>
 
                     <input
                         className='shadow appearance-none border-2 border-gray-200 rounded w-full py-3 px-3 text-gray-900 bg-white leading-tight '
@@ -143,44 +147,42 @@ function AddMealItem() {
 
 
                 <div className='mb-4'>
-                    {/*<label
+                    <label
                         className='block text-gray-700 text-sm font-bold mb-2'
-                        htmlFor='location'
-                    >
-                        Location
-                    </label>*/}
+                        htmlFor='category'>
+                    </label>
                     <select
                         id='category'
                         name='category'
                         onChange={handleChange}
                         value={mealItem.category}
-                        className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-900 dark:focus:border-blue-900'>
-                        <option value=''>Category <span></span></option>
-                        <option value='Category 1'>north african cuisine </option>
-                        <option value='Category 2'>south african cuisine</option>
-                        <option value='Category 3'>west african cuisine</option>
-                        <option value='Category 3'>east african cuisine</option>
-                        <option value='Category 3'>central african cuisine</option>
-                        <option value='Category 3'>special dishes</option>
+                        className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5 dark:bg-gray-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-900 dark:focus:border-blue-900'>
+                        <option value=''>Category</option>
+                        <option value='north african'>north african cuisine </option>
+                        <option value='south african'>south african cuisine</option>
+                        <option value='west african'>west african cuisine</option>
+                        <option value='east african'>east african cuisine</option>
+                        <option value='central african'>central african cuisine</option>
+                        <option value='special dishes'>special dishes</option>
                     
                     </select>
                 </div>
 
                 <div className='mb-4 flex gap-4 w-full'>
-                    {/*<label
+                    <label
                         className='block text-gray-700 text-sm font-bold mb-2'
                         htmlFor='cost'>
-                        Cost
-                    </label>*/}
+                    </label>
                     <select
-                        id='cost'
+                        id='currency'
                         name='cost'
                         onChange={handleChange}
                         value={mealItem.cost}
-                        className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg w-2/6 focus:ring-blue-900 focus:border-blue-900 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-900 dark:focus:border-blue-900 uppercase'>
+                        className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg w-2/6 focus:ring-blue-900 focus:border-blue-900 block p-2.5 dark:bg-gray-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-900 dark:focus:border-blue-900 '>
 
+                        <option value=''> Currency </option>
                         <option value='$'> USD </option>
-                        <option value='$'> CAD</option>
+                        <option value='CAD'> CAD </option>
                         <option value='£'> Pounds </option>
                     
                     </select>
@@ -196,12 +198,10 @@ function AddMealItem() {
                     />
                 </div>
 
-                {/*<label
+                <label
                     htmlFor='status'
-                    className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
-                >
-                    Select an option
-                </label>*/}
+                    className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
+                </label>
                 <select
                     id='status'
                     name='status'
@@ -216,7 +216,7 @@ function AddMealItem() {
 
                 <div className='flex items-center justify-between'>
                     <button
-                        className='bg-lime-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-8'
+                        className='bg-[#228768] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-8'
                         type='submit'
                     >
                         Add item
