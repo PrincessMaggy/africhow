@@ -25,6 +25,8 @@ import SupportForm from './components/VendorSupportPage/SupportForm';
 import Order from './components/Order/order';
 import Nav from './components/nav';
 import Footer from './components/Footer';
+import Notification from "./components/Notification/notification";
+import NotificationSuccess from "./components/Notification/notificationSuccesful"
 
 function App() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -71,6 +73,8 @@ function App() {
                 <Route path='/order-summary' element={<Order />} />
                 <Route path='/vendorsupport' element={<VendorSupport />} />
                 <Route path='/supportform' element={<SupportForm />} />
+                <Route path='/notification' element={<Notification />} />
+                <Route path='/updatedsuccesfully' element={<NotificationSuccess />} />
             </Routes>
             <Footer />
         </>
