@@ -45,6 +45,8 @@ import Layout from './components/OrderManagement/Layout/Layout'
 
 
 import NewMeal from './components/addMealItem';
+import Vendorprofile from './pages/Vendorprofile'
+import Vendorworkhour from './pages/Vendorworkhour';
 function App() {
 
     return (
@@ -110,7 +112,9 @@ function App() {
                     <Route path='/outgoing' element={<Outgoing />} />
                     <Route path='/history' element={<History />} />
                 </Route>
-                
+
+                <Route path='/vendorprofile' element={<Vendorprofile/>}/>
+                <Route path='/vendorworkhour' element={<Vendorworkhour/>}/>
             </Routes>
             <Footer />
         </>
