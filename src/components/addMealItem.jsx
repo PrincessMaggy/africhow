@@ -1,8 +1,10 @@
 import {useState} from 'react';
 import {collection, addDoc} from 'firebase/firestore';
 import {db} from '../../firebase';
+import { storage } from '../../firebase';
 import HomeNav from "../components/homeNav";
 import CameraIcon from "../assets/icons/photo_camera.svg";
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 function AddMealItem() {
     const initialMealItem = {
@@ -12,6 +14,10 @@ function AddMealItem() {
         status: '',
     };
     const [mealItem, setMealItem] = useState(initialMealItem);
+    const [mealImageFile, setMealImageFile] = useState(null);
+    const [imageUploaded, setImageUploaded] = useState(false);
+    const [uploadedImageUrl, setUploadedImageUrl] = useState('');
+
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -21,34 +27,96 @@ function AddMealItem() {
         }));
     };
 
+    const handleImageUpload = (e) => {
+        const file = e.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const imagePreview = document.getElementById('imagePreview');
+                imagePreview.src = e.target.result;
+                setUploadedImageUrl(reader.result);
+
+                setMealItem((prev) => ({
+                    ...prev,
+                    imageUrl: e.target.result,
+                }));
+                
+                setUploadedImageUrl(e.target.result);
+                setMealImageFile(file);
+                setImageUploaded(true);
+            };
+    
+            reader.readAsDataURL(file);
+            setMealImageFile(file);
+        }
+    };
+
     const addMealItem = async (e) => {
         e.preventDefault();
+
+        // Upload the image to Firebase Storage
+        if (mealImageFile) {
+            try {
+                const imageRef = ref(storage, 'meal-images', mealItem.name + '.jpg');
+                await uploadBytes(imageRef, mealImageFile);
+                const imageUrl = await getDownloadURL(imageRef);
+                mealItem.imageUrl = imageUrl; // Add the image URL to the meal item data
+            } catch (err) {
+                alert('Error uploading image: ' + err.message);
+                return;
+            }
+        }
+
+        // Add the meal item to Firestore
         try {
+
             const docRef = await addDoc(collection(db, 'meals'), {
                 name: mealItem.name,
                 cost: mealItem.cost,
                 location: mealItem.location,
                 status: mealItem.status,
+                imageUrl: imageUrl,
             });
 
             console.log('Document written with ID: ', docRef.id);
             alert('Meal created successfully!');
             setMealItem(initialMealItem); // Reset fields after successful submission
+
         } catch (err) {
             alert(err.message);
         }
     };
+
+    const placeholderImage = CameraIcon;
 
     return (
         <>
             <HomeNav />
             <hr className='border-gray-400 -mt-6' />
 
-            <div className='mx-8 bg-gray-200 px-32 flex flex-col justify-center items-center py-24 mt-12 mb-2'>
-                <img src={ CameraIcon } alt="" srcset="" />
-                <p>Upload Image</p>
+            <div className='upload_image mx-8 bg-gray-200 px-32  py-24 mt-12 mb-2 cursor-pointer'>
+                <input 
+                    type='file' 
+                    accept='image/*'
+                    onChange={handleImageUpload}
+                    style={{ display: 'none' }}
+                    id='imageUploadInput'
+                />
+                <label htmlFor="imageUploadInput" className='flex flex-col justify-center items-center cursor-pointer'>
+                    <img 
+                        src={imageUploaded ? uploadedImageUrl : CameraIcon}
+                        alt="" 
+                        srcset="" 
+                        onClick={() => document.getElementById('imageUploadInput').click()}  
+                    />
+                    <p>
+                        {imageUploaded? 'Image Successfully Uploaded': 'Upload Image'}
+                    </p>
+                </label>
+                
             </div>
-            <p className='mx-8 text-left text-[12px] text-gray-300 mb-10'>Recommended size: 1080 x 1920</p>
+            <p className='mx-8 text-left text-[12px] text-gray-500 mb-10'>Recommended size: 1080 x 1920</p>
             <form
                 className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'
                 onSubmit={addMealItem}
@@ -82,10 +150,10 @@ function AddMealItem() {
                         Location
                     </label>*/}
                     <select
-                        id='status'
-                        name='status'
+                        id='category'
+                        name='category'
                         onChange={handleChange}
-                        value={mealItem.status}
+                        value={mealItem.category}
                         className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-900 dark:focus:border-blue-900'>
                         <option value=''>Category <span></span></option>
                         <option value='Category 1'>north african cuisine </option>
@@ -108,12 +176,12 @@ function AddMealItem() {
                         id='cost'
                         name='cost'
                         onChange={handleChange}
-                        value={mealItem.status}
+                        value={mealItem.cost}
                         className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg w-2/6 focus:ring-blue-900 focus:border-blue-900 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-900 dark:focus:border-blue-900 uppercase'>
 
-                        <option value='Category 1'>$ USD </option>
-                        <option value='Category 2'>$ CAD</option>
-                        <option value='Category 3'>£ Pounds</option>
+                        <option value='$'> USD </option>
+                        <option value='$'> CAD</option>
+                        <option value='£'> Pounds </option>
                     
                     </select>
                     <input

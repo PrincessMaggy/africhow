@@ -80,6 +80,12 @@ const navBar = ({toggleMenu, menuOpen}) => {
                                 Trans.history
                             </Link>
                         </li>
+
+                        <li className='cursor-pointer mb-2'>
+                            <Link to='/meallisting' onClick={closeMenu}>
+                                Restaurant Menu
+                            </Link>
+                        </li>
                     </ul>
                     <div className='mt-auto p-4 flex items-center gap-4'>
                         <p id='subscribe' className='text-xs font-semibold'>

@@ -24,19 +24,19 @@ function FetchMealItem() {
     }, []);
 
     return (
-        <div className='grid grid-col sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mt-4 mb-10'>
+        <div className='grid xs:grid-cols-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-4 mb-10 flex-wrap'>
             {allDocs.map((meal) => (
                 <div
                     key={meal.id}
                     className='bg-white rounded-lg overflow-hidden shadow-md flex items-center gap-5 mx-8 '>
-                    <div className='meal-image'>
+                    <div className='meal-image flex-basis-[33%]'>
                         <img
                             src= {Meal1}
                             alt='Meal'
-                            className='w-full h-32 object-cover ml-4 
-                        '/>
+                            className='h-32 object-cover ml-4'
+                        />
                     </div>
-                    <div className='p-4 text-left'>
+                    <div className='p-4 text-left flex-basis-[66%]'>
                         <strong className='text-gray-500 text-[0.8rem] capitalize font-semibold mb-2 block '>
                             {meal.name}
                         </strong>
