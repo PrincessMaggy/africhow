@@ -1,19 +1,16 @@
-
 import React from 'react';
-import ReviewsCard from '../../pages/ReviewsCard';
+// import classNames from 'classnames';
 
-const ReviewList = ({ reviews }) => {
+const ReviewList = ({ review }) => {
+  const { author, rating, content } = review;
+
   return (
-    <div>
-      {reviews.map((review, index) => (
-        <ReviewsCard
-          key={index}
-          name={review.name}
-          date={review.date}
-          content={review.content}
-          avatarUrl={review.avatarUrl}
-        />
-      ))}
+    <div className="review">
+      <div className="header">
+        <h3 className="author">{author}</h3>
+        <span className="rating">{rating}</span>
+      </div>
+      <div className="content">{content}</div>
     </div>
   );
 };
