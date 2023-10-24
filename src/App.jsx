@@ -34,7 +34,7 @@ import ForgotPassword from './pages/ForgotPassword';
 
 // for sample
 import Listings from './mapping/mealListing';
-import ReviewsCard from './pages/ReviewsCard';
+
 function App() {
 
     return (
@@ -46,7 +46,7 @@ function App() {
                 {/* <Route path='/login' element={<Login />} /> */}
                 <Route path='/contact-us' element={<Support />} />
                 <Route path='/community' element={<Community />} />
-                <Route path='/signup' element={<Signup />} />
+                {/* <Route path='/signup' element={<Signup />} /> */}
                 {/* <Route path='/login' element={<Login />} /> */}
 
                 <Route path='/contact-us' element={<Support />} />
@@ -81,9 +81,11 @@ function App() {
 
                 {/*   sample  */}
                 <Route path='/meallisting' element={<Listings />} />
+                <Route path='/add-new-meal' element={<NewMeal />} />
+
 
                 <Route path='/header' element={<Header />} />
-                <Route path='/loginform' element={<LoginForm />} />
+                <Route path='/login' element={<LoginForm />} />
                 <Route
                     path='/account setup'
                     element={<OnBoardingSignUpForm />}

@@ -65,6 +65,7 @@ As part of our commitment to safety and security, we require KYC verification fo
 # Team members
 ## Alpha team
 - Uchechukwu Nwanja (link to github repo)
+-Pipeloluwa Aremo [Pipe-justpipe](https://github.com/pipe-justpipe)
 
 ## Beta team
 - Mutiat Adepoju
@@ -76,7 +77,12 @@ As part of our commitment to safety and security, we require KYC verification fo
 - Daphne Oyibode-Olokpa [Derhuv](https://github.com/derhuv/africhow)
 
 ## Delta team
+
+ifeoma Okpara Anumege(https://github.com/SylviaifyX/africhow.git)
+
 - Agbaje Opeyemi Esther (https://github.com/esteriella/africhow)
+- Gloria Jumai Williams (https://github.com/Jumai26/africhow)
+
 
 ## Echo team
 

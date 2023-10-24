@@ -15,7 +15,7 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [newUser, setNewUser] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  const { register, handleSubmit, formState, reset } = useForm();
+  const { register, handleSubmit, getValues,formState, reset } = useForm();
   const { errors, isValid, isDirty } = formState;
   const navigate = useNavigate();
   
@@ -25,7 +25,7 @@ export default function LoginForm() {
   };
 
   async function onSubmit(data) {
-    console.log(data);
+    console.log(data);//THIS DATA NEEDS TO BE PASSED TO THE FIREBASE DB
     setIsLoading(true)
     await new Promise((r) => setTimeout(r, 500));
     setIsLoading(false)

@@ -8,33 +8,96 @@ import axios from "axios";
 import Header from "../components/Header";
 import OnboardingWelcome from "../components/OnboardingWelcome";
 import "../onboardingloginsignup.css";
+import { auth } from "../../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function OnBoardingSignUpForm() {
   const [showPassword, setShowPassword] = useState(false);
-  const [countries, SetCountries] = useState([]);
-  const [query, setQuery] = useState("");
+  // const [countries, SetCountries] = useState([]);
+  // const [query, setQuery] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [countries, setCountries] = useState([]);
+  const [cities, setCities] = useState([]);
+  const [query, setQuery] = useState("AF");
   const { register, handleSubmit, formState } = useForm();
   const { errors, isValid, isDirty } = formState;
   const navigate = useNavigate();
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log(userCredential);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  };
+
+  // useEffect(() => {
+  //   const config = {
+  //     method: "get",
+  //     url: `https://api.countrystatecity.in/v1/countries/${query}/cities`,
+  //     headers: {
+  //       "X-CSCAPI-KEY": "API_KEY",
+  //     },
+  //   };
+
+  //   axios(config)
+  //     .then((res) => {
+  //       console.log(JSON.stringify(response.data));
+  //       SetCountries(JSON.stringify(res.data));
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, []);
+
+  useEffect(() => {
+    const config = {
+      method: "get",
+      url: "https://api.countrystatecity.in/v1/countries",
+      headers: {
+        "X-CSCAPI-KEY":
+          "cTg3cGhFY3dnQjQyb0lONmpETnhaVlMwOHlQWjB5ZEcwcjVjQVJzTw==",
+      },
+    };
+
+    axios(config)
+      .then(function (response) {
+        // console.log(JSON.stringify(response.data));
+        setCountries(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
   useEffect(() => {
     const config = {
       method: "get",
       url: `https://api.countrystatecity.in/v1/countries/${query}/cities`,
       headers: {
-        "X-CSCAPI-KEY": "API_KEY",
+        "X-CSCAPI-KEY":
+          "cTg3cGhFY3dnQjQyb0lONmpETnhaVlMwOHlQWjB5ZEcwcjVjQVJzTw==",
       },
     };
 
     axios(config)
-      .then((res) => {
-        console.log(JSON.stringify(response.data));
-        SetCountries(JSON.stringify(res.data));
+      .then(function (response) {
+        // console.log(JSON.stringify(response.data));
+        setCities(response.data);
       })
-      .catch((error) => {
+      .catch(function (error) {
         console.log(error);
       });
-  }, []);
+  }, [query]);
+
+  const handleCountryChange = (e) => {
+    const value = e.target.value.slice(0,2);
+    setQuery(value);
+  };
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -179,17 +242,34 @@ export default function OnBoardingSignUpForm() {
           <div className="flex justify-between parentinput gap-2">
             <label className="max-[390px]:w-[170px] w-full grid">
               Country
-              <select className="max-[390px]:w-[170px] w-full border">
+              {/* <select className="max-[390px]:w-[170px] w-full border">
                 {Countries?.map((country) => (
                   <option key={country.id}>{country.name}</option>
+                ))}
+              </select> */}
+              <select className="max-[390px]:w-[170px] w-full border" defaultValue="Country" onChange={handleCountryChange}>
+              <option value = "Country" disabled>Country</option>
+                {countries?.map((country) => (
+                  <option key={country.id} value={country.iso2}>
+                    {country.iso2}, {country.name}
+                  </option>
                 ))}
               </select>
             </label>
             <label className="grid max-[390px]:w-[170px] w-full">
               City/Province
-              <select className="max-[390px]:w-[170px] w-full border">
+              {/* <select className="max-[390px]:w-[170px] w-full border">
                 {Countries?.map((country) => (
                   <option key={country.id}>{country.name}</option>
+                ))}
+              </select> */} 
+              <select className="max-[390px]:w-[170px] w-full border" defaultValue="City">
+                <option value = "City" disabled>City</option>
+                {cities?.map((city) => (
+
+                  <option key={city.id} value={city.name}>
+                    {city.name}
+                  </option>
                 ))}
               </select>
             </label>
