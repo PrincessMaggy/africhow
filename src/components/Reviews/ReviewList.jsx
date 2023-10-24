@@ -1,5 +1,5 @@
 import React from 'react';
-// import classNames from 'classnames';
+import classNames from 'classnames';
 
 const ReviewList = ({ review }) => {
   const { author, rating, content } = review;
