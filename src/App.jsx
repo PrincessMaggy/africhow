@@ -111,8 +111,10 @@ function App() {
                     <Route path='/incoming' element={<Incoming/>} />
                     <Route path='/outgoing' element={<Outgoing />} />
                     <Route path='/history' element={<History />} />
-                    <Route path='/review card' element={<ReviewCard />} />
+                    
                 </Route>
+                <Route path='/review card' element={<ReviewCard />} />
+
                 
             </Routes>
             <Footer />

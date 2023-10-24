@@ -1,5 +1,5 @@
 import React from 'react'
-import ReviewNav from '../components/Reviews/ReviewNav'
+// import ReviewNav from '../components/Reviews/ReviewNav'
 
 const ReviewCard = () => {
   return (
