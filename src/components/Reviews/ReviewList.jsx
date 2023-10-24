@@ -1,12 +1,12 @@
 
 import React from 'react';
-import ReviewCard from './ReviewCard';
+import ReviewsCard from '../../pages/ReviewsCard';
 
 const ReviewList = ({ reviews }) => {
   return (
     <div>
       {reviews.map((review, index) => (
-        <ReviewCard
+        <ReviewsCard
           key={index}
           name={review.name}
           date={review.date}
