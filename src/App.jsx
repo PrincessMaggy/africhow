@@ -18,7 +18,6 @@ import EarnStars from './components/Rewards/EarnStars';
 import CatalogDetails from './components/Rewards/catalog/CatalogDetails';
 import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
-import VendorsPayoutMethod from './components/vendorsPayment/vendorsPayoutMethod';
 import StoreOverview from './components/storePerformance/StoreOverview';
 import StorePerformance from './components/storePerformance/StorePerformance';
 import VendorSupport from './components/VendorSupportPage/VendorSupport';
@@ -30,6 +29,7 @@ import Header from './components/Header';
 import LoginForm from './pages/LoginForm';
 import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
 import FormSuccess from './pages/FormSuccess';
+import VendorsPayoutMethod from './components/vendorsPayment/vendorsPayoutMethod';
 // import Loader from './components/LoaderOnboarding';
 import ConfirmPassword from './pages/ConfirmPassword';
 import ForgotPassword from './pages/ForgotPassword';
@@ -78,10 +78,6 @@ function App() {
                     path='/vendors-transaction'
                     element={<VendorsTransaction />}
                 />
-                <Route
-                    path='/vendors-payoutmethod'
-                    element={<VendorsPayoutMethod />}
-                /> 
                 <Route path='/store-overview' element={< StoreOverview />} />
                 <Route
                     path='/store-performance'
@@ -94,7 +90,7 @@ function App() {
                 <Route path='/vendorsupport' element={<VendorSupport />} />
                 <Route path='/supportform' element={<SupportForm />} />
                 <Route path='/supportsuccess' element={<SupportSuccess />} />
-
+                <Route path='/vendors-payoutmethod'element={<VendorsPayoutMethod />}/> 
                 {/*   sample  */}
                 <Route path='/meallisting' element={<Listings />} />
                 <Route path='/add-new-meal' element={<NewMeal />} />
