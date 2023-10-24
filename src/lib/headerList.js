@@ -51,7 +51,7 @@ const headerList = [
 
     {
       id: '/store-overview',
-      header: 'Sore KPIs',
+      header: 'Store KPIs',
     },
 
     {
