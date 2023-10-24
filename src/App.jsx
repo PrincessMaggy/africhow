@@ -41,10 +41,9 @@ import Outgoing from './components/OrderManagement/Outgoing'
 import Incoming from './components/OrderManagement/Incoming'
 import History from './components/OrderManagement/History'
 import Layout from './components/OrderManagement/Layout/Layout'
-
-
-
 import NewMeal from './components/addMealItem';
+import ReedeemSucess from './components/Rewards/ReedeemSucess';
+
 function App() {
 
     return (
@@ -69,6 +68,8 @@ function App() {
                     path='/rewards/reward-details/:itemId'
                     element={<CatalogDetails />}
                 />
+                <Route path='/success/:id' element={<ReedeemSucess />} />
+                
                 <Route
                     path='/vendors-dashboard'
                     element={<VendorsDashboard />}
@@ -112,7 +113,6 @@ function App() {
                 </Route>
                 
             </Routes>
-            <Footer />
         </>
     );
 }

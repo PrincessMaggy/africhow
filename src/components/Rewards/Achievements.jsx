@@ -42,21 +42,8 @@ const AchievementsPage = () => {
                         <img src={Ig} alt='Ig' />
                         <img src={twitter} alt='twitter' />
                     </div>
-                    <span>
-                        <img src='/images/beenhere.png' />
-                    </span>
                 </div>
-                <div className='share_section'>
-                    <p className='text-small font-medium'>
-                        Share your wins and progress with your friends on social
-                        media
-                    </p>
-                    <div className='social_share flex  w-4/6 mx-auto gap-6 justify-around'>
-                        <img src='/images/facebook.png' alt='facebook' />
-                        <img src='/images/Ig.png' alt='Ig' />
-                        <img src='/images/twitter.png' alt='facebook' />
-                    </div>
-                </div>
+                
             </div>
         </>
     );

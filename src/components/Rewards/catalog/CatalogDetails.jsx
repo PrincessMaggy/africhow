@@ -7,18 +7,20 @@ import '../rewards.css'
 
 const CatalogDetailsPage = () => {
     const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-  const history = useNavigate(); // Create a history object
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+    const [showModal, setShowModal] = useState(false);
 
-  const handleCheckboxChange = () => {
-    setIsCheckboxChecked(!isCheckboxChecked);
-    setIsButtonDisabled(!isCheckboxChecked);
-  };
+    const history = useNavigate(); // Create a history object
 
-  const buttonClass = isButtonDisabled ?'py-3 my-8  font-medium text-base checked_class': 'terms_button py-3 my-8  font-medium text-base' ;
-  const handleGoBack = () => {
-    history(-1); // Navigate back to the previous page
-  };
+    const handleCheckboxChange = () => {
+        setIsCheckboxChecked(!isCheckboxChecked);
+        setIsButtonDisabled(!isButtonDisabled);
+    };
+
+    const buttonClass = isButtonDisabled ? 'terms_button py-3 my-8  font-medium text-base cursor-pointer' : 'py-3 my-8  font-medium text-base checked_class bg-red-500';
+    const handleGoBack = () => {
+        history(-1); // Navigate back to the previous page
+    };
     const { itemId } = useParams(); //get the item ID from the Url
 
     // Find the item based on the item ID
@@ -27,10 +29,27 @@ const CatalogDetailsPage = () => {
     if (!item) {
         return <div>Reward not found</div>;
     }
+    console.log('button disabled:', isButtonDisabled, 'box', isCheckboxChecked)
 
+    const numOfPoints = 200
+    const pointsDifference = (item.points - numOfPoints)
+
+    const redeemPoint = () => {
+        if (numOfPoints >= item.points) {
+            window.location.href = `/success/${item.id}`;
+
+        } else {
+            setShowModal(true)
+        }
+    }
+    const closeMenu = () => {
+        if (menuOpen) {
+            toggleMenu();
+        }
+    };
     return (
         <>
-            {/* <Nav /> */}
+
             <div className="item-details ">
                 <div className="header flex py-3 px-4 border-b border-#D9D9D9 cursor-pointer"
                     onClick={handleGoBack} // Handle back arrow button click
@@ -50,22 +69,43 @@ const CatalogDetailsPage = () => {
                     <p className="text-left text-base font-semibold">Terms and Conditions</p>
                     <p className="text-left text-sm my-2">I hereby agree to the use of my points or ratings to receiving the {item.name} medal</p>
                     <div className="text-left">
-                    <input type="checkbox" name="" id="" 
-                    className="mt-2"
-                    onChange={handleCheckboxChange}
-                    /> 
-                    <span className="ml-2">Agree and continue</span>
-                    <input 
-                    type="button" 
-                    value={`Reedeem ${item.name} Medal`} 
-                    // className="terms_button py-3 my-8  font-medium text-base checked_class" 
-                    disabled={isButtonDisabled}
-                    className={buttonClass}
-                    />
+                        <input type="checkbox" name="" id=""
+                            className="mt-2"
+                            onChange={handleCheckboxChange}
+                        />
+                        <span className="ml-2">Agree and continue</span>
+
+                        <input
+                            type="button"
+                            value={`Reedeem  ${item.name} Medal`}
+                            // className="terms_button py-3 my-8  font-medium text-base checked_class" 
+                            disabled={isButtonDisabled}
+                            className={buttonClass}
+                            onClick={redeemPoint}
+
+                        />
+
                     </div>
-                    
+
                 </div>
             </div>
+            {showModal && (
+                <div className="modal"
+                    onClick={() =>{setShowModal(false)}}
+                >
+                <div className="text-container ">
+                    <div className="message text-white p-3">
+                        <h5 className="font-bold text-left">Insuffient Points</h5>
+                        <p className="text-left">You need {pointsDifference} more points to redeem this tier</p>
+
+                        <p className="dismiss font-medium text-left mt-4"
+                            onClick={() =>{setShowModal(false)}}
+                        >Dismiss</p>
+                    </div>
+                </div>
+            </div> 
+            )}
+           
         </>
 
     )
