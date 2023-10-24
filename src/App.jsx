@@ -32,7 +32,7 @@ import FormSuccess from './pages/FormSuccess';
 import ConfirmPassword from './pages/ConfirmPassword';
 import ForgotPassword from './pages/ForgotPassword';
 import Vendorprofile from './pages/Vendorprofile';
-import Vendorworkhour from './pages/Vendorworkhour';0
+import Vendorworkhour from './pages/Vendorworkhour';
 
 // for sample
 import Listings from './mapping/mealListing';
