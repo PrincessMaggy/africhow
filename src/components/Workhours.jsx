@@ -63,6 +63,8 @@ return(
     <img src={line} className="h-[3px] w-[20px] mt-6"/>
     <p className="border w-[100px] h-[45px]">10:00pm</p>
   </div>
+
+  <button  className="bg-[#145062] text-[rgb(0,15,8)] mr-8 text-[12px] w-[120px] rounded-[3px] py-[8px] px-[10px] mt-3">Save</button>
   </div>
 )
     
