@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import Profilenav from "./Profilenav";
 
 
@@ -102,7 +103,7 @@ export default function Profileform() {
           </div>
         
 
-          <Profilenav text={"Edit"} onClick={"./savechangeprofile"}/>
+          <Profilenav text={"Edit"} />
 
          
         </form>

@@ -66,6 +66,7 @@ As part of our commitment to safety and security, we require KYC verification fo
 ## Alpha team
 - Uchechukwu Nwanja (link to github repo)
 -Pipeloluwa Aremo [Pipe-justpipe](https://github.com/pipe-justpipe)
+-Tuke Glory Nwakego[TheAwesomeTechGirl](https://github.com/TheAwesomeTechGirl)
 
 ## Beta team
 - Mutiat Adepoju

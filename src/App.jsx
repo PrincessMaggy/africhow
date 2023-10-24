@@ -47,6 +47,7 @@ import Vendorworkhour from "./pages/Vendorworkhour";
 import Savechangeprofile from "./components/Savechangeprofile";
 import Cancelprofilecard from "./pages/Cancelprofilecard";
 import Profilesavedsuccess from "./pages/Profilesavedsuccess";
+import Profileerrormessage from "./pages/Profileerrormessage"
 
 function App() {
   return (
@@ -105,6 +106,7 @@ function App() {
         <Route path="/savechangeprofile" element={<Savechangeprofile />} />
         <Route path="/cancelprofilecard" element={<Cancelprofilecard />} />
         <Route path="/profilesavedsuccess" element={<Profilesavedsuccess />} />
+        <Route path="/profileerrormessage" element={<Profileerrormessage/>}/>
       </Routes>
       <Footer />
     </>
