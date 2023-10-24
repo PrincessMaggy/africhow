@@ -4,7 +4,7 @@ import './rewards.css'
 import fb from '../../assets/images/facebook.png';
 import Ig from '../../assets/images/Ig.png';
 import twitter from '../../assets/images/twitter.png';
-import Nav from "../nav";
+import HomeNav from '../homeNav';
 import { Link } from "react-router-dom";
 
 
@@ -15,9 +15,7 @@ const ReedeemSucess = () => {
 
   return (
     <>
-        <Nav 
-        
-        />
+        <HomeNav />
         <div className="item-details ">
                
                 <div className="body px-4 ">

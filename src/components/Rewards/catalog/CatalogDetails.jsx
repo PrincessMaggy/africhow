@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import catalogs from "../../../lib/catalog";
 import { useParams } from "react-router-dom";
+import HomeNav from "../../homeNav";
 import back_arrow from '../../../assets/images/arrow_back.svg'
 import '../rewards.css'
 
@@ -42,14 +43,10 @@ const CatalogDetailsPage = () => {
             setShowModal(true)
         }
     }
-    const closeMenu = () => {
-        if (menuOpen) {
-            toggleMenu();
-        }
-    };
+    
     return (
         <>
-
+        <HomeNav />
             <div className="item-details ">
                 <div className="header flex py-3 px-4 border-b border-#D9D9D9 cursor-pointer"
                     onClick={handleGoBack} // Handle back arrow button click
@@ -60,8 +57,9 @@ const CatalogDetailsPage = () => {
                 <div className="body px-4 pt-10">
 
                     <p className="text-left font-bold text-xl">{item.title}</p>
-                    <div className="py-4 rounded-md flex justify-center flex-col card mt-4">
+                    <div className="py-4 rounded-md flex justify-center flex-col card mt-4 md:w-1/3 mx-auto">
                         <img src={item.img} alt={item.name} />
+                        
                         <p className="text-xs font-medium">{item.rate}</p>
                     </div>
                     <p className="text-left font-bold text-sm my-4">{item.summary}</p>
