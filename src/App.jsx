@@ -90,7 +90,7 @@ function App() {
                 <Route path='/vendorsupport' element={<VendorSupport />} />
                 <Route path='/supportform' element={<SupportForm />} />
                 <Route path='/supportsuccess' element={<SupportSuccess />} />
-                <Route path='/vendors-payoutmethod'element={<VendorsPayoutMethod />}/> 
+                <Route path='/vendors-payoutmethod' element={<VendorsPayoutMethod />}/> 
                 {/*   sample  */}
                 <Route path='/meallisting' element={<Listings />} />
                 <Route path='/add-new-meal' element={<NewMeal />} />
