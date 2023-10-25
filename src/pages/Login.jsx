@@ -205,16 +205,16 @@ export default function Login() {
               <span className="text-red-500 text-[12px]">
                 {errors?.password && errors?.password?.message}
               </span>
-              <span className="flex text-[#145062] text-[12px] justify-end">
+              <span className="flex text-[#145062] text-[12px] justify-center max-[398px]:justify-end">
                 <Link to="/forgot password">Forgot Password ?</Link>
               </span>
               <OnboardingButton text={"Login"} />
               <span
                 className={
-                  "underline text-[15px] font-medium mx-auto w-[237px]"
+                  "underline text-[15px] font-medium mx-auto w-[250px] text-[#145062]"
                 }
               >
-                Don't have an Account
+                Don't have an Account?{" "} 
                 <span onClick={handleClick}>Sign up</span>
               </span>
             </form>

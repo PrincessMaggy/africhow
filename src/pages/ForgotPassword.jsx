@@ -40,9 +40,46 @@ export default function ForgotPassword() {
   }
 
   function onSubmit(data) {
-    const {email} = data;
-    resetLink(email);
-    reset();
+    const { email } = data;
+    sendPasswordResetEmail(auth, email, {
+      url: "http://localhost:5174/login",
+    })
+      .then((userCredential) => {
+        console.log(userCredential);
+        // navigate("/login%20successful");
+        toast('Email sent successfully')
+        reset();
+      })
+      .catch((err) => {
+        let customErrorMessage = "An error occurred";
+        if (err.code === "auth/user-not-found") {
+          customErrorMessage =
+            "User not found. Please check your email address.";
+        } 
+        toast(customErrorMessage);
+      })
+      // .finally(() => mounted.current && null);
+
+    // sendPasswordResetEmail(auth, email, {
+    //   url: "http://localhost:5174/login",
+    // })
+    //   .then((res) => {
+    //     console.log(res);
+    //     // navigate("/login%20successful");
+    //     toast('Email sent successfully')
+    //   })
+    //   .catch((err) => {
+    //     // console.log(err, "err");
+    //     let customErrorMessage = "An error occurred";
+    //     if (err.code === "auth/user-not-found") {
+    //       customErrorMessage = "User not found. Please check your email address.";
+    //     } else if (err.code === "auth/invalid-email") {
+    //       customErrorMessage = "Invalid email address format.";
+    //     }
+    //     toast(err.message);
+    //   })
+    //   .finally(() => mounted.current && null);
+    // reset();
   }
 
   function handlePrev(){
