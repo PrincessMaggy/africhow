@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import ReviewNav from '../components/Reviews/ReviewNav';
-import Solomon from '../assets/Review-Images/Ellipse 8.png'
-import Star from '../assets/Review-Images/Star 3.png'
+import Solomon from '../assets/Review-Images/Ellipse 8.png';
+import Star from '../assets/Review-Images/Star 3.png';
 
 const ReviewsCard = () => {
   const [message, setMessage] = useState('');
+  const history = useHistory();
 
   const handleInputChange = (event) => {
     setMessage(event.target.value);
@@ -14,8 +16,9 @@ const ReviewsCard = () => {
     // Handle sending the message, e.g., submit to the server
     console.log('Sending message:', message);
     // Add logic here to send the message to the server or perform other actions
-     // Navigate to another page (replace '/another-page' with the actual route)
-     history.push('/another-page');
+
+    // Use Link for navigation instead of history.push
+    // (replace '/review-reply' with the actual route)
   };
 
   return (
@@ -35,19 +38,19 @@ const ReviewsCard = () => {
                 <div className="justify-center items-center gap-1 inline-flex">
                   <div className="justify-start items-start flex" />
                   <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
-                    <img src={Star}/>
+                    <img src={Star} />
                   </div>
                   <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
-                    <img src={Star}/>
+                    <img src={Star} />
                   </div>
                   <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
-                    <img src={Star}/>
+                    <img src={Star} />
                   </div>
                   <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
-                    <img src={Star}/>
+                    <img src={Star} />
                   </div>
                   <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
-                    <img src={Star}/>
+                    <img src={Star} />
                   </div>
                   <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
                     (Rating)
@@ -78,14 +81,10 @@ const ReviewsCard = () => {
           </div>
         </div>
 
-        {/* Send button */}
-        <div
-          className="px-4 py-1 bg-emerald-400 justify-center items-center gap-2.5 inline-flex"
-          onClick={handleSendClick}
-          style={{ cursor: 'pointer' }}
-        >
+        {/* Send button with Link */}
+        <Link to="/review-reply" className="px-4 py-1 bg-emerald-400 justify-center items-center gap-2.5 inline-flex" style={{ cursor: 'pointer' }}>
           <div className="text-center text-white text-base font-medium font-['Manrope'] tracking-tight">Send</div>
-        </div>
+        </Link>
       </div>
     </div>
   );
