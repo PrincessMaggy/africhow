@@ -9,6 +9,16 @@ import Support from './pages/Support';
 import Rewards from './pages/Rewards';
 import LoginForm from './pages/LoginForm';
 import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
+import Cancelprofilecard from './pages/Cancelprofilecard';
+import Profilesavedsuccess from './pages/Profilesavedsuccess';
+import Profileerrormessage from './pages/Profileerrormessage';
+import FormSuccess from './pages/FormSuccess';
+import ConfirmPassword from './pages/ConfirmPassword';
+import ForgotPassword from './pages/ForgotPassword';
+import ReviewCard from './pages/ReviewCard';
+import ReviewReply from './pages/ReviewReply';
+import Vendorprofile from './pages/Vendorprofile';
+import Vendorworkhour from './pages/Vendorworkhour';
 
 // importing components
 import Achievements from './components/Rewards/Achievements';
@@ -24,35 +34,15 @@ import SupportForm from './components/VendorSupportPage/SupportForm';
 import SupportSuccess from './components/VendorSupportPage/SupportSuccess';
 import Order from './components/Order/order';
 import Footer from './components/Footer';
-import Header from './components/Header';
-
-import FormSuccess from './pages/FormSuccess';
-// import Loader from './components/LoaderOnboarding';
-import ConfirmPassword from './pages/ConfirmPassword';
-import ForgotPassword from './pages/ForgotPassword';
-
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
-
-// for sample
 import Listings from './mapping/mealListing';
-
 import Outgoing from './components/OrderManagement/Outgoing';
 import Incoming from './components/OrderManagement/Incoming';
 import History from './components/OrderManagement/History';
 import Layout from './components/OrderManagement/Layout/Layout';
 import NewMeal from './components/addMealItem';
-
-// import ReedeemSucess from './components/Rewards/ReedeemSucess';
-import ReviewCard from './pages/ReviewCard';
-import ReviewReply from './pages/ReviewReply';
-
-import Vendorprofile from './pages/Vendorprofile';
-import Vendorworkhour from './pages/Vendorworkhour';
 import Savechangeprofile from './components/Savechangeprofile';
-import Cancelprofilecard from './pages/Cancelprofilecard';
-import Profilesavedsuccess from './pages/Profilesavedsuccess';
-import Profileerrormessage from './pages/Profileerrormessage';
 
 function App() {
     return (
@@ -90,18 +80,16 @@ function App() {
                 <Route path='/supportform' element={<SupportForm />} />
                 <Route path='/supportsuccess' element={<SupportSuccess />} />
 
-                {/*   sample  */}
                 <Route path='/meallisting' element={<Listings />} />
                 <Route path='/add-new-meal' element={<NewMeal />} />
 
-                <Route path='/header' element={<Header />} />
                 <Route path='/login' element={<LoginForm />} />
                 <Route path='/signup' element={<OnBoardingSignUpForm />} />
                 <Route path='/login successful' element={<FormSuccess />} />
                 <Route path='/forgot password' element={<ForgotPassword />} />
                 <Route path='/confirm password' element={<ConfirmPassword />} />
 
-                <Route path='/' element={<Layout />} />
+                <Route path='/layout' element={<Layout />} />
                 <Route path='/incoming' element={<Incoming />} />
                 <Route path='/outgoing' element={<Outgoing />} />
                 <Route path='/history' element={<History />} />
