@@ -36,7 +36,7 @@ import Order from './components/Order/order';
 import Footer from './components/Footer';
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
-import Listings from './mapping/mealListing';
+import Listings from './pages/MealListing';
 import Outgoing from './components/OrderManagement/Outgoing';
 import Incoming from './components/OrderManagement/Incoming';
 import History from './components/OrderManagement/History';
