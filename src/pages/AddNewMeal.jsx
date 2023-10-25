@@ -13,6 +13,7 @@ import CameraIcon from "../assets/icons/photo_camera.svg";
 function AddMealItem() {
     const initialMealItem = {
         name: '',
+        category: '',
         currency: '',
         cost: '',
         status: '',
@@ -65,6 +66,7 @@ function AddMealItem() {
         if (
             !mealItem.name || 
             !mealItem.category || 
+            !mealItem.currency ||
             !mealItem.cost || 
             !mealItem.status || 
             !mealImageFile
@@ -102,6 +104,7 @@ function AddMealItem() {
             const docRef = await addDoc(collection(db, 'meals'), {
                 name: mealItem.name,
                 category: mealItem.category,
+                currency: mealItem.currency,
                 cost: mealItem.cost,
                 status: mealItem.status,
                 imageUrl: imageUrl,
@@ -189,7 +192,7 @@ function AddMealItem() {
                         onChange={handleChange}
                         value={mealItem.category}
                         autoComplete='current-category'
-                        className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5 dark:bg-gray-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-900 dark:focus:border-blue-900'>
+                        className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#227e63] focus:border-[#227e63] block w-full p-2.5 dark:bg-gray-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-700 dark:focus:border-green-700'>
                         <option value=''>Category</option>
                         <option value='north african'>north african cuisine </option>
                         <option value='south african'>south african cuisine</option>
@@ -205,15 +208,15 @@ function AddMealItem() {
                 <div className='mb-4 flex gap-1 w-full'>
                     <label
                         className='block text-gray-700 text-sm font-bold mb-2'
-                        htmlFor='cost'>
+                        htmlFor='currency'>
                     </label>
                     <select
                         id='currency'
-                        name='cost'
+                        name='currency'
                         onChange={handleChange}
-                        value={mealItem.cost}
+                        value={mealItem.currency}
                         autoComplete='current-currency'
-                        className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block p-2.5 dark:bg-gray-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-900 dark:focus:border-blue-900 '>
+                        className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#227e63] focus:border-[#227e63] block p-2.5 dark:bg-gray-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-700 dark:focus:border-green-700 '>
 
                         <option value=''> Currency </option>
                         <option value='$'> USD </option>
@@ -242,7 +245,7 @@ function AddMealItem() {
                     name='status'
                     onChange={handleChange}
                     value={mealItem.status}
-                    className='bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                    className='bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#227e63] focus:border-[#227e63] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-700 dark:focus:border-green-700'
                 >
                     <option value=''>Status</option>
                     <option value='Available'>Available</option>
