@@ -2,6 +2,8 @@ import React from "react";
 // import OnboardingWelcome from "../components/OnboardingWelcome";
 // import OnboardingButton from "../components/OnboardingButton";
 // import Loader from "../components/LoaderOnboarding";
+// import OnboardingButton from "../components/OnboardingButton";
+// import Loader from "../components/LoaderOnboarding";
 import ReactPlayer from "react-player";
 import Gif from "../assets/AnimateOnboarding/animation_lo0ckjix.mp4";
 import Success from "../components/Success";
