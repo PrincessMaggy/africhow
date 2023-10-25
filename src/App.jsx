@@ -26,7 +26,10 @@ import CatalogDetails from './pages/CatalogDetails';
 import EarnStars from './pages/EarnStars';
 import SuccessRewards from './pages/SuccessRewards';
 // importing components
-
+//..import components
+// importing components
+//..import components
+///////////////////////////
 import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
 import VendorsPayoutMethod from './components/vendorsPayment/VendorsPayoutMethod';
@@ -38,11 +41,12 @@ import SupportSuccess from './components/VendorSupportPage/SupportSuccess';
 import Order from './components/Order/order';
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
-import Listings from './mapping/mealListing';
+import Listings from './pages/MealListing';
 import Outgoing from './components/OrderManagement/Outgoing';
 import Incoming from './components/OrderManagement/Incoming';
 import History from './components/OrderManagement/History';
-import NewMeal from './components/addMealItem';
+import Layout from './components/OrderManagement/Layout/Layout';
+import NewMeal from './pages/AddNewMeal';
 import Savechangeprofile from './components/Savechangeprofile';
 
 function App() {
@@ -163,7 +167,6 @@ function App() {
             </Routes>
 
             {/* the rewards page doesn't use this footer, can we import them in individual components insatead? */}
-            {/* <Footer /> */}
         </>
     );
 }
