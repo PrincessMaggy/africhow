@@ -8,9 +8,12 @@ import arrow from '../../assets/images/beenhere.png';
 import fb from '../../assets/images/facebook.png';
 import Ig from '../../assets/images/Ig.png';
 import twitter from '../../assets/images/twitter.png';
+import HomeNav from '../homeNav';
+
 const RewardsPage = () => {
     return (
-        <div>
+        <>
+            <HomeNav />
             <RewardNav />
             <div className='earn_wrapper px-4'>
                 <div className='rewards_wrapper '>
@@ -65,7 +68,7 @@ const RewardsPage = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
