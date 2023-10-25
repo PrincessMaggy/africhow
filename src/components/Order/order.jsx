@@ -6,15 +6,106 @@ import image from "../../assets/download/Frame.png";
 import image2 from "../../assets/download/downloads.png";
 function Order() {
   // const DAYS = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+  // const [period, setPeriod] = useState("");
+  // const [day, setDay] = useState("all");
+  // const [filteredOrder, setFilteredOrder] = useState([]);
+  // const handleBrandChange = (event) => setDay(event.target.value);
+  // const handleChange = (period) => setPeriod(period);
+ 
+  // const handleFilter = () => {
+  //   if (period === "thisWeek") {
+  //     const tempOrder = orderList.filter((order) => {
+  //       const now = new Date();
+  //       const date = new Date(
+  //         `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
+  //       );
+  //       const orderDate = new Date(
+  //         `${order.orderDate.substring(0, order.orderDate.indexOf("T"))}`
+  //       );
+  //       return date.valueOf() - orderDate.valueOf() <= 1000 * 60 * 60 * 24 * 7;
+  //     });
+  //     setFilteredOrder(tempOrder);
+  //   //   console.log(tempOrder)
+  //   } else if (period === "lastThreeMonths") {
+  //     const tempOrder = orderList.filter((order) => {
+  //       const now = new Date(); //getting the current date
+  //       const orderMonth = new Date(
+  //         `${order.orderDate.substring(0, order.orderDate.indexOf("T"))}`
+  //       ); //getting the date from the order.js//
+  //       let diff = now.getMonth() - orderMonth.getMonth(); //getting the difference//
+  //       if (now.getFullYear() - orderMonth.getFullYear() > 1) {
+  //         return false;
+  //       }
+  //       if (diff >= 0) {
+  //         return diff < 3;
+  //       } else {
+  //         return 12 + now.getMonth() - orderMonth.getMonth() < 3;
+  //       }
+  //     });
+  //     setFilteredOrder(tempOrder);
+  //   } else if (period === "lastSixMonths") {
+  //     const tempOrder = orderList.filter((order) => {
+  //       const now = new Date(); //getting the current date
+  //       const orderMonth = new Date(
+  //         `${order.orderDate.substring(0, order.orderDate.indexOf("T"))}`
+  //       ); //getting the date from the order.js//
+  //       let diff = now.getMonth() - orderMonth.getMonth(); //getting the difference//
+  //       if (now.getFullYear() - orderMonth.getFullYear() > 1) {
+  //         return false;
+  //       }
+  //       if (diff >= 0) {
+  //         return diff < 6;
+  //       } else {
+  //         return 12 + now.getMonth() - orderMonth.getMonth() < 6;
+  //       }
+  //     });
+  //     setFilteredOrder(tempOrder);
+  //   } else {
+  //     setFilteredOrder(orderList);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   setFilteredOrder(orderList);
+  // }, []);
+  const Days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturady",
+    "Sunday",
+  ];
   const [period, setPeriod] = useState("");
   const [day, setDay] = useState("all");
   const [filteredOrder, setFilteredOrder] = useState([]);
   const handleBrandChange = (event) => setDay(event.target.value);
   const handleChange = (period) => setPeriod(period);
- 
+
+  const filterByPreviousMonth = (range) => {
+    return orderList.filter((order) => {
+      const now = new Date();
+      const orderMonth = new Date(
+        `${order.orderDate.substring(0, order.orderDate.indexOf("T"))}`
+      );
+      // checking if the condition tally
+      if (now.getFullYear() - orderMonth.getFullYear() > 1) {
+        return false;
+      }
+      if (now.getFullYear() - orderMonth.getFullYear() === 1) {
+        return 12 + now.getMonth() - orderMonth.getMonth() < range;
+      }
+      if (now.getFullYear() - orderMonth.getFullYear() === 0) {
+        return now.getMonth() - orderMonth.getFullYear() < range;
+      }
+    });
+  };
+
   const handleFilter = () => {
     if (period === "thisWeek") {
-      const tempOrder = orderList.filter((order) => {
+      const showOrder = orderList.filter((order) => {
         const now = new Date();
         const date = new Date(
           `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
@@ -24,46 +115,18 @@ function Order() {
         );
         return date.valueOf() - orderDate.valueOf() <= 1000 * 60 * 60 * 24 * 7;
       });
-      setFilteredOrder(tempOrder);
-    //   console.log(tempOrder)
+      setFilteredOrder(showOrder);
     } else if (period === "lastThreeMonths") {
-      const tempOrder = orderList.filter((order) => {
-        const now = new Date(); //getting the current date
-        const orderMonth = new Date(
-          `${order.orderDate.substring(0, order.orderDate.indexOf("T"))}`
-        ); //getting the date from the order.js//
-        let diff = now.getMonth() - orderMonth.getMonth(); //getting the difference//
-        if (now.getFullYear() - orderMonth.getFullYear() > 1) {
-          return false;
-        }
-        if (diff >= 0) {
-          return diff < 3;
-        } else {
-          return 12 + now.getMonth() - orderMonth.getMonth() < 3;
-        }
-      });
-      setFilteredOrder(tempOrder);
+      const showOrder = filterByPreviousMonth(3);
+      setFilteredOrder(showOrder);
     } else if (period === "lastSixMonths") {
-      const tempOrder = orderList.filter((order) => {
-        const now = new Date(); //getting the current date
-        const orderMonth = new Date(
-          `${order.orderDate.substring(0, order.orderDate.indexOf("T"))}`
-        ); //getting the date from the order.js//
-        let diff = now.getMonth() - orderMonth.getMonth(); //getting the difference//
-        if (now.getFullYear() - orderMonth.getFullYear() > 1) {
-          return false;
-        }
-        if (diff >= 0) {
-          return diff < 6;
-        } else {
-          return 12 + now.getMonth() - orderMonth.getMonth() < 6;
-        }
-      });
-      setFilteredOrder(tempOrder);
+      const showOrder = filterByPreviousMonth(6);
+      setFilteredOrder(showOrder);
     } else {
       setFilteredOrder(orderList);
     }
   };
+
 
   useEffect(() => {
     setFilteredOrder(orderList);
@@ -112,7 +175,8 @@ function Order() {
             if (day === "all") {
               return true;
             } else {
-              return order.orderDay.toLowerCase() === day.toLowerCase();
+              return Days[(new Date(order.orderDate).getDate())].toLowerCase() === day.toLowerCase()
+              // return order.orderDay.toLowerCase() === day.toLowerCase();
             }
           })
           .map((list, index) => {
@@ -127,7 +191,8 @@ function Order() {
                 </div>
                 <div className="border-b border-white text-sm font-bold flex  items-center justify-between">
                   <span>Order day:</span>
-                  <h1>{list.orderDay}</h1>
+                  <h1>{Days[new Date(list.orderDate).getDay()]}</h1>
+                  {/* <h1>{list.orderDay}</h1> */}
                 </div>
 
                 {list.orderedItems.map((type, index) => {
