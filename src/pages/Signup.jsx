@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import PasswordEye from "../assets/eye-slash.png";
+import PasswordEye2 from "../assets/Icon.png";
 import "../onboardingloginsignup.css";
 import OnboardingWelcome from "../components/OnboardingWelcome";
 import OnboardingButton from "../components/OnboardingButton";
@@ -72,8 +73,13 @@ function onSubmit(data) {
     .catch((err) => {
       console.log(err, "err");
       setSignupError(true);
-      setErrorMessage(err.message);
-      toast(err.message)
+      console.log(err.code)
+      let customErrorMessage = "An error occurred";
+      if (err.code === "auth/email-already-in-use") {
+        customErrorMessage = "Existing user. Please login with your email address.";
+      } 
+      setErrorMessage(customErrorMessage);
+      toast(errorMessage)
     })
     .finally(() => mounted.current && setIsLoading(false));
     reset();
@@ -85,6 +91,31 @@ function onSubmit(data) {
   //   navigate("/account setup");
   // }
 }
+
+// function onSubmit(data) {
+//   const { email, password } = data;
+//   setIsLoading(true);
+//   createUserWithEmailAndPassword(auth, email, password)
+//     .then((userCredential) => {
+//       console.log(userCredential);
+//       navigate("/account%20setup");
+//     })
+//     .catch((err) => {
+//       console.log(err, "err");
+//       setSignupError(true);
+//       setErrorMessage(err.message);
+//       toast(err.message)
+//     })
+//     .finally(() => mounted.current && setIsLoading(false));
+//     reset();
+
+//   // setIsLoading(true);
+//   // // await new Promise((r) => setTimeout(r, 500));
+//   // // setIsLoading(false);
+//   // if (!loginError && errorMessage) {
+//   //   navigate("/account setup");
+//   // }
+// }
   function onError(errors) {
     console.log(errors);
     //alert(errors);
@@ -160,12 +191,22 @@ function onSubmit(data) {
                       },
                     })}
                   />
-                  <img
+                  {/* <img
                     src={PasswordEye}
                     alt="eye icon"
                     className="w-[16.41px] h-[11.67px]"
                     onClick={togglePasswordVisibility}
-                  />
+                  /> */}
+                  <span
+                    className="w-[16.41px] h-[11.67px]"
+                    onClick={togglePasswordVisibility}
+                  >
+                    {showPassword ? (
+                      <img src={PasswordEye2} />
+                    ) : (
+                      <img src={PasswordEye} />
+                    )}
+                  </span>
                 </div>
               </div>
 

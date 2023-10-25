@@ -1,4 +1,4 @@
-import {Route, Routes} from 'react-router-dom';
+import {Route, Routes, useNavigate} from 'react-router-dom';
 import './App.css';
 import './index.css';
 
@@ -6,7 +6,7 @@ import './index.css';
 
 import Home from './pages/Home';
 import Support from './pages/Support';
-import LoginForm from './pages/LoginForm';
+import Rewards from './pages/Rewards';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
@@ -20,14 +20,16 @@ import ReviewCard from './pages/ReviewCard';
 import ReviewReply from './pages/ReviewReply';
 import Vendorprofile from './pages/Vendorprofile';
 import Vendorworkhour from './pages/Vendorworkhour';
-import Rewards from './pages/Rewards';
 import Achievements from './pages/Achievements';
 import Catalog from './pages/Catalog';
 import CatalogDetails from './pages/CatalogDetails';
 import EarnStars from './pages/EarnStars';
 import SuccessRewards from './pages/SuccessRewards';
 // importing components
-
+//..import components
+// importing components
+//..import components
+///////////////////////////
 import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
 import VendorsPayoutMethod from './components/vendorsPayment/VendorsPayoutMethod';
@@ -56,7 +58,6 @@ function App() {
                 <Route path='/signup' element={<Signup />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/contact-us' element={<Support />} />
-
                 <Route path='/contact-us' element={<Support />} />
                 <Route path='/rewards' element={<Rewards />} />
                 <Route path='/rewards/my-rewards' element={<Achievements />} />
@@ -94,13 +95,47 @@ function App() {
                 <Route path='/vendorsupport' element={<VendorSupport />} />
                 <Route path='/supportform' element={<SupportForm />} />
                 <Route path='/supportsuccess' element={<SupportSuccess />} />
+                {/* <Route path='/passwordsuccess' element={<Pass} /> */}
 
                 <Route path='/meallisting' element={<Listings />} />
                 <Route path='/add-new-meal' element={<NewMeal />} />
-
-                <Route path='/login' element={<LoginForm />} />
                 <Route path='/account setup' element={<OnBoardingSignUpForm />} />
-                <Route path='/login successful' element={<FormSuccess />} />
+                {/* <Route path='/login successful' element={<FormSuccess />} /> */}
+                {/* <Route path='/login successful' element={<SuccessPass/>}/> */}
+                <Route
+          path="/login successful"
+          element={
+            <FormSuccess
+              text="Welcome back! You're in. Let the food journey begin."
+              buttonText="Go to dashboard"
+              title="Login Successful"
+              onNavigate={"/vendors-dashboard"}
+            />
+          }
+        />
+        <Route
+          path="/account created successfully"
+          element={
+            <FormSuccess
+              text="Congratulations! You're officially part of our delicious community. Let's get started!"
+              buttonText="Go to dashboard"
+              title="Your account has been created successfully!"
+              onNavigate={"/vendors-dashboard"}
+            />
+          }
+        />
+        <Route
+          path="/password reset successful"
+          element={
+            <FormSuccess
+              text="You have successfully changed your password. Please use the new password when logging in."
+              buttonText="Login Now"
+              title="Password Reset Successful"
+              onNavigate={"/login"}
+            />
+          }
+        />
+
                 <Route path='/forgot password' element={<ForgotPassword />} />
                 <Route path='/reset password' element={<ConfirmPassword />} />
 
