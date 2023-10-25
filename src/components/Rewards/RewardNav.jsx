@@ -4,8 +4,6 @@ import './rewards.css'
 
 const RewardNav = () => {
     const location = useLocation();
-    console.log(location.pathname)
-    console.log(location)
 
   return (
     <nav>
