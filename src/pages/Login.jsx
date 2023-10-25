@@ -177,7 +177,7 @@ export default function Login() {
                       required: "Required",
                       pattern: {
                         value:
-                          /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/,
+                        /^(?=.*[A-Za-z\d])(?=.*[!@#$%^&*.,><*])[A-Za-z\d!@#$%^&*,.><*]{8,}$/,
                         message:
                           "Password must be at least 8 characters and must include at least one letter, one digit, and one special character.",
                       },
