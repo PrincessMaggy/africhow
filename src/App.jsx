@@ -46,6 +46,7 @@ import Layout from './components/OrderManagement/Layout/Layout'
 
 import NewMeal from './components/addMealItem';
 import ReviewCard from './pages/ReviewCard';
+import ReviewReply from './pages/ReviewReply';
 
 function App() {
 
@@ -114,6 +115,7 @@ function App() {
                     
                 </Route>
                 <Route path='/review card' element={<ReviewCard />} />
+                <Route path='/review-reply' element={<ReviewReply />} />
 
                 
             </Routes>
