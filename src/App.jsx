@@ -46,7 +46,6 @@ import Listings from './mapping/mealListing';
 import Outgoing from './components/OrderManagement/Outgoing';
 import Incoming from './components/OrderManagement/Incoming';
 import History from './components/OrderManagement/History';
-import Layout from './components/OrderManagement/Layout/Layout';
 import NewMeal from './components/addMealItem';
 import Savechangeprofile from './components/Savechangeprofile';
 
@@ -139,7 +138,6 @@ function App() {
                 <Route path='/forgot password' element={<ForgotPassword />} />
                 <Route path='/reset password' element={<ConfirmPassword />} />
 
-                <Route path='/layout' element={<Layout />} />
                 <Route path='/incoming' element={<Incoming />} />
                 <Route path='/outgoing' element={<Outgoing />} />
                 <Route path='/history' element={<History />} />
