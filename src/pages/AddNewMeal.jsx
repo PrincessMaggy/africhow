@@ -2,9 +2,13 @@ import {useState} from 'react';
 import {collection, addDoc} from 'firebase/firestore';
 import {db} from '../../firebase';
 import { storage } from '../../firebase';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import HomeNav from "../components/homeNav";
 import CameraIcon from "../assets/icons/photo_camera.svg";
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+
+
 
 function AddMealItem() {
     const initialMealItem = {
@@ -17,10 +21,12 @@ function AddMealItem() {
     const [mealImageFile, setMealImageFile] = useState(null);
     const [imageUploaded, setImageUploaded] = useState(false);
     const [uploadedImageUrl, setUploadedImageUrl] = useState('');
+    const [loading, setLoading] = useState(false);
 
 
     const handleChange = (e) => {
         const {name, value} = e.target;
+
         setMealItem((prev) => ({
             ...prev,
             [name]: value,
@@ -54,6 +60,20 @@ function AddMealItem() {
 
     const addMealItem = async (e) => {
         e.preventDefault();
+        setLoading(true);
+
+        if (
+            !mealItem.name || 
+            !mealItem.category || 
+            !mealItem.cost || 
+            !mealItem.status || 
+            !mealImageFile
+        ) {
+            toast.error('Please fill in all required fields');
+            setLoading(true);
+            return;
+        }
+
 
         // Generate a unique filename for images
         const timestamp = new Date().getTime();
@@ -65,12 +85,13 @@ function AddMealItem() {
         // Upload the image to Firebase Storage
         if (mealImageFile) {
             try {
-                const imageRef = ref(storage, 'meal-images', imageFileName);
+                const imageRef = ref(storage, `meal-images/${imageFileName}` );
                 await uploadBytes(imageRef, mealImageFile);
                 imageUrl = await getDownloadURL(imageRef);
                 mealItem.imageUrl = imageUrl; // Add the image URL to the meal item data
             } catch (err) {
                 alert('Error uploading image: ' + err.message);
+                setLoading(false);
                 return;
             }
         }
@@ -87,12 +108,17 @@ function AddMealItem() {
             });
 
             console.log('Document written with ID: ', docRef.id);
-            alert('Meal created successfully!');
+            //alert('Meal created successfully!');
+            //notify('Meal created successfully!', 'success');
+            toast.success('Meal created successfully!');
+            setMealItem(initialMealItem); // Reset fields after successful submission
             window.location.href = '/meallisting';
-            //setMealItem(initialMealItem); // Reset fields after successful submission
+            
 
         } catch (err) {
-            alert(err.message);
+            toast.error(err.message);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -101,6 +127,7 @@ function AddMealItem() {
     return (
         <>
             <HomeNav />
+            <ToastContainer />
             <hr className='border-gray-400 -mt-6' />
 
             <div className={`upload_image mx-8 py-12 mt-12 mb-2 cursor-pointer ${imageUploaded ? 'image-preview-bg' : 'bg-gray-200'}`}>
@@ -161,6 +188,7 @@ function AddMealItem() {
                         name='category'
                         onChange={handleChange}
                         value={mealItem.category}
+                        autoComplete='current-category'
                         className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5 dark:bg-gray-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-900 dark:focus:border-blue-900'>
                         <option value=''>Category</option>
                         <option value='north african'>north african cuisine </option>
@@ -184,6 +212,7 @@ function AddMealItem() {
                         name='cost'
                         onChange={handleChange}
                         value={mealItem.cost}
+                        autoComplete='current-currency'
                         className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block p-2.5 dark:bg-gray-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-900 dark:focus:border-blue-900 '>
 
                         <option value=''> Currency </option>
@@ -222,15 +251,21 @@ function AddMealItem() {
 
                 <div className='flex items-center justify-between'>
                     <button
-                        className='bg-[#228768] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-8'
+                        className='bg-[#228768] hover:bg-black hover:text-[#33cc9f] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-8'
                         type='submit'
                     >
                         Add item
                     </button>
                 </div>
             </form>
+            {loading && (
+                <div className="loading-overlay">
+                    <div className="loader flex justify-center items-center h-full text-[1.2rem]">Loading...</div>
+                </div>
+            )}
         </>
     );
+    
 }
 
 export default AddMealItem;
