@@ -1,18 +1,19 @@
 import HamBurger from '../assets/hamburger/white.svg';
 import Close from '../assets/hamburger/Close.svg';
 import HeaderTitle from '../mapping/navHeaderTitle';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 
 
-const navBar = ({toggleMenu, menuOpen}) => {
+const navBar = ({toggleMenu, menuOpen, rewards}) => {
     const closeMenu = () => {
         if (menuOpen) {
             toggleMenu();
         }
     };
+    const location = useLocation();
 
     return (
-        <div className='px-10 py-10 bg-green-200 text-white flex justify-between items-center top-0 right-0 left-0 z-10 bg-transparent'>
+        <div className='px-4 py-10 bg-green-200 text-white flex justify-between items-center top-0 right-0 left-0 z-10 bg-transparent'>
             <div className='flex gap-3 justify-center items-center z-10'>
                 <img
                     src={HamBurger}
@@ -23,13 +24,16 @@ const navBar = ({toggleMenu, menuOpen}) => {
                 />
                 <HeaderTitle />
             </div>
-            <div className='flex md:justify-center z-10'>
+            {!location.pathname.includes('rewards') && !location.pathname.includes('vendors')  && (
+               <div className='flex md:justify-center z-10'>
                 <Link to='/login'>
                     <button className='text-sm bg-[#33CC9F] rounded-sm bg-opacity-80 text-white py-1 px-5 font-black pointer'>
                         Login
                     </button>
                 </Link>
-            </div>
+            </div>   
+            )}
+          
 
             {/* Close button */}
             {menuOpen && (
@@ -78,6 +82,12 @@ const navBar = ({toggleMenu, menuOpen}) => {
                         <li className='cursor-pointer mb-2'>
                             <Link to='/vendors-transaction' onClick={closeMenu}>
                                 Trans.history
+                            </Link>
+                        </li>
+
+                        <li className='cursor-pointer mb-2'>
+                            <Link to='/meallisting' onClick={closeMenu}>
+                                Restaurant Menu
                             </Link>
                         </li>
                     </ul>

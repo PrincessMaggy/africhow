@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
 // importing pages
+
 import Home from "./pages/Home";
 import Support from "./pages/Support";
 import Rewards from "./pages/Rewards";
@@ -32,16 +33,19 @@ import FormSuccess from "./pages/FormSuccess";
 import ConfirmPassword from "./pages/ConfirmPassword";
 import ForgotPassword from "./pages/ForgotPassword";
 
+import TrendingComponent from './components/community/trending';
+import Post from './components/community/post';
+
+
 // for sample
 import Listings from "./mapping/mealListing";
 
-// import OrderManagement from './pages/OrderManagement';
+// import OrderManagement from './pages/OrderManagement
 import Outgoing from "./components/OrderManagement/Outgoing";
 import Incoming from "./components/OrderManagement/Incoming";
 import History from "./components/OrderManagement/History";
 import Layout from "./components/OrderManagement/Layout/Layout";
 import NewMeal from "./components/addMealItem";
-
 
 //for vendor profile
 import Vendorprofile from "./pages/Vendorprofile";
@@ -50,6 +54,11 @@ import Cancelprofilecard from "./pages/Cancelprofilecard";
 import Profilesavedsuccess from "./pages/Profilesavedsuccess";
 import Profileerrormessage from "./pages/Profileerrormessage"
 import Vendorprofilechange from "./pages/Vendorprofilechange";
+
+
+import ReedeemSucess from './components/Rewards/ReedeemSucess'
+import ReviewCard from './pages/ReviewCard';
+import ReviewReply from './pages/ReviewReply';
 
 function App() {
   return (
@@ -97,11 +106,11 @@ function App() {
         <Route path="/forgot password" element={<ForgotPassword />} />
         <Route path="/confirm password" element={<ConfirmPassword />} />
 
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout />}/>
           <Route path="/incoming" element={<Incoming />} />
           <Route path="/outgoing" element={<Outgoing />} />
           <Route path="/history" element={<History />} />
-        </Route>
+      
 
         <Route path="/vendorprofile" element={<Vendorprofile />} />
         <Route path="/vendorworkhour" element={<Vendorworkhour />} />
@@ -109,10 +118,16 @@ function App() {
         <Route path="/cancelprofilecard" element={<Cancelprofilecard />} />
         <Route path="/profilesavedsuccess" element={<Profilesavedsuccess />} />
         <Route path="/profileerrormessage" element={<Profileerrormessage/>}/>
+          
+          <Route path ="/trending" element = {<TrendingComponent/>}/>
+                <Route path= "/post" element = {<Post/>}/>
+                  <Route path='/review card' element={<ReviewCard />} />
+                <Route path='/review-reply' element={<ReviewReply />} />
+
+                
       </Routes>
       <Footer />
-    </>
-  );
+    </>   );
 }
 
 export default App;

@@ -3,10 +3,12 @@ import RewardNav from '../RewardNav';
 import stars from '../../../assets/images/stars.png';
 import catalogs from '../../../lib/catalog';
 import '../rewards.css';
+import HomeNav from '../../homeNav';
 
 const CatalogPage = () => {
     return (
         <>
+            <HomeNav />
             <RewardNav />
             <div className='catalog_wrapper mx-2 mt-14'>
                 {catalogs.map((item, i) => (
