@@ -26,10 +26,7 @@ import CatalogDetails from './pages/CatalogDetails';
 import EarnStars from './pages/EarnStars';
 import SuccessRewards from './pages/SuccessRewards';
 // importing components
-//..import components
-// importing components
-//..import components
-///////////////////////////
+
 import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
 import VendorsPayoutMethod from './components/vendorsPayment/VendorsPayoutMethod';
@@ -45,7 +42,6 @@ import Listings from './pages/MealListing';
 import Outgoing from './components/OrderManagement/Outgoing';
 import Incoming from './components/OrderManagement/Incoming';
 import History from './components/OrderManagement/History';
-import Layout from './components/OrderManagement/Layout/Layout';
 import NewMeal from './pages/AddNewMeal';
 import Savechangeprofile from './components/Savechangeprofile';
 
