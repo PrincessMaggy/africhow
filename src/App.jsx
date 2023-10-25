@@ -6,8 +6,7 @@ import Home from './pages/Home';
 import Support from './pages/Support';
 import Rewards from './pages/Rewards';
 import Signup from './pages/Signup';
-// import Login from './pages/Login';
-import Community from './pages/Community';
+
 import './App.css';
 import './index.css';
 
@@ -16,8 +15,6 @@ import Achievements from './components/Rewards/Achievements';
 import Catalog from './components/Rewards/catalog/Catalog';
 import EarnStars from './components/Rewards/EarnStars';
 import CatalogDetails from './components/Rewards/catalog/CatalogDetails';
-import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
-import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
 import StoreOverview from './components/storePerformance/StoreOverview';
 import StorePerformance from './components/storePerformance/StorePerformance';
 import VendorSupport from './components/VendorSupportPage/VendorSupport';
@@ -28,12 +25,16 @@ import Footer from './components/Footer';
 import Notification from "./components/Notification/notification";
 import NotificationSuccess from "./components/Notification/notificationSuccesful"
 import Header from './components/Header';
-import LoginForm from './pages/LoginForm';
+//import LoginForm from './pages/LoginForm';
 import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
 import FormSuccess from './pages/FormSuccess';
 // import Loader from './components/LoaderOnboarding';
 import ConfirmPassword from './pages/ConfirmPassword';
 import ForgotPassword from './pages/ForgotPassword';
+import TrendingComponent from './components/community/trending';
+import Post from './components/community/post';
+
+
 
 // for sample
 import Listings from './mapping/mealListing';
@@ -55,6 +56,11 @@ function App() {
     return (
         <>
             <Routes>
+        
+ 
+                <Route path ="/trending" element = {<TrendingComponent/>}/>
+                <Route path= "/post" element = {<Post/>}/>
+                          
                 <Route path='/' element={<Home />} />
                 <Route path='/community' element={<Community />} />
                 <Route path='/signup' element={<Signup />} />
@@ -125,7 +131,9 @@ function App() {
 
                 
             </Routes>
+
             <Footer />
+           
         </>
     );
 }
