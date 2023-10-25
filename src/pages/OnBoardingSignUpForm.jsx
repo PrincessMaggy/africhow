@@ -197,7 +197,7 @@ export default function OnBoardingSignUpForm() {
             {errors?.Lastname && errors?.Lastname?.message}
           </span>
           <div className="grid gap-2 parentinput">
-            <label className="w-full text flex gap-2">
+            <label className=" font-[500] w-full max-[390px]:text-[12px] text text-left justify-start flex gap-2">
               Phone Number <span className="text-[#CB0000]">*</span>
             </label>
             <span className="flex justify-between w-full max-[390px]:w-[358px] mx-auto">
@@ -269,15 +269,15 @@ export default function OnBoardingSignUpForm() {
           <span className="text-red-500 text-[12px]">
             {errors?.Storeaddress && errors?.Storeaddress?.message}
           </span>
-          <div className="flex justify-between parentinput gap-2">
-            <label className="max-[390px]:w-[170px] w-full grid">
+          <div className="flex justify-between label parentinput gap-2">
+            <label className="justify-start text-left max-[390px]:w-[170px] w-full grid">
               Country
               {/* <select className="max-[390px]:w-[170px] w-full border">
                 {Countries?.map((country) => (
                   <option key={country.id}>{country.name}</option>
                 ))}
               </select> */}
-              <select className="max-[390px]:w-[170px] w-full border" defaultValue="Country" onChange={handleCountryChange}>
+              <select className="max-[390px]:w-[170px] w-4/5 border" defaultValue="Country" onChange={handleCountryChange}>
               <option value = "Country" disabled>Country</option>
                 {countries?.map((country) => (
                   <option key={country.id} value={country.iso2}>
@@ -286,7 +286,7 @@ export default function OnBoardingSignUpForm() {
                 ))}
               </select>
             </label>
-            <label className="grid max-[390px]:w-[170px] w-full">
+            <label className="justify-end text-left grid max-[390px]:w-[170px] w-full">
               City/Province
               {/* <select className="max-[390px]:w-[170px] w-full border">
                 {Countries?.map((country) => (
