@@ -37,7 +37,6 @@ import VendorSupport from './components/VendorSupportPage/VendorSupport';
 import SupportForm from './components/VendorSupportPage/SupportForm';
 import SupportSuccess from './components/VendorSupportPage/SupportSuccess';
 import Order from './components/Order/order';
-import Footer from './components/Footer';
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
 import Listings from './pages/MealListing';
@@ -135,7 +134,6 @@ function App() {
             </Routes>
 
             {/* the rewards page doesn't use this footer, can we import them in individual components insatead? */}
-            {/* <Footer /> */}
         </>
     );
 }

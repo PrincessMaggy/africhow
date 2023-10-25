@@ -14,7 +14,7 @@ const navBar = ({toggleMenu, menuOpen, rewards}) => {
 
     return (
         <div className='px-4 py-10 bg-green-200 text-white flex justify-between items-center top-0 right-0 left-0 z-10 bg-transparent'>
-            <div className='flex gap-3 justify-center items-center z-10'>
+            <div className='flex gap-3 justify-center items-center z-10 px-4'>
                 <img
                     src={HamBurger}
                     alt=''

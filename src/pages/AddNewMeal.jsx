@@ -1,12 +1,12 @@
 import {useState} from 'react';
 import {collection, addDoc} from 'firebase/firestore';
-import {db} from '../../firebase';
-import { storage } from '../../firebase';
+import {db, auth, storage} from '../../firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import HomeNav from "../components/homeNav";
 import CameraIcon from "../assets/icons/photo_camera.svg";
+import Footer from "../components/Footer";
 
 
 
@@ -18,6 +18,9 @@ function AddMealItem() {
         cost: '',
         status: '',
     };
+
+    const currentUser = auth.currentUser;
+
     const [mealItem, setMealItem] = useState(initialMealItem);
     const [mealImageFile, setMealImageFile] = useState(null);
     const [imageUploaded, setImageUploaded] = useState(false);
@@ -87,7 +90,7 @@ function AddMealItem() {
         // Upload the image to Firebase Storage
         if (mealImageFile) {
             try {
-                const imageRef = ref(storage, `meal-images/${imageFileName}` );
+                const imageRef = ref(storage, `meal-images/${currentUser.uid}/${imageFileName}` );
                 await uploadBytes(imageRef, mealImageFile);
                 imageUrl = await getDownloadURL(imageRef);
                 mealItem.imageUrl = imageUrl; // Add the image URL to the meal item data
@@ -102,6 +105,7 @@ function AddMealItem() {
         try {
 
             const docRef = await addDoc(collection(db, 'meals'), {
+                userId: currentUser.uid,
                 name: mealItem.name,
                 category: mealItem.category,
                 currency: mealItem.currency,
@@ -266,6 +270,8 @@ function AddMealItem() {
                     <div className="loader flex justify-center items-center h-full text-[1.2rem]">Loading...</div>
                 </div>
             )}
+
+            <Footer />
         </>
     );
     
