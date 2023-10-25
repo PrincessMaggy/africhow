@@ -75,7 +75,7 @@ export default function Login() {
 
   function handleClick(e) {
     e.preventDefault();
-    reset(); //this resets the form fields on toggle between the current page and login page
+    reset(); //this resets the form fields on toggle between the current page and login page ////////////////
     navigate('/signup');
   }
   return (
