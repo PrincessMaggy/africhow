@@ -30,6 +30,7 @@ import ConfirmPassword from './pages/ConfirmPassword';
 import ForgotPassword from './pages/ForgotPassword';
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
+import Blog from './components/community/blog';
 
 
 
@@ -45,6 +46,7 @@ function App() {
           //
                 <Route path ="/trending" element = {<TrendingComponent/>}/>
                 <Route path= "/post" element = {<Post/>}/>
+                <Route path= "/blog" element = {<Blog/>}/>
                             </Routes>
             <Footer />
            

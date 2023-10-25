@@ -11,7 +11,7 @@ const PostPage = () => {
          </div>
         <h1 className="text-center pt-6 pl-6  ml-8 font-bold ">Create post </h1>
 
-        <button class="bg-transparent hover:bg-green-500 ml-4 text-gray-800 font-semibold hover:text-white py-6 px-8 mt-3 border border-blue-500  hover:border-transparent rounded">
+        <button className="bg-transparent hover:bg-green-500 ml-4 text-gray-800 font-semibold hover:text-white py-6 px-8 mt-3 border border-blue-500  hover:border-transparent rounded">
   post
 </button>
 </div>
