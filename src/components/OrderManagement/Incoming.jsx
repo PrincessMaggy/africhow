@@ -22,6 +22,10 @@ function Incoming() {
   const openAccept = () => {
     setAcceptPopUp(true)
   };
+
+  const closeAcceptpop = () => {
+    setAcceptPopUp(false)
+  }
   
 
   return (
@@ -29,7 +33,10 @@ function Incoming() {
       <OrderNav />
       <OrderHead />
       {acceptPopUp?
-    (<p className="sticky top-0 p-2 font-semibold duration-100 bg-white text-primary">Order successfully accepted!</p>) : ("") }
+    ( <div className="sticky top-0 flex items-center justify-center gap-8">
+      <p className="font-semibold bg-white text-primary">Order successfully accepted!</p>
+      <p className="w-4 text-xs leading-4 text-white bg-red-400 rounded-full cursor-pointer" onClick={closeAcceptpop}>x</p>
+    </div> ) : ("") }
   
       <div>
         {accept.map((item) => (
