@@ -35,6 +35,7 @@ import ForgotPassword from './pages/ForgotPassword';
 // for sample
 import Listings from './mapping/mealListing';
 import NewMeal from './components/addMealItem';
+import Login from './pages/Login';
 function App() {
 
     return (
@@ -42,8 +43,8 @@ function App() {
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/community' element={<Community />} />
-                <Route path='/signup' element={<Signup />} />
-                {/* <Route path='/login' element={<Login />} /> */}
+                <Route path='/signup' element={<Signup/>} />
+                <Route path='/login' element={<Login/>} />
                 <Route path='/contact-us' element={<Support />} />
                 <Route path='/community' element={<Community />} />
                 {/* <Route path='/signup' element={<Signup />} /> */}
@@ -92,7 +93,7 @@ function App() {
                 />
                 <Route path='/login successful' element={<FormSuccess />} />
                 <Route path='/forgot password' element={<ForgotPassword />} />
-                <Route path='/confirm password' element={<ConfirmPassword />} />
+                <Route path='/reset password' element={<ConfirmPassword />} />
             </Routes>
             <Footer />
         </>
