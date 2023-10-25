@@ -1,4 +1,4 @@
-import {Route, Routes, useNavigate} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import './App.css';
 import './index.css';
 
@@ -26,10 +26,7 @@ import CatalogDetails from './pages/CatalogDetails';
 import EarnStars from './pages/EarnStars';
 import SuccessRewards from './pages/SuccessRewards';
 // importing components
-//..import components
-// importing components
-//..import components
-///////////////////////////
+
 import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
 import VendorsPayoutMethod from './components/vendorsPayment/VendorsPayoutMethod';
@@ -39,7 +36,6 @@ import VendorSupport from './components/VendorSupportPage/VendorSupport';
 import SupportForm from './components/VendorSupportPage/SupportForm';
 import SupportSuccess from './components/VendorSupportPage/SupportSuccess';
 import Order from './components/Order/order';
-import Footer from './components/Footer';
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
 import Listings from './mapping/mealListing';
@@ -66,10 +62,7 @@ function App() {
                     path='/rewards/reward-details/:itemId'
                     element={<CatalogDetails />}
                 />
-                 <Route
-                    path='/success/:id'
-                    element={<SuccessRewards />}
-                />
+                <Route path='/success/:id' element={<SuccessRewards />} />
                 <Route
                     path='/vendors-dashboard'
                     element={<VendorsDashboard />}
@@ -98,42 +91,44 @@ function App() {
 
                 <Route path='/meallisting' element={<Listings />} />
                 <Route path='/add-new-meal' element={<NewMeal />} />
-                <Route path='/account setup' element={<OnBoardingSignUpForm />} />
-                {/* <Route path='/login successful' element={<FormSuccess />} /> */}
-                {/* <Route path='/login successful' element={<SuccessPass/>}/> */}
                 <Route
-          path="/login successful"
-          element={
-            <FormSuccess
-              text="Welcome back! You're in. Let the food journey begin."
-              buttonText="Go to dashboard"
-              title="Login Successful"
-              onNavigate={"/vendors-dashboard"}
-            />
-          }
-        />
-        <Route
-          path="/account created successfully"
-          element={
-            <FormSuccess
-              text="Congratulations! You're officially part of our delicious community. Let's get started!"
-              buttonText="Go to dashboard"
-              title="Your account has been created successfully!"
-              onNavigate={"/vendors-dashboard"}
-            />
-          }
-        />
-        <Route
-          path="/password reset successful"
-          element={
-            <FormSuccess
-              text="You have successfully changed your password. Please use the new password when logging in."
-              buttonText="Login Now"
-              title="Password Reset Successful"
-              onNavigate={"/login"}
-            />
-          }
-        />
+                    path='/account setup'
+                    element={<OnBoardingSignUpForm />}
+                />
+
+                <Route
+                    path='/login successful'
+                    element={
+                        <FormSuccess
+                            text="Welcome back! You're in. Let the food journey begin."
+                            buttonText='Go to dashboard'
+                            title='Login Successful'
+                            onNavigate={'/vendors-dashboard'}
+                        />
+                    }
+                />
+                <Route
+                    path='/account created successfully'
+                    element={
+                        <FormSuccess
+                            text="Congratulations! You're officially part of our delicious community. Let's get started!"
+                            buttonText='Go to dashboard'
+                            title='Your account has been created successfully!'
+                            onNavigate={'/vendors-dashboard'}
+                        />
+                    }
+                />
+                <Route
+                    path='/password reset successful'
+                    element={
+                        <FormSuccess
+                            text='You have successfully changed your password. Please use the new password when logging in.'
+                            buttonText='Login Now'
+                            title='Password Reset Successful'
+                            onNavigate={'/login'}
+                        />
+                    }
+                />
 
                 <Route path='/forgot password' element={<ForgotPassword />} />
                 <Route path='/reset password' element={<ConfirmPassword />} />
