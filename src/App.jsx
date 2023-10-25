@@ -47,6 +47,9 @@ import Layout from './components/OrderManagement/Layout/Layout'
 
 
 import NewMeal from './components/addMealItem';
+import ReviewCard from './pages/ReviewCard';
+import ReviewReply from './pages/ReviewReply';
+
 function App() {
 
     return (
@@ -87,8 +90,40 @@ function App() {
                 <Route path='/order-summary' element={<Order />} />
                 <Route path='/vendorsupport' element={<VendorSupport />} />
                 <Route path='/supportform' element={<SupportForm />} />
+
                 <Route path='/notification' element={<Notification />} />
                 <Route path='/updatedsuccesfully' element={<NotificationSuccess />} />
+
+                <Route path='/order-summary' element={<Order />} />
+                <Route path='/vendorsupport' element={<VendorSupport />} />
+                <Route path='/supportform' element={<SupportForm />} />
+                <Route path='/supportsuccess' element={<SupportSuccess />} />
+
+                {/*   sample  */}
+                <Route path='/meallisting' element={<Listings />} />
+                <Route path='/add-new-meal' element={<NewMeal />} />
+
+
+                <Route path='/header' element={<Header />} />
+                <Route path='/login' element={<LoginForm />} />
+                <Route
+                    path='/account setup'
+                    element={<OnBoardingSignUpForm />}
+                />
+                <Route path='/login successful' element={<FormSuccess />} />
+                <Route path='/forgot password' element={<ForgotPassword />} />
+                <Route path='/confirm password' element={<ConfirmPassword />} />
+
+                <Route path='/layout' element={<Layout/>}/>
+                    <Route path='/incoming' element={<Incoming/>} />
+                    <Route path='/outgoing' element={<Outgoing />} />
+                    <Route path='/history' element={<History />} />
+                    
+             
+                <Route path='/review card' element={<ReviewCard />} />
+                <Route path='/review-reply' element={<ReviewReply />} />
+
+                
             </Routes>
             <Footer />
         </>
