@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import PasswordEye from "../assets/eye-slash.png";
+import PasswordEye2 from "../assets/Icon.png";
 import "../onboardingloginsignup.css";
 import OnboardingWelcome from "../components/OnboardingWelcome";
 import OnboardingButton from "../components/OnboardingButton";
@@ -190,12 +191,22 @@ function onSubmit(data) {
                       },
                     })}
                   />
-                  <img
+                  {/* <img
                     src={PasswordEye}
                     alt="eye icon"
                     className="w-[16.41px] h-[11.67px]"
                     onClick={togglePasswordVisibility}
-                  />
+                  /> */}
+                  <span
+                    className="w-[16.41px] h-[11.67px]"
+                    onClick={togglePasswordVisibility}
+                  >
+                    {showPassword ? (
+                      <img src={PasswordEye2} />
+                    ) : (
+                      <img src={PasswordEye} />
+                    )}
+                  </span>
                 </div>
               </div>
 

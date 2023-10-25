@@ -3,9 +3,15 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import PasswordEye from "../assets/eye-slash.png";
+import PasswordEye2 from "../assets/Icon.png";
+import Prev from "../components/Prev";
 import OnboardingButton from "../components/OnboardingButton";
 import "../onboardingloginsignup.css";
 import Loader from "../components/LoaderOnboarding";
+import { auth } from "../../firebase";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { updatePassword } from "firebase/auth";
 
 export default function ConfirmPassword() {
   const [showPassword, setShowPassword] = useState(false);
@@ -18,11 +24,28 @@ export default function ConfirmPassword() {
     setShowPassword(!showPassword);
   };
 
+  //   function onSubmit(data) {
+  //     console.log(data);
+  //     setIsLoading(true);
+  //     navigate("/password%20reset%20successful");
+  //     setIsLoading(false);
+  //   }
+
   function onSubmit(data) {
-    console.log(data);
-    setIsLoading(true);
-    navigate("/password%20reset%20successful");
-    setIsLoading(false);
+    const { password, confirmpassword } = data;
+
+    if (password !== confirmpassword) {
+      // Passwords don't match
+      onError({ confirmpassword: "Passwords do not match" });
+    } else {
+      // Passwords match, proceed to the next page
+      setIsLoading(true);
+      navigate("/password%20reset%20successful");
+      setIsLoading(false);
+    }
+  }
+  function handlePrev() {
+    navigate("/login");
   }
 
   function onError(errors) {
@@ -30,6 +53,7 @@ export default function ConfirmPassword() {
   }
   return (
     <div className="relative">
+      <Prev onClick={handlePrev} />
       <div className="grid gap-6 min-[391px]:w-4/5 max-[390px]:w-[358px] mx-auto">
         <OnboardingWelcome
           title={"Reset Password"}
@@ -56,12 +80,22 @@ export default function ConfirmPassword() {
                   },
                 })}
               />
-              <img
+              {/* <img
                 src={PasswordEye}
                 alt="eye icon"
                 className="w-[16.41px] h-[11.67px]"
                 onClick={togglePasswordVisibility}
-              />
+              /> */}
+              <span
+                className="w-[16.41px] h-[11.67px]"
+                onClick={togglePasswordVisibility}
+              >
+                {showPassword ? (
+                  <img src={PasswordEye2} />
+                ) : (
+                  <img src={PasswordEye} />
+                )}
+              </span>
             </div>
           </label>
           <span className="text-red-500 text-[12px]">
@@ -84,12 +118,22 @@ export default function ConfirmPassword() {
                   },
                 })}
               />
-              <img
+              {/* <img
                 src={PasswordEye}
                 alt="eye icon"
                 className="w-[16.41px] h-[11.67px]"
                 onClick={togglePasswordVisibility}
-              />
+              /> */}
+              <span
+                className="w-[16.41px] h-[11.67px]"
+                onClick={togglePasswordVisibility}
+              >
+                {showPassword ? (
+                  <img src={PasswordEye2} />
+                ) : (
+                  <img src={PasswordEye} />
+                )}
+              </span>
             </div>
           </label>
           <span className="text-red-500 text-[12px]">
