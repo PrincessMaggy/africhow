@@ -10,6 +10,7 @@ import OnboardingWelcome from "../components/OnboardingWelcome";
 import "../onboardingloginsignup.css";
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import Nav from '../components/homeNav';
 
 export default function OnBoardingSignUpForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -105,7 +106,7 @@ export default function OnBoardingSignUpForm() {
 
   function onSubmit(data) {
     console.log(data);
-    navigate("/");
+    navigate("/login");
   }
 
   function onError(errors) {
@@ -113,7 +114,7 @@ export default function OnBoardingSignUpForm() {
   }
   return (
     <div>
-      <Header />
+      <Nav />
       <div className=" mx-auto min-[391px]:w-4/5 max-[390px]:w-[358px] flex flex-col gap-3">
         <OnboardingWelcome
           title={"Complete account setup"}
