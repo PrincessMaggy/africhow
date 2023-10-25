@@ -8,6 +8,8 @@ import Home from './pages/Home';
 import Support from './pages/Support';
 import Rewards from './pages/Rewards';
 import LoginForm from './pages/LoginForm';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
 import Cancelprofilecard from './pages/Cancelprofilecard';
 import Profilesavedsuccess from './pages/Profilesavedsuccess';
@@ -44,17 +46,17 @@ import Layout from './components/OrderManagement/Layout/Layout';
 import NewMeal from './components/addMealItem';
 import Savechangeprofile from './components/Savechangeprofile';
 
-import Login from './pages/Login';
+
 function App() {
     return (
         <>
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/community' element={<Community />} />
+                {/* <Route path='/community' element={<Community />} /> */}
                 <Route path='/signup' element={<Signup/>} />
                 <Route path='/login' element={<Login/>} />
                 <Route path='/contact-us' element={<Support />} />
-                <Route path='/community' element={<Community />} />
+                {/* <Route path='/community' element={<Community />} /> */}
                 {/* <Route path='/signup' element={<Signup />} /> */}
                 {/* <Route path='/login' element={<Login />} /> */}
 
