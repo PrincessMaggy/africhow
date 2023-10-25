@@ -10,6 +10,7 @@ import OnboardingWelcome from "../components/OnboardingWelcome";
 import "../onboardingloginsignup.css";
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import Nav from '../components/homeNav';
 
 export default function OnBoardingSignUpForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -105,7 +106,7 @@ export default function OnBoardingSignUpForm() {
 
   function onSubmit(data) {
     console.log(data);
-    navigate("/");
+    navigate("/login");
   }
 
   function onError(errors) {
@@ -113,7 +114,7 @@ export default function OnBoardingSignUpForm() {
   }
   return (
     <div>
-      <Header />
+      <Nav />
       <div className=" mx-auto min-[391px]:w-4/5 max-[390px]:w-[358px] flex flex-col gap-3">
         <OnboardingWelcome
           title={"Complete account setup"}
@@ -204,10 +205,10 @@ export default function OnBoardingSignUpForm() {
               placeholder="The SpiceKitchen"
               {...register("Businessname", {
                 required: "Required",
-                pattern: {
-                  value: /^[A-Za-z]+$/,
-                  message: "invalid Business name",
-                },
+                // pattern: {
+                //   value: /[A-Za-z0-9'\.\-\s\,]/,
+                //   message: "invalid Business name",
+                // },
               })}
               className="input"
             />
@@ -228,7 +229,7 @@ export default function OnBoardingSignUpForm() {
               {...register("Storeaddress", {
                 required: "Required",
                 pattern: {
-                  value: /^[A-Za-z]+$/,
+                  value: /[A-Za-z0-9'\.\-\s\,]/,
                   message: "invalid address",
                 },
               })}

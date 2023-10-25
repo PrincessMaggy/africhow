@@ -4,6 +4,7 @@ import OnboardingButton from '../components/OnboardingButton'
 import Loader from '../components/LoaderOnboarding'
 import ReactPlayer from 'react-player'
 import Gif from '../assets/AnimateOnboarding/animation_lo0ckjix.mp4'
+import { Link } from 'react-router-dom'
 
 export default function FormSuccess() {
   return (
@@ -19,9 +20,11 @@ export default function FormSuccess() {
             style={'text-center'}
         />
         
+        <Link to="/vendors-dashboard" >
         <OnboardingButton 
             text={'Go to dashboard'}
         />
+        </Link>
     </div>
     
   )
