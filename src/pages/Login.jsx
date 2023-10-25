@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import PasswordEye from "../assets/Vector.png";
+import PasswordEye from "../assets/eye-slash.png";
 import "../onboardingloginsignup.css";
 import OnboardingWelcome from "../components/OnboardingWelcome";
 import OnboardingButton from "../components/OnboardingButton";
@@ -17,6 +17,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Nav from "../components/nav";
 import FormInputs from "../components/FormInputs";
+import "react-toastify/dist/ReactToastify.css";
 
 const style =
   "rounded-xl px-[12px] w-[420px] line-[24px] py-[13px] text-white text-14px";
@@ -33,6 +34,14 @@ export default function Login() {
   const [errorMessage, setErrorMessage] = useState("");
   const { register, handleSubmit, formState, reset } = useForm();
   const { errors, isValid, isDirty } = formState;
+  const mounted = useRef(false);
+
+  useEffect(() => {
+    mounted.current = true;
+    return (() => {
+      mounted.current = false;
+    });
+  });
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -54,19 +63,29 @@ export default function Login() {
     await new Promise((r) => setTimeout(r, 500));
     }
     
-  function onSubmit(data) {
-    //console.log(data);//tHIS DATA! needs to be pushed to the firebase DB
-    const { email, password } = data;
-      //handles signIn for existing users
-    handleSignIn(email, password);
-
-    setIsLoading(true);
-    activeWait();
-    setIsLoading(false);
-    if (!errorMessage) {
-      navigate("/login successful");
+    function onSubmit(data) {
+      const { email, password } = data;
+      setIsLoading(true);
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          console.log(userCredential);
+          navigate("/login%20successful");
+        })
+        .catch((err) => {
+          console.log(err, "err");
+          setLoginError(true);
+          let customErrorMessage = "An error occurred";
+          if (err.code === "auth/user-not-found") {
+            customErrorMessage = "User not found. Please check your email address.";
+          } else if (err.code === "auth/invalid-email") {
+            customErrorMessage = "Invalid email address format.";
+          }
+          toast(customErrorMessage)
+        })
+        .finally(() => mounted.current && setIsLoading(false));
+        reset();
+      
     }
-  }
 
   function onError(errors) {
     console.log(errors);
@@ -81,6 +100,7 @@ export default function Login() {
   return (
     <>
       <div>
+        <ToastContainer/>
         {/* {newUser && <Nav setNewUserToFalse={setNewUserToFalse} />} */}
         <div className="grid gap-6 min-[391px]:w-4/5 max-[398px]:w-[358px] mx-auto relative">
           <div className="grid items-end">
@@ -143,7 +163,7 @@ export default function Login() {
                   <img
                     src={PasswordEye}
                     alt="eye icon"
-                    className="w-[16.41px] h-[11.67px] bg-red-800"
+                    className="w-[16.41px] h-[11.67px]"
                     onClick={togglePasswordVisibility}
                   />
                 </div>
@@ -167,8 +187,8 @@ export default function Login() {
             </form>
           </div>
         </div>
-        {loginError && <p>{loginError}</p> }
-        {/* {isLoading && <Loader />} */}
+        {/* {loginError && <p>{loginError}</p> } */}
+        {isLoading && <Loader />}
       </div>
     </>
   );
