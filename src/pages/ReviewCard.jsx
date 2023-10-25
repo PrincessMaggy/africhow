@@ -1,29 +1,31 @@
+
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ReviewNav from '../components/Reviews/ReviewNav';
 import Solomon from '../assets/Review-Images/Ellipse 8.png';
 import Star from '../assets/Review-Images/Star 3.png';
 
 const ReviewsCard = () => {
   const [message, setMessage] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate(); // Use useNavigate instead of useHistory
 
   const handleInputChange = (event) => {
     setMessage(event.target.value);
   };
 
   const handleSendClick = () => {
-    // Handle sending the message, e.g., submit to the server
     console.log('Sending message:', message);
     // Add logic here to send the message to the server or perform other actions
 
-    // Use Link for navigation instead of history.push
+    // Use navigate for navigation instead of Link
     // (replace '/review-reply' with the actual route)
+    navigate('/review-reply');
   };
 
   return (
     <div className="w-96 h-96 relative bg-white">
       <ReviewNav />
+
       {/* User Information */}
       <div className="left-[16px] top-[50px] absolute flex-col justify-start items-start gap-4 inline-flex">
         {/* User details */}
@@ -36,7 +38,7 @@ const ReviewsCard = () => {
               <div className="flex-col justify-start items-start gap-1.5 inline-flex">
                 <div className="text-center text-zinc-950 text-base font-medium font-['Inter'] tracking-tight">Solomon Enahke</div>
                 <div className="justify-center items-center gap-1 inline-flex">
-                  <div className="justify-start items-start flex" />
+                <div className="justify-start items-start flex" />
                   <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
                     <img src={Star} />
                   </div>
@@ -55,7 +57,6 @@ const ReviewsCard = () => {
                   <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
                     (Rating)
                   </div>
-                  <div className="w-1 h-1  rounded-full" />
                   <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">12/10/2023</div>
                 </div>
               </div>
@@ -64,7 +65,7 @@ const ReviewsCard = () => {
 
           {/* Review content */}
           <div className="w-96">
-            <span className="text-neutral-600 text-sm font-normal font-['Manrope'] leading-tight tracking-tight">
+          <span className="text-neutral-600 text-sm font-normal font-['Manrope'] leading-tight tracking-tight">
               Enjoyed a delightful meal at this restaurant. The ambiance was great, and the service was excellent. I highly recommend it!
             </span>
             <span className="text-emerald-400 text-sm font-semibold font-['Manrope'] leading-tight tracking-tight">See more</span>
@@ -81,10 +82,14 @@ const ReviewsCard = () => {
           </div>
         </div>
 
-        {/* Send button with Link */}
-        <Link to="/review-reply" className="px-4 py-1 bg-emerald-400 justify-center items-center gap-2.5 inline-flex" style={{ cursor: 'pointer' }}>
+        {/* Send button with navigate */}
+        <button
+          className="px-4 py-1 bg-emerald-400 justify-center items-center gap-2.5 inline-flex"
+          style={{ cursor: 'pointer' }}
+          onClick={handleSendClick}
+        >
           <div className="text-center text-white text-base font-medium font-['Manrope'] tracking-tight">Send</div>
-        </Link>
+        </button>
       </div>
     </div>
   );
