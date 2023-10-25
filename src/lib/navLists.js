@@ -3,7 +3,7 @@ const navList = [
       id: 1,
       title: 'Join the trybe', 
       sub_title: 'Community', 
-      route: '/community',
+      route: '/',
       
     },
     {
@@ -18,7 +18,7 @@ const navList = [
       id: 3,
       title: 'Support', 
       sub_title: 'Support', 
-      route: '/vendorsupport',
+      route: '/',
       
     },
     {
