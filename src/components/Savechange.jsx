@@ -8,9 +8,9 @@ import Saveprofile from "./Saveprofile";
 import Profilenav from "./Profilenav";
 
 
-function Savechangeprofile ()  { 
+function Savechange ()  { 
     return (
-        <div  className=' flex flex-col justify-center align-center   border rounded shadow-sm w-[400px] h-min m-auto' >
+        <div  className=' flex flex-col justify-center align-center   border rounded shadow-sm w-[380px] h-6/12 my-5 m-auto' >
         
         <Profilehead/>
         <Profilenav
@@ -20,7 +20,9 @@ function Savechangeprofile ()  {
         />
         <Profileimg/>
         <Profilelocation/>
-        <Saveprofile/>
+        <Saveprofile
+        
+        />
         
         
         
@@ -28,4 +30,4 @@ function Savechangeprofile ()  {
     );
 };
 
-export default Savechangeprofile;
+export default Savechange;

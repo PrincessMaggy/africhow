@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Savechangeprofile from "../components/Savechangeprofile";
+import Savechange from "../components/Savechange";
 
 
 function Vendorprofilechange ()  { 
     return (
     <>
-         <Savechangeprofile/>
+         <Savechange/>
    
         </>
     );

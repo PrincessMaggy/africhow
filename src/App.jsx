@@ -42,12 +42,14 @@ import History from "./components/OrderManagement/History";
 import Layout from "./components/OrderManagement/Layout/Layout";
 import NewMeal from "./components/addMealItem";
 
+
+//for vendor profile
 import Vendorprofile from "./pages/Vendorprofile";
 import Vendorworkhour from "./pages/Vendorworkhour";
-import Savechangeprofile from "./components/Savechangeprofile";
 import Cancelprofilecard from "./pages/Cancelprofilecard";
 import Profilesavedsuccess from "./pages/Profilesavedsuccess";
 import Profileerrormessage from "./pages/Profileerrormessage"
+import Vendorprofilechange from "./pages/Vendorprofilechange";
 
 function App() {
   return (
@@ -103,7 +105,7 @@ function App() {
 
         <Route path="/vendorprofile" element={<Vendorprofile />} />
         <Route path="/vendorworkhour" element={<Vendorworkhour />} />
-        <Route path="/savechangeprofile" element={<Savechangeprofile />} />
+        <Route path="/vendorprofilechange" element={<Vendorprofilechange />} />
         <Route path="/cancelprofilecard" element={<Cancelprofilecard />} />
         <Route path="/profilesavedsuccess" element={<Profilesavedsuccess />} />
         <Route path="/profileerrormessage" element={<Profileerrormessage/>}/>
