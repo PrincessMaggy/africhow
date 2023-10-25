@@ -29,6 +29,7 @@ import SuccessRewards from './pages/SuccessRewards';
 
 import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
+import VendorsPayoutMethod from './components/vendorsPayment/VendorsPayoutMethod';
 import StoreOverview from './components/storePerformance/StoreOverview';
 import StorePerformance from './components/storePerformance/StorePerformance';
 import VendorSupport from './components/VendorSupportPage/VendorSupport';
@@ -74,6 +75,10 @@ function App() {
                 <Route
                     path='/vendors-transaction'
                     element={<VendorsTransaction />}
+                />
+                <Route
+                    path='vendors-payout-method'
+                    element={<VendorsPayoutMethod />}
                 />
                 <Route path='/store-overview' element={<StoreOverview />} />
                 <Route

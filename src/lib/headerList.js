@@ -71,6 +71,11 @@ const headerList = [
       id: '/order-summary',
       header: 'Order',
     },
+
+    {
+      id: '/vendors-payout-method',
+      header: 'Payout method',
+    },
     
     ];
     
