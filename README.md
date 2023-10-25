@@ -9,6 +9,10 @@ Welcome to the Africhow, a web application designed to enhance the customer expe
   - [OTP Authentication](#otp-authentication)
   - [KYC Verification](#kyc-verification)
   - [Meal listings](#meal-listings)
+  - [Store Performance](#store-performance)
+  - [Order Summary](#order-summary)
+  - [Notification](#notification)
+  - [Email Notification](#email-notification)
 - [Team Members](#team-members)
   - [Alpha team](#alpha-team)
   - [Beta-team](#beta-team)
@@ -62,6 +66,22 @@ As part of our commitment to safety and security, we require KYC verification fo
 - Wait for our team to review your KYC submission. This typically takes a short amount of time.
 - Once your KYC is approved, you can access advanced features and enjoy a higher level of trust within our app.
 
+### Meal Listing
+
+### Store Performance
+To give you a proper user friendly experience using this app, the store performance shows the overall performance of your store/business registered on the app. While on the store performance page, everything is at a default but once you start selling by clicking on the "Start selling" button, you'll start seeing the performances of your store.
+
+### Order Summary
+The order summary is for the vendor to filter and see all order entries done for days(all i.e Monday-Sunday) also vendor can see entires done for 1-3 month and also last 6month
+
+### Notification
+The notification provides you with options of what you will like to get notified on (you can choose as many options as you want it), with first option checked by default but can be unchecked if you wouldn't like to get such notification and clicking on continue button, takes you to the next page which shows the success of the options you've picked.
+
+### Email Notification
+The vendor support email notification (Help desk). This page allows the user to send an email ( in respect to complaints, feedback and any issue related to the app) which will be delivered to the developers. 
+
+The first page shows the users interest in sending a mail for support, This links to the second page which contains the form. The inputed information is collected and sent to the developer via EmailJS. Clicking the submit button also triggers the next page that shows submission successful.
+
 # Team members
 ## Alpha team
 - Uchechukwu Nwanja (link to github repo)
@@ -78,11 +98,10 @@ As part of our commitment to safety and security, we require KYC verification fo
 - Daphne Oyibode-Olokpa [Derhuv](https://github.com/derhuv/africhow)
 
 ## Delta team
-
-ifeoma Okpara Anumege(https://github.com/SylviaifyX/africhow.git)
-
 - Agbaje Opeyemi Esther (https://github.com/esteriella/africhow)
+- Ifeoma Okpara Anumege(https://github.com/SylviaifyX/africhow.git)
 - Gloria Jumai Williams (https://github.com/Jumai26/africhow)
+- Adediran Florish (https://github.com/flourish03/africhow)
 
 
 ## Echo team
