@@ -124,9 +124,7 @@ function Incoming() {
 
               <button
                 className="px-8 py-2 text-bg-order-active bg-primary"
-                onClick={() => {
-                  setAccept(accept.filter(a => a.id !== item.id))
-                }}>
+                onClick={closePopUP}>
                 Yes
               </button>
             </div>
