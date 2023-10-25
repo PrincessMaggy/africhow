@@ -2,25 +2,44 @@ const navList = [
     {
       id: 1,
       title: 'Join the trybe', 
+      sub_title: 'Community', 
       route: '/community',
       
     },
     {
       id: 2,
       title: 'Loyalty Rewards', 
+      sub_title: 'Rewards', 
       route: '/rewards',
       
     },
+
     {
       id: 3,
-      title: 'KYC Onboarding', 
-      route: '/onboarding',
+      title: 'Support', 
+      sub_title: 'Support', 
+      route: '/vendorsupport',
       
     },
     {
       id: 4,
+      title: 'Facebook', 
+      sub_title: 'Meta', 
+      route: '/',
+      
+    },
+    {
+      id: 5,
       title: 'Support', 
-      route: '/contact-us',
+      sub_title: 'LinkedIn', 
+      route: '/',
+      
+    },
+    {
+      id: 6,
+      title: 'Support', 
+      sub_title: 'X', 
+      route: '/',
       
     },
     

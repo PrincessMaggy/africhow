@@ -91,7 +91,7 @@ const navBar = ({toggleMenu, menuOpen, rewards}) => {
                             </Link>
                         </li>
                     </ul>
-                    <div className='mt-auto p-4 flex items-center gap-4'>
+                    {/*<div className='mt-auto p-4 flex items-center gap-4'>
                         <p id='subscribe' className='text-xs font-semibold'>
                             Join Our Mailing List
                         </p>
@@ -103,7 +103,7 @@ const navBar = ({toggleMenu, menuOpen, rewards}) => {
                                 Subscribe
                             </button>
                         </form>
-                    </div>
+            </div>*/}
                 </div>
             )}
         </div>
