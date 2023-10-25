@@ -25,6 +25,8 @@ import SupportForm from './components/VendorSupportPage/SupportForm';
 import SupportSuccess from './components/VendorSupportPage/SupportSuccess';
 import Order from './components/Order/order';
 import Footer from './components/Footer';
+import Notification from "./components/Notification/notification";
+import NotificationSuccess from "./components/Notification/notificationSuccesful"
 import Header from './components/Header';
 import LoginForm from './pages/LoginForm';
 import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
@@ -88,6 +90,10 @@ function App() {
                 <Route path='/order-summary' element={<Order />} />
                 <Route path='/vendorsupport' element={<VendorSupport />} />
                 <Route path='/supportform' element={<SupportForm />} />
+
+                <Route path='/notification' element={<Notification />} />
+                <Route path='/updatedsuccesfully' element={<NotificationSuccess />} />
+
                 <Route path='/order-summary' element={<Order />} />
                 <Route path='/vendorsupport' element={<VendorSupport />} />
                 <Route path='/supportform' element={<SupportForm />} />
@@ -108,12 +114,12 @@ function App() {
                 <Route path='/forgot password' element={<ForgotPassword />} />
                 <Route path='/confirm password' element={<ConfirmPassword />} />
 
-                <Route path='/' element={<Layout/>}>
+                <Route path='/layout' element={<Layout/>}/>
                     <Route path='/incoming' element={<Incoming/>} />
                     <Route path='/outgoing' element={<Outgoing />} />
                     <Route path='/history' element={<History />} />
                     
-                </Route>
+             
                 <Route path='/review card' element={<ReviewCard />} />
                 <Route path='/review-reply' element={<ReviewReply />} />
 
