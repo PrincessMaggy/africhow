@@ -62,7 +62,6 @@ export default function Login() {
   const activeWait= async ()=>{
     await new Promise((r) => setTimeout(r, 500));
     }
-    
     function onSubmit(data) {
       const { email, password } = data;
       setIsLoading(true);
@@ -73,12 +72,11 @@ export default function Login() {
         })
         .catch((err) => {
           console.log(err, "err");
+          console.log(err.code)
           setLoginError(true);
           let customErrorMessage = "An error occurred";
-          if (err.code === "auth/user-not-found") {
-            customErrorMessage = "User not found. Please check your email address.";
-          } else if (err.code === "auth/invalid-email") {
-            customErrorMessage = "Invalid email address format.";
+          if (err.code === "auth/invalid-login-credentials") {
+            customErrorMessage = "User not found. Please check your email address or password.";
           }
           toast(customErrorMessage)
         })
@@ -86,6 +84,30 @@ export default function Login() {
         reset();
       
     }
+    
+    // function onSubmit(data) {
+    //   const { email, password } = data;
+    //   setIsLoading(true);
+    //   signInWithEmailAndPassword(auth, email, password)
+    //     .then((userCredential) => {
+    //       console.log(userCredential);
+    //       navigate("/login%20successful");
+    //     })
+    //     .catch((err) => {
+    //       console.log(err, "err");
+    //       setLoginError(true);
+    //       let customErrorMessage = "An error occurred";
+    //       if (err.code === "auth/user-not-found") {
+    //         customErrorMessage = "User not found. Please check your email address.";
+    //       } else if (err.code === "auth/invalid-email") {
+    //         customErrorMessage = "Invalid email address format.";
+    //       }
+    //       toast(customErrorMessage)
+    //     })
+    //     .finally(() => mounted.current && setIsLoading(false));
+    //     reset();
+      
+    // }
 
   function onError(errors) {
     console.log(errors);

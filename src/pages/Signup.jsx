@@ -72,8 +72,13 @@ function onSubmit(data) {
     .catch((err) => {
       console.log(err, "err");
       setSignupError(true);
-      setErrorMessage(err.message);
-      toast(err.message)
+      console.log(err.code)
+      let customErrorMessage = "An error occurred";
+      if (err.code === "auth/email-already-in-use") {
+        customErrorMessage = "Existing user. Please login with your email address.";
+      } 
+      setErrorMessage(customErrorMessage);
+      toast(errorMessage)
     })
     .finally(() => mounted.current && setIsLoading(false));
     reset();
@@ -85,6 +90,31 @@ function onSubmit(data) {
   //   navigate("/account setup");
   // }
 }
+
+// function onSubmit(data) {
+//   const { email, password } = data;
+//   setIsLoading(true);
+//   createUserWithEmailAndPassword(auth, email, password)
+//     .then((userCredential) => {
+//       console.log(userCredential);
+//       navigate("/account%20setup");
+//     })
+//     .catch((err) => {
+//       console.log(err, "err");
+//       setSignupError(true);
+//       setErrorMessage(err.message);
+//       toast(err.message)
+//     })
+//     .finally(() => mounted.current && setIsLoading(false));
+//     reset();
+
+//   // setIsLoading(true);
+//   // // await new Promise((r) => setTimeout(r, 500));
+//   // // setIsLoading(false);
+//   // if (!loginError && errorMessage) {
+//   //   navigate("/account setup");
+//   // }
+// }
   function onError(errors) {
     console.log(errors);
     //alert(errors);
