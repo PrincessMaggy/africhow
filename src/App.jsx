@@ -29,6 +29,7 @@ import SuccessRewards from './pages/SuccessRewards';
 //..import components
 // importing components
 //..import components
+///////////////////////////
 import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
 import VendorsPayoutMethod from './components/vendorsPayment/VendorsPayoutMethod';
