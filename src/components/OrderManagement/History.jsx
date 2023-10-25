@@ -8,14 +8,6 @@ import OrderNav from "./OrderNav";
 import OrderHead from "./OrderHead";
 
 function History() {
-  // const [isOpen2, setIsOpen2] = useState(false);
-  // const toggle2 = (index) => {
-  //   if (isOpen2 === index) {
-  //     return setIsOpen2(null);
-  //   }
-  //   setIsOpen2(index);
-  // };
-  
   const [isOpen, setIsOpen] = useState(false);
   const toggle = (index) => {
     if (isOpen === index) {
@@ -25,7 +17,7 @@ function History() {
   };
 
   return (
-    <div>
+    <div className="mb-10">
       <OrderNav />
       <OrderHead />
       {FoodList.map((item, index) => (
