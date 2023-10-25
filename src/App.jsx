@@ -27,7 +27,8 @@ import EarnStars from './pages/EarnStars';
 import SuccessRewards from './pages/SuccessRewards';
 // importing components
 //..import components
-
+// importing components
+//..import components
 import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
 import VendorsPayoutMethod from './components/vendorsPayment/VendorsPayoutMethod';
