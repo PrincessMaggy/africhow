@@ -20,7 +20,6 @@ import ReviewCard from './pages/ReviewCard';
 import ReviewReply from './pages/ReviewReply';
 import Vendorprofile from './pages/Vendorprofile';
 import Vendorworkhour from './pages/Vendorworkhour';
-import Rewards from './pages/Rewards';
 import Achievements from './pages/Achievements';
 import Catalog from './pages/Catalog';
 import CatalogDetails from './pages/CatalogDetails';
