@@ -11,6 +11,7 @@ import chowking from '../assets/images/chowking.png';
 const catalogs = [
     {
         id: 1,
+        points: 50,
         rate: '50 five star',
         name: 'Bronze',
         title: 'Bronze Tier',
@@ -25,6 +26,7 @@ const catalogs = [
 
     {
         id: 2,
+        points: 100,
         rate: '100 five star',
         name: 'Sliver',
         title: 'Silver Tier',
@@ -38,6 +40,7 @@ const catalogs = [
     },
     {
         id: 3,
+        points: 200,
         rate: '200 five star',
         name: 'Gold',
         title: 'Gold Tier',
@@ -50,7 +53,8 @@ const catalogs = [
             'Receive GOLD tier once you have successfully received 200 five star ratings from your customers.',
     },
     {
-        id: 3,
+        id: 4,
+        points: 500,
         rate: '500 five star',
         name: 'AfriChow King',
         title: 'AfriChow King',
