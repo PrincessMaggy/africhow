@@ -8,6 +8,8 @@ import Home from './pages/Home';
 import Support from './pages/Support';
 import Rewards from './pages/Rewards';
 import LoginForm from './pages/LoginForm';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
 import Cancelprofilecard from './pages/Cancelprofilecard';
 import Profilesavedsuccess from './pages/Profilesavedsuccess';
@@ -49,6 +51,10 @@ function App() {
         <>
             <Routes>
                 <Route path='/' element={<Home />} />
+                <Route path='/signup' element={<Signup />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/contact-us' element={<Support />} />
+
                 <Route path='/contact-us' element={<Support />} />
 
                 <Route path='/rewards' element={<Rewards />} />
@@ -84,10 +90,10 @@ function App() {
                 <Route path='/add-new-meal' element={<NewMeal />} />
 
                 <Route path='/login' element={<LoginForm />} />
-                <Route path='/signup' element={<OnBoardingSignUpForm />} />
+                <Route path='/account setup' element={<OnBoardingSignUpForm />} />
                 <Route path='/login successful' element={<FormSuccess />} />
                 <Route path='/forgot password' element={<ForgotPassword />} />
-                <Route path='/confirm password' element={<ConfirmPassword />} />
+                <Route path='/reset password' element={<ConfirmPassword />} />
 
                 <Route path='/layout' element={<Layout />} />
                 <Route path='/incoming' element={<Incoming />} />
