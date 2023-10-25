@@ -46,7 +46,6 @@ import Incoming from './components/OrderManagement/Incoming';
 import History from './components/OrderManagement/History';
 import Layout from './components/OrderManagement/Layout/Layout';
 import NewMeal from './pages/AddNewMeal';
-import NewMeal from './components/addMealItem';
 import Savechangeprofile from './components/Savechangeprofile';
 
 function App() {
