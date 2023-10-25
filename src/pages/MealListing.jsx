@@ -5,6 +5,7 @@ import { db } from '../../firebase';
 import FetchMealItem from '../components/fetchMealItem';
 import HomeNav from "../components/homeNav";
 import SearchIcon from "../assets/icons/Search Icon.svg";
+import Footer from "../components/Footer";
 
 
 function Listings() {
@@ -62,6 +63,7 @@ function Listings() {
                 </div>
             </div>
             <FetchMealItem allDocs={filteredMeals} />
+            <Footer />
         </>
     );
 }

@@ -43,10 +43,10 @@ function FetchMealItem() {
                         <p className='text-gray-400 mb-2 text-[0.6rem] md:text-xs lg:text-sm uppercase'>
                             {meal.category}
                         </p>
-                        <p className='text-black mb-2'>
-                            {meal.cost}
+                        <p className="text-black mb-2 flex items-center">
+                            <span className="mr-1">{meal.currency}</span>{meal.cost}
                         </p>
-                        
+                                                
                         <div className='flex items-center'>
                             <div className={`w-2 h-2 md:w-3 md:h-3 sm:w-2 sm:h-2 rounded-full ${
                             meal.status === 'Available' ? 'bg-green-500' : 'bg-red-500'} mr-2`}>

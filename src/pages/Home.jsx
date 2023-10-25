@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import SectionOne from '../components/homeSectionOne';
 import SectionTwo from '../components/homeSectionTwo';
 import SectionThree from '../components/homeSectionThree';
+import Footer from '../components/Footer';
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
             <SectionOne />
             <SectionTwo />
             <SectionThree />
+            <Footer />
         </div>
     );
 };
