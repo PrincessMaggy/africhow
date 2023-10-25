@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import rewards from '../../assets/images/rewards.png';
 import right_icon from '../../assets/images/right-arrow.png';
 import bronze from '../../assets/images/bronze.svg';
 import arrow from '../../assets/images/beenhere.png';
