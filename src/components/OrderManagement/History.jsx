@@ -43,7 +43,7 @@ function History() {
                 onClick={() => toggle(index)}
                 key={index}
               >
-                <p className="p-2 text-xs font-semibold bg-bg-order-nav text-primary">
+                <p className={item.Status1 === 'Delivered'? 'p-2 text-xs font-semibold  bg-bg-order-nav text-primary' : 'p-2 text-xs font-semibold bg-red-100   text-red-500' }>
                   {item.Status1}
                 </p>
                 <div>
@@ -113,7 +113,7 @@ function History() {
                 onClick={() => toggle(index)}
                 key={index}
               >
-                <p className="p-2 text-xs font-semibold bg-bg-order-nav text-primary">
+                <p className={item.Status1 === 'Delivered'? 'p-2 text-xs font-semibold  bg-bg-order-nav text-primary' : 'p-2 text-xs font-semibold bg-red-100 text-red-500' }>
                   {item.Status2}
                 </p>
                 <div>

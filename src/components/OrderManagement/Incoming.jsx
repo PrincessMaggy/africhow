@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import location_pin from "../../assets/Images-Order-management/location_pin.jpg";
 import FoodList from "../../lib/Foodlist";
 import OrderHead from "./OrderHead";
@@ -17,12 +17,27 @@ function Incoming() {
   };
 
   const [accept, setAccept] = useState(FoodList);
+
+  const [acceptPopUp, setAcceptPopUp] = useState(false);
+  const openAccept = () => {
+    setAcceptPopUp(true)
+  };
+
+  const closeAcceptpop = () => {
+    setAcceptPopUp(false)
+  }
   
 
   return (
     <div>
       <OrderNav />
       <OrderHead />
+      {acceptPopUp?
+    ( <div className="sticky top-0 flex items-center justify-center gap-8">
+      <p className="font-semibold bg-white text-primary">Order successfully accepted!</p>
+      <p className="w-4 text-xs leading-4 text-white bg-red-400 rounded-full cursor-pointer" onClick={closeAcceptpop}>x</p>
+    </div> ) : ("") }
+  
       <div>
         {accept.map((item) => (
           <div key={item.id}> 
@@ -102,9 +117,10 @@ function Incoming() {
                 </button>
 
                 <button className="text-bg-order-active bg-primary p-2.5" onClick={() => {
-                  setAccept(accept.filter(a => a.id !== item.id))
+                  setAccept(accept.filter(a => a.id !== item.id)); openAccept() 
                 }}>
-                  Accept order
+                  
+                    Accept order
                 </button>
               </div>
             </div>
@@ -112,6 +128,7 @@ function Incoming() {
           </div>
         ))}
       </div>
+
 
       {/* decline popup */}
       {popUp ? (
