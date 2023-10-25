@@ -8,6 +8,7 @@ import NextArrow from '../../assets/arrow_back_ios.png';
 
 export default function VendorSupport() {
     return (
+        //This is the landing page for the vendor support
         <div>
             <Navbar />
             <Link to="/">

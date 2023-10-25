@@ -11,7 +11,28 @@ const headerList = [
 
     {
       id: '/rewards',
-      header: 'Rewards',
+      header: 'AfriChow Rewards',
+    },
+    {
+      id: '/rewards/catalog',
+      header: 'AfriChow Rewards',
+    },
+
+    {
+      id: '/rewards/earn-stars',
+      header: 'AfriChow Rewards',
+    },
+    {
+      id: '/rewards/my-rewards',
+      header: 'AfriChow Rewards',
+    },
+    {
+      id: '/rewards/reward-details/:itemId',
+      header: 'AfriChow Rewards',
+    },
+    {
+      id: '/success/:id',
+      header: 'AfriChow Rewards',
     },
 
     {
@@ -29,15 +50,7 @@ const headerList = [
       header: 'Transactions',
     },
 
-    {
-      id: '/rewards/catalog',
-      header: 'Rewards',
-    },
-
-    {
-      id: '/rewards/earn-stars',
-      header: 'Rewards',
-    },
+    
 
     {
       id: '/meallisting',
@@ -51,7 +64,7 @@ const headerList = [
 
     {
       id: '/store-overview',
-      header: 'Sore KPIs',
+      header: 'Store KPIs',
     },
 
     {

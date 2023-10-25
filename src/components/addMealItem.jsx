@@ -1,17 +1,23 @@
 import {useState} from 'react';
 import {collection, addDoc} from 'firebase/firestore';
 import {db} from '../../firebase';
+import { storage } from '../../firebase';
 import HomeNav from "../components/homeNav";
 import CameraIcon from "../assets/icons/photo_camera.svg";
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 function AddMealItem() {
     const initialMealItem = {
         name: '',
+        currency: '',
         cost: '',
-        location: '',
         status: '',
     };
     const [mealItem, setMealItem] = useState(initialMealItem);
+    const [mealImageFile, setMealImageFile] = useState(null);
+    const [imageUploaded, setImageUploaded] = useState(false);
+    const [uploadedImageUrl, setUploadedImageUrl] = useState('');
+
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -21,45 +27,116 @@ function AddMealItem() {
         }));
     };
 
+    const handleImageUpload = (e) => {
+        const file = e.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const imagePreview = document.getElementById('imagePreview');
+                imagePreview.Src = e.target.result;
+                setUploadedImageUrl(e.target.result);
+
+                setMealItem((prev) => ({
+                    ...prev,
+                    imageUrl: e.target.result,
+                }));
+                
+                setUploadedImageUrl(e.target.result);
+                setMealImageFile(file);
+                setImageUploaded(true);
+            };
+    
+            reader.readAsDataURL(file);
+            setMealImageFile(file);
+        }
+    };
+
     const addMealItem = async (e) => {
         e.preventDefault();
+
+        // Generate a unique filename for images
+        const timestamp = new Date().getTime();
+        const uniqueId = Math.random().toString(36).substring(7);
+        const imageFileName = `${timestamp}_${uniqueId}.jpg`;
+
+        let imageUrl = '';
+
+        // Upload the image to Firebase Storage
+        if (mealImageFile) {
+            try {
+                const imageRef = ref(storage, 'meal-images', imageFileName);
+                await uploadBytes(imageRef, mealImageFile);
+                imageUrl = await getDownloadURL(imageRef);
+                mealItem.imageUrl = imageUrl; // Add the image URL to the meal item data
+            } catch (err) {
+                alert('Error uploading image: ' + err.message);
+                return;
+            }
+        }
+
+        // Add the meal item to Firestore
         try {
+
             const docRef = await addDoc(collection(db, 'meals'), {
                 name: mealItem.name,
+                category: mealItem.category,
                 cost: mealItem.cost,
-                location: mealItem.location,
                 status: mealItem.status,
+                imageUrl: imageUrl,
             });
 
             console.log('Document written with ID: ', docRef.id);
             alert('Meal created successfully!');
-            setMealItem(initialMealItem); // Reset fields after successful submission
+            window.location.href = '/meallisting';
+            //setMealItem(initialMealItem); // Reset fields after successful submission
+
         } catch (err) {
             alert(err.message);
         }
     };
+
+    const placeholderImage = CameraIcon;
 
     return (
         <>
             <HomeNav />
             <hr className='border-gray-400 -mt-6' />
 
-            <div className='mx-8 bg-gray-200 px-32 flex flex-col justify-center items-center py-24 mt-12 mb-2'>
-                <img src={ CameraIcon } alt="" srcset="" />
-                <p>Upload Image</p>
+            <div className={`upload_image mx-8 py-12 mt-12 mb-2 cursor-pointer ${imageUploaded ? 'image-preview-bg' : 'bg-gray-200'}`}>
+                <input 
+                    type='file' 
+                    accept='image/*'
+                    onChange={handleImageUpload}
+                    style={{ display: 'none' }}
+                    id='imageUploadInput'
+                />
+                <label htmlFor="imageUploadInput" className='flex flex-col justify-center items-center cursor-pointer'>
+                    <img 
+                        src={imageUploaded ? uploadedImageUrl : CameraIcon}
+                        alt="" 
+                        srcSet="" 
+                        id="imagePreview"
+                        name='image'
+                        value= {mealItem.image}
+                    className='w-164 image-preview'/>
+                    <p className='text-xs md:text-base'>
+                        {imageUploaded? 'Image Successfully Uploaded': 'Upload Image'}
+                    </p>
+                </label>
+                
             </div>
-            <p className='mx-8 text-left text-[12px] text-gray-300 mb-10'>Recommended size: 1080 x 1920</p>
+            <p className='mx-8 text-left text-[12px] text-gray-500 mb-10'>Recommended size: 1080 x 1920</p>
             <form
                 className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'
                 onSubmit={addMealItem}
             >
                 <div className='mb-4'>
-                    {/*<label
+                    <label
                         className='block text-gray-700 text-sm font-bold mb-2'
                         htmlFor='name'
                     >
-                        Name of meal
-                    </label>*/}
+                    </label>
 
                     <input
                         className='shadow appearance-none border-2 border-gray-200 rounded w-full py-3 px-3 text-gray-900 bg-white leading-tight '
@@ -75,49 +152,48 @@ function AddMealItem() {
 
 
                 <div className='mb-4'>
-                    {/*<label
+                    <label
                         className='block text-gray-700 text-sm font-bold mb-2'
-                        htmlFor='location'
-                    >
-                        Location
-                    </label>*/}
+                        htmlFor='category'>
+                    </label>
                     <select
-                        id='status'
-                        name='status'
+                        id='category'
+                        name='category'
                         onChange={handleChange}
-                        value={mealItem.status}
-                        className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-900 dark:focus:border-blue-900'>
-                        <option value=''>Category <span></span></option>
-                        <option value='Category 1'>north african cuisine </option>
-                        <option value='Category 2'>south african cuisine</option>
-                        <option value='Category 3'>west african cuisine</option>
-                        <option value='Category 3'>east african cuisine</option>
-                        <option value='Category 3'>central african cuisine</option>
-                        <option value='Category 3'>special dishes</option>
+                        value={mealItem.category}
+                        className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5 dark:bg-gray-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-900 dark:focus:border-blue-900'>
+                        <option value=''>Category</option>
+                        <option value='north african'>north african cuisine </option>
+                        <option value='south african'>south african cuisine</option>
+                        <option value='west african'>west african cuisine</option>
+                        <option value='east african'>east african cuisine</option>
+                        <option value='central african'>central african cuisine</option>
+                        <option value='special dishes'>special dishes</option>
                     
                     </select>
                 </div>
 
-                <div className='mb-4 flex gap-4 w-full'>
-                    {/*<label
+
+                <div className='mb-4 flex gap-1 w-full'>
+                    <label
                         className='block text-gray-700 text-sm font-bold mb-2'
                         htmlFor='cost'>
-                        Cost
-                    </label>*/}
+                    </label>
                     <select
-                        id='cost'
+                        id='currency'
                         name='cost'
                         onChange={handleChange}
-                        value={mealItem.status}
-                        className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg w-2/6 focus:ring-blue-900 focus:border-blue-900 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-900 dark:focus:border-blue-900 uppercase'>
+                        value={mealItem.cost}
+                        className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block p-2.5 dark:bg-gray-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-900 dark:focus:border-blue-900 '>
 
-                        <option value='Category 1'>$ USD </option>
-                        <option value='Category 2'>$ CAD</option>
-                        <option value='Category 3'>£ Pounds</option>
+                        <option value=''> Currency </option>
+                        <option value='$'> USD </option>
+                        <option value='CAD'> CAD </option>
+                        <option value='£'> Pounds </option>
                     
                     </select>
                     <input
-                        className='shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-4/6'
+                        className='w-5/6 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline '
                         id='cost'
                         type='text'
                         name='cost'
@@ -128,12 +204,10 @@ function AddMealItem() {
                     />
                 </div>
 
-                {/*<label
+                <label
                     htmlFor='status'
-                    className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
-                >
-                    Select an option
-                </label>*/}
+                    className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
+                </label>
                 <select
                     id='status'
                     name='status'
@@ -148,7 +222,7 @@ function AddMealItem() {
 
                 <div className='flex items-center justify-between'>
                     <button
-                        className='bg-lime-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-8'
+                        className='bg-[#228768] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-8'
                         type='submit'
                     >
                         Add item
