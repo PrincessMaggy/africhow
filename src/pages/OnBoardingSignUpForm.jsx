@@ -1,21 +1,34 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useRef, useState } from "react";
+// import { Link, useNavigate } from "react-router-dom";
+// import { useForm } from "react-hook-form";
+// import { Countries } from "../phone/countrycode";
+// import OnboardingButton from "../components/OnboardingButton";
+// import axios from "axios";
+// import Header from "../components/Header";
+// import OnboardingWelcome from "../components/OnboardingWelcome";
+// import "../onboardingloginsignup.css";
+// import { auth } from "../../firebase";
+// import { createUserWithEmailAndPassword } from "firebase/auth";
+// import Nav from '../components/homeNav';
+// import Loader from "../components/LoaderOnboarding";
+import PasswordEye from "../assets/Vector.png";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Countries } from "../phone/countrycode";
-import PasswordEye from "../assets/Vector.png";
 import OnboardingButton from "../components/OnboardingButton";
 import axios from "axios";
-import Header from "../components/Header";
 import OnboardingWelcome from "../components/OnboardingWelcome";
 import "../onboardingloginsignup.css";
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import Nav from '../components/homeNav';
-
+import Nav from "../components/homeNav";
+import Loader from "../components/LoaderOnboarding";
 export default function OnBoardingSignUpForm() {
   const [showPassword, setShowPassword] = useState(false);
   // const [countries, SetCountries] = useState([]);
   // const [query, setQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [countries, setCountries] = useState([]);
@@ -24,6 +37,14 @@ export default function OnBoardingSignUpForm() {
   const { register, handleSubmit, formState } = useForm();
   const { errors, isValid, isDirty } = formState;
   const navigate = useNavigate();
+  const mounted = useRef(false);
+
+  useEffect(() => {
+    mounted.current = true;
+    return (() => {
+      mounted.current = false;
+    });
+  });
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -54,7 +75,12 @@ export default function OnBoardingSignUpForm() {
   //       console.log(error);
   //     });
   // }, []);
-
+  // useEffect(() => {
+  //   mounted.current = true;
+  //   return (() => {
+  //     mounted.current = false;
+  //   });
+  // });
   useEffect(() => {
     const config = {
       method: "get",
@@ -106,7 +132,9 @@ export default function OnBoardingSignUpForm() {
 
   function onSubmit(data) {
     console.log(data);
-    navigate("/login");
+    setIsLoading(true)
+    navigate("/account%20created%20successfully");
+    setIsLoading(false)
   }
 
   function onError(errors) {
@@ -114,6 +142,7 @@ export default function OnBoardingSignUpForm() {
   }
   return (
     <div>
+      <div className="relative"/>
       <Nav />
       <div className=" mx-auto min-[391px]:w-4/5 max-[390px]:w-[358px] flex flex-col gap-3">
         <OnboardingWelcome
@@ -279,6 +308,7 @@ export default function OnBoardingSignUpForm() {
         </form>
         <Terms />
       </div>
+      {isLoading && <Loader />}
     </div>
   );
 }

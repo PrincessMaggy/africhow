@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import PasswordEye from "../assets/eye-slash.png";
+import PasswordEye2 from "../assets/Icon.png";
 import "../onboardingloginsignup.css";
 import OnboardingWelcome from "../components/OnboardingWelcome";
 import OnboardingButton from "../components/OnboardingButton";
@@ -26,9 +27,9 @@ export default function Login() {
   const navigate = useNavigate();
   const location = useLocation();
   const [showPassword, setShowPassword] = useState(false);
-//   const [newUser, setNewUser] = useState(
-//     location.state ? location.state.newUser : true
-//   );
+  //   const [newUser, setNewUser] = useState(
+  //     location.state ? location.state.newUser : true
+  //   );
   const [isLoading, setIsLoading] = useState(false);
   const [loginError, setLoginError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -38,9 +39,9 @@ export default function Login() {
 
   useEffect(() => {
     mounted.current = true;
-    return (() => {
+    return () => {
       mounted.current = false;
-    });
+    };
   });
 
   const togglePasswordVisibility = () => {
@@ -55,37 +56,59 @@ export default function Login() {
       .catch((err) => {
         console.log(err, "err");
         setLoginError(true);
-        setErrorMessage(err.message)
+        setErrorMessage(err.message);
       });
   };
 
-  const activeWait= async ()=>{
+  const activeWait = async () => {
     await new Promise((r) => setTimeout(r, 500));
-    }
-    
-    function onSubmit(data) {
-      const { email, password } = data;
-      setIsLoading(true);
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          console.log(userCredential);
-          navigate("/login%20successful");
-        })
-        .catch((err) => {
-          console.log(err, "err");
-          setLoginError(true);
-          let customErrorMessage = "An error occurred";
-          if (err.code === "auth/user-not-found") {
-            customErrorMessage = "User not found. Please check your email address.";
-          } else if (err.code === "auth/invalid-email") {
-            customErrorMessage = "Invalid email address format.";
-          }
-          toast(customErrorMessage)
-        })
-        .finally(() => mounted.current && setIsLoading(false));
-        reset();
-      
-    }
+  };
+  function onSubmit(data) {
+    const { email, password } = data;
+    setIsLoading(true);
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log(userCredential);
+        navigate("/login%20successful");
+      })
+      .catch((err) => {
+        console.log(err, "err");
+        console.log(err.code);
+        setLoginError(true);
+        let customErrorMessage = "An error occurred";
+        if (err.code === "auth/invalid-login-credentials") {
+          customErrorMessage =
+            "User not found. Please check your email address or password.";
+        }
+        toast(customErrorMessage);
+      })
+      .finally(() => mounted.current && setIsLoading(false));
+    reset();
+  }
+
+  // function onSubmit(data) {
+  //   const { email, password } = data;
+  //   setIsLoading(true);
+  //   signInWithEmailAndPassword(auth, email, password)
+  //     .then((userCredential) => {
+  //       console.log(userCredential);
+  //       navigate("/login%20successful");
+  //     })
+  //     .catch((err) => {
+  //       console.log(err, "err");
+  //       setLoginError(true);
+  //       let customErrorMessage = "An error occurred";
+  //       if (err.code === "auth/user-not-found") {
+  //         customErrorMessage = "User not found. Please check your email address.";
+  //       } else if (err.code === "auth/invalid-email") {
+  //         customErrorMessage = "Invalid email address format.";
+  //       }
+  //       toast(customErrorMessage)
+  //     })
+  //     .finally(() => mounted.current && setIsLoading(false));
+  //     reset();
+
+  // }
 
   function onError(errors) {
     console.log(errors);
@@ -95,12 +118,12 @@ export default function Login() {
   function handleClick(e) {
     e.preventDefault();
     reset(); //this resets the form fields on toggle between the current page and login page ////////////////
-    navigate('/signup');
+    navigate("/signup");
   }
   return (
     <>
       <div>
-        <ToastContainer/>
+        <ToastContainer />
         {/* {newUser && <Nav setNewUserToFalse={setNewUserToFalse} />} */}
         <div className="grid gap-6 min-[391px]:w-4/5 max-[398px]:w-[358px] mx-auto relative">
           <div className="grid items-end">
@@ -160,29 +183,39 @@ export default function Login() {
                       },
                     })}
                   />
-                  <img
+                  {/* <img
                     src={PasswordEye}
                     alt="eye icon"
                     className="w-[16.41px] h-[11.67px]"
                     onClick={togglePasswordVisibility}
-                  />
+                  /> */}
+                  <span
+                    className="w-[16.41px] h-[11.67px]"
+                    onClick={togglePasswordVisibility}
+                  >
+                    {showPassword ? (
+                      <img src={PasswordEye2} />
+                    ) : (
+                      <img src={PasswordEye} />
+                    )}
+                  </span>
                 </div>
               </div>
 
               <span className="text-red-500 text-[12px]">
                 {errors?.password && errors?.password?.message}
               </span>
-                <span className="flex text-[#145062] text-[12px] justify-end">
-                    <Link to="/forgot password">Forgot Password ?</Link>
-                </span>
+              <span className="flex text-[#145062] text-[12px] justify-end">
+                <Link to="/forgot password">Forgot Password ?</Link>
+              </span>
               <OnboardingButton text={"Login"} />
               <span
-                className={"underline text-[15px] font-medium mx-auto w-[237px]"}
+                className={
+                  "underline text-[15px] font-medium mx-auto w-[237px]"
+                }
               >
                 Don't have an Account
-                <span onClick={handleClick}>
-                  Sign up
-                </span>
+                <span onClick={handleClick}>Sign up</span>
               </span>
             </form>
           </div>
