@@ -6,7 +6,6 @@ import './index.css';
 
 import Home from './pages/Home';
 import Support from './pages/Support';
-import Rewards from './pages/Rewards';
 import LoginForm from './pages/LoginForm';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -21,14 +20,17 @@ import ReviewCard from './pages/ReviewCard';
 import ReviewReply from './pages/ReviewReply';
 import Vendorprofile from './pages/Vendorprofile';
 import Vendorworkhour from './pages/Vendorworkhour';
-
+import Rewards from './pages/Rewards';
+import Achievements from './pages/Achievements';
+import Catalog from './pages/Catalog';
+import CatalogDetails from './pages/CatalogDetails';
+import EarnStars from './pages/EarnStars';
+import SuccessRewards from './pages/SuccessRewards';
 // importing components
-import Achievements from './components/Rewards/Achievements';
-import Catalog from './components/Rewards/catalog/Catalog';
-import EarnStars from './components/Rewards/EarnStars';
-import CatalogDetails from './components/Rewards/catalog/CatalogDetails';
+
 import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
+import VendorsPayoutMethod from './components/vendorsPayment/VendorsPayoutMethod';
 import StoreOverview from './components/storePerformance/StoreOverview';
 import StorePerformance from './components/storePerformance/StorePerformance';
 import VendorSupport from './components/VendorSupportPage/VendorSupport';
@@ -56,7 +58,6 @@ function App() {
                 <Route path='/contact-us' element={<Support />} />
 
                 <Route path='/contact-us' element={<Support />} />
-
                 <Route path='/rewards' element={<Rewards />} />
                 <Route path='/rewards/my-rewards' element={<Achievements />} />
                 <Route path='/rewards/earn-stars' element={<EarnStars />} />
@@ -65,6 +66,10 @@ function App() {
                     path='/rewards/reward-details/:itemId'
                     element={<CatalogDetails />}
                 />
+                 <Route
+                    path='/success/:id'
+                    element={<SuccessRewards />}
+                />
                 <Route
                     path='/vendors-dashboard'
                     element={<VendorsDashboard />}
@@ -72,6 +77,10 @@ function App() {
                 <Route
                     path='/vendors-transaction'
                     element={<VendorsTransaction />}
+                />
+                <Route
+                    path='vendors-payout-method'
+                    element={<VendorsPayoutMethod />}
                 />
                 <Route path='/store-overview' element={<StoreOverview />} />
                 <Route
@@ -124,7 +133,9 @@ function App() {
                 <Route path='/review card' element={<ReviewCard />} />
                 <Route path='/review-reply' element={<ReviewReply />} />
             </Routes>
-            <Footer />
+
+            {/* the rewards page doesn't use this footer, can we import them in individual components insatead? */}
+            {/* <Footer /> */}
         </>
     );
 }

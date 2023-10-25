@@ -76,3 +76,33 @@ justify-content: center;
     color: #33CC9F;
 
 }
+.circular_progress{
+    position: relative;
+    height: 170px;
+    width: 170px;
+    background-color: #33CC9F;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circular_progress:before {
+    content: '';
+    position: absolute;
+    height: 80%;
+    width: 80%;
+    background-color: #f7f7f7;
+    border-radius: 50%;
+
+}
+.value_container{
+    position: relative;
+}
+.count{
+    font-weight: 600;
+    font-size: 24px;
+}
+.count-text{
+    font-size: 12px;
+    font-weight: 500;
+}
