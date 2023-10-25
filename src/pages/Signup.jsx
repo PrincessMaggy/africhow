@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import PasswordEye from "../assets/Vector.png";
+import PasswordEye from "../assets/eye-slash.png";
 import "../onboardingloginsignup.css";
 import OnboardingWelcome from "../components/OnboardingWelcome";
 import OnboardingButton from "../components/OnboardingButton";
@@ -31,6 +31,14 @@ export default function Signup() {
   const [errorMessage, setErrorMessage] = useState("");
   const { register, handleSubmit, formState, reset } = useForm();
   const { errors, isValid, isDirty } = formState;
+  const mounted = useRef(false);
+
+  useEffect(() => {
+    mounted.current = true;
+    return (() => {
+      mounted.current = false;
+    });
+  });
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -53,21 +61,30 @@ export default function Signup() {
 //     setNewUser(false);
 //   };
 
-  async function onSubmit(data) {
-    //console.log(data);//tHIS DATA! needs to be pushed to the firebase DB
-    const { email, password } = data;
-      //handles signIn for existing users
-      //console.log(email, password);
-      handleSignUp(email, password);
+function onSubmit(data) {
+  const { email, password } = data;
+  setIsLoading(true);
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      console.log(userCredential);
+      navigate("/account%20setup");
+    })
+    .catch((err) => {
+      console.log(err, "err");
+      setSignupError(true);
+      setErrorMessage(err.message);
+      toast(err.message)
+    })
+    .finally(() => mounted.current && setIsLoading(false));
+    reset();
 
-    setIsLoading(true);
-    await new Promise((r) => setTimeout(r, 500));
-    setIsLoading(false);
-    if (!loginError && errorMessage) {
-      navigate("/account setup");
-    }
-  }
-
+  // setIsLoading(true);
+  // // await new Promise((r) => setTimeout(r, 500));
+  // // setIsLoading(false);
+  // if (!loginError && errorMessage) {
+  //   navigate("/account setup");
+  // }
+}
   function onError(errors) {
     console.log(errors);
     //alert(errors);
@@ -83,6 +100,7 @@ export default function Signup() {
       <div>
         {/* {newUser && <Nav setNewUserToFalse={setNewUserToFalse} />} */}
         <Nav />
+        <ToastContainer/>
 
         <div className="grid gap-6 min-[391px]:w-4/5 max-[398px]:w-[358px] mx-auto relative">
           <div className="grid items-end">
@@ -145,7 +163,7 @@ export default function Signup() {
                   <img
                     src={PasswordEye}
                     alt="eye icon"
-                    className="w-[16.41px] h-[11.67px] bg-red-800"
+                    className="w-[16.41px] h-[11.67px]"
                     onClick={togglePasswordVisibility}
                   />
                 </div>
