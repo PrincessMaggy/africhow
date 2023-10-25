@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import location_pin from "../../assets/Images-Order-management/location_pin.jpg";
 import FoodList from "../../lib/Foodlist";
+import OrderHead from "./OrderHead";
+import OrderNav from "./OrderNav";
+
 
 function Incoming() {
   
@@ -18,7 +21,8 @@ function Incoming() {
 
   return (
     <div>
-      
+      <OrderNav />
+      <OrderHead />
       <div>
         {accept.map((item) => (
           <div key={item.id}> 
