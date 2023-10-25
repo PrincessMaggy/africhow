@@ -205,10 +205,10 @@ export default function OnBoardingSignUpForm() {
               placeholder="The SpiceKitchen"
               {...register("Businessname", {
                 required: "Required",
-                pattern: {
-                  value: /^[A-Za-z]+$/,
-                  message: "invalid Business name",
-                },
+                // pattern: {
+                //   value: /[A-Za-z0-9'\.\-\s\,]/,
+                //   message: "invalid Business name",
+                // },
               })}
               className="input"
             />
@@ -229,7 +229,7 @@ export default function OnBoardingSignUpForm() {
               {...register("Storeaddress", {
                 required: "Required",
                 pattern: {
-                  value: /^[A-Za-z]+$/,
+                  value: /[A-Za-z0-9'\.\-\s\,]/,
                   message: "invalid address",
                 },
               })}

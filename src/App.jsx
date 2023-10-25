@@ -95,7 +95,7 @@ function App() {
                 <Route path='/add-new-meal' element={<NewMeal />} />
 
                 <Route path='/login' element={<LoginForm />} />
-                <Route path='/signup' element={<OnBoardingSignUpForm />} />
+                <Route path='/account setup' element={<OnBoardingSignUpForm />} />
                 <Route path='/login successful' element={<FormSuccess />} />
                 <Route path='/forgot password' element={<ForgotPassword />} />
                 <Route path='/reset password' element={<ConfirmPassword />} />
