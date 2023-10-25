@@ -21,6 +21,11 @@ function AddMealItem() {
 
     const currentUser = auth.currentUser;
 
+    if (!currentUser) {
+        window.location.href = '/login';
+        return null;
+      }
+
     const [mealItem, setMealItem] = useState(initialMealItem);
     const [mealImageFile, setMealImageFile] = useState(null);
     const [imageUploaded, setImageUploaded] = useState(false);
@@ -119,7 +124,7 @@ function AddMealItem() {
             //notify('Meal created successfully!', 'success');
             toast.success('Meal created successfully!');
             setMealItem(initialMealItem); // Reset fields after successful submission
-            window.location.href = '/meallisting';
+            window.location.href = `/meallisting/${currentUser.uid}`;
             
 
         } catch (err) {
