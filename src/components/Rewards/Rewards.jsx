@@ -11,12 +11,43 @@ import twitter from '../../assets/images/twitter.png';
 import HomeNav from '../homeNav';
 
 const RewardsPage = () => {
+    // get circular progress
+    // get value container
+
+    // const [progressValue, setProgressValue] = useState(0);
+    // const [endValue, setEndValue] = useState(700);
+    // const [speed, setSpeed] = useState(0);
+
+    // let progressBar = document.querySelector(".circular_progress");
+    // let ValueContainer = document.querySelector(".value_container")
+
+    // let progressValue = 0;
+    // let endValue = 65;
+    // let speed = 200;
+
+    // let progress = setInterval(() => {
+    //     progressValue++;
+    //     ValueContainer.textContent = `${progressValue}%`;
+    //     progressBar.style.background = `conic-gradient(
+    //         #4d5bf9 ${progressValue * 3.6}deg,
+    //         #cadcff ${progressValue * 3.6}deg,
+    //     )`;
+    //     if(progressValue == endValue) {
+    //         clearInterval(progress)
+    //     }
+    // }, speed)
+
     return (
         <>
             <HomeNav />
             <RewardNav />
             <div className='earn_wrapper px-4'>
                 <div className='rewards_wrapper '>
+                        <div className="circular_progress">
+                            <div className="value_container">
+                                <span className='count'>700</span> <br /> <span className='count-text'>of 1000 points</span>
+                            </div>
+                        </div>
                     <img src={rewards} alt='rewards progress' />
                     <p className='text-lg'>
                         Yaay! You are doing great, earn more
