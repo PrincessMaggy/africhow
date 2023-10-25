@@ -123,7 +123,7 @@ function Order() {
       const showOrder = filterByPreviousMonth(6);
       setFilteredOrder(showOrder);
     } else {
-      setFilteredOrder(orders);
+      setFilteredOrder(orderList);
     }
   };
 
@@ -175,7 +175,8 @@ function Order() {
             if (day === "all") {
               return true;
             } else {
-              return order.orderDay.toLowerCase() === day.toLowerCase();
+              return Days[(new Date(order.orderDate).getDate())].toLowerCase() === day.toLowerCase()
+              // return order.orderDay.toLowerCase() === day.toLowerCase();
             }
           })
           .map((list, index) => {
@@ -190,7 +191,8 @@ function Order() {
                 </div>
                 <div className="border-b border-white text-sm font-bold flex  items-center justify-between">
                   <span>Order day:</span>
-                  <h1>{list.orderDay}</h1>
+                  <h1>{Days[new Date(list.orderDate).getDay()]}</h1>
+                  {/* <h1>{list.orderDay}</h1> */}
                 </div>
 
                 {list.orderedItems.map((type, index) => {
