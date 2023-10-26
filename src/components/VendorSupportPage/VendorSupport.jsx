@@ -21,7 +21,7 @@ export default function VendorSupport() {
                     personalized assistance.
                 </p>
                 <div>
-                    <Link to="./supportform" className="flex m-auto items-center md:justify-center">
+                    <Link to="/supportform" className="flex m-auto items-center md:justify-center">
                         <p className="py-7 font-medium text-base text-secondary md:font-bold md:text-xl">Send us an email</p>
                         <img src={NextArrow} className="w-6 h-6 ml-4"/>
                     </Link>
