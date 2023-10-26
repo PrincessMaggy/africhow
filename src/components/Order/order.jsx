@@ -75,7 +75,7 @@ function Order() {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturady",
+    "Saturday",
     "Sunday",
   ];
   const [period, setPeriod] = useState("");
@@ -116,6 +116,7 @@ function Order() {
         return date.valueOf() - orderDate.valueOf() <= 1000 * 60 * 60 * 24 * 7;
       });
       setFilteredOrder(showOrder);
+      
     } else if (period === "lastThreeMonths") {
       const showOrder = filterByPreviousMonth(3);
       setFilteredOrder(showOrder);
@@ -175,7 +176,7 @@ function Order() {
             if (day === "all") {
               return true;
             } else {
-              return Days[(new Date(order.orderDate).getDate())].toLowerCase() === day.toLowerCase()
+              return Days[(new Date(order.orderDate).getDay())].toLowerCase() === day.toLowerCase()
               // return order.orderDay.toLowerCase() === day.toLowerCase();
             }
           })

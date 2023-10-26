@@ -38,6 +38,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
+
 import ReedeemSucess from './components/Rewards/ReedeemSucess'
 import ReviewCard from './pages/ReviewCard';
 import ReviewReply from './pages/ReviewReply';
@@ -59,7 +60,14 @@ import Vendorprofilechange from "./pages/Vendorprofilechange";
 
 
 
-
+import Listings from './pages/MealListing';
+import Outgoing from './components/OrderManagement/Outgoing';
+import Incoming from './components/OrderManagement/Incoming';
+import History from './components/OrderManagement/History';
+import NewMeal from './pages/AddNewMeal';
+import Savechangeprofile from './components/Savechangeprofile';
+import NotificationPage from './components/Notification/notification';
+import NotificationSuccess from './components/Notification/notificationSuccesful'
 function App() {
     return (
         <>
@@ -183,6 +191,9 @@ function App() {
                 <Route path='/post' element={<Post />} />
                 <Route path='/review card' element={<ReviewCard />} />
                 <Route path='/review-reply' element={<ReviewReply />} />
+                <Route path= '/notification' element={<NotificationPage/>} />
+                <Route path= '/updatedSuccessfully' element={<NotificationSuccess/>} />
+
             </Routes>
 
             {/* the rewards page doesn't use this footer, can we import them in individual components insatead? */}
