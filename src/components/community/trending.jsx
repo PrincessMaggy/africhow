@@ -8,36 +8,35 @@ import Favorite from "../../assets/images/favorite.png"
 import Comment from "../../assets/images/comment.png"
 import Ofada from "../../assets/images/ofada.png"
 import Forward from "../../assets/images/arrow_forward.png"
-
+import { Link } from "react-router-dom"
 
 
 const TrendingPage= () => {
     return (
       <div>
         <div className="bg-[#f1f1f1]">
-      <div className="max-w-2xl mx-auto">
-
-      <form className="flex items-center">   
-            
-            <div className=" flex relative w-full mr-3">
-                <div className="inline-flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                <img src={Search} alt="search image" className=' relative w-[24px]  mr-2 left-2'/>
-                </div>
-                <input type="text"className="bg-gray-50 border border-gray-300 text-center text-gray-900 text-sm rounded-lg block w-full pl-10 p-3  dark:bg-gray-700 dark:border-green-600 dark:placeholder-gray-400 dark:text-black  dark:focus:border-green-500" placeholder="Search Mockups, Logos, Design Templates..." required/>
-                <button type="button" className="inline-flex flex absolute inset-y-0 right-0 items-center pr-3">
-                   
-                </button>
-            </div>
-            <button className=" inline-flex items-center p-4  m-2 bg-[#33CC9F] text-gray-800 text-sm font-medium rounded">
-              <img src={Addcircle} alt="Addcircle image" className=' relative w-[24px]  mr-2 left-2'/>
-              <p className="pr-2 mr-2">Addpoint</p>
-              </button>
-        </form>
+      <div className="min-w-2xl mx-auto">
+      <form className="flex items-center sm:min-w-40">   
+      
+      <div className=" flex relative w-full ml-2">
+          <div className="inline-flex absolute inset-y-0 left-0 items-center pointer-events-none">
+          <img src={Search} alt="search image" className='relative w-[24px]  mr-2 left-2'/>
+          </div>
+          <input type="text"className="bg-gray-50 border border-gray-300 text-center text-gray-900 text-sm rounded-lg block w-full pl-10 p-3 dark:bg-gray-700 dark:border-green-600 dark:placeholder-gray-400 dark:text-black  dark:focus:border-green-500" placeholder="Search for topics, tips, etc" required/>
+          
+      </div>
+      <button className=" inline-flex items-center p-4  m-2 bg-[#33CC9F] text-gray-800 text-sm font-medium rounded">
+        <img src={Addcircle} alt="Addcircle image" className=' relative w-[24px]  mr-2 left-2'/>
+        <p className="pr-2 mr-2">Addpoint</p>
+        </button>
+  </form>
         <div className="flex justify-between">   
     
-            <div> <p>Trending </p></div>
-            <div> <p>See All </p></div>
+            <div> <p className="ml-2">Trending </p></div>
             
+            <Link to="/recipes">
+            <div> <p className="mr-3">See All </p></div>
+            </Link>
   
       </div>
       
@@ -54,18 +53,20 @@ const TrendingPage= () => {
                 African Food Recipe
         </h1>
     </div>
+    <Link to ="/blog">
+  
     <div className=" flex  mb-2 md:p-4 lg:mb-8">
             <p className="ml-2 text-md text-[#33CC9F] mr-3">
                 See more
             </p> 
             <img src={Forward} alt="forward arrow "/>
     </div>
+    </Link>
 
 
 </div>
 </div>
 <div className="my-1 px-1 w-full  border border-gray-400  bg-[#f1f1f1]">
-
 <div className="overflow-hidden rounded-lg shadow-lg">
         <img src={Foodzone} alt="image of food" className="block h-auto w-full"/>
     <div className=" p-2 md:p-4 ">
@@ -73,12 +74,15 @@ const TrendingPage= () => {
                 Foodie Zone
         </h1>
     </div>
-    <div className=" flex  mb-2 md:p-4">
-            <p className="ml-2 text-md text-[#33CC9F] mr-3">
+    <Link to ="/blog">
+  
+    <div className=" flex mb-8  md:p-4 lg:mb-8">
+            <p className="ml-2 text-md text-[#33CC9F] mr-1">
                 Join discussion
             </p> 
             <img src={Forward} alt="forward arrow "/>
     </div>
+    </Link>
 
 
 </div>
@@ -109,7 +113,9 @@ const TrendingPage= () => {
 
 <div className="flex relative justify-between">
 <h1 className="font-bold text-gray-600 ml-8">Nigerian Ofada Recipe</h1>
+<Link to ="/blog#ofada">
 <p className="text-sm pr-8">Read now</p>
+</Link>
 </div>
 <div className="flex relative m-6 lg:justify-center lg:mb-1">
     <img src={Food} alt="food image" className="w-[50]"/>
@@ -134,7 +140,9 @@ const TrendingPage= () => {
 
 <div className="flex relative justify-between">
 <h1 className="font-bold text-gray-600 ml-8">Children Food Memories</h1>
+<Link to="/blog">
 <p className="text-sm pr-8">Read now</p>
+</Link>
 </div>
         </div>
         </div>

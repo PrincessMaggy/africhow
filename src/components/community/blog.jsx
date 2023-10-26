@@ -11,17 +11,18 @@ import Male from "../../assets/images/male.png"
 import Send from "../../assets/images/send.png"
 import Chicken from "../../assets/images/chicken.png"
 import Chops from "../../assets/images/chops.png"
+import { Link } from "react-router-dom"
 
 
 const BlogPage = () => {
     return (
         <div>
      <div className="min-w-2xl mx-auto">
-
+    
 <form className="flex items-center sm:min-w-40">   
       
-      <div className=" flex relative w-full mr-3">
-          <div className="inline-flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+      <div className=" flex relative w-full ml-2">
+          <div className="inline-flex absolute inset-y-0 left-0 items-center pointer-events-none">
           <img src={Search} alt="search image" className='relative w-[24px]  mr-2 left-2'/>
           </div>
           <input type="text"className="bg-gray-50 border border-gray-300 text-center text-gray-900 text-sm rounded-lg block w-full pl-10 p-3 dark:bg-gray-700 dark:border-green-600 dark:placeholder-gray-400 dark:text-black  dark:focus:border-green-500" placeholder="Search for topics, tips, etc" required/>
@@ -60,10 +61,13 @@ const BlogPage = () => {
 
 <div className="flex relative justify-between">
 <h1 className="font-bold text-gray-600 ml-8">Nigerian Ofada Recipe</h1>
+<Link to ="/recipes">
 <p className="text-sm pr-8">Go back</p>
+</Link>
 </div>
 
- </div>
+ </div >
+ <div id="ofada">
  <div className="text-left m-8">
   <p className="font-semibold  ">Ingredients:</p>
   <ul className="list-image-none w-50">
@@ -86,6 +90,8 @@ chopped cow skin. Add your pepper mix and salt and fry the mixture till
   pot, boil your rice till it is soft but not over cooked and your ofada is ready. 
   </p>
 </div>
+</div>
+
 <div className="comment">
 <div className="comment flex relative justify-between">
   <div className="flex">
@@ -95,7 +101,7 @@ chopped cow skin. Add your pepper mix and salt and fry the mixture till
 <img src= {Arrow} alt="arrowup" className="w-15"/>
 </div>
 
-	<article>
+	<article id="comment">
     <div>
   <div className="flex items-center mt-8 space-x-4 ml-8 ">
 			<img src={Female} alt="" className="w-10 h-10 rounded-full dark:bg-gray-500" />
@@ -117,26 +123,26 @@ chopped cow skin. Add your pepper mix and salt and fry the mixture till
 		<p className="mt-4 ml-8 text-left dark:text-gray-400">This bring back beautiful memories of Sunday afternoons back home. Even though, I dont like rice, my mom makes ofada in a way that is irresistible.</p>
 		</div>
     <div>
-      <div className="flex  bg-gray-50 border border-green-500 m-6 lg:justify-center lg:mb-1 sm:min-w-100">
+      <div className="flex bg-gray-50 border  border-green-500 m-4 lg:justify-center lg:mb-1">
       <img src={Male} alt="" className="w-10 h-10 rounded-full mt-3 dark:bg-gray-500" />
-      <input type="text" className="bg-gray-300 p-6 m-2 border  outline-none text-center"/>
-      <img src={Send} alt="" className="w-10 h-10 rounded-full mt-3 dark:bg-gray-500" />
+      <input type="text" className="bg-gray-300 p-3  border  outline-none text-center"/>
+      <img src={Send} alt="" className="w-10 h-10 m-2 rounded-full mt-3 dark:bg-gray-500" />
       </div>
     </div>
 	</article>
 
-  <article className="sm:min-w[380px}">
-    <div>
+  <article >
+    <div >
     <h1 className="font-bold text-[#155062] text-left pt-4 ml-8 lg:text-center">Read Articles</h1>
-    <div className="flex  mt-8 space-x-4 ml-8 lg:justify-center">
+    <div className="flex  mt-8  ml-8">
     <img src= {Chicken} alt="chicken" className="w-10 h-10 rounded dark:bg-gray-500"/>
-    <div className="flex ">
-      <div className="mr-8 min-w-50">
+    <div className="flex relative justify-between">
+      <div className="ml-2 min-w-48">
         <h1 className="font-semibold text-black-300">Taste of Home</h1>
-        <p className="text-sm text-gray-300">Regional Recipes and Flavors</p>
+        <p className="text-sm text-gray-300">Regional Recipes and  Flavors</p>
       </div>
-      <div className="flex min-w-40">
-      <p className="text-xs ml-8 text-black mt-8 mr-2">10 mins</p>
+      <div className="flex max-w-40 pr-2">
+      <p className="text-xs  ml-4 text-black mt-8 mr-2">10mins</p>
       <span className="text-gray-400 mt-7">Read</span>
       </div>
       </div>
@@ -144,14 +150,14 @@ chopped cow skin. Add your pepper mix and salt and fry the mixture till
     </div>
     <div>
 
-    <div className="flex  mt-8 space-x-4 ml-8 lg:justify-center">
+    <div className="flex  mt-8 ml-8  ">
     <img src= {Chops} alt="chicken" className="w-10 h-10 rounded dark:bg-gray-500"/>
-    <div className="flex ">
-      <div className="mr-8 w-48">
+    <div className="flex  relative justify-between">
+      <div className="ml-2 min-w-48">
         <p className="font-semibold text-black-200">Foodies Diaries</p>
         <p className="text-sm text-gray-300 ">Culinary Tales and <br /> Tasteful Journey</p>
       </div>
-      <div className="flex ml-4 w-34">
+      <div className="flex ml-4 max-w-40 pr-2">
       <p className="text-xs ml-8 text-black mt-8 mr-2">7mins</p>
       <span className="text-gray-400 mt-7  ">Read</span>
       </div>

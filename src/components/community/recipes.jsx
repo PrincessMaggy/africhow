@@ -1,14 +1,17 @@
 import Foodzone from "../../assets/images/picture.png"
 import Forward from "../../assets/images/arrow_forward.png"
+import { Link } from "react-router-dom"
 
 
 const RecipesPage = () => {
     return (
         <div>
            <div className="bg-[#f1f1f1]">
+            <Link to ="/trending">
            <p className="text-left p-4">
             Go back
            </p>
+           </Link>
            <div className="max-[390px]:text-left lg:text-center">
             <h1 className="font-bold">Topics</h1>
            </div>
@@ -24,13 +27,15 @@ const RecipesPage = () => {
                 African Food Recipe
         </h1>
     </div>
-    <div className=" flex  mb-2 md:p-4">
+    <Link to ="/blog">
+    <div className=" flex  mb-2 md:p-4"> 
             <p className="ml-2 text-md text-[#33CC9F] mr-3">
                 See more
             </p> 
+            
             <img src={Forward} alt="forward arrow "/>
     </div>
-
+    </Link>
 
 </div>
 </div>
@@ -44,13 +49,14 @@ const RecipesPage = () => {
                 African Food Recipe
         </h1>
     </div>
+    <Link to ="/blog">
     <div className=" flex  mb-2 md:p-4">
             <p className="ml-2 text-md text-[#33CC9F] mr-3">
                 See more
             </p> 
             <img src={Forward} alt="forward arrow "/>
     </div>
-
+    </Link>
 
 </div>
 </div>
@@ -64,13 +70,14 @@ const RecipesPage = () => {
                 African Food Recipe
         </h1>
     </div>
+    <Link to ="/blog">
     <div className=" flex  mb-2 md:p-4">
             <p className="ml-2 text-md text-[#33CC9F] mr-3">
                 See more
             </p> 
             <img src={Forward} alt="forward arrow "/>
     </div>
-
+</Link>
 
 </div>
 </div>
@@ -84,13 +91,14 @@ const RecipesPage = () => {
                 African Food Recipe
         </h1>
     </div>
+    <Link to ="/blog">
     <div className=" flex  mb-2 md:p-4">
             <p className="ml-2 text-md text-[#33CC9F] mr-3">
                 See more
             </p> 
             <img src={Forward} alt="forward arrow "/>
     </div>
-
+</Link>
 
 </div>
 </div>
@@ -104,13 +112,14 @@ const RecipesPage = () => {
                 African Food Recipe
         </h1>
     </div>
+    <Link to ="/blog">
     <div className=" flex  mb-2 md:p-4">
             <p className="ml-2 text-md text-[#33CC9F] mr-3">
                 See more
             </p> 
             <img src={Forward} alt="forward arrow "/>
     </div>
-
+</Link>
 
 </div>
 </div>
@@ -123,13 +132,14 @@ const RecipesPage = () => {
                 African Food Recipe
         </h1>
     </div>
+    <Link to ="/blog">
     <div className=" flex  mb-2 md:p-4">
             <p className="ml-2 text-md text-[#33CC9F] mr-3">
                 See more
             </p> 
             <img src={Forward} alt="forward arrow "/>
     </div>
-
+</Link>
 
 </div>
 </div>
@@ -149,13 +159,14 @@ const RecipesPage = () => {
                 Foodie Zone
         </h1>
     </div>
+    <Link to ="/blog">
     <div className=" flex  mb-2 md:p-4">
             <p className="ml-2 text-md text-[#33CC9F] mr-3">
                 Join discussion
             </p> 
             <img src={Forward} alt="forward arrow "/>
     </div>
-
+    </Link>
 
 </div>
 </div>
@@ -169,13 +180,14 @@ const RecipesPage = () => {
                 Foodie Zone
         </h1>
     </div>
+    <Link to ="/blog">
     <div className=" flex  mb-2 md:p-4">
             <p className="ml-2 text-md text-[#33CC9F] mr-3">
                 Join discussion
             </p> 
             <img src={Forward} alt="forward arrow "/>
     </div>
-
+    </Link>
 
 </div>
 </div>
