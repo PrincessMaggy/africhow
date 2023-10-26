@@ -17,12 +17,14 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Nav from "../components/nav";
 import FormInputs from "../components/FormInputs";
+import { useAuth } from "../components/auth/AuthContext";
 
 
 const style =
   "rounded-xl px-[12px] w-[420px] line-[24px] py-[13px] text-white text-14px";
 
 export default function LoginForm() {
+  const { setLoggedIn } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const [showPassword, setShowPassword] = useState(false);
@@ -43,6 +45,8 @@ export default function LoginForm() {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
+        setLoggedIn(true); // Set the user as logged in
+
       })
       .catch((err) => {
         console.log(err, "err");

@@ -25,11 +25,11 @@ import Catalog from './pages/Catalog';
 import CatalogDetails from './pages/CatalogDetails';
 import EarnStars from './pages/EarnStars';
 import SuccessRewards from './pages/SuccessRewards';
+import VendorDashboard from './pages/VendorDashboard';
+import VendorTransactions from './pages/VendorTransactions';
+import VendorPayout from './pages/VendorPayout';
 // importing components
 
-import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
-import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
-import VendorsPayoutMethod from './components/vendorsPayment/VendorsPayoutMethod';
 import StoreOverview from './components/storePerformance/StoreOverview';
 import StorePerformance from './components/storePerformance/StorePerformance';
 import VendorSupport from './components/VendorSupportPage/VendorSupport';
@@ -46,6 +46,7 @@ import NewMeal from './pages/AddNewMeal';
 import Savechangeprofile from './components/Savechangeprofile';
 import NotificationPage from './components/Notification/notification';
 import NotificationSuccess from './components/Notification/notificationSuccesful'
+
 function App() {
     return (
         <>
@@ -66,15 +67,15 @@ function App() {
                 <Route path='/success/:id' element={<SuccessRewards />} />
                 <Route
                     path='/vendors-dashboard'
-                    element={<VendorsDashboard />}
+                    element={<VendorDashboard />}
                 />
                 <Route
                     path='/vendors-transaction'
-                    element={<VendorsTransaction />}
+                    element={<VendorTransactions />}
                 />
                 <Route
                     path='vendors-payout-method'
-                    element={<VendorsPayoutMethod />}
+                    element={<VendorPayout />}
                 />
                 <Route path='/store-overview' element={<StoreOverview />} />
                 <Route

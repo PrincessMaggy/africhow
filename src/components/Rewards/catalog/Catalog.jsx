@@ -13,7 +13,6 @@ const CatalogPage = () => {
             <div className='catalog_wrapper mx-2 mt-14'>
                 {catalogs.map((item, i) => (
                     <Link to={`/rewards/reward-details/${item.id}`} key={i}>
-                        <a>
                             <div className='catalog-card flex my-8 p-2 gap-6 rounded-md border border-#000f08 items-center'>
                                 <div className='left_side'>
                                     <img src={item.image} alt={item.title} />
@@ -31,7 +30,6 @@ const CatalogPage = () => {
                                     </div>
                                 </div>
                             </div>
-                        </a>
                     </Link>
                 ))}
             </div>
