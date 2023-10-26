@@ -24,6 +24,7 @@ import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Nav from "../components/homeNav";
 import Loader from "../components/LoaderOnboarding";
+import Header from "../components/Header";
 export default function OnBoardingSignUpForm() {
   const [showPassword, setShowPassword] = useState(false);
   // const [countries, SetCountries] = useState([]);
@@ -143,11 +144,12 @@ export default function OnBoardingSignUpForm() {
   return (
     <div>
       <div className="relative"/>
-      <Nav />
+      <Header/>
       <div className=" mx-auto min-[391px]:w-4/5 max-[390px]:w-[358px] flex flex-col gap-3">
         <OnboardingWelcome
           title={"Complete account setup"}
           text={"You're one-step away from selling your product to 1M+ people"}
+          className={"welcome"}
         />
         <form
           className="grid gap-3 w-full"
