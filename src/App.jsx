@@ -45,6 +45,8 @@ import History from './components/OrderManagement/History';
 import NewMeal from './pages/AddNewMeal';
 import Savechangeprofile from './components/Savechangeprofile';
 import TestWork from './components/auth/testProfile';
+import NotificationPage from './components/Notification/notification';
+import NotificationSuccess from './components/Notification/notificationSuccesful'
 
 function App() {
     return (
@@ -165,6 +167,8 @@ function App() {
 
                 //test profile 
                 <Route path='/hours' element={<TestWork />} />
+                <Route path= '/notification' element={<NotificationPage/>} />
+                <Route path= '/updatedSuccessfully' element={<NotificationSuccess/>} />
 
             </Routes>
 

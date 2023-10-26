@@ -185,7 +185,7 @@ function onSubmit(data) {
                       required: "Required",
                       pattern: {
                         value:
-                          /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/,
+                        /^(?=.*[A-Za-z\d])(?=.*[!@#$%^&*.,><*])[A-Za-z\d!@#$%^&*,.><*]{8,}$/,
                         message:
                           "Password must be at least 8 characters and must include at least one letter, one digit, and one special character.",
                       },
@@ -220,11 +220,11 @@ function onSubmit(data) {
               )} */}
               <OnboardingButton text={"Create Account"} onClick={handleSignUp}/>
               <span
-                className={`underline text-[15px] font-medium mx-auto w-[237px]`}
+                className={`underline text-[15px] text-[#145062] font-medium mx-auto w-[250px]`}
               >
-                Have an Account? 
+                Have an Account?{" "} 
                 <span onClick={handleClick}>
-                  Login
+                   Login
                 </span>
               </span>
             </form>

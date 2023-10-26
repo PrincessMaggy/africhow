@@ -23,7 +23,7 @@ const ReviewsCard = () => {
   };
 
   return (
-    <div className="w-96 h-96 relative bg-white">
+    <div className="w-full md:w-96 lg:w-full h-96 relative bg-white">
       <ReviewNav />
 
       {/* User Information */}
@@ -64,7 +64,7 @@ const ReviewsCard = () => {
           </div>
 
           {/* Review content */}
-          <div className="w-96">
+          <div className="w-full md:w-96 lg:w-full">
           <span className="text-neutral-600 text-sm font-normal font-['Manrope'] leading-tight tracking-tight">
               Enjoyed a delightful meal at this restaurant. The ambiance was great, and the service was excellent. I highly recommend it!
             </span>

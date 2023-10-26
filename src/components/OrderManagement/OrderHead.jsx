@@ -43,7 +43,7 @@ const OrderNav = () => {
               : " text-gray-500 bg-bg-order-nav py-3"
           }
         >
-          <Link to="/history" className="gap-1 px-6 py-3">
+          <Link to="/history" className="gap-1 px-5 py-3">
             History
           </Link>
         </li>
