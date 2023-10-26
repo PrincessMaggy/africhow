@@ -110,7 +110,7 @@ export default function Saveprofile() {
 
             <div className="grid gap-2">
               <label className="label text flex gap-2 mt-3">
-                {" "}
+
                 Business email
               </label>
 
@@ -141,8 +141,8 @@ export default function Saveprofile() {
             </div>
             <div className="grid gap-2">
               <label className="label text flex gap-2 mt-3">
-                {" "}
-                Business phone number{" "}
+                
+                Business phone number
               </label>
               <input
                 type="tel"
@@ -157,8 +157,8 @@ export default function Saveprofile() {
 
             <div className="grid gap-2">
               <label className="label text flex gap-2 mt-3">
-                {" "}
-                Hours of Availability{" "}
+                
+                Hours of Availability
               </label>
 
               <input
