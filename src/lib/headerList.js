@@ -5,7 +5,7 @@ const headerList = [
     },
 
     {
-      id: '/community',
+      id: '/trending',
       header: 'Community',
     },
 
@@ -41,7 +41,7 @@ const headerList = [
     },
 
     {
-      id: '/contact-us',
+      id: '/supportform',
       header: 'Support',
     },
 
@@ -53,7 +53,7 @@ const headerList = [
     
 
     {
-      id: '/meallisting',
+      id: '/meallisting/:userId',
       header: 'Dining Menu',
     },
 

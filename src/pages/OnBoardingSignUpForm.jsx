@@ -20,8 +20,9 @@ import OnboardingButton from "../components/OnboardingButton";
 import axios from "axios";
 import OnboardingWelcome from "../components/OnboardingWelcome";
 import "../onboardingloginsignup.css";
-import { auth } from "../../firebase";
+import { db, auth } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { collection, doc, setDoc, addDoc, runTransaction } from 'firebase/firestore';
 import Nav from "../components/homeNav";
 import Loader from "../components/LoaderOnboarding";
 import Header from "../components/Header";
@@ -131,7 +132,39 @@ export default function OnBoardingSignUpForm() {
     setShowPassword(!showPassword);
   };
 
-  function onSubmit(data) {
+  const onSubmit = async (data) => {
+    console.log(data);
+
+    // Create a new user document in the Firestore "users" collection
+    try {
+      const user = auth.currentUser;
+      if (user) {
+        const userUID = user.uid;
+
+        const userDocRef = doc(db, 'users', userUID);
+        const mealsCollectionRef = collection(userDocRef, 'meals');
+
+        await runTransaction(db, async () => {
+          await setDoc(userDocRef, {
+          firstName: data.Firstname,
+          lastName: data.Lastname,
+          businessName: data.Businessname,
+          storeAddress: data.Storeaddress,
+          // Add other user data fields here
+        });
+
+        // Create the "meals" subcollection
+        await addDoc(mealsCollectionRef, { exampleField: 'exampleValue' });
+    });
+
+      console.log('Document written with ID: ', userUID);
+      }
+    } catch (error) {
+      console.error('Error adding document: ', error);
+    }
+
+
+  //function onSubmit(data) {
     console.log(data);
     setIsLoading(true)
     navigate("/account%20created%20successfully");
@@ -141,6 +174,8 @@ export default function OnBoardingSignUpForm() {
   function onError(errors) {
     console.log(errors);
   }
+
+
   return (
     <div>
       <div className="relative"/>

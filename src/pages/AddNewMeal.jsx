@@ -67,6 +67,7 @@ function AddMealItem() {
         }
     };
 
+{/*
     const addMealItem = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -107,6 +108,7 @@ function AddMealItem() {
         }
 
         // Add the meal item to Firestore
+        
         try {
 
             const docRef = await addDoc(collection(db, 'meals'), {
@@ -133,6 +135,80 @@ function AddMealItem() {
             setLoading(false);
         }
     };
+*/}
+    const uploadImageToStorage = async (mealImageFile, currentUser) => {
+        if (!mealImageFile) {
+        return '';
+        }
+    
+        try {
+        const timestamp = new Date().getTime();
+        const uniqueId = Math.random().toString(36).substring(7);
+        const imageFileName = `${timestamp}_${uniqueId}.jpg`;
+        
+        const imageRef = ref(storage, `meal-images/${currentUser.uid}/${imageFileName}`);
+        await uploadBytes(imageRef, mealImageFile);
+        const imageUrl = await getDownloadURL(imageRef);
+    
+        return imageUrl;
+        } catch (err) {
+        alert('Error uploading image: ' + err.message);
+        return '';
+        }
+    };
+    
+    const addMealItemToFirestore = async (mealItem, imageUrl, currentUser) => {
+        try {
+        const mealsCollectionRef = collection(db, 'users', auth.currentUser.uid, 'meals');
+        const docRef = await addDoc(mealsCollectionRef, 
+            {
+                userId: currentUser.uid,
+                name: mealItem.name,
+                category: mealItem.category,
+                currency: mealItem.currency,
+                cost: mealItem.cost,
+                status: mealItem.status,
+                imageUrl: imageUrl,
+        });
+    
+        return docRef.id;
+        } catch (err) {
+        throw err.message;
+        }
+    };
+    
+    const addMealItem = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+    
+        if (
+        !mealItem.name || 
+        !mealItem.category || 
+        !mealItem.currency ||
+        !mealItem.cost || 
+        !mealItem.status || 
+        !mealImageFile
+        ) {
+        toast.error('Please fill in all required fields');
+        setLoading(false);
+        return;
+        }
+    
+        try {
+        const imageUrl = await uploadImageToStorage(mealImageFile, currentUser);
+        const docId = await addMealItemToFirestore(mealItem, imageUrl, currentUser);
+        
+        console.log('Document written with ID: ', docId);
+        toast.success('Meal created successfully!');
+        setMealItem(initialMealItem);
+        window.location.href = `/meallisting/${currentUser.uid}`;
+        } catch (err) {
+        toast.error(err);
+        } finally {
+        setLoading(false);
+        }
+    };
+  
 
     const placeholderImage = CameraIcon;
 

@@ -30,7 +30,7 @@ const firebaseConfig1 = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const app1 = initializeApp(firebaseConfig1, 'app1');
-export const db = getFirestore(app);
+export const db = getFirestore(app1);
 export const storage = getStorage(app1);
 
-export const auth = getAuth(app);
+export const auth = getAuth(app1);
