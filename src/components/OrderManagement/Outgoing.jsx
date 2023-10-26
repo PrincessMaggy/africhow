@@ -7,8 +7,10 @@ import OrderNav from "./OrderNav";
 function Outgoing() {
   return (
     <div>
+      <div className="sticky top-0">
       <OrderNav />
       <OrderHead />
+      </div>
       <div>
         {FoodList.map((item, i) => (
           <div key={i}>

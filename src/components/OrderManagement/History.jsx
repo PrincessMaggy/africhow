@@ -18,8 +18,10 @@ function History() {
 
   return (
     <div className="mb-10">
+      <div className="sticky top-0">
       <OrderNav />
       <OrderHead />
+      </div>
       {FoodList.map((item, index) => (
         <div key={index} item={item}>
           <div className="mx-6">
