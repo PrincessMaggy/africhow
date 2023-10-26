@@ -44,6 +44,7 @@ import Incoming from './components/OrderManagement/Incoming';
 import History from './components/OrderManagement/History';
 import NewMeal from './pages/AddNewMeal';
 import Savechangeprofile from './components/Savechangeprofile';
+import TestWork from './components/auth/testProfile';
 
 function App() {
     return (
@@ -89,7 +90,7 @@ function App() {
                 <Route path='/supportsuccess' element={<SupportSuccess />} />
                 {/* <Route path='/passwordsuccess' element={<Pass} /> */}
 
-                <Route path='/meallisting' element={<Listings />} />
+                <Route path='/meallisting/:userId' element={<Listings />} />
                 <Route path='/add-new-meal' element={<NewMeal />} />
                 <Route
                     path='/account setup'
@@ -103,7 +104,7 @@ function App() {
                             text="Welcome back! You're in. Let the food journey begin."
                             buttonText='Go to dashboard'
                             title='Login Successful'
-                            onNavigate={'/vendors-dashboard'}
+                            onNavigate={'/meallisting/:userId'}
                         />
                     }
                 />
@@ -114,7 +115,7 @@ function App() {
                             text="Congratulations! You're officially part of our delicious community. Let's get started!"
                             buttonText='Go to dashboard'
                             title='Your account has been created successfully!'
-                            onNavigate={'/vendors-dashboard'}
+                            onNavigate={'/meallisting/:userId'}
                         />
                     }
                 />
@@ -160,6 +161,11 @@ function App() {
                 <Route path='/post' element={<Post />} />
                 <Route path='/review card' element={<ReviewCard />} />
                 <Route path='/review-reply' element={<ReviewReply />} />
+
+
+                //test profile 
+                <Route path='/hours' element={<TestWork />} />
+
             </Routes>
 
             {/* the rewards page doesn't use this footer, can we import them in individual components insatead? */}

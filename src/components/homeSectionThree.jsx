@@ -2,6 +2,7 @@ import unitedKingdom from "../assets/images/location-2.webp";
 import America from "../assets/images/location-3.webp";
 import Canada from "../assets/images/location-1.webp";
 import {Link} from 'react-router-dom';
+import Signup from "../components/auth/signup";
 
 
 const HomeSectionThree = () => {
@@ -49,6 +50,7 @@ const HomeSectionThree = () => {
                             </button>
                         </Link>
                     </div>
+                    <Signup />
                 </section>
             </div>
         </div>
