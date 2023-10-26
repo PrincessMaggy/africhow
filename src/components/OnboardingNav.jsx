@@ -1,20 +1,19 @@
 import HamBurger from '../assets/hamburger/white.svg';
 import Close from '../assets/hamburger/Close.svg';
 import HeaderTitle from '../mapping/navHeaderTitle';
-import {Link, useLocation} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-
-const navBar = ({toggleMenu, menuOpen, rewards}) => {
+const Nav = ({toggleMenu, menuOpen}) => {
     const closeMenu = () => {
         if (menuOpen) {
             toggleMenu();
         }
     };
-    const location = useLocation();
 
     return (
-        <div className='px-4 py-10 bg-green-200 text-white flex justify-between items-center top-0 right-0 left-0 z-10 bg-transparent'>
-            <div className='flex gap-3 justify-center items-center z-10 px-4'>
+        <div className='px-10 py-10 bg-green-200 text-white flex justify-between items-center top-0 right-0 left-0 z-10 bg-transparent'>
+            <div className='flex gap-3 justify-center items-center'>
                 <img
                     src={HamBurger}
                     alt=''
@@ -24,21 +23,18 @@ const navBar = ({toggleMenu, menuOpen, rewards}) => {
                 />
                 <HeaderTitle />
             </div>
-            {!location.pathname.includes('rewards') && !location.pathname.includes('vendors')  && (
-               <div className='flex md:justify-center z-10'>
+            <div className='flex md:justify-center'>
                 <Link to='/login'>
                     <button className='text-sm bg-[#33CC9F] rounded-sm bg-opacity-80 text-white py-1 px-5 font-black pointer'>
                         Login
                     </button>
                 </Link>
-            </div>   
-            )}
-          
+            </div>
 
             {/* Close button */}
             {menuOpen && (
                 <div className='absolute top-8 mt-4 left-12 cursor-pointer flex items-center justify-center'>
-                    <div className='flex justify-between items-center gap-3 z-20'>
+                    <div className='flex justify-between items-center gap-3'>
                         <img
                             src={Close}
                             alt=''
@@ -53,7 +49,7 @@ const navBar = ({toggleMenu, menuOpen, rewards}) => {
 
             {/* Full-screen menu */}
             {menuOpen && (
-                <div className='fixed top-0 left-0 right-24 bottom-0 pt-32 bg-green-100 text-black flex flex-col items-center ease-out delay-500s duration-300 z-10'>
+                <div className='fixed top-0 left-0 right-24 bottom-0 pt-32 bg-green-100 text-black flex flex-col items-center ease-out delay-500s duration-300'>
                     <ul className='text-xl lg:text-6xl md:text-4xl font-semibold mb-5 lg:text-center md:text-center text-left'>
                         <li className='cursor-pointer mb-2'>
                             <Link to='/community' onClick={closeMenu}>
@@ -67,10 +63,10 @@ const navBar = ({toggleMenu, menuOpen, rewards}) => {
                         </li>
                         <li className='cursor-pointer mb-2'>
                             <Link
-                                to='/vendors-dashboard'
+                                to='/onboarding'
                                 onClick={closeMenu}
                             >
-                                Payout
+                                KYC Onboarding
                             </Link>
                         </li>
                         <li className='cursor-pointer mb-2'>
@@ -78,20 +74,8 @@ const navBar = ({toggleMenu, menuOpen, rewards}) => {
                                 Loyalty Support
                             </Link>
                         </li>
-
-                        <li className='cursor-pointer mb-2'>
-                            <Link to='/vendors-transaction' onClick={closeMenu}>
-                                Trans.history
-                            </Link>
-                        </li>
-
-                        <li className='cursor-pointer mb-2'>
-                            <Link to='/meallisting' onClick={closeMenu}>
-                                Restaurant Menu
-                            </Link>
-                        </li>
                     </ul>
-                    {/*<div className='mt-auto p-4 flex items-center gap-4'>
+                    <div className='mt-auto p-4 flex items-center gap-4'>
                         <p id='subscribe' className='text-xs font-semibold'>
                             Join Our Mailing List
                         </p>
@@ -103,12 +87,17 @@ const navBar = ({toggleMenu, menuOpen, rewards}) => {
                                 Subscribe
                             </button>
                         </form>
-            </div>*/}
+                    </div>
                 </div>
             )}
         </div>
     );
 };
 
+Nav.propTypes = {
+    toggleMenu: PropTypes.func,
+    menuOpen: PropTypes.bool,
+    toggleDropdown: PropTypes.func,
+};
 
-export default navBar;
+export default Nav;

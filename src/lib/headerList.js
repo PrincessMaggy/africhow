@@ -64,12 +64,17 @@ const headerList = [
 
     {
       id: '/store-overview',
-      header: 'Sore KPIs',
+      header: 'Store KPIs',
     },
 
     {
       id: '/order-summary',
       header: 'Order',
+    },
+
+    {
+      id: '/vendors-payout-method',
+      header: 'Payout method',
     },
     
     ];

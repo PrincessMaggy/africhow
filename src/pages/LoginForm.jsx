@@ -12,9 +12,12 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import AuthDetails from "../../src/components/auth/authDetails";
+import AuthDetails from "../components/auth/authDetails";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Nav from "../components/nav";
+import FormInputs from "../components/FormInputs";
+
 
 const style =
   "rounded-xl px-[12px] w-[420px] line-[24px] py-[13px] text-white text-14px";
@@ -23,15 +26,15 @@ export default function LoginForm() {
   const navigate = useNavigate();
   const location = useLocation();
   const [showPassword, setShowPassword] = useState(false);
-  const [newUser, setNewUser] = useState(location.state ? location.state.newUser : true);
+  const [newUser, setNewUser] = useState(
+    location.state ? location.state.newUser : true
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [loginError, setLoginError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const { register, handleSubmit, formState, reset } = useForm();
   const { errors, isValid, isDirty } = formState;
-  
 
-  
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -60,6 +63,9 @@ export default function LoginForm() {
         ///////
       });
   };
+  const setNewUserToFalse = () => {
+    setNewUser(false);
+  };
 
   async function onSubmit(data) {
     //console.log(data);//tHIS DATA! needs to be pushed to the firebase DB
@@ -78,12 +84,6 @@ export default function LoginForm() {
     if (!loginError) {
       newUser ? navigate("/account setup") : navigate("/login successful");
     }
-
-    // if(newUser){
-    //   navigate("/account setup");
-    // }else{
-    //   navigate("/login successful");
-    // }
   }
 
   function onError(errors) {
@@ -99,7 +99,8 @@ export default function LoginForm() {
   return (
     <>
       <div>
-        {newUser && <Header />}
+        {newUser && <Nav setNewUserToFalse={setNewUserToFalse} />}
+
         <div className="grid gap-6 min-[391px]:w-4/5 max-[398px]:w-[358px] mx-auto relative">
           <div className="grid items-end">
             <OnboardingWelcome
@@ -127,6 +128,13 @@ export default function LoginForm() {
                   })}
                   className="input"
                 />
+                {/* <FormInputs
+                  label={"Email Address"}
+                  name={"email"}
+                  errorMessage={"invalid email address"}
+                  pattern={/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i}
+                  placeholder={"sarahjohn@gmail.com"}
+                /> */}
               </div>
 
               <span className="text-red-500 text-[12px]">
@@ -175,7 +183,7 @@ export default function LoginForm() {
                 }`}
               >
                 {newUser ? "Have an Account?" : "Don't have an Account"}{" "}
-                <span  onClick={handleClick}>
+                <span onClick={handleClick}>
                   {newUser ? "Login" : "Sign up"}
                 </span>
               </span>

@@ -1,4 +1,13 @@
+import NavList from "../lib/navLists";
+import {Link} from 'react-router-dom';
+
 const Footer = () => {
+    const specificFooterIDs = [1, 2, 3];
+    const filteredFooter = NavList.filter((item) => specificFooterIDs.includes(item.id));
+
+    const specificSocialIDs = [4, 5, 6];
+    const filteredSocial = NavList.filter((item) => specificSocialIDs.includes(item.id));
+
   return (
     <div className='w-full flex flex-col pt-20 pb-4 px-10 bg-black '>
         <section className='flex justify-between'>
@@ -10,17 +19,21 @@ const Footer = () => {
                 <div className='lg:px-10 flex flex-col text-left text-sm'>
                     <h3 className='pb-2 underline text-[#33CC9F]'>Links </h3>
                     <ul>
-                        <li className='text-white'>Community</li>
-                        <li className='text-white'>Support</li>
-                        <li className='text-white'>Rewards</li>
+                        {filteredFooter.map((item) => (
+                            <li key={item.id} className="text-white cursor-pointer">
+                                <Link to={item.route}>{item.sub_title}</Link>
+                            </li>
+                        ))}
                     </ul>
                 </div>
                 <div className='flex flex-col text-left text-sm'>
                     <h3 className='pb-2 underline text-[#33CC9F]'>Socials</h3>
                     <ul>
-                        <li className='text-white'>Meta</li>
-                        <li className='text-white'>Instagram</li>
-                        <li className='text-white'>X (Twitter)</li>
+                        {filteredSocial.map((item) => (
+                            <li key={item.id} className="text-white cursor-pointer">
+                                <Link to={item.route}>{item.sub_title}</Link>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>
