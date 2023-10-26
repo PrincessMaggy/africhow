@@ -1,12 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import React from "react";
 
-const OrderNav = () => {
+const OrderHead = () => {
   const location = useLocation();
 
   return (
     <nav>
-      <ul className="flex items-center justify-between px-6 py-2 my-5 text-sm text-gray-500 bg-bg-order-nav">
+      <ul className="flex items-center justify-between px-6 py-2 text-sm text-gray-500 bg-bg-order-nav">
         <li
           className={
             location.pathname === "/incoming"
@@ -52,4 +52,4 @@ const OrderNav = () => {
   );
 };
 
-export default OrderNav;
+export default OrderHead;

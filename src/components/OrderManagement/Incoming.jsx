@@ -30,8 +30,10 @@ function Incoming() {
 
   return (
     <div>
+      <div className="sticky top-0">
       <OrderNav />
       <OrderHead />
+      </div>
       {acceptPopUp?
     ( <div className="sticky top-0 flex items-center justify-center gap-8">
       <p className="font-semibold bg-white text-primary">Order successfully accepted!</p>

@@ -37,8 +37,9 @@ function Outgoing() {
               </div>
 
               <div className="flex items-center justify-between mx-6 text-sm font-semibold text-bg-order-active">
+              <div className="flex items-center gap-5">
                 <div>
-                  <img src={item.img1} alt="food" />
+                  <img src={item.img1} alt="food" className="w-full h-full"/>
                 </div>
                 <div>{item.Qty1}x</div>
                 <div className="text-left">
@@ -47,20 +48,23 @@ function Outgoing() {
                     {item.Desc1}
                   </div>
                 </div>
+              </div>
                 <div>${item.Price1}</div>
               </div>
 
               <div className="flex items-center justify-between mx-6 my-4 text-sm font-semibold text-bg-order-active">
+              <div className="flex items-center gap-5">
                 <div>
-                  <img src={item.img2} alt="" />
+                  <img src={item.img1} alt="food" className="w-full h-full"/>
                 </div>
-                <div>{item.Qty2}x</div>
+                <div>{item.Qty1}x</div>
                 <div className="text-left">
-                  <div>{item.Foodname2}</div>
+                  <div>{item.Foodname1}</div>
                   <div className="text-xs font-normal text-gray-500 ">
-                    {item.Desc2}
+                    {item.Desc1}
                   </div>
                 </div>
+              </div>
                 <div>${item.Price2}</div>
               </div>
 
