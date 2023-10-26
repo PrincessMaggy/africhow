@@ -220,11 +220,11 @@ function onSubmit(data) {
               )} */}
               <OnboardingButton text={"Create Account"} onClick={handleSignUp}/>
               <span
-                className={`underline text-[15px] font-medium mx-auto w-[237px]`}
+                className={`underline text-[15px] text-[#145062] font-medium mx-auto w-[250px]`}
               >
-                Have an Account? 
+                Have an Account?{" "} 
                 <span onClick={handleClick}>
-                  Login
+                   Login
                 </span>
               </span>
             </form>
