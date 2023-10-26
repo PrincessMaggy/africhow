@@ -5,7 +5,7 @@ import Cancel from "../../assets/images/cancel.png"
 const PostPage = () => {
     return (
       <div>
-        <div className ="flex justify-between px-4">
+        <div className ="flex justify-between px-4 bg-[#E5F4FF]">
             <div className="left-2">
          <img src={Cancel} className='w-[36px] h-[36px] absolute text-gray-400 top-6 '/>
          </div>

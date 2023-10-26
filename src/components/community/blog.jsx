@@ -20,7 +20,7 @@ const BlogPage = () => {
 
 <form className="flex items-center sm:min-w-40">   
       
-      <div className="relative w-full mr-3">
+      <div className=" flex relative w-full mr-3">
           <div className="inline-flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
           <img src={Search} alt="search image" className='relative w-[24px]  mr-2 left-2'/>
           </div>

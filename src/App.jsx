@@ -31,6 +31,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
 import Blog from './components/community/blog';
+import Recipes from './components/community/recipes';
 
 
 
@@ -47,6 +48,7 @@ function App() {
                 <Route path ="/trending" element = {<TrendingComponent/>}/>
                 <Route path= "/post" element = {<Post/>}/>
                 <Route path= "/blog" element = {<Blog/>}/>
+                <Route path= "/recipes" element = {<Recipes/>}/>
                             </Routes>
             <Footer />
            
