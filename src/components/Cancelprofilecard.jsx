@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Cancelprofile from "../components/Cancelprofile";
+import Cancelprofile from "./Cancelprofile";
 
 
 function Cancelprofilecard ()  { 
