@@ -11,7 +11,7 @@ export default function Editbutton() {
 <div>
 
 <Link 
-className="bg-[#145062]  text-[rgb(0,15,8)]  text-[12px] w-[300px] rounded-[3px] py-[8px] px-[10px]" to="http://localhost:5173/vendorprofilechange">
+className="bg-[#145062]  text-[rgb(0,15,8)]  text-[12px] w-[1000px] rounded-[3px] py-[8px] px-[10px]" to="http://localhost:5173/vendorprofilechange">
 Edit
 </Link>
 

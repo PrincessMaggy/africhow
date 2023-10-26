@@ -58,16 +58,9 @@ import Cancelprofilecard from "./components/Cancelprofilecard";
 import Vendorworkhour from "./components/Vendorworkhour";
 import Vendorprofilechange from "./pages/Vendorprofilechange";
 
-
-
-import Listings from './pages/MealListing';
-import Outgoing from './components/OrderManagement/Outgoing';
-import Incoming from './components/OrderManagement/Incoming';
-import History from './components/OrderManagement/History';
-import NewMeal from './pages/AddNewMeal';
-import Savechangeprofile from './components/Savechangeprofile';
 import NotificationPage from './components/Notification/notification';
 import NotificationSuccess from './components/Notification/notificationSuccesful'
+
 function App() {
     return (
         <>
