@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Profilerror from "./Profilerror";
 import Profilesuccess from "./Profilesuccess";
+import { Link } from "react-router-dom";
 
 export default function Saveprofile() {
   const [formData, setFormData] = useState({
@@ -171,12 +172,13 @@ export default function Saveprofile() {
                 className="input  w-[50px] h-[30px]"
               />
 
+              <Link to="http://localhost:5173/cancelprofilecard">
               <button
                 className="text-[#909090] mr-5 border-black text-[12px] w-[120px] rounded-[3px] py-[8px] px-[10px]"
-                onClick={handleSubmit}
               >
                 Cancel
               </button>
+              </Link>
 
               <button
                 className="bg-[#145062]  text-[rgb(0,15,8)]  ml-[150px] mb-5 text-[12px] w-[120px] rounded-[3px] py-[8px] px-[10px]"
