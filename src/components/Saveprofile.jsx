@@ -1,23 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
 import Saveprofilebutton from "./Saveprofilebutton"
+import circle from '../assets/ProfileImg/checkcircle.png';
+import Error from "../assets/ProfileImg/error.png";
 import { useForm, Controller } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom"; 
+
+
 
 export default function Profileform() {
-  const { handleSubmit, control, formState: { errors } } = useForm();
-  const history = useNavigate(); // Get the history object
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
-  const onSubmit = (data) => {
+const onSubmit = (data) => {
+  // Check for errors
+  let hasErrors = false;
+
+  if (!data.fname || !data.lname || !data.bname || !data.Badress || !data.Bemail || !data.bemail || !data.bphone || !data.HOA) {
+    setError("Please fill out all required fields.");
+    hasErrors = true;
+  } else {
+    setError("");
+  }
+
+  if (data.bname && data.bname.length > 50) {
+    setError("Business name cannot exceed 50 characters.");
+    hasErrors = true;
+  } else {
+    setError("");
+  }
+
+  if (!hasErrors) {
     // Handle form submission here
+    // If successful, display success message
+    setSuccess("Your changes have been successfully saved");
+  }
+};
 
-    // Redirect to the new page when the button is clicked
-    useNavigate.push("hhttp://localhost:5173/Vendorprofilechange");
-  };
+return (
+  <>
+    {error && (
+      <div className="m-5">
+        <div className="w-[300px] h-72 border m-auto rounded shadow">
+          <h1 className="text-bold font-medium m-3 text-red-400">Error</h1>
+          <p className="m-3 text-sm font-normal">{error}</p>
+          <img src={Error} className="ml-12" alt="Error Icon" />
+        </div>
+      </div>
+    )}
 
-  return (
-    <>
-      <div className="grid gap-3   relative">
-        <div className="grid items-end">
+    {success && (
+      <div className="m-5">
+        <div className="w-[300px] h-72 border m-auto rounded shadow">
+          <h1 className="text-bold font-medium m-3 text-green-200">Success</h1>
+          <p className="m-3 text-sm font-normal">{success}</p>
+          <img src={circle} className="ml-12" alt="Success Icon" />
+        </div>
+      </div>
+    )}
+
+    <div className="grid gap-3 relative">
+    <div className="grid items-end">
           <form className="grid gap-3" onSubmit={handleSubmit(onSubmit)}>
           <div className="grid gap-2">
               <label className="label text flex gap-2 mt-3">First name</label>
@@ -173,6 +214,5 @@ export default function Profileform() {
     </>
   );
 }
-
 
 

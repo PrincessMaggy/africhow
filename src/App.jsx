@@ -35,6 +35,9 @@ import ForgotPassword from "./pages/ForgotPassword";
 
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
+import ReedeemSucess from './components/Rewards/ReedeemSucess'
+import ReviewCard from './pages/ReviewCard';
+import ReviewReply from './pages/ReviewReply';
 
 
 // for sample
@@ -47,6 +50,9 @@ import History from "./components/OrderManagement/History";
 import Layout from "./components/OrderManagement/Layout/Layout";
 import NewMeal from "./components/addMealItem";
 
+
+
+
 //for vendor profile
 import Vendorprofile from "./pages/Vendorprofile";
 import Vendorworkhour from "./pages/Vendorworkhour";
@@ -55,10 +61,6 @@ import Profilesavedsuccess from "./pages/Profilesavedsuccess";
 import Profileerrormessage from "./pages/Profileerrormessage"
 import Vendorprofilechange from "./pages/Vendorprofilechange";
 
-
-import ReedeemSucess from './components/Rewards/ReedeemSucess'
-import ReviewCard from './pages/ReviewCard';
-import ReviewReply from './pages/ReviewReply';
 
 function App() {
   return (

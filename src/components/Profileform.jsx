@@ -2,7 +2,6 @@ import React from "react";
 import Editbutton from "./Editbutton"
 import { useForm, Controller } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
-
 export default function Profileform() {
   const { handleSubmit, control, formState: { errors } } = useForm();
   const history = useNavigate(); // Get the history object
