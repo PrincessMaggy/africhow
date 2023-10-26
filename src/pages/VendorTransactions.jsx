@@ -1,18 +1,18 @@
-import ReedeemSucess from "../components/Rewards/ReedeemSucess"
+import VendorsTransaction from '../components/vendorsPayment/vendorsTransaction'
 import { useAuth } from "../components/auth/AuthContext";
 import { useNavigate } from 'react-router-dom';
 
-const SuccessRewards = () => {
-  const { loggedIn } = useAuth();
+const VendorTransactions = () => {
+    const { loggedIn } = useAuth();
     const navigate = useNavigate();
 
     if(!loggedIn){
         navigate('/login');
         // return null;
-    }
+    } 
   return (
-    <ReedeemSucess />
+    <VendorsTransaction />
   )
 }
 
-export default SuccessRewards
+export default VendorTransactions

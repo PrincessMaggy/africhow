@@ -8,6 +8,30 @@ import Home from './pages/Home';
 import Support from './pages/Support';
 import Rewards from './pages/Rewards';
 import Signup from './pages/Signup';
+
+
+import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
+import Cancelprofilecard from './pages/Cancelprofilecard';
+import Profilesavedsuccess from './pages/Profilesavedsuccess';
+import Profileerrormessage from './pages/Profileerrormessage';
+import FormSuccess from './pages/FormSuccess';
+import ConfirmPassword from './pages/ConfirmPassword';
+import ForgotPassword from './pages/ForgotPassword';
+import ReviewCard from './pages/ReviewCard';
+import ReviewReply from './pages/ReviewReply';
+import Vendorprofile from './pages/Vendorprofile';
+import Vendorworkhour from './pages/Vendorworkhour';
+import Achievements from './pages/Achievements';
+import Catalog from './pages/Catalog';
+import CatalogDetails from './pages/CatalogDetails';
+import EarnStars from './pages/EarnStars';
+import SuccessRewards from './pages/SuccessRewards';
+import VendorDashboard from './pages/VendorDashboard';
+import VendorTransactions from './pages/VendorTransactions';
+import VendorPayout from './pages/VendorPayout';
+// importing components
+
+
 // import Login from './pages/Login';
 //import Community from "./pages/Community";
 import './App.css';
@@ -20,6 +44,7 @@ import EarnStars from './components/Rewards/EarnStars';
 import CatalogDetails from './components/Rewards/catalog/CatalogDetails';
 import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
 import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
+
 import StoreOverview from './components/storePerformance/StoreOverview';
 import StorePerformance from './components/storePerformance/StorePerformance';
 import VendorSupport from './components/VendorSupportPage/VendorSupport';
@@ -55,7 +80,9 @@ import Vendorprofilechange from './pages/Vendorprofilechange';
 import History from './components/OrderManagement/History';
 import TestWork from './components/auth/testProfile';
 import NotificationPage from './components/Notification/notification';
-import NotificationSuccess from './components/Notification/notificationSuccesful';
+
+import NotificationSuccess from './components/Notification/notificationSuccesful'
+
 
 function App() {
     return (
@@ -77,15 +104,15 @@ function App() {
                 <Route path='/success/:id' element={<SuccessRewards />} />
                 <Route
                     path='/vendors-dashboard'
-                    element={<VendorsDashboard />}
+                    element={<VendorDashboard />}
                 />
                 <Route
                     path='/vendors-transaction'
-                    element={<VendorsTransaction />}
+                    element={<VendorTransactions />}
                 />
                 <Route
                     path='vendors-payout-method'
-                    element={<VendorsPayoutMethod />}
+                    element={<VendorPayout />}
                 />
                 <Route path='/store-overview' element={<StoreOverview />} />
                 <Route
