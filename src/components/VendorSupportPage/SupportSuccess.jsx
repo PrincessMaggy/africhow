@@ -7,9 +7,6 @@ import Box from "../../assets/icons/checker.jpg";
 
 export default function SupportSuccess() {
     return (
-        /*This pops up immediately the user sends an email for vendor support 
-        to alert that the email has been successfully sent */
-
         <div>
             <Navbar />
             <Link to="/supportform">
@@ -20,7 +17,7 @@ export default function SupportSuccess() {
                     <p className="text-base font-semibold">Submitted successfully!</p>
                     <Link to="/meallisting">
                         <div className="h-44 w-48 ">
-                            <button className="py-2 px-6 font-medium text-base bg-primary mt-6 mx-1">Go to homepage</button>
+                            <button className="py-2 px-6 font-medium text-base bg-primary hover:bg-emerald-200 mt-6 mx-1 rounded">Go to homepage</button>
                         </div>
                     </Link>
                 </div>
