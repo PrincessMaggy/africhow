@@ -130,6 +130,7 @@ export default function Login() {
             <OnboardingWelcome
               title={"Welcome Back!"}
               text={"Join the AfriChow community now..."}
+              className={"welcome"}
             />
             <form
               className="grid gap-3 "
@@ -215,7 +216,7 @@ export default function Login() {
                 }
               >
                 Don't have an Account?{" "} 
-                <span onClick={handleClick}>Sign up</span>
+                <span onClick={handleClick} className="cursor-pointer">Sign up</span>
               </span>
             </form>
           </div>

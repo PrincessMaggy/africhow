@@ -7,6 +7,7 @@ function Vendorprofile ()  {
     return (
     <>
          <Profileedit/>
+    
    
         </>
     );
