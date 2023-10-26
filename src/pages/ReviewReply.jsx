@@ -69,8 +69,8 @@ const ReviewReply = () => {
           </div>
 
           {/* Review content */}
-          <div className="w-full md:w-96">
-            <span className="text-neutral-600 text-sm font-normal font-['Manrope'] leading-tight tracking-tight">
+          <div className="w-full md:w-96 lg:w-full">
+            <span className="w-full text-neutral-600 text-sm font-normal font-['Manrope'] leading-tight tracking-tight">
               Enjoyed a delightful meal at this restaurant. The ambiance was great, and the service was excellent. I highly recommend it!
             </span>
             <span className="text-emerald-400 text-sm font-semibold font-['Manrope'] leading-tight tracking-tight">See more</span>
@@ -121,7 +121,7 @@ const ReviewReply = () => {
           </div>
 
           {/* Review content */}
-          <div className="w-full md:w-96">
+          <div className="w-full md:w-96 lg:w-full">
             <span className="text-neutral-600 text-sm font-normal font-['Manrope'] leading-tight tracking-tight">
               Enjoyed a delightful meal at this restaurant. The ambiance was great, and the service was excellent. I highly recommend it!
             </span>
@@ -206,7 +206,7 @@ const ReviewReply = () => {
           </div>
 
           {/* Review content */}
-          <div className="w-full md:w-96">
+          <div className="w-full md:w-96 lg:w-full">
             <span className="text-neutral-600 text-sm font-normal font-['Manrope'] leading-tight tracking-tight">
               Enjoyed a delightful meal at this restaurant. The ambiance was great, and the service was excellent. I highly recommend it!
             </span>
