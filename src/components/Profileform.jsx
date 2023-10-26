@@ -1,22 +1,14 @@
 import React from "react";
 import Editbutton from "./Editbutton"
-import { useForm, Controller } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
-export default function Profileform() {
-  const { handleSubmit, control, formState: { errors } } = useForm();
-  const history = useNavigate(); // Get the history object
 
-  const onSubmit = (data) => {
-    // Handle form submission here
-console.log(data)
-    // Redirect to the new page when the button is clicked
-  };
+export default function Profileform() {
 
   return (
     <>
-      <div className="grid gap-3   relative">
+      <div className="grid gap-3 relative" >
+      
         <div className="grid items-end">
-          <form className="grid gap-3" onSubmit={handleSubmit(onSubmit)}>
+          <form className="grid gap-3" >
           <div className="grid gap-2">
               <label className="label text flex gap-2 mt-3">First name</label>
               <Controller
