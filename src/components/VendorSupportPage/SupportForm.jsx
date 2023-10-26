@@ -9,7 +9,7 @@ export default function SupportForm() {
         <div className="font-body text-words font-normal">
             <Navbar />
             <Link to="/">
-                <img src={BackArrow}></img>
+                <img src={BackArrow} className="mx-5"></img>
             </Link>
             <EmailForm />
         </div>

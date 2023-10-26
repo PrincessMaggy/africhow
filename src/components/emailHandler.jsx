@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function EmailForm() {
 
@@ -36,12 +38,17 @@ function EmailForm() {
             .sendForm(serviceID, templateID, e.target, userID)
             .then((result) => {
                 console.log(result);
-                alert('Your email has been sent!');
+                toast.success('Your email has been sent!');
+
+                // Delay the navigation using setTimeout
+                setTimeout(() => {
+                    navigate('/supportsuccess');
+                }, 2000); // 2000 milliseconds (2 seconds)
             })
+
             .catch((error) => {
-                alert('Oops... ' + JSON.stringify(error));
+                toast.error('Oops... ' + JSON.stringify(error));
             });
-        navigate("/supportsuccess")
     };
 
     const handleChange = (e) => {
@@ -53,8 +60,8 @@ function EmailForm() {
 
         <div className="font-body text-words font-normal">
             <div className="mx-4">
-                <div className="leading-5 text-sm lg:text-xl md:mx-32 lg:mx-50 lg:p-7">
-                    <div className="lg:text-center lg:my-6 my-4">
+                <div className="leading-5 text-sm md:text-lg lg:text-xl md:mx-20 lg:mx-50 lg:p-7 text-left lg:text-center">
+                    <div className="md:my-6 my-4">
                         <p>
                             For any complaint or feedback, please fill out the following
                             details.
@@ -64,7 +71,7 @@ function EmailForm() {
 
                     <form
                         onSubmit={handleSubmit}
-                        className="my-2 flex flex-col lg:gap-3 justify-start py-2 sm:mb-10 lg:mb-20"
+                        className="mb-2 flex flex-col md:gap-2 justify-start py-2 sm:mb-10 lg:mb-20 text-left"
                     >
                         <label htmlFor='from_name'>Name <span className="text-red-700 text-xl">*</span></label>
                         <input
