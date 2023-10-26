@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function EmailForm() {
 
@@ -36,12 +38,17 @@ function EmailForm() {
             .sendForm(serviceID, templateID, e.target, userID)
             .then((result) => {
                 console.log(result);
-                alert('Your email has been sent!');
+                toast.success('Your email has been sent!');
+
+                // Delay the navigation using setTimeout
+                setTimeout(() => {
+                    navigate('/supportsuccess');
+                }, 3000); // 3000 milliseconds (3 seconds)
             })
+
             .catch((error) => {
-                alert('Oops... ' + JSON.stringify(error));
+                toast.error('Oops... ' + JSON.stringify(error));
             });
-        navigate("/supportsuccess")
     };
 
     const handleChange = (e) => {
@@ -53,8 +60,8 @@ function EmailForm() {
 
         <div className="font-body text-words font-normal">
             <div className="mx-4">
-                <div className="leading-5 text-sm lg:text-xl md:mx-32 lg:mx-50 lg:p-7">
-                    <div className="lg:text-center lg:my-6 my-4">
+                <div className="leading-5 text-sm md:text-lg lg:text-xl md:mx-36 lg:mx-64 lg:p-7 text-left lg:text-center">
+                    <div className="md:my-6 my-4">
                         <p>
                             For any complaint or feedback, please fill out the following
                             details.
@@ -64,29 +71,29 @@ function EmailForm() {
 
                     <form
                         onSubmit={handleSubmit}
-                        className="my-2 flex flex-col lg:gap-3 justify-start py-2 sm:mb-10 lg:mb-20"
+                        className="mb-2 flex flex-col md:gap-2 justify-start py-2 sm:mb-10 lg:mb-20 text-left"
                     >
-                        <label htmlFor='from_name'>Name <span className="text-red-700 text-xl">*</span></label>
+                        <label htmlFor='from_name' className='font-bold'>Name <span className="text-red-700 text-xl">*</span></label>
                         <input
                             type='text'
                             name='from_name'
                             value={formData.from_name}
                             onChange={handleChange}
                             required
-                            className= "border  border-words h-12 my-1"
+                            className="border  border-words h-12 my-1"
                         />
                         <br />
-                        
-                        <label htmlFor='from_email'>Email <span className="text-red-700 text-xl">*</span></label>
+
+                        <label htmlFor='from_email' className='font-bold'>Email <span className="text-red-700 text-xl">*</span></label>
                         <input
                             type='email'
                             name='from_email'
                             value={formData.from_email}
                             onChange={handleChange}
                             required
-                            className="border  border-words h-12 my-1"/>
+                            className="border  border-words h-12 my-1" />
                         <br />
-                        
+
                         <div className="flex gap-x-1 my-3">
                             <input type="checkbox"></input>{" "}
                             <label className="font-medium text-base lg:text-2xl">
@@ -96,17 +103,17 @@ function EmailForm() {
                         <br />
 
                         <div className="flex flex-col justify-start">
-                            <label htmlFor='email_subject'>Subject</label>
+                            <label htmlFor='email_subject' className='font-bold'>Subject</label>
                             <input
                                 type="text"
-                                name='email_subject' 
+                                name='email_subject'
                                 className="border border-words h-12 my-1"
                                 required
                             ></input>
                         </div>
                         <br />
 
-                        <label htmlFor='message'>Complaint/Feedback <span className="text-red-700 text-xl">*</span></label>
+                        <label htmlFor='message' className='font-bold'>Complaint/Feedback <span className="text-red-700 text-xl">*</span></label>
                         <textarea
                             name='message'
                             value={formData.message}
@@ -123,7 +130,7 @@ function EmailForm() {
                             {text.length}/{maxLength}
                         </p>
                         <br />
-                        
+
                         <button
                             type='submit'
                             className='w-fit h-fit py-2 px-6 font-medium text-base bg-primary'
@@ -133,6 +140,12 @@ function EmailForm() {
                     </form>
                 </div>
             </div>
+            <ToastContainer
+                autoClose={3000}
+                hideProgressBar={true}
+                pauseOnHover={false}
+                theme="colored"
+            />
         </div>
     );
 }
