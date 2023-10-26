@@ -7,7 +7,7 @@ import OrderNav from "./OrderNav";
 function Outgoing() {
   return (
     <div>
-      <div className="sticky top-0">
+      <div className="sticky top-0 mb-6">
       <OrderNav />
       <OrderHead />
       </div>
