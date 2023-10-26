@@ -60,58 +60,57 @@ function NotificationPage() {
   }, [notify1, notify2, notify3, notify4, notify5, notify6]);
 
   return (
-    <div className="p-4">
-      <span><img src={arrow_back} alt="arrow_back" className="arrow" /></span>
-      <h1 className="text-2xl text-start font-bold mt-4">Enable notification</h1>
-      <p className='text-base md:text-xl text-start mt-4'>Enabling notification helps you keep track incoming orders, daily store performance and updates.</p>
-      <h1 className='text-2xl text-start font-semibold mt-4 mb-6'>Select as many options as you like.</h1>
-      <div className='flex flex-start mb-2 '>
-        <label className="inline-flex items-center">
-          <input type="checkbox" checked={notify1} onChange={() => setNotify1(!notify1)} className="w-5 h-5 text-white bg-[#33CC9F] border-0 rounded checked:bg-[#33CC9F] checked:border-transparent form-checkbox" />
-          <span className="ml-2">Incoming Orders</span>
-        </label>
-      </div>
-      <div className='flex flex-start mb-2'>
-        <label className="inline-flex items-center">
-          <input type="checkbox" checked={notify2} onChange={() => setNotify2(!notify2)} className="w-5 h-5 text-white bg-[#33CC9F] border-0 rounded checked:bg-[#33CC9F] checked:border-transparent form-checkbox" />
-          <span className="ml-2">Store performance</span>
-        </label>
-      </div>
-      <div className='flex flex-start mb-2'>
-        <label className="inline-flex items-center">
-          <input type="checkbox" checked={notify3} onChange={() => setNotify3(!notify3)} className="w-5 h-5 text-white bg-[#33CC9F] border-0 rounded checked:bg-[#33CC9F] checked:border-transparent form-checkbox" />
-          <span className="ml-2">Reviews and ratings</span>
-        </label>
-      </div>
-      <div className='flex flex-start mb-2'>
-        <label className="inline-flex items-center">
-          <input type="checkbox" checked={notify4} onChange={() => setNotify4(!notify4)} className="w-5 h-5 text-white bg-[#33CC9F] border-0 rounded checked:bg-[#33CC9F] checked:border-transparent form-checkbox" />
-          <span className="ml-2">Payment</span>
-        </label>
-      </div>
-      <div className='flex flex-start mb-2'>
-        <label className="inline-flex items-center">
-          <input type="checkbox" checked={notify5} onChange={() => setNotify5(!notify5)} className="w-5 h-5 text-white bg-[#33CC9F] border-0 rounded checked:bg-[#33CC9F] checked:border-transparent form-checkbox" />
-          <span className="ml-2">Delivery updates</span>
-        </label>
-      </div>
-      <div className='flex flex-start mb-2'>
-        <label className="inline-flex items-center">
-          <input type="checkbox" checked={notify6} onChange={() => setNotify6(!notify6)} className="w-5 h-5 text-white bg-[#33CC9F] border-0 rounded checked:bg-[#33CC9F] checked:border-transparent form-checkbox" />
-          <span className="ml-2">Customer's enquiry</span>
-        </label>
-      </div>
-      <div className='flex items-start md:items-center md:justify-center'>
-
-      <Link
-          to="/updatedsuccesfully"
-          className="inline-block text-black lg:text-2xl text-xl mt-10 mb-4 border bg-primary lg:px-12 px-12 py-2"
-        >
-          Continue
-        </Link>
-      </div>
-        <p className='text-start text-base md:text-2xl '>You can update this whenever you like.</p>
-    </div>
+  <section className="space-y-4">
+  <span><img src={arrow_back} alt="arrow_back" className="arrow" /></span>
+  <h1 className="text-base lg:text-start text-start font-bold mt-4">Enable notification</h1>
+  <p className='text-base lg:text-start text-start mt-4'>Enabling notification helps you keep track incoming orders, daily store performance and updates.</p>
+  <h1 className='text-base lg:text-start text-start font-semibold mt-4 mb-6'>Select as many options as you like.</h1>
+  <div className='flex lg:flex-start flex-start'>
+    <label className="inline-flex items-center">
+      <input type="checkbox" checked={notify1} onChange={() => setNotify1(!notify1)} className="w-5 h-5 text-white border-0 rounded checked:bg-primary checked:border-transparent form-checkbox" />
+      <span className="ml-2">Incoming Orders</span>
+    </label>
+  </div>
+  <div className='flex lg:flex-start flex-start'>
+    <label className="inline-flex items-center">
+      <input type="checkbox" checked={notify2} onChange={() => setNotify2(!notify2)} className="w-5 h-5 text-white border-0 rounded checked:bg-primary checked:border-transparent form-checkbox" />
+      <span className="ml-2">Store performance</span>
+    </label>
+  </div>
+  <div className='flex lg:flex-start flex-start'>
+    <label className="inline-flex items-center">
+      <input type="checkbox" checked={notify3} onChange={() => setNotify3(!notify3)} className="w-5 h-5 text-white border-0 rounded checked:bg-primary checked:border-transparent form-checkbox" />
+      <span className="ml-2">Reviews and ratings</span>
+    </label>
+  </div>
+  <div className='flex lg:flex-start flex-start'>
+    <label className="inline-flex items-center">
+      <input type="checkbox" checked={notify4} onChange={() => setNotify4(!notify4)} className="w-5 h-5 text-white border-0 rounded checked:bg-primary checked:border-transparent form-checkbox" />
+      <span className="ml-2">Payment</span>
+    </label>
+  </div>
+  <div className='flex lg:flex-start flex-start'>
+    <label className="inline-flex items-center">
+      <input type="checkbox" checked={notify5} onChange={() => setNotify5(!notify5)} className="w-5 h-5 text-white border-0 rounded checked:bg-primary checked:border-transparent form-checkbox" />
+      <span className="ml-2">Delivery updates</span>
+    </label>
+  </div>
+  <div className='flex lg:flex-start flex-start'>
+    <label className="inline-flex items-center">
+      <input type="checkbox" checked={notify6} onChange={() => setNotify6(!notify6)} className="w-5 h-5 text-white border-0 rounded checked:bg-primary checked:border-transparent form-checkbox" />
+      <span className="ml-2">Customer's enquiry</span>
+    </label>
+  </div>
+  <div className='flex flex-start'>        
+    <Link
+      to="/updatedsuccessfully"
+      className="text-base border bg-primary text-words py-2 px-8"
+    >
+      Continue
+    </Link>
+  </div>
+  <p className='text-start text-base'>You can update this whenever you like.</p>
+</section>
   );
 }
 
