@@ -74,7 +74,7 @@ const navBar = ({toggleMenu, menuOpen}) => {
                             </Link>
                         </li>
                         <li className='cursor-pointer mb-2'>
-                            <Link to='/contact-us' onClick={closeMenu}>
+                            <Link to='/supportform' onClick={closeMenu}>
                                 Loyalty Support
                             </Link>
                         </li>
@@ -82,12 +82,6 @@ const navBar = ({toggleMenu, menuOpen}) => {
                         <li className='cursor-pointer mb-2'>
                             <Link to='/vendors-transaction' onClick={closeMenu}>
                                 Trans.history
-                            </Link>
-                        </li>
-
-                        <li className='cursor-pointer mb-2'>
-                            <Link to='/meallisting' onClick={closeMenu}>
-                                Restaurant Menu
                             </Link>
                         </li>
                     </ul>

@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
-import {collection, getDocs} from 'firebase/firestore';
-import {db} from '../../firebase';
+import {collection, getDocs, query, where } from 'firebase/firestore';
+import {db, auth} from '../../firebase';
 import Meal1 from "../assets/meals/fishtacos.jpg"
 
 function FetchMealItem() {
@@ -9,12 +9,19 @@ function FetchMealItem() {
     useEffect(() => {
         const fetchMeals = async () => {
             try {
-                const querySnapshot = await getDocs(collection(db, 'meals'));
-                const mealData = [];
-                querySnapshot.forEach((doc) => {
-                    mealData.push({id: doc.id, ...doc.data()});
-                });
-                setAllDocs(mealData);
+                // Check if the user is authenticated
+                if (auth.currentUser) {
+                    const userMealsRef = collection(db, 'users', auth.currentUser.uid, 'meals');
+                    const querySnapshot = await getDocs(userMealsRef);
+
+                    const mealData = [];
+                    querySnapshot.forEach((doc) => {
+                        mealData.push({ id: doc.id, ...doc.data() });
+                    });
+                    setAllDocs(mealData);
+                } else {
+                    // User is not authenticated; handle this case (e.g., redirect to login)
+                }
             } catch (error) {
                 console.error('Error fetching meals:', error);
             }
