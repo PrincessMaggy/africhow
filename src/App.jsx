@@ -4,13 +4,13 @@ import './index.css';
 
 // importing pages
 
+// importing pages
+
 import Home from './pages/Home';
 import Support from './pages/Support';
 import Rewards from './pages/Rewards';
 import Signup from './pages/Signup';
 import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
-// import Profilesavedsuccess from './pages/Profilesavedsuccess';
-// import Profileerrormessage from './pages/Profileerrormessage';
 
 //import Cancelprofilecard from './pages/Cancelprofilecard';
 //import Profilesavedsuccess from './pages/Profilesavedsuccess';
@@ -38,23 +38,12 @@ import NewMeal from './pages/AddNewMeal';
 // import Vendorprofilechange from './pages/Vendorprofilechange';
 
 // importing components
-// import Achievements from './components/Rewards/Achievements';
-// import Catalog from './components/Rewards/catalog/Catalog';
-// import EarnStars from './components/Rewards/EarnStars';
-// import CatalogDetails from './components/Rewards/catalog/CatalogDetails';
-// import VendorsDashboard from './components/vendorsPayment/vendorsDashboard';
-// import VendorsTransaction from './components/vendorsPayment/vendorsTransaction';
-
 import StoreOverview from './components/storePerformance/StoreOverview';
 import StorePerformance from './components/storePerformance/StorePerformance';
 import VendorSupport from './components/VendorSupportPage/VendorSupport';
 import SupportForm from './components/VendorSupportPage/SupportForm';
 import SupportSuccess from './components/VendorSupportPage/SupportSuccess';
 import Order from './components/Order/order';
-// import FormSuccess from './pages/FormSuccess';
-// import Loader from './components/LoaderOnboarding';
-// import ConfirmPassword from './pages/ConfirmPassword';
-// import ForgotPassword from './pages/ForgotPassword';
 
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
@@ -62,22 +51,11 @@ import Post from './components/community/post';
 //for vendor profile
 import Blog from './components/community/blog';
 import Recipes from './components/community/recipes';
-
-// import ReviewCard from './pages/ReviewCard';
-// import ReviewReply from './pages/ReviewReply';
-// for sample
-//import Login from './pages/Login';
-// import SuccessRewards from './pages/SuccessRewards';
-// import VendorsPayoutMethod from './components/vendorsPayment/VendorsPayoutMethod';
-//import MealListings from './pages/MealListing';
 // import Cancelprofilecard from './components/Cancelprofilecard';
 // import Vendorworkhour from './components/Vendorworkhour';
-//import Outgoing from './components/OrderManagement/Outgoing';
-//import Incoming from './components/OrderManagement/Incoming';
-//import NewMeal from './pages/AddNewMeal';
-
-
-//import History from './components/OrderManagement/History';
+import Outgoing from './components/OrderManagement/Outgoing';
+import Incoming from './components/OrderManagement/Incoming';
+import History from './components/OrderManagement/History';
 import TestWork from './components/auth/testProfile';
 import NotificationPage from './components/Notification/notification';
 import NotificationSuccess from './components/Notification/notificationSuccesful';
