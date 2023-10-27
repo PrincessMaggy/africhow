@@ -43,9 +43,6 @@ const NewNavbar = () => {
             <div className="flex justify-between">
               <div className="icon flex">
               {React.createElement(item.icon, { isActive: currentPathname === item.route })}
-
-              {/* <item.icon isActive={currentPathname === item.route} /> */}
-                {/* <span>{item.icon}</span> */}
                 <span 
                   className={`text-large font-medium pl-1 ${currentPathname === item.route ? 'activeLink' : ''}`}
 

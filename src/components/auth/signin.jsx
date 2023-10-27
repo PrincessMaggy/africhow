@@ -2,16 +2,23 @@ import {useState} from 'react';
 import {auth} from '../../../firebase';
 import {signInWithEmailAndPassword} from 'firebase/auth';
 import AuthDetails from './authDetails';
+import { useAuth } from "../components/auth/AuthContext";
 
 function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const { loggedIn, setLoggedIn } = useAuth();
+
+  console.log('user is', setLoggedIn, loggedIn)
+
 
     const handleSignIn = (e) => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 console.log(userCredential);
+                setLoggedIn(true)
             })
             .catch((err) => {
                 console.log(err, 'err');
@@ -20,7 +27,7 @@ function SignIn() {
 
     return (
         <>
-            <h4>sign in</h4>
+            <h4>sign in now</h4>
             <AuthDetails />
             <div className='w-full max-w-xs'>
                 <form
