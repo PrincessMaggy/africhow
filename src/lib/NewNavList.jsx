@@ -17,16 +17,6 @@ const navList = [
   {
     title: "Help",
     route: "/vendorsupport",
-  },
-
-  {
-    title: "Help",
-    route: "/supportform",
-  },
-
-  {
-    title: "Help",
-    route: "/supportsuccess",
   }
   // Add more navigation items as needed
 ];
