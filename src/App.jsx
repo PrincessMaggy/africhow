@@ -66,18 +66,18 @@ import Recipes from './components/community/recipes';
 // import ReviewCard from './pages/ReviewCard';
 // import ReviewReply from './pages/ReviewReply';
 // for sample
-import Login from './pages/Login';
+//import Login from './pages/Login';
 // import SuccessRewards from './pages/SuccessRewards';
 // import VendorsPayoutMethod from './components/vendorsPayment/VendorsPayoutMethod';
-import Listings from './pages/MealListing';
+//import MealListings from './pages/MealListing';
 // import Cancelprofilecard from './components/Cancelprofilecard';
 // import Vendorworkhour from './components/Vendorworkhour';
-import Outgoing from './components/OrderManagement/Outgoing';
-import Incoming from './components/OrderManagement/Incoming';
-import NewMeal from './pages/AddNewMeal';
+//import Outgoing from './components/OrderManagement/Outgoing';
+//import Incoming from './components/OrderManagement/Incoming';
+//import NewMeal from './pages/AddNewMeal';
 
 
-import History from './components/OrderManagement/History';
+//import History from './components/OrderManagement/History';
 import TestWork from './components/auth/testProfile';
 import NotificationPage from './components/Notification/notification';
 import NotificationSuccess from './components/Notification/notificationSuccesful';
@@ -173,7 +173,7 @@ function App() {
                 />
                 <Route path='/forgot password' element={<ForgotPassword />} />
                 <Route path='/reset password' element={<ConfirmPassword />} />
-                <Route path='/incoming' element={<Incoming />} />
+                {/*<Route path='/incoming' element={<Incoming />} />
                 <Route path='/outgoing' element={<Outgoing />} />
                 <Route path='/history' element={<History />} />
                 <Route path='/vendorprofile' element={<Vendorprofile />} />
