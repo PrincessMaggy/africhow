@@ -7,6 +7,8 @@ import FetchMealItem from '../components/FetchMealItem';
 import HomeNav from '../components/homeNav';
 import SearchIcon from '../assets/icons/Search Icon.svg';
 import Footer from '../components/Footer';
+import { useAuth } from '../components/auth/AuthContext';
+
 
 function Listings() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -35,7 +37,7 @@ function Listings() {
 
           console.log('Fetched meals:', mealData);
         } else {
-          // User is not authenticated; handle this case (e.g., redirect to login)
+          
         }
       } catch (error) {
         console.error('Error fetching meals:', error);
@@ -51,11 +53,13 @@ function Listings() {
     }
     return false;
   });
+  const { loggedIn } = useAuth();
+    console.log(loggedIn)
 
   return (
     <>
       <div>
-        <HomeNav />
+      {loggedIn ? (<NewNavbar />) : (<Nav />)}
         <hr className="border-gray-400 -mt-6" />
         <div className="flex flex-col">
           <form
@@ -84,13 +88,22 @@ function Listings() {
           </Link>
         </div>
       </div>
-      {userHasListings ? (
-        <FetchMealItem allDocs={filteredMeals} />
-      ) : (
-        <p className="text-2xl text-center mt-8 mb-24">
-          Hurray, add your first meal!
-        </p>
-      )}
+      {auth.currentUser ? (
+          // User is logged in
+          userHasListings ? (
+            <FetchMealItem userHasListings={userHasListings} allDocs={filteredMeals} />
+          ) : (
+            // User is logged in but has no listings
+            <p className="text-2xl text-center mt-8 mb-24">
+              Hurray, add your first meal!
+            </p>
+          )
+        ) : (
+          // User is not logged in
+          <p className="h-full text-2xl text-center mt-8 mb-24 p-12 bg-white rounded-sm border-2 shadow-md mx-12">
+            2-step Log in to see all listings. Kindly log in again.
+          </p>
+        )}
       <Footer />
     </>
   );

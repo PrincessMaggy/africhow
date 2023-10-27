@@ -30,9 +30,9 @@ function EmailForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const serviceID = 'service_qhasj94'; // Replace with your EmailJS service ID
-        const templateID = 'template_cpiddps'; // Replace with your EmailJS template ID
-        const userID = '1CQ4xPbdbWZCPvcRD'; // Replace with your public key
+        const serviceID = 'service_zft1lfa'; // Replace with your EmailJS service ID
+        const templateID = 'template_aauvizl'; // Replace with your EmailJS template ID
+        const userID = 'Y1LM7C2Bnibun3ZAB'; // Replace with your public key
 
         emailjs
             .sendForm(serviceID, templateID, e.target, userID)
@@ -133,7 +133,7 @@ function EmailForm() {
 
                         <button
                             type='submit'
-                            className='w-fit h-fit py-2 px-6 font-medium text-base bg-primary'
+                            className='w-fit h-fit py-2 px-6 font-medium text-base bg-primary rounded'
                         >
                             Send Email
                         </button>

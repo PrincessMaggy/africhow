@@ -18,24 +18,30 @@ import "react-toastify/dist/ReactToastify.css";
 import Nav from "../components/nav";
 import FormInputs from "../components/FormInputs";
 import { useAuth } from "../components/auth/AuthContext";
+import NewNavbar from "../components/NewNav/NewNavBar";
 
 
 const style =
   "rounded-xl px-[12px] w-[420px] line-[24px] py-[13px] text-white text-14px";
 
-export default function LoginForm() {
-  const { setLoggedIn } = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [showPassword, setShowPassword] = useState(false);
-  const [newUser, setNewUser] = useState(
-    location.state ? location.state.newUser : true
-  );
-  const [isLoading, setIsLoading] = useState(false);
-  const [loginError, setLoginError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  export default function LoginForm() {
+    const { loggedIn, setLoggedIn } = useAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [showPassword, setShowPassword] = useState(false);
+    const [newUser, setNewUser] = useState(
+      location.state ? location.state.newUser : true
+      );
+      const [isLoading, setIsLoading] = useState(false);
+      const [loginError, setLoginError] = useState(false);
+      const [errorMessage, setErrorMessage] = useState("");
   const { register, handleSubmit, formState, reset } = useForm();
   const { errors, isValid, isDirty } = formState;
+  
+  console.log('user is', setLoggedIn, loggedIn)
+  console.log('user is', location)
+  console.log('user is')
+
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -43,6 +49,7 @@ export default function LoginForm() {
 
   const handleSignIn = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
+      setLoggedIn(true)
       .then((userCredential) => {
         console.log(userCredential);
         setLoggedIn(true); // Set the user as logged in
@@ -58,7 +65,9 @@ export default function LoginForm() {
   const handleSignUp = (email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(userCredential);
+        // console.log(userCredential);
+        setLoggedIn(true)
+        console.log('hello')
       })
       .catch((err) => {
         console.log(err, "err");
@@ -100,11 +109,14 @@ export default function LoginForm() {
     reset(); //this resets the form fields on toggle between the current page and login page
     setNewUser((prev) => !prev);
   }
+
+  
   return (
+    
     <>
       <div>
         {newUser && <Nav setNewUserToFalse={setNewUserToFalse} />}
-
+        <NewNavbar />
         <div className="grid gap-6 min-[391px]:w-4/5 max-[398px]:w-[358px] mx-auto relative">
           <div className="grid items-end">
             <OnboardingWelcome
