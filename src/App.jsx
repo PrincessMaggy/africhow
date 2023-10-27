@@ -46,7 +46,7 @@ import Order from './components/Order/order';
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
 
-//for vendor profile
+
 import Blog from './components/community/blog';
 import Recipes from './components/community/recipes';
  import Cancelprofilecard from './components/Cancelprofilecard';
