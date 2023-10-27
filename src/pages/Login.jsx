@@ -63,6 +63,7 @@ export default function Login() {
       });
   };
 
+  console.log('use is', loggedIn)
   const activeWait = async () => {
     await new Promise((r) => setTimeout(r, 500));
   };
@@ -75,6 +76,7 @@ export default function Login() {
         navigate("/login%20successful");
         console.log("login")
         setLoggedIn(true)
+
       })
       .catch((err) => {
         console.log(err, "err");
@@ -88,6 +90,8 @@ export default function Login() {
         toast(customErrorMessage);
       })
       .finally(() => mounted.current && setIsLoading(false));
+      setLoggedIn(true)
+
     reset();
   }
 

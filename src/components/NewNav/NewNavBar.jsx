@@ -6,7 +6,6 @@ import navList from '../../lib/NewNavList';
 import './newnav.css'
 import hamburger from '../../assets/NavIcons/hamburger.svg'
 import menuClose from '../../assets/NavIcons/closeIcon.svg'
-import RewardIcon from '../../assets/NavIcons/RewardIcon';
 import ChevronRight from '../../assets/NavIcons/ChevronRight';
 import { useLocation } from 'react-router-dom';
 import React from 'react';
@@ -32,7 +31,6 @@ const NewNavbar = () => {
               src={menuClose}
               alt=''
               srcSet=''
-              // className='w-8 cursor-pointer rotate-180 border-2 border-black p-2 bg-black'
               onClick={() => setOpenNav(false)}
             />
             <span className='pl-2 text-lg font-medium'>Menu</span>
@@ -42,7 +40,8 @@ const NewNavbar = () => {
              <div className="navitem mx-4 py-3" >
             <div className="flex justify-between">
               <div className="icon flex">
-              {React.createElement(item.icon, { isActive: currentPathname === item.route })}
+              {/* {React.createElement(item.icon, { isActive: currentPathname === item.route })} */}
+              {item.icon}
                 <span 
                   className={`text-large font-medium pl-1 ${currentPathname === item.route ? 'activeLink' : ''}`}
 

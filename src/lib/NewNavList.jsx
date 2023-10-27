@@ -6,7 +6,7 @@ const navList = [
   {
     title: "Loyalty Rewards",
     route: "/rewards",
-    icon: RewardIcon,
+    icon: <RewardIcon />,
   },
 
   {
