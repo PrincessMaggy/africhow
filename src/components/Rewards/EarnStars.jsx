@@ -2,11 +2,12 @@ import RewardNav from './RewardNav';
 import HomeNav from '../homeNav';
 
 import './rewards.css';
+import NewNavbar from '../NewNav/NewNavBar';
 
 const EarnStarsPage = () => {
     return (
         <div>
-            <HomeNav />
+            <NewNavbar />
             <RewardNav />
             <div className='earn_wrapper text-left px-10 py-8 min-h-screen'>
                 <p className='text-lg font-semibold 	'>
