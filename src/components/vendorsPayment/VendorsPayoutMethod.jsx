@@ -16,7 +16,7 @@ const VendorsPayoutMethod = () => {
       
      return(
         <>
-            {/* <HomeNav /> */}
+           
             <NewNavbar />
             <div className='sm:px-8 px-4 min-h-screen'>
                 <div role="list" className="flex justify-between sm:pt-6 sm:pb-4 pt-4 pb-2 bg-[#F9FFFD] border border-[#145062]">

@@ -4,6 +4,7 @@ import './vendorspayment.css';
 //imports object for filtered transaction according to transactionstatus
 import transactions from '../../lib/vendorsTransList';
 import HomeNav from "../homeNav";
+import NewNavbar from '../NewNav/NewNavBar';
 
 
 //creates component
@@ -16,7 +17,7 @@ const VendorsTransaction = () => {
 
     return(
         <>
-        <HomeNav />
+        <NewNavbar />
         <div className="bg-[#f7f7f7] text-[#909090] sm:px-8 px-4 sm:py-6 py-2 border-t border-[#D1D1D6] flex justify-between  ">
             {/*Tab title */}
             {transactions.map((item) => (
