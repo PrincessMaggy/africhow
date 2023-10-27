@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const navBar = ({ toggleMenu, menuOpen }) => {
+
     const closeMenu = () => {
         if (menuOpen) {
             toggleMenu();

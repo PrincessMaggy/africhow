@@ -4,11 +4,12 @@ import stars from '../../../assets/images/stars.png';
 import catalogs from '../../../lib/catalog';
 import '../rewards.css';
 import HomeNav from '../../homeNav';
-
+import NewNavbar from '../../NewNav/NewNavBar';
 const CatalogPage = () => {
     return (
         <>
             <HomeNav />
+            <NewNavbar title="Catalog" />
             <RewardNav />
             <div className='catalog_wrapper mx-2 mt-14'>
                 {catalogs.map((item, i) => (
