@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ChevronRight = () => {
+const ChevronRight = ({isActive}) => {
     return (
         <svg
             width="24"
@@ -14,7 +14,7 @@ const ChevronRight = () => {
                     <rect id="Bounding box" y="0.5" width="24" height="24" fill="#D9D9D9" />
                 </mask>
                 <g mask="url(#mask0_2_2367)">
-                    <path id="chevron_right_2" d="M12.6 12.5L8 7.9L9.4 6.5L15.4 12.5L9.4 18.5L8 17.1L12.6 12.5Z" fill="#000F08" />
+                    <path id="chevron_right_2" d="M12.6 12.5L8 7.9L9.4 6.5L15.4 12.5L9.4 18.5L8 17.1L12.6 12.5Z" fill={isActive ? '#33CC9F' : "black"} />
                 </g>
             </g>
         </svg>

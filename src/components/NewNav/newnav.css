@@ -1,8 +1,4 @@
-.active{
-    background: lime;
-}
-.navlists{
-    z-index: 1;
-    height: 100vh;
-    background: white;
+
+.activeLink{
+    color: #33CC9F;
 }
