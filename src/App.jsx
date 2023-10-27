@@ -59,6 +59,8 @@ import ForgotPassword from './pages/ForgotPassword';
 
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
+import Blog from './components/community/blog';
+import Recipes from './components/community/recipes';
 
 import ReviewCard from './pages/ReviewCard';
 import ReviewReply from './pages/ReviewReply';
@@ -88,10 +90,19 @@ function App() {
     return (
         <>
             <Routes>
+        
+ 
+                <Route path ="/trending" element = {<TrendingComponent/>}/>
+                <Route path= "/post" element = {<Post/>}/>
+                <Route path= "/blog" element = {<Blog/>}/>
+                <Route path= "/recipes" element = {<Recipes/>}/>
+    
+                          
                 <Route path='/' element={<Home />} />
                 <Route path='/signup' element={<Signup />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/contact-us' element={<Support />} />
+
                 <Route path='/contact-us' element={<Support />} />
                 <Route path='/rewards' element={<Rewards />} />
                 <Route path='/rewards/my-rewards' element={<Achievements />} />
@@ -101,6 +112,8 @@ function App() {
                     path='/rewards/reward-details/:itemId'
                     element={<CatalogDetails />}
                 />
+                
+                <Route path='/store-overview' element={< StoreOverview />} />
                 <Route path='/success/:id' element={<SuccessRewards />} />
                 <Route
                     path='/vendors-dashboard'
@@ -114,7 +127,6 @@ function App() {
                     path='vendors-payout-method'
                     element={<VendorPayout />}
                 />
-                <Route path='/store-overview' element={<StoreOverview />} />
                 <Route
                     path='/store-performance'
                     element={<StorePerformance />}
