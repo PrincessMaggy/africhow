@@ -5,6 +5,7 @@ import cart from "../../assets/icons/cart.png";
 import favorite from "../../assets/icons/favorite.png";
 import visibility from "../../assets/icons/visibility.png";
 import orders from "../../lib/orders.js";
+import NewNavbar from "../NewNav/NewNavBar";
 
 // Define a React functional component named StorePerformance
 function StorePerformance() {
