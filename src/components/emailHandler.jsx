@@ -133,7 +133,7 @@ function EmailForm() {
 
                         <button
                             type='submit'
-                            className='w-fit h-fit py-2 px-6 font-medium text-base bg-primary'
+                            className='w-fit h-fit py-2 px-6 font-medium text-base bg-primary rounded'
                         >
                             Send Email
                         </button>
