@@ -3,7 +3,7 @@ import { useState } from "react";
 import './vendorspayment.css';
 //imports object for filtered transaction according to transactionstatus
 import transactions from '../../lib/vendorsTransList';
-import HomeNav from "../homeNav";
+
 import NewNavbar from '../NewNav/NewNavBar';
 
 

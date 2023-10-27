@@ -6,7 +6,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recha
 import weeklyTransaction from '../../lib/weeklyTransaction';
 //imports transaction data object
 import transactionsdata from '../../lib/vendorsTransData';
-import HomeNav from "../homeNav";
+
 import NewNavbar from '../NewNav/NewNavBar';
 
 const VendorsDashboard = () => {

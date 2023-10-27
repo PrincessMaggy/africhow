@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import HomeNav from "../homeNav";
 import Paypal from '../../assets/icons/paypal.png';
 import Close from '../../assets/icons/close.png';
 import CheckCircle from '../../assets/icons/check_circle.png';
