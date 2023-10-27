@@ -12,9 +12,20 @@ import Send from "../../assets/images/send.png"
 import Chicken from "../../assets/images/chicken.png"
 import Chops from "../../assets/images/chops.png"
 import { Link } from "react-router-dom"
+import React, {useState} from "react"
 
 
 const BlogPage = () => {
+  const [favoriteCount, setFavoriteCount] = useState(0);
+  const [commentCount, setCommentCount] = useState(0);
+
+  const handleFavoriteClick = () => {
+    setFavoriteCount(favoriteCount + 1);
+  };
+
+  const handleCommentClick = () => {
+    setCommentCount(commentCount + 1);
+  };
     return (
         <div>
      <div className="min-w-2xl mx-auto">
@@ -49,12 +60,12 @@ const BlogPage = () => {
   
     <div className="flex relative ml-3 gap-6 pt-2 lg:justify-center">
     <div className="flex flex-row relative">
-    <img src= {Favorite} alt="like button" className="mr-2 w-6"/>
-    <p className="text-sm text-gray-400 pt-1">1.3k</p>
+    <img src= {Favorite} alt="like button" className="mr-2 w-6 " onClick={handleFavoriteClick}/>
+    <p className="text-sm text-gray-400 pt-1">{favoriteCount}</p>
       </div>
       <div className="flex flex-row relative">
-    <img src= {Comment} alt="comment button" className="mr-4 w-6 bg-gray-100"/>
-    <p className="text-sm text-gray-400 pt-1">1.3k</p>
+    <img src= {Comment} alt="comment button" className="mr-4 w-6 bg-gray-100" onClick={handleCommentClick}/>
+    <p className="text-sm text-gray-400 pt-1">{commentCount}</p>
       </div>
     </div>
 </div>

@@ -3,7 +3,14 @@ import Forward from "../../assets/images/arrow_forward.png"
 import { Link } from "react-router-dom"
 
 
-const RecipesPage = () => {
+const RecipesPage = ({ searchQuery }) => {
+    const recipes = [
+        // ... Your recipe data ...
+      ];
+    
+      const filteredRecipes = recipes.filter((recipe) =>
+        recipe.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
     return (
         <div>
            <div className="bg-[#f1f1f1]">
@@ -17,13 +24,14 @@ const RecipesPage = () => {
            </div>
            <div className="min-h-screen flex items-center justify-center">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-5 max-[390]:grid-col-1">
- 
+        {filteredRecipes.map((recipe) => (
+             <div key={chips}>
     <div className="my-1 px-5  w-full border border-gray-400  bg-[#f1f1f1]">
 
 <div className="overflow-hidden rounded-lg shadow-lg">
         <img src={Foodzone} alt="image of food" className="block h-auto w-full"/>
     <div className=" p-2 md:p-4 ">
-        <h1 className="text-lg text-left">
+        <h1 id="chips"className="text-lg text-left">
                 African Food Recipe
         </h1>
     </div>
@@ -40,6 +48,8 @@ const RecipesPage = () => {
 </div>
 </div>
 
+</div>
+))}
 <div className="my-1 px-1 w-full   border border-gray-400  bg-[#f1f1f1]">
 
 <div className="overflow-hidden rounded-lg shadow-lg">
@@ -109,7 +119,7 @@ const RecipesPage = () => {
         <img src={Foodzone} alt="image of food" className="block h-auto w-full"/>
     <div className=" p-2 md:p-4 ">
         <h1 className="text-lg text-left">
-                African Food Recipe
+                Chips
         </h1>
     </div>
     <Link to ="/blog">
