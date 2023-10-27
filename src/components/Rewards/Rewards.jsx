@@ -12,7 +12,7 @@ import RewardNav from './RewardNav';
 import { shareOnFacebook } from '../../utils/socialShare';
 import { shareOnTwitter } from '../../utils/socialShare';
 import { shareOnInstagram } from '../../utils/socialShare';
-
+import NewNavBar from '../NewNav/NewNavBar';
 const RewardsPage = () => {
   const startPoint = 200;
   const endPoint = 700;
@@ -49,7 +49,8 @@ const RewardsPage = () => {
 
   return (
     <>
-      <HomeNav />
+      {/* <HomeNav /> */}
+      <NewNavBar navTitle="rEWARDS" />
       <RewardNav />
       <div className='earn_wrapper px-4'>
         <div className='rewards_wrapper '>

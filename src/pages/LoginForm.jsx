@@ -18,6 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Nav from "../components/nav";
 import FormInputs from "../components/FormInputs";
 import { useAuth } from "../components/auth/AuthContext";
+import NewNavbar from "../components/NewNav/NewNavBar";
 
 
 const style =
@@ -104,7 +105,7 @@ export default function LoginForm() {
     <>
       <div>
         {newUser && <Nav setNewUserToFalse={setNewUserToFalse} />}
-
+        <NewNavbar />
         <div className="grid gap-6 min-[391px]:w-4/5 max-[398px]:w-[358px] mx-auto relative">
           <div className="grid items-end">
             <OnboardingWelcome

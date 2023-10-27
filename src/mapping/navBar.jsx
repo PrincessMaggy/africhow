@@ -4,7 +4,7 @@ import HeaderTitle from '../mapping/navHeaderTitle';
 import {Link, useLocation} from 'react-router-dom';
 
 
-const navBar = ({toggleMenu, menuOpen, rewards}) => {
+const navBar = ({toggleMenu, menuOpen}) => {
     const closeMenu = () => {
         if (menuOpen) {
             toggleMenu();
