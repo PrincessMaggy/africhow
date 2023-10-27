@@ -1,4 +1,4 @@
-import Navbar from "./Navbar"
+import NewNavbar from "../NewNav/NewNavBar";
 import { Link } from "react-router-dom"
 import BackArrow from '../../assets/icons/arrow_back.png';
 import Box from "../../assets/icons/checker.jpg";
@@ -8,7 +8,8 @@ import Box from "../../assets/icons/checker.jpg";
 export default function SupportSuccess() {
     return (
         <div>
-            <Navbar />
+            <NewNavbar />
+            <hr className="h-0.5"></hr>
             <Link to="/supportform">
                 <img src={BackArrow} className="mx-5 mt-4 p-1 "></img>
             </Link>
