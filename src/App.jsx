@@ -46,17 +46,8 @@ import Order from './components/Order/order';
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
 
-// for sample
-import Login from './pages/Login';
-import Listings from './pages/MealListing';
-import Outgoing from './components/OrderManagement/Outgoing';
-import Incoming from './components/OrderManagement/Incoming';
-import NewMeal from './pages/AddNewMeal';
 
 //for vendor profile
-import Vendorprofilechange from './pages/Vendorprofilechange';
-import TrendingComponent from './components/community/trending';
-import Post from './components/community/post';
 import Blog from './components/community/blog';
 import Recipes from './components/community/recipes';
 import Cancelprofilecard from './components/Cancelprofilecard';
