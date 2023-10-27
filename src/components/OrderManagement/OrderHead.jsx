@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import React from "react";
 
-const OrderHead = () => {
+const OrderHead = (props) => {
   const location = useLocation();
 
   return (
@@ -17,7 +17,7 @@ const OrderHead = () => {
           <Link to="/incoming" className="flex items-center justify-center gap-1 px-2 py-2">
             <p>Incoming</p>
             <div className="w-6 text-xs leading-6 text-center rounded-full bg-bg-order-notify text-slate-100">
-            8
+            {props.number || 8}
           </div>
           </Link>
           
@@ -32,7 +32,7 @@ const OrderHead = () => {
           <Link to="/outgoing" className="flex items-center justify-center gap-1 px-2 py-2">
            <p>Outgoing</p>
            <div className="w-6 text-xs leading-6 text-center rounded-full bg-bg-order-notify text-slate-100">
-            8
+           8
           </div>
           </Link>
         </li>
