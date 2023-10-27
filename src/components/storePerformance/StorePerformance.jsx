@@ -5,6 +5,7 @@ import cart from "../../assets/icons/cart.png";
 import favorite from "../../assets/icons/favorite.png";
 import visibility from "../../assets/icons/visibility.png";
 import orders from "../../lib/orders.js";
+import NewNavbar from "../NewNav/NewNavBar";
 
 // Define a React functional component named StorePerformance
 function StorePerformance() {
@@ -85,6 +86,8 @@ function StorePerformance() {
   // Render the components and data on the page
   return (
     <section className="font-Manrope mx-10">
+      <NewNavbar />
+      <hr />
       {/* Overview section */}
       <h2 className="lg:text-start text-start mt-10 lg:text-base text-base font-semibold">
         Overview
@@ -120,7 +123,9 @@ function StorePerformance() {
             className="lg:w-10 lg:h-10 w-8 h-8 mb-2"
           />
           <p className="text-start lg:text-base text-base mb-8">Impressions</p>
-          <h3 className="text-start lg:text-base text-base font-semibold">12</h3>
+          <h3 className="text-start lg:text-base text-base font-semibold">
+            12
+          </h3>
         </div>
 
         <div className="border-none lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 bg-light-green">
@@ -145,10 +150,7 @@ function StorePerformance() {
       <section>
         {/* Map and render selectedOrders data */}
         {selectedOrders.map((order, i) => (
-          <div
-            className="border-none p-5 bg-red-50 mt-10 rounded"
-            key={i}
-          >
+          <div className="border-none p-5 bg-red-50 mt-10 rounded" key={i}>
             <span className="flex flex-row justify-between mb-5 lg:text-base text-base">
               <span className="text-gray-500">Order ID</span>
               <span>{order.id}</span>

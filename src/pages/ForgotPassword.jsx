@@ -40,9 +40,46 @@ export default function ForgotPassword() {
   }
 
   function onSubmit(data) {
-    const {email} = data;
-    resetLink(email);
-    reset();
+    const { email } = data;
+    sendPasswordResetEmail(auth, email, {
+      url: "http://localhost:5174/login",
+    })
+      .then((userCredential) => {
+        console.log(userCredential);
+        // navigate("/login%20successful");
+        toast('Email sent successfully')
+        reset();
+      })
+      .catch((err) => {
+        let customErrorMessage = "An error occurred";
+        if (err.code === "auth/user-not-found") {
+          customErrorMessage =
+            "User not found. Please check your email address.";
+        } 
+        toast(customErrorMessage);
+      })
+      // .finally(() => mounted.current && null);
+
+    // sendPasswordResetEmail(auth, email, {
+    //   url: "http://localhost:5174/login",
+    // })
+    //   .then((res) => {
+    //     console.log(res);
+    //     // navigate("/login%20successful");
+    //     toast('Email sent successfully')
+    //   })
+    //   .catch((err) => {
+    //     // console.log(err, "err");
+    //     let customErrorMessage = "An error occurred";
+    //     if (err.code === "auth/user-not-found") {
+    //       customErrorMessage = "User not found. Please check your email address.";
+    //     } else if (err.code === "auth/invalid-email") {
+    //       customErrorMessage = "Invalid email address format.";
+    //     }
+    //     toast(err.message);
+    //   })
+    //   .finally(() => mounted.current && null);
+    // reset();
   }
 
   function handlePrev(){
@@ -50,12 +87,13 @@ export default function ForgotPassword() {
   }
 
   return (
-    <div className="grid gap-6 min-[391px]:w-[90%] max-[398px]:w-[358px] mx-auto">
+    <div className="grid gap-6 min-[391px]:w-[90%] max-[398px]:w-[358px]">
       <Prev onClick={handlePrev}/>
       <ToastContainer />
       <OnboardingWelcome
         title={"Forgot Password?"}
         text={"A link will be sent to your email to reset your password."}
+        className={"welcome"}
       />
       {!errorMessage && <p className="text-red-500">{errorMessage}</p>}
       <form className="grid gap-3" onSubmit={handleSubmit(onSubmit)}>

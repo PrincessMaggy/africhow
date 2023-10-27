@@ -3,7 +3,7 @@ import Box from "../../assets/icons/checker.jpg";
 
 function UpdatedSuccessfully() {
   return (
-    <div className="mt-40 text-center flex flex-col items-center justify-center">
+    <div className="mt-40 text-center flex inline-flex flex-col items-center justify-center">
       <img src={Box} alt="checkedbox" />
       <p className="text-2xl mt-4">Updated successfully!</p>
       <Link

@@ -84,7 +84,7 @@ The first page shows the users interest in sending a mail for support, This link
 
 # Team members
 ## Alpha team
-- Uchechukwu Nwanja (link to github repo)
+- Uchechukwu Nwanja [Uche](https://github.com/Ucheq)
 -Pipeloluwa Aremo [Pipe-justpipe](https://github.com/pipe-justpipe)
 -Tuke Glory Nwakego[TheAwesomeTechGirl](https://github.com/TheAwesomeTechGirl)
 

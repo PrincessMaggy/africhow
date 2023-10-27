@@ -1,6 +1,9 @@
-import unitedKingdom from "../assets/images/location-2.webp"
-import America from "../assets/images/location-3.webp"
-import Canada from "../assets/images/location-1.webp"
+import unitedKingdom from '../assets/images/location-2.webp';
+import America from '../assets/images/location-3.webp';
+import Canada from '../assets/images/location-1.webp';
+import {Link} from 'react-router-dom';
+
+//import Signup from "../components/auth/signup";
 
 
 const HomeSectionThree = () => {
@@ -23,29 +26,44 @@ const HomeSectionThree = () => {
                 <section className='flex flex-col justify-center'>
                     <div className='flex flex-col lg:flex-row md:flex-row grow gap-6 mb-12 '>
                         <div className=' location-canada flex flex-col justify-center font-bold'>
-                            <img src={ unitedKingdom } alt='' className="md:h-44 lg:h-60"/>
+                            <img
+                                src={unitedKingdom}
+                                alt=''
+                                className='md:h-44 lg:h-60'
+                            />
                             <h3 className='-mt-12 flex justify-center bg-green-100 bg-opacity-70 py-3 text-xl'>
                                 United Kingdom
                             </h3>
                         </div>
                         <section className=' location-canada flex flex-col justify-center font-bold'>
-                            <img src={Canada} alt='' className="md:h-44 lg:h-60"/>
+                            <img
+                                src={Canada}
+                                alt=''
+                                className='md:h-44 lg:h-60'
+                            />
                             <h3 className='-mt-12 flex justify-center bg-green-100 bg-opacity-70 py-3 text-xl'>
                                 Canada
                             </h3>
                         </section>
                         <section className=' location-canada flex flex-col justify-center font-bold'>
-                            <img src={ America } alt='' className="md:h-44 lg:h-60" />
+                            <img
+                                src={America}
+                                alt=''
+                                className='md:h-44 lg:h-60'
+                            />
                             <h3 className='-mt-12 flex justify-center bg-green-100 bg-opacity-70 py-3 text-xl '>
                                 America
                             </h3>
                         </section>
                     </div>
                     <div className='flex justify-center'>
-                        <button className='text-base bg-[#33CC9F] rounded-md bg-opacity-80 py-4 px-8 font-black pointer mb-16'>
-                            Get started today
-                        </button>
+                        <Link to='/signup'>
+                            <button className='text-base bg-[#33CC9F] rounded-md bg-opacity-80 py-4 px-8 font-black pointer mb-16'>
+                                Get started today
+                            </button>
+                        </Link>
                     </div>
+                    {/*<Signup />*/}
                 </section>
             </div>
         </div>

@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import catalogs from "../../../lib/catalog";
 import { useParams } from "react-router-dom";
-import HomeNav from "../../homeNav";
 import back_arrow from '../../../assets/images/arrow_back.svg'
 import '../rewards.css'
+import NewNavbar from "../../NewNav/NewNavBar";
 
 const CatalogDetailsPage = () => {
     const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
@@ -30,7 +30,6 @@ const CatalogDetailsPage = () => {
     if (!item) {
         return <div>Reward not found</div>;
     }
-    console.log('button disabled:', isButtonDisabled, 'box', isCheckboxChecked)
 
     const numOfPoints = 200
     const pointsDifference = (item.points - numOfPoints)
@@ -46,7 +45,7 @@ const CatalogDetailsPage = () => {
     
     return (
         <>
-        <HomeNav />
+        <NewNavbar />
             <div className="item-details ">
                 <div className="header flex py-3 px-4 border-b border-#D9D9D9 cursor-pointer"
                     onClick={handleGoBack} // Handle back arrow button click
@@ -75,8 +74,7 @@ const CatalogDetailsPage = () => {
 
                         <input
                             type="button"
-                            value={`Reedeem  ${item.name} Medal`}
-                            // className="terms_button py-3 my-8  font-medium text-base checked_class" 
+                            value={`Redeem  ${item.name} Medal`}
                             disabled={isButtonDisabled}
                             className={buttonClass}
                             onClick={redeemPoint}
