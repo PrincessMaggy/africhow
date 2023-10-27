@@ -33,7 +33,7 @@ import Listings from './pages/MealListing';
 import Login from './pages/Login';
 import SuccessRewards from './pages/SuccessRewards';
 import NewMeal from './pages/AddNewMeal';
-// import Vendorprofilechange from './pages/Vendorprofilechange';
+import Vendorprofilechange from './pages/Vendorprofilechange';
 
 // importing components
 import StoreOverview from './components/storePerformance/StoreOverview';
@@ -49,8 +49,8 @@ import Post from './components/community/post';
 //for vendor profile
 import Blog from './components/community/blog';
 import Recipes from './components/community/recipes';
-// import Cancelprofilecard from './components/Cancelprofilecard';
-// import Vendorworkhour from './components/Vendorworkhour';
+ import Cancelprofilecard from './components/Cancelprofilecard';
+ import Vendorworkhour from './components/Vendorworkhour';
 import Outgoing from './components/OrderManagement/Outgoing';
 import Incoming from './components/OrderManagement/Incoming';
 import History from './components/OrderManagement/History';
@@ -153,15 +153,15 @@ function App() {
                 <Route path='/outgoing' element={<Outgoing />} />
                 <Route path='/history' element={<History />} />
                 <Route path='/vendorprofile' element={<Vendorprofile />} />
-                {/*<Route path='/vendorworkhour' element={<Vendorworkhour />
+                <Route path='/vendorworkhour' element={<Vendorworkhour/> }/>
                 <Route
                     path='/vendorprofilechange'
                     element={<Vendorprofilechange />}
                 />
                 <Route
                     path='/cancelprofilecard'
-                    element={<Cancelprofilecard />*}
-                />*/}
+                    element={<Cancelprofilecard />}
+                />
                 <Route path='/trending' element={<TrendingComponent />} />
                 <Route path='/post' element={<Post />} />
                 <Route path='/review card' element={<ReviewCard />} />
