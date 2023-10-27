@@ -27,6 +27,21 @@ const navList = [
   {
     title: "Help",
     route: "/supportsuccess",
+  },
+
+  {
+    title: "Payout",
+    route: "/vendors-dashboard",
+  },
+
+  {
+    title: "Transaction",
+    route: "/vendors-transaction",
+  },
+
+  {
+    title: "Payout method",
+    route: "/vendors-payout-method",
   }
   // Add more navigation items as needed
 ];
