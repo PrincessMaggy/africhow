@@ -13,7 +13,7 @@ import React, {useState} from "react"
 
 
 const TrendingPage= () => {
-
+ 
   const [favoriteCount, setFavoriteCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
 
