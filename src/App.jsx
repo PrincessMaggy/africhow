@@ -186,11 +186,8 @@ function App() {
                     path='/cancelprofilecard'
                     element={<Cancelprofilecard />*}
                 />*/}
-                <Route path='/trending' element={<TrendingComponent />} />
-                <Route path='/post' element={<Post />} />
+               
                 <Route path='/review card' element={<ReviewCard />} />
-                <Route path='/trending' element={<TrendingComponent />} />
-                <Route path='/post' element={<Post />} />
                 <Route path='/review-reply' element={<ReviewReply />} />
     
             
