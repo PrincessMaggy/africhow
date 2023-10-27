@@ -1,10 +1,14 @@
 import React from "react";
 import location_pin from "../../assets/Images-Order-management/location_pin.jpg";
 import FoodList from "../../lib/Foodlist";
+import OrderHead from "./OrderHead";
+import OrderNav from "./OrderNav";
 
 function Outgoing() {
   return (
     <div>
+      <OrderNav />
+      <OrderHead />
       <div>
         {FoodList.map((item, i) => (
           <div key={i}>
@@ -75,7 +79,7 @@ function Outgoing() {
 
                 <div className="flex items-center justify-between mx-6 mt-2 text-sm">
                   <button
-                    className=" "
+                    className=""
                     
                   >
                     

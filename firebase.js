@@ -1,10 +1,12 @@
 // Import the functions you need from the SDKs you need
 import {initializeApp} from 'firebase/app';
 import {getFirestore} from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 
 import {getAuth} from 'firebase/auth';
 
 const firebaseConfig = {
+    
     apiKey: 'AIzaSyBnm-jNCKxjbEOESWJ_mtSNS6OBX06Dpmw',
     authDomain: 'africhow-47096.firebaseapp.com',
     projectId: 'africhow-47096',
@@ -14,8 +16,21 @@ const firebaseConfig = {
     measurementId: 'G-T1NCL81G0V',
 };
 
+const firebaseConfig1 = {
+    
+    apiKey: "AIzaSyAI05thYl2JEsZg8rbf9xhlydog1dwzYPA",
+    authDomain: "africhow-capstone-9ddf7.firebaseapp.com",
+    projectId: "africhow-capstone-9ddf7",
+    storageBucket: "africhow-capstone-9ddf7.appspot.com",
+    messagingSenderId: "716871625901",
+    appId: "1:716871625901:web:06ec3a7efb7efb4d6d2a24"
+};
+
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+const app1 = initializeApp(firebaseConfig1, 'app1');
+export const db = getFirestore(app1);
+export const storage = getStorage(app1);
 
-export const auth = getAuth(app);
+export const auth = getAuth(app1);

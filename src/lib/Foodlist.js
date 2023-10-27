@@ -156,8 +156,8 @@ const FoodList = [
 
     {
         id: 7,
-        logo: "TO",
-        name: "Taofeekat Olorunkosebi",
+        logo: "TK",
+        name: "Taofeekat Kosebi",
         orderCode: 24077,
         date: "18-08-2023",
         time: "2:30 PM",
@@ -176,7 +176,6 @@ const FoodList = [
         Status2: "Delivered",
         items: 3,
         Total: 30,
-        showDetails: false,
     },
 
     {
