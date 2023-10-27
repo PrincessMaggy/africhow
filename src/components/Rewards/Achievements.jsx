@@ -5,16 +5,16 @@ import fb from '../../assets/images/facebook.png';
 import Ig from '../../assets/images/Ig.png';
 import twitter from '../../assets/images/twitter.png';
 import arrow from '../../assets/images/beenhere.png';
-import HomeNav from '../homeNav';
 
 import { shareOnFacebook } from '../../utils/socialShare';
 import { shareOnTwitter } from '../../utils/socialShare';
 import { shareOnInstagram } from '../../utils/socialShare';
+import NewNavbar from '../NewNav/NewNavBar';
 
 const AchievementsPage = () => {
     return (
         <>
-            <HomeNav />
+            <NewNavbar />
             <RewardNav />
             <div className='achievements_wrapper px-6'>
                 <div className='flex w-full justify-between'>

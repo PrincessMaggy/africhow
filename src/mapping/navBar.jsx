@@ -58,11 +58,7 @@ const navBar = ({ toggleMenu, menuOpen }) => {
                                 Join the Trybe
                             </Link>
                         </li>
-                        <li className='cursor-pointer mb-2'>
-                            <Link to='/rewards' onClick={closeMenu}>
-                                Loyalty Rewards
-                            </Link>
-                        </li>
+                       
                         <li className='cursor-pointer mb-2'>
                             <Link
                                 to='//meallisting/:userId'

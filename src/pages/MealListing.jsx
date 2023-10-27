@@ -7,6 +7,8 @@ import FetchMealItem from '../components/FetchMealItem';
 import HomeNav from '../components/homeNav';
 import SearchIcon from '../assets/icons/Search Icon.svg';
 import Footer from '../components/Footer';
+import { useAuth } from '../components/auth/AuthContext';
+
 
 function Listings() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -51,11 +53,13 @@ function Listings() {
     }
     return false;
   });
+  const { loggedIn } = useAuth();
+    console.log(loggedIn)
 
   return (
     <>
       <div>
-        <HomeNav />
+      {loggedIn ? (<NewNavbar />) : (<Nav />)}
         <hr className="border-gray-400 -mt-6" />
         <div className="flex flex-col">
           <form
