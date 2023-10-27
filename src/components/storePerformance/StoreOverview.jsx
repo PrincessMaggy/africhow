@@ -12,7 +12,7 @@ function StoreOverview() {
   return (
     <section className="font-manrope mx-10">
       <NewNavbar />
-    <hr/>
+      <hr />
       {/* Section for completing KYC (Know Your Customer) */}
       <section className="flex items-center justify-between gap-30 bg-secondary text-white text-center mt-5 lg:pt-2 lg:px-8 pt-2 px-2">
         <img
@@ -23,7 +23,9 @@ function StoreOverview() {
         {/* Title for completing KYC */}
         <section className="flex ">
           <h2>
-            <span className="lg:text-2xl text-base font-bold">Complete KYC</span>
+            <span className="lg:text-2xl text-base font-bold">
+              Complete KYC
+            </span>
             <br></br>{" "}
             <span className="lg:text-2xl text-base">
               To ensure security of your store
@@ -33,7 +35,7 @@ function StoreOverview() {
         <img src={arrow_forward} alt="arrow_forward" />
       </section>
 
-        {/* Overview section */}
+      {/* Overview section */}
       <h2 className="text-start mt-10 lg:text-base text-base font-semibold">
         Overview
       </h2>
@@ -51,7 +53,11 @@ function StoreOverview() {
         </div>
 
         <div className="border-none lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green">
-          <img src={cart} alt="cart-image" className="lg:w-10 lg:h-10 w-8 h-8 mb-2" />
+          <img
+            src={cart}
+            alt="cart-image"
+            className="lg:w-10 lg:h-10 w-8 h-8 mb-2"
+          />
           <p className="text-start lg:text-base text-base mb-8">Total order</p>
           <h3 className="text-start lg:text-base text-base font-semibold">0</h3>
         </div>
@@ -72,7 +78,9 @@ function StoreOverview() {
             alt="visibility-image"
             className="lg:w-10 lg:h-10 w-8 h-8 mb-2"
           />
-          <p className="text-start lg:text-base text-base mb-8">Most ordered meal</p>
+          <p className="text-start lg:text-base text-base mb-8">
+            Most ordered meal
+          </p>
           <h3 className="text-start lg:text-base text-base font-semibold">-</h3>
         </div>
       </section>
@@ -84,7 +92,9 @@ function StoreOverview() {
 
       {/* Message for when there are no sales records */}
       <section className="text-center lg:mt-10 mt-2">
-        <p className="mb-8 lg:text-base text-base">You have no sales record yet.</p>
+        <p className="mb-8 lg:text-base text-base">
+          You have no sales record yet.
+        </p>
 
         {/* Button to navigate to the store performance page to start selling */}
         <Link
