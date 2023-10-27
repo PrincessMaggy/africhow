@@ -30,7 +30,6 @@ const CatalogDetailsPage = () => {
     if (!item) {
         return <div>Reward not found</div>;
     }
-    console.log('button disabled:', isButtonDisabled, 'box', isCheckboxChecked)
 
     const numOfPoints = 200
     const pointsDifference = (item.points - numOfPoints)
@@ -75,8 +74,7 @@ const CatalogDetailsPage = () => {
 
                         <input
                             type="button"
-                            value={`Reedeem  ${item.name} Medal`}
-                            // className="terms_button py-3 my-8  font-medium text-base checked_class" 
+                            value={`Redeem  ${item.name} Medal`}
                             disabled={isButtonDisabled}
                             className={buttonClass}
                             onClick={redeemPoint}

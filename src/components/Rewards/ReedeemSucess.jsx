@@ -7,11 +7,13 @@ import twitter from '../../assets/images/twitter.png';
 import HomeNav from '../homeNav';
 import { Link } from "react-router-dom";
 
+import { shareOnFacebook } from '../../utils/socialShare';
+import { shareOnTwitter } from '../../utils/socialShare';
+import { shareOnInstagram } from '../../utils/socialShare';
 
 const ReedeemSucess = () => {
     const { id } = useParams()
     const item = catalogs.find((item) => item.id == id);
-    console.log(item)
 
   return (
     <>
@@ -33,9 +35,9 @@ const ReedeemSucess = () => {
                 <div className='share_section share_success'>
                        
                         <div className='social_share flex  w-4/6 mx-auto gap-6 justify-around mt-4'>
-                            <img src={fb} alt='facebook' />
-                            <img src={Ig} alt='Ig' />
-                            <img src={twitter} alt='facebook' />
+                        <img src={fb} alt='facebook' onClick={shareOnFacebook}/>
+              <img src={Ig} alt='Ig'  onClick={shareOnInstagram} />
+              <img src={twitter} alt='twitter' onClick={shareOnTwitter} />
                         </div>
                     </div>
                 <div className="mx-4">
