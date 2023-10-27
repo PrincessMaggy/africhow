@@ -146,7 +146,7 @@ function StorePerformance() {
         {/* Map and render selectedOrders data */}
         {selectedOrders.map((order, i) => (
           <div
-            className="border-none p-5 bg-light-red mt-10 rounded"
+            className="border-none p-5 bg-red-50 mt-10 rounded"
             key={i}
           >
             <span className="flex flex-row justify-between mb-5 lg:text-base text-base">

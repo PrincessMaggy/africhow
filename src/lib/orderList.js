@@ -4,7 +4,7 @@ const orderList=[
         orderId: "WQ459034",
         customerName: 'John Smith',
         restaurant: 'Pizza Palace',
-        orderDay:"Monday",
+        // orderDay:"Monday",
         orderedItems: [
             {
                 item: 'Pepperoni Pizza',
@@ -19,14 +19,14 @@ const orderList=[
         orderId: "WQ459084",
         customerName: 'Alice Johnson',
         restaurant: 'Burger Barn',
-        orderDay:"Tuesday",
+        // orderDay:"Tuesday",
         orderedItems: [
             {
                 item: 'Cheeseburger',
                 quantity: 1,
             },
         ],
-        orderDate: '2023-10-22T12:15:00',
+        orderDate: '2023-10-21T12:15:00',
         status: 'pending',
     },
     {
@@ -34,28 +34,28 @@ const orderList=[
         orderId: "WQ459085",
         customerName: 'Emily Davis',
         restaurant: 'Sushi Express',
-        orderDay:"Monday",
+        // orderDay:"Monday",
         orderedItems: [
             {
                 item: 'Sashimi Combo',
                 quantity: 1,
             },
         ],
-        orderDate: '2023-09-12T19:45:00',
+        orderDate: '2023-08-12T19:45:00',
         status: 'delivered',
     },
     {   id:4,
         orderId: "WQ459086",
         customerName: 'Michael Brown',
         restaurant: 'Taco Time',
-        orderDay:"Wednesday",
+        // orderDay:"Wednesday",
         orderedItems: [
             {
                 item: 'Beef Tacos',
                 quantity: 3,
             },
         ],
-        orderDate: '2022-10-2T10:30:00',
+        orderDate: '2022-10-02T10:30:00',
         status: 'cancelled',
     },
     {   
@@ -63,7 +63,7 @@ const orderList=[
         orderId: "WQ459087",
         customerName: 'Olivia Wilson',
         restaurant: 'Pasta House',
-        orderDay:"Tuesday",
+        // orderDay:"Tuesday",
         orderedItems: [
             {
                 item: 'Spaghetti Carbonara',
@@ -78,7 +78,7 @@ const orderList=[
         orderId: "WQ459088",
         customerName: 'William Lee',
         restaurant: 'Sushi Express',
-        orderDay:"Thursday",
+        // orderDay:"Thursday",
         orderedItems: [
             {
                 item: 'Dragon Roll',
@@ -93,7 +93,7 @@ const orderList=[
         orderId: "WQ459089",
         customerName: 'Sophia Davis',
         restaurant: 'Burger Barn',
-        orderDay:"Wednesday",
+        // orderDay:"Wednesday",
         orderedItems: [
             {
                 item: 'Chicken Burger',
@@ -108,7 +108,7 @@ const orderList=[
         orderId: "WQ459090",
         customerName: 'Liam Miller',
         restaurant: 'Pizza Palace',
-        orderDay:"Friday",
+        // orderDay:"Friday",
         orderedItems: [
             {
                 item: 'Margherita Pizza',
@@ -123,7 +123,7 @@ const orderList=[
         orderId: "WQ459091",
         customerName: 'Isabella Harris',
         restaurant: 'Taco Time',
-        orderDay:"Friday",
+        // orderDay:"Friday",
         orderedItems: [
             {
                 item: 'Fish Tacos',
@@ -138,7 +138,7 @@ const orderList=[
         orderId: "WQ459092",
         customerName: 'James Clark',
         restaurant: 'Pasta House',
-        orderDay:"Saturday",
+        // orderDay:"Saturday",
         orderedItems: [
             {
                 item: 'Linguine Alfredo',
@@ -153,7 +153,7 @@ const orderList=[
         orderId: "WQ459093",
         customerName: 'Ava Lewis',
         restaurant: 'Burger Barn',
-        orderDay:"Sunday",
+        // orderDay:"Sunday",
         orderedItems: [
             {
                 item: 'Double Cheeseburger',
@@ -168,7 +168,7 @@ const orderList=[
         orderId: "WQ459094",
         customerName: 'Noah White',
         restaurant: 'Sushi Express',
-        orderDay:"Saturday",
+        // orderDay:"Saturday",
         orderedItems: [
             {
                 item: 'California Roll',
@@ -183,7 +183,7 @@ const orderList=[
         orderId: "WQ459095",
         customerName: 'Mia Martinez',
         restaurant: 'Pizza Palace',
-        orderDay:"Friday",
+        // orderDay:"Friday",
         orderedItems: [
             {
                 item: 'Vegetarian Pizza',
@@ -198,7 +198,7 @@ const orderList=[
         orderId: "WQ459096",
         customerName: 'Elijah Young',
         restaurant: 'Taco Time',
-        orderDay:"Sunday",
+        // orderDay:"Sunday",
         orderedItems: [
             {
                 item: 'Chicken Tacos',
@@ -213,14 +213,14 @@ const orderList=[
         orderId: "WQ459097",
         customerName: 'Charlotte Turner',
         restaurant: 'Pasta House',
-        orderDay:"Wednesday",
+        // orderDay:"Wednesday",
         orderedItems: [
             {
                 item: 'Penne Vodka',
                 quantity: 1,
             },
         ],
-        orderDate: '2023-10-22T16:55:00',
+        orderDate: '2023-06-22T16:55:00',
         status: 'pending',
     },
     {
@@ -228,7 +228,7 @@ const orderList=[
         orderId: "WQ459098",
         customerName: 'William Adams',
         restaurant: 'Burger Barn',
-        orderDay:"Thursday",
+        // orderDay:"Thursday",
         orderedItems: [
             {
                 item: 'Veggie Burger',
@@ -243,7 +243,7 @@ const orderList=[
         orderId: "WQ459099",
         customerName: 'Amelia Harris',
         restaurant: 'Pizza Palace',
-        orderDay:"Friday",
+        // orderDay:"Friday",
         orderedItems: [
             {
                 item: 'Hawaiian Pizza',
@@ -258,7 +258,7 @@ const orderList=[
         orderId: "WQ4590100",
         customerName: 'Liam Baker',
         restaurant: 'Sushi Express',
-        orderDay:"Monday",
+        // orderDay:"Monday",
         orderedItems: [
             {
                 item: 'Rainbow Roll',
@@ -273,7 +273,7 @@ const orderList=[
         orderId: "WQ4590101",
         customerName: 'Harper Wilson',
         restaurant: 'Taco Time',
-        orderDay:"Friday",
+        // orderDay:"Friday",
         orderedItems: [
             {
                 item: 'Beef Tacos',

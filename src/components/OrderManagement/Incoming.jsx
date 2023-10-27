@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import location_pin from "../../assets/Images-Order-management/location_pin.jpg";
 import FoodList from "../../lib/Foodlist";
+import OrderHead from "./OrderHead";
+import OrderNav from "./OrderNav";
+
 
 function Incoming() {
+  
   const [popUp, SetPopUp] = useState(false);
   const handleClickOpen = () => {
     SetPopUp(!popUp);
@@ -12,25 +16,31 @@ function Incoming() {
     SetPopUp(false);
   };
 
-  const [accept, setAccept] = useState([FoodList.map]);
-  const acceptClick = () => {
-    setAccept(false);
+  const [accept, setAccept] = useState(FoodList);
+
+  const [acceptPopUp, setAcceptPopUp] = useState(false);
+  const openAccept = () => {
+    setAcceptPopUp(true)
   };
 
-  const [hiddenItems, setHiddenItems] = useState(Array(FoodList.length).fill(false));
-  const handleItemClick = (index) => {
-    const newHiddenItems = [...hiddenItems]; 
-    newHiddenItems[index] = !newHiddenItems[index];
-    setHiddenItems(newHiddenItems);
+  const closeAcceptpop = () => {
+    setAcceptPopUp(false)
   }
+  
 
   return (
     <div>
-      
+      <OrderNav />
+      <OrderHead />
+      {acceptPopUp?
+    ( <div className="sticky top-0 flex items-center justify-center gap-8">
+      <p className="font-semibold bg-white text-primary">Order successfully accepted!</p>
+      <p className="w-4 text-xs leading-4 text-white bg-red-400 rounded-full cursor-pointer" onClick={closeAcceptpop}>x</p>
+    </div> ) : ("") }
+  
       <div>
-        {FoodList.map((item, index) => (
-          <div key={index}>
-            {accept? 
+        {accept.map((item) => (
+          <div key={item.id}> 
             <div>
             <div className="flex items-center gap-4 px-3 py-2 mx-6 bg-bg-order-header">
               <h1 className="w-10 text-lg leading-10 rounded-full bg-bg-order-nav">
@@ -56,28 +66,32 @@ function Incoming() {
             </div>
 
             <div className="flex items-center justify-between mx-6 text-sm font-semibold text-bg-order-active">
-              <div>
-                <img src={item.img1} alt="food" />
-              </div>
-              <div>{item.Qty1}x</div>
-              <div className="text-left">
-                <div>{item.Foodname1}</div>
-                <div className="text-xs font-normal text-gray-500 ">
-                  {item.Desc1}
+              <div className="flex items-center gap-5">
+                <div>
+                  <img src={item.img1} alt="food" className="w-full h-full"/>
+                </div>
+                <div>{item.Qty1}x</div>
+                <div className="text-left">
+                  <div>{item.Foodname1}</div>
+                  <div className="text-xs font-normal text-gray-500 ">
+                    {item.Desc1}
+                  </div>
                 </div>
               </div>
               <div>${item.Price1}</div>
             </div>
 
             <div className="flex items-center justify-between mx-6 my-4 text-sm font-semibold text-bg-order-active">
-              <div>
-                <img src={item.img2} alt="" />
-              </div>
-              <div>{item.Qty2}x</div>
-              <div className="text-left">
-                <div>{item.Foodname2}</div>
-                <div className="text-xs font-normal text-gray-500 ">
-                  {item.Desc2}
+              <div className="flex items-center gap-5">
+                <div>
+                  <img src={item.img2} alt="" />
+                </div>
+                <div>{item.Qty2}x</div>
+                <div className="text-left">
+                  <div>{item.Foodname2}</div>
+                  <div className="text-xs font-normal text-gray-500 ">
+                    {item.Desc2}
+                  </div>
                 </div>
               </div>
               <div>${item.Price2}</div>
@@ -102,15 +116,19 @@ function Incoming() {
                   Decline Order
                 </button>
 
-                <button className="text-bg-order-active bg-primary p-2.5" onClick={acceptClick}>
-                  Accept order
+                <button className="text-bg-order-active bg-primary p-2.5" onClick={() => {
+                  setAccept(accept.filter(a => a.id !== item.id)); openAccept() 
+                }}>
+                  
+                    Accept order
                 </button>
               </div>
             </div>
-            </div>: ""}
+            </div>
           </div>
         ))}
       </div>
+
 
       {/* decline popup */}
       {popUp ? (
@@ -127,8 +145,7 @@ function Incoming() {
 
               <button
                 className="px-8 py-2 text-bg-order-active bg-primary"
-                onClick={closePopUP}
-              >
+                onClick={closePopUP}>
                 Yes
               </button>
             </div>

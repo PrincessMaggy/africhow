@@ -9,6 +9,13 @@ const Foodcard = ({id, foodlist, setFoodList}) => {
         setFoodList(!updatedFoodList)
     }
 
+    const [hiddenItems, setHiddenItems] = useState(Array(FoodList.length).fill(false));
+  const handleItemClick = (index) => {
+    const newHiddenItems = [...hiddenItems]; 
+    newHiddenItems[index] = !newHiddenItems[index];
+    setHiddenItems(newHiddenItems);
+  }
+
     return (
         <div>
               <div> 
