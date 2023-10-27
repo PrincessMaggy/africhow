@@ -33,7 +33,7 @@ import Listings from './pages/MealListing';
 import Login from './pages/Login';
 import SuccessRewards from './pages/SuccessRewards';
 import NewMeal from './pages/AddNewMeal';
-import Vendorprofilechange from './pages/Vendorprofilechange';
+// import Vendorprofilechange from './pages/Vendorprofilechange';
 
 // importing components
 import StoreOverview from './components/storePerformance/StoreOverview';
@@ -46,12 +46,11 @@ import Order from './components/Order/order';
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
 
-
 //for vendor profile
 import Blog from './components/community/blog';
 import Recipes from './components/community/recipes';
-import Cancelprofilecard from './components/Cancelprofilecard';
-import Vendorworkhour from './components/Vendorworkhour';
+// import Cancelprofilecard from './components/Cancelprofilecard';
+// import Vendorworkhour from './components/Vendorworkhour';
 import Outgoing from './components/OrderManagement/Outgoing';
 import Incoming from './components/OrderManagement/Incoming';
 import History from './components/OrderManagement/History';
