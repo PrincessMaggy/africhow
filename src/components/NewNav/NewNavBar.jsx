@@ -40,7 +40,6 @@ const NewNavbar = () => {
              <div className="navitem mx-4 py-3" >
             <div className="flex justify-between">
               <div className="icon flex">
-              {/* {React.createElement(item.icon, { isActive: currentPathname === item.route })} */}
               {item.icon}
                 <span 
                   className={`text-large font-medium pl-1 ${currentPathname === item.route ? 'activeLink' : ''}`}
