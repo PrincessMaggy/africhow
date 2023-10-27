@@ -5,11 +5,13 @@ import dollar from "../../assets/icons/dollar.png";
 import cart from "../../assets/icons/cart.png";
 import favorite from "../../assets/icons/favorite.png";
 import visibility from "../../assets/icons/visibility.png";
+import NewNavbar from "../NewNav/NewNavBar";
 
 // Define a React functional component named StoreOverview
 function StoreOverview() {
   return (
     <section className="font-manrope mx-10">
+      <NewNavbar />
     <hr/>
       {/* Section for completing KYC (Know Your Customer) */}
       <section className="flex items-center justify-between gap-30 bg-secondary text-white text-center mt-5 lg:pt-2 lg:px-8 pt-2 px-2">
