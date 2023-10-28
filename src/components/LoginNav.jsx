@@ -6,7 +6,7 @@ import LoginList from "../lib/loginnavlist";
 
 function LoginNav(props) {
   const location = useLocation();
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
     setIsOpen(!isOpen);
   };
@@ -27,8 +27,8 @@ function LoginNav(props) {
           <div className="flex gap-2 my-6">
             <div onClick={() => toggle()} className="cursor-pointer">
               
-              <div className="bg-black p-0.5">
-                <p className="w-5 text-4xl font-thin leading-5 text-white rotate-45">
+              <div className="bg-black p-0.5 text-center">
+                <p className="w-5 text-4xl font-thin leading-5 text-center text-white rotate-45 outline-none">
                   +
                 </p>
               </div>
@@ -44,7 +44,8 @@ function LoginNav(props) {
                     : " text-black"
                 }
               >
-                <Link to={item.path} className="flex items-center gap-3">
+                <Link to={item.path} className="">
+                  <div className="flex items-center gap-3">
                   <img
                     src={
                       location.pathname === item.path ? item.Image2 : item.Image
@@ -52,6 +53,10 @@ function LoginNav(props) {
                     alt=""
                   />
                   <p>{item.title}</p>
+                  </div>
+                  <div>
+                    
+                  </div>
                 </Link>
               </div>
             </div>
