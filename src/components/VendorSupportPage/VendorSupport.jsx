@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
-import Navbar from "./Navbar";
 import BackArrow from '../../assets/icons/arrow_back.png';
 import NextArrow from '../../assets/arrow_back_ios.png';
+import NewNavbar from "../NewNav/NewNavBar";
 
 
 
@@ -10,7 +10,8 @@ export default function VendorSupport() {
     return (
         //This is the landing page for the vendor support
         <div>
-            <Navbar />
+            <NewNavbar />
+            <hr className="h-0.5"></hr>
             <Link to="/">
                 <img src={BackArrow} className="mx-5 mt-4 p-1 "></img>
             </Link>

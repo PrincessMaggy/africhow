@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import catalogs from "../../../lib/catalog";
 import { useParams } from "react-router-dom";
-import HomeNav from "../../homeNav";
 import back_arrow from '../../../assets/images/arrow_back.svg'
 import '../rewards.css'
+import NewNavbar from "../../NewNav/NewNavBar";
 
 const CatalogDetailsPage = () => {
     const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
@@ -45,7 +45,7 @@ const CatalogDetailsPage = () => {
     
     return (
         <>
-        <HomeNav />
+        <NewNavbar />
             <div className="item-details ">
                 <div className="header flex py-3 px-4 border-b border-#D9D9D9 cursor-pointer"
                     onClick={handleGoBack} // Handle back arrow button click

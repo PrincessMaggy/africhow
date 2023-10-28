@@ -3,6 +3,9 @@ import America from '../assets/images/location-3.webp';
 import Canada from '../assets/images/location-1.webp';
 import {Link} from 'react-router-dom';
 
+//import Signup from "../components/auth/signup";
+
+
 const HomeSectionThree = () => {
     return (
         <div className='w-full min-h-full bg-opacity-25 px-2'>
@@ -60,6 +63,7 @@ const HomeSectionThree = () => {
                             </button>
                         </Link>
                     </div>
+                    {/*<Signup />*/}
                 </section>
             </div>
         </div>
