@@ -231,7 +231,7 @@ export default function OnBoardingSignUpForm() {
             {errors?.Lastname && errors?.Lastname?.message}
           </span>
           <div className="grid gap-2 parentinput">
-            <label className=" font-[500] w-full max-[390px]:text-[12px] text text-left justify-start flex gap-2">
+            <label className="font-[500] text-[#000F08] w-full max-[390px]:text-[12px] text text-left justify-start flex gap-2">
               Phone Number <span className="text-[#CB0000]">*</span>
             </label>
             <span className="flex justify-between w-full max-[390px]:w-[358px] mx-auto">
@@ -340,7 +340,7 @@ export default function OnBoardingSignUpForm() {
               </select>
             </label>
           </div>
-          <OnboardingButton text={"Submit"} disabled={isChecked}/>
+          <OnboardingButton text={"Submit"}/>
           <Terms isChecked={isChecked} setIsChecked={setIsChecked}/>
         </form>
         
