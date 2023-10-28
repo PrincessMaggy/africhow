@@ -1,5 +1,4 @@
 import RewardIcon from '../assets/NavIcons/RewardIcon.jsx';
-import ContractIcon from '../assets/NavIcons/Contract.jsx';
 
 
 const navList = [
