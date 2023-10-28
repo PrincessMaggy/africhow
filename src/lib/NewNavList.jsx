@@ -1,4 +1,5 @@
 import RewardIcon from '../assets/NavIcons/RewardIcon.jsx';
+import ContractIcon from '../assets/NavIcons/Contract.jsx';
 
 
 const navList = [
@@ -27,6 +28,12 @@ const navList = [
   {
     title: "Help",
     route: "/supportsuccess",
+  },
+
+  {
+    title: "Order Management",
+    route: "/incoming",
+    icon: ContractIcon,
   }
   // Add more navigation items as needed
 ];

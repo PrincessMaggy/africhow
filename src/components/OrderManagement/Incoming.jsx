@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import location_pin from "../../assets/Images-Order-management/location_pin.jpg";
 import FoodList from "../../lib/Foodlist";
 import OrderHead from "./OrderHead";
-import OrderNav from "./OrderNav";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LoginNav from "../LoginNav";
 
 function Incoming() {
   const [popUp, SetPopUp] = useState(false);
@@ -53,7 +53,7 @@ function Incoming() {
   return (
     <div>
       <div className="sticky top-0 mb-6">
-        <OrderNav />
+        <LoginNav title={'Order Management'}/>       
         <OrderHead number={accept.length}/>
       </div>
       <div>

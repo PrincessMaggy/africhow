@@ -8,7 +8,7 @@ function Outgoing() {
   return (
     <div>
       <div className="sticky top-0 mb-6">
-      <OrderNav />
+      <LoginNav title={'Order Management'}/>
       <OrderHead number={FoodList.length}n />
       </div>
       <div>
