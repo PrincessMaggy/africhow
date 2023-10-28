@@ -2,11 +2,12 @@ import Foodzone from "../../assets/images/picture.png";
 import Forward from "../../assets/images/arrow_forward.png";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import{useParams} from "react-router-dom"
+import{useParams, useLocation} from "react-router-dom"
 
 const RecipesPage = () => {
   const [searchInput, setSearchInput] = useState("");
   let {recipe} = useParams();
+  let  location = useLocation()
   const recipes = [
     {
       id: 1,
@@ -67,7 +68,7 @@ const RecipesPage = () => {
 ]
 
 useEffect(()=>{
-  if(recipe || recipe!== ""){
+  if(location.pathname !== "/recipes" ){
     setSearchInput(recipe)
     }
 }, [])
