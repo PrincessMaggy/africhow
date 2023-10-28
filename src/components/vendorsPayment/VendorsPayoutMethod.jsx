@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import HomeNav from "../homeNav";
 import Paypal from '../../assets/icons/paypal.png';
 import Close from '../../assets/icons/close.png';
 import CheckCircle from '../../assets/icons/check_circle.png';
+import NewNavbar from '../NewNav/NewNavBar';
 
 
 const VendorsPayoutMethod = () => {
@@ -15,7 +15,8 @@ const VendorsPayoutMethod = () => {
       
      return(
         <>
-            <HomeNav />
+           
+            <NewNavbar />
             <div className='sm:px-8 px-4 min-h-screen'>
                 <div role="list" className="flex justify-between sm:pt-6 sm:pb-4 pt-4 pb-2 bg-[#F9FFFD] border border-[#145062]">
                     

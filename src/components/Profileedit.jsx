@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import Profileimg from './Profileimg';
 import Profilehead from "./Profilehead";
@@ -8,7 +8,7 @@ import Profilelocation from "./Profilelocation";
 
 function Profileedit ()  { 
     return (
-        <div  className=' flex flex-col justify-center align-center  border rounded shadow-sm w-[400px] h-6/12 my-5 m-auto  ' >
+        <div  className=' flex flex-col justify-center align-center  border rounded shadow-sm w-[380px] h-6/12 my-5 m-auto  ' >
         
         <Profilehead/>
         <Profilenav

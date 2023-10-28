@@ -16,6 +16,7 @@ import AuthDetails from "../components/auth/authDetails";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "../components/Header";
+import { useAuth } from "../components/auth/AuthContext";
 
 const style =
   "rounded-xl px-[12px] w-[420px] line-[24px] py-[13px] text-white text-14px";
@@ -33,7 +34,8 @@ export default function Signup() {
   const { register, handleSubmit, formState, reset } = useForm();
   const { errors, isValid, isDirty } = formState;
   const mounted = useRef(false);
-
+  const { loggedIn, setLoggedIn } = useAuth();
+ 
   useEffect(() => {
     mounted.current = true;
     return (() => {
@@ -50,6 +52,7 @@ export default function Signup() {
       .then((userCredential) => {
         console.log(userCredential);
         navigate("/account setup");
+        setLoggedIn(true);
       })
       .catch((err) => {
         console.log(err, "err");
@@ -69,6 +72,7 @@ function onSubmit(data) {
     .then((userCredential) => {
       console.log(userCredential);
       navigate("/account%20setup");
+      setLoggedIn(true)
     })
     .catch((err) => {
       console.log(err, "err");

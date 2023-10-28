@@ -6,9 +6,12 @@ import arrow from '../../assets/images/beenhere.png';
 import fb from '../../assets/images/facebook.png';
 import Ig from '../../assets/images/Ig.png';
 import twitter from '../../assets/images/twitter.png';
-import HomeNav from '../homeNav';
 import RewardNav from './RewardNav';
 
+import { shareOnFacebook } from '../../utils/socialShare';
+import { shareOnTwitter } from '../../utils/socialShare';
+import { shareOnInstagram } from '../../utils/socialShare';
+import NewNavBar from '../NewNav/NewNavBar';
 const RewardsPage = () => {
   const startPoint = 200;
   const endPoint = 700;
@@ -45,7 +48,7 @@ const RewardsPage = () => {
 
   return (
     <>
-      <HomeNav />
+      <NewNavBar />
       <RewardNav />
       <div className='earn_wrapper px-4'>
         <div className='rewards_wrapper '>
@@ -63,14 +66,12 @@ const RewardsPage = () => {
           <div className='flex w-full justify-between'>
             <p>Here are your achievements so far</p>
             <Link to='/rewards/my-rewards'>
-              <a>
                 <div className='flex items-center cursor-pointer'>
                   <span className='mr-1 text-base font-bold text-#145062'>
                     View all{' '}
                   </span>
                   <img src={right_icon} alt='forward' />
                 </div>
-              </a>
             </Link>
           </div>
           <div className='px-4 py-8 flex my-2 rounded-md border border-#000f08  bronze_card'>
@@ -97,9 +98,9 @@ const RewardsPage = () => {
               social media
             </p>
             <div className='social_share flex  w-4/6 mx-auto gap-6 justify-around mt-4'>
-              <img src={fb} alt='facebook' />
-              <img src={Ig} alt='Ig' />
-              <img src={twitter} alt='facebook' />
+              <img src={fb} alt='facebook' onClick={shareOnFacebook}/>
+              <img src={Ig} alt='Ig'  onClick={shareOnInstagram} />
+              <img src={twitter} alt='twitter' onClick={shareOnTwitter} />
             </div>
           </div>
         </div>

@@ -1,74 +1,91 @@
-import React from "react";
 
-import checkbox from '../assets/ProfileImg/check_box.png'
-import line from '../assets/ProfileImg/Line.png'
-
-
+import React, { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import line from '../assets/ProfileImg/Line.png';
 
 export default function Workhours() {
-return(
-  <div className="flex flex-col align-center justify-center mt-2  ">
-    <div className="flex flex-row align-center justify-center  m-auto gap-2">
-    <img src={checkbox} className="h-[30px] mt-1"/>
-    <h3 className="mt-2 text-[20px] font-normal">MON</h3>
-    <p className="border w-[100px]  h-[45px] ml-5">9:00am </p>
-    <img src={line} className="h-[3px] w-[20px] mt-6"/>
-    <p className="border w-[100px] h-[45px]">10:00pm</p>
-  </div>
-  
-  <div className="flex flex-row align-center justify-center  m-4 gap-3">
-    <img src={checkbox} className="h-[30px] mt-1 mr-1"/>
-    <h3 className="mt-2 text-[20px] font-normal">TUE</h3>
-    <p className="border w-[100px]  h-[45px] ml-5">9:00am </p>
-    <img src={line} className="h-[3px] w-[20px] mt-6"/>
-    <p className="border w-[100px] h-[45px]">10:00pm</p>
-  </div>
+  // State to manage the checkboxes and dropdown values
+  const [isChecked, setIsChecked] = useState({
+    MON: false,
+    TUE: false,
+    WED: false,
+    THU: false,
+    FRI: false,
+    SAT: false,
+    SUN: false,
+  });
 
-  <div className="flex flex-row align-center justify-center  m-4 gap-3">
-    <img src={checkbox} className="h-[30px] mt-1"/>
-    <h3 className="mt-2 text-[20px] font-normal">WED</h3>
-    <p className="border w-[100px]  h-[45px] ml-5">9:00am </p>
-    <img src={line} className="h-[3px] w-[20px] mt-6"/>
-    <p className="border w-[100px] h-[45px]">10:00pm</p>
-  </div>
+  const [selectedOptions, setSelectedOptions] = useState({
+    MON: '',
+    TUE: '',
+    WED: '',
+    THU: '',
+    FRI: '',
+    SAT: '',
+    SUN: '',
+  });
 
-  <div className="flex flex-row align-center justify-center  m-5 gap-3">
-    <img src={checkbox} className="h-[30px] mt-1"/>
-    <h3 className="mt-2 text-[20px] font-normal">THU</h3>
-    <p className="border w-[100px]  h-[45px] ml-5">9:00am </p>
-    <img src={line} className="h-[3px] w-[20px] mt-6"/>
-    <p className="border w-[100px] h-[45px]">10:00pm</p>
-  </div>
+  // Event handler for the checkbox
+  const handleCheckboxChange = (day) => {
+    setIsChecked((prevState) => ({ ...prevState, [day]: !prevState[day] }));
+  };
 
-  <div className="flex flex-row align-center justify-center  m-5 gap-3">
-    <img src={checkbox} className="h-[30px] mt-1 mr-1"/>
-    <h3 className="mt-2 text-[20px] font-normal">FRI</h3>
-    <p className="border w-[100px]  h-[45px] ml-5">9:00am </p>
-    <img src={line} className="h-[3px] w-[20px] mt-6"/>
-    <p className="border w-[100px] h-[45px]">10:00pm</p>
-  </div>
+  // Event handler for the dropdown
+  const handleDropdownChange = (day, event) => {
+    setSelectedOptions((prevOptions) => ({
+      ...prevOptions,
+      [day]: event.target.value,
+    }));
+  };
 
-  <div className="flex flex-row align-center justify-center  m-5 gap-3">
-    <img src={checkbox} className="h-[30px] mt-1"/>
-    <h3 className="mt-2 text-[20px] font-normal">SAT</h3>
-    <p className="border w-[100px]  h-[45px] ml-5">9:00am </p>
-    <img src={line} className="h-[3px] w-[20px] mt-6"/>
-    <p className="border w-[100px] h-[45px]">10:00pm</p>
-  </div>
+  return (
+    <div className="flex flex-col align-center justify-center mt-5 gap-3">
+      {Object.keys(isChecked).map((day) => (
+        <div className="flex flex-row align-center justify-center m-auto gap-3" key={day}>
+          <label>
+            <input
+              type="checkbox"
+              checked={isChecked[day]}
+              onChange={() => handleCheckboxChange(day)}
+              className="m-2"
+            />
+            {day}
+          </label>
 
-  <div className="flex flex-row align-center justify-center  m-5 gap-3">
-    <img src={checkbox} className="h-[30px] mt-1"/>
-    <h3 className="mt-2 text-[20px] font-normal">SUN</h3>
-    <p className="border w-[100px]  h-[45px] ml-5">9:00am </p>
-    <img src={line} className="h-[3px] w-[20px] mt-6"/>
-    <p className="border w-[100px] h-[45px]">10:00pm</p>
-  </div>
+          {/* Dropdown */}
+          <select value={selectedOptions[day]} onChange={(event) => handleDropdownChange(day, event)}>
+            <option value="">9:00am</option>
+            <option value="option1">10:00am</option>
+            <option value="option2">11:00am</option>
+            <option value="option3">12:00pm</option>
+            <option value="option4">1:00pm</option>
+            <option value="option5">2:00pm</option>
+            <option value="option6">3:00pm</option>
+            <option value="option7">4:00pm</option>
+            <option value="option8">5:00pm</option>
+            <option value="option9">6:00pm</option>
+            <option value="option10">7:00pm</option>
+          </select>
 
-  <button  className="bg-[#145062] text-[rgb(0,15,8)] mr-8 text-[12px] w-[120px] rounded-[3px] py-[8px] px-[10px] mt-3">Save</button>
-  </div>
-)
-    
-    
-      
+          <img src={line} className="h-[3px] w-[20px] mt-3" />
 
+          <select value={selectedOptions[day]} onChange={(event) => handleDropdownChange(day, event)}>
+            <option value="option1">10:00pm</option>
+            <option value="option2">9:00pm</option>
+            <option value="option3">8:00pm</option>
+            <option value="option4">7:00pm</option>
+            <option value="option5">6:00pm</option>
+            <option value="option6">5:00pm</option>
+            <option value="option7">4:00pm</option>
+            <option value="option8">3:00pm</option>
+            <option value="option9">2:00pm</option>
+            <option value="option10">1:00pm</option>
+          </select>
+        </div>
+    ))}
+      <Link  className="bg-[#145062] text-[rgb(0,15,8)]  text-[12px] w-[120px] rounded-[3px] py-[8px] px-[10px] mt-3" to="http://localhost:5173/vendorprofilechange">Save</Link>
+    </div>
+  );
 }
+
+  
