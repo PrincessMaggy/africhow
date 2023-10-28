@@ -79,3 +79,16 @@
   border: solid 1px rgb(205, 205, 205);
   padding: 44px 36px;
 }
+.navbar {
+  display: flex;
+  gap: 12px;
+}
+
+@media (min-width: 400px) {
+  .navbar {
+    justify-content: space-between;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
