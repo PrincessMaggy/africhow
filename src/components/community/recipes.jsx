@@ -1,10 +1,12 @@
 import Foodzone from "../../assets/images/picture.png";
 import Forward from "../../assets/images/arrow_forward.png";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import{useParams} from "react-router-dom"
 
 const RecipesPage = () => {
   const [searchInput, setSearchInput] = useState("");
+  let {recipe} = useParams();
   const recipes = [
     {
       id: 1,
@@ -64,11 +66,18 @@ const RecipesPage = () => {
   },
 ]
 
+useEffect(()=>{
+  if(recipe || recipe!== ""){
+    setSearchInput(recipe)
+    }
+}, [])
+
   const filteredRecipes = recipes.filter((recipe) =>
     recipe.name.toLowerCase().includes(searchInput.toLowerCase())
   );
 
   const handleSearchInputChange = (event) => {
+   
     setSearchInput(event.target.value);
   };
     
@@ -159,7 +168,7 @@ const RecipesPage = () => {
                 </div>
               </Link>
             <div
-              class="card border p-4 md:p-20 mx-4 md:mx-10 mt-4"
+              className="card border p-4 md:p-20 mx-4 md:mx-10 mt-4"
             ></div>
             </div>
           </div>

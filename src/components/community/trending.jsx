@@ -9,9 +9,12 @@ import Ofada from "../../assets/images/ofada.png";
 import Forward from "../../assets/images/arrow_forward.png";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
+import {useNavigate} from  "react-router-dom";
 
 const TrendingPage = () => {
   const [searchInput, setSearchInput] = useState("");
+  const navigate = useNavigate()
+
   const recipes = [
   {
     id: 1,
@@ -71,10 +74,12 @@ const TrendingPage = () => {
 },
 ]
 
-const filteredRecipes = recipes.filter((recipe) =>
-  recipe.name.toLowerCase().includes(searchInput.toLowerCase())
-);
-
+const handleKeyUp =(event) => {
+  if (event.key === "Enter"){
+    let url = `/recipes/${event.target.value}`
+     return navigate(url) 
+  }
+}
 const handleSearchInputChange = (event) => {
   setSearchInput(event.target.value);
 };
@@ -102,7 +107,7 @@ const handleSearchInputChange = (event) => {
     <div>
       <div className="bg-[#f1f1f1]">
         <div className="min-w-2xl mx-auto">
-          <form className="flex items-center sm:min-w-40">
+          <div className="flex items-center sm:min-w-40">
             <div className=" flex relative w-full ml-2">
               <div className="inline-flex absolute inset-y-0 left-0 items-center pointer-events-none">
                 <img
@@ -117,6 +122,7 @@ const handleSearchInputChange = (event) => {
                 placeholder="Search for topics, tips, etc"
                 required  value={searchInput}
                 onChange={handleSearchInputChange}
+                onKeyUp ={handleKeyUp}
               />
             </div>
             <button className=" inline-flex items-center p-4  m-2 bg-[#33CC9F] text-gray-800 text-sm font-medium rounded">
@@ -127,16 +133,14 @@ const handleSearchInputChange = (event) => {
               />
               <p className="pr-2 mr-2">Addpoint</p>
             </button>
-          </form>
+          </div>
           <div className="flex justify-between">
             <div>
-              {" "}
               <p className="ml-2">Trending </p>
             </div>
 
             <Link to="/recipes">
               <div>
-                {" "}
                 <p className="mr-3">See All </p>
               </div>
             </Link>
