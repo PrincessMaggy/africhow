@@ -7,7 +7,7 @@ const navList = [
   {
     title: "Loyalty Rewards",
     route: "/rewards",
-    icon: RewardIcon,
+    icon: <RewardIcon />,
   },
 
   {
@@ -31,9 +31,19 @@ const navList = [
   },
 
   {
-    title: "Order Management",
-    route: "/incoming",
-    icon: ContractIcon,
+    
+    title: "Payout",
+    route: "/vendors-dashboard",
+  },
+
+  {
+    title: "Transaction",
+    route: "/vendors-transaction",
+  },
+
+  {
+    title: "Payout method",
+    route: "/vendors-payout-method",
   }
   // Add more navigation items as needed
 ];

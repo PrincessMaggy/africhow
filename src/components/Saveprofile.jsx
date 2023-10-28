@@ -55,7 +55,7 @@ export default function Saveprofile() {
         <div className="grid items-end">
           <form className="grid gap-3" onSubmit={handleSubmit}>
             <div className="grid gap-2">
-              <label className="label text flex gap-2 mt-3">First name</label>
+              <label className="label text-base font-light  flex gap-2 mt-3">First name</label>
               <input
                 type="text"
                 id="firstName"
@@ -68,7 +68,7 @@ export default function Saveprofile() {
             </div>
 
             <div className="grid gap-2">
-              <label className="label text flex gap-2 mt-3">Last name</label>
+              <label className="label text-base font-light  flex gap-2 mt-3">Last name</label>
               <input
                 type="text"
                 id="lastName"
@@ -81,7 +81,7 @@ export default function Saveprofile() {
             </div>
 
             <div className="grid gap-2">
-              <label className="label text flex gap-2 mt-3">
+              <label className="label text-base font-light  flex gap-2 mt-3">
                 Business name
               </label>
               <input
@@ -95,7 +95,7 @@ export default function Saveprofile() {
               />
             </div>
             <div className="grid gap-2">
-              <label className="label text flex gap-2 mt-3">
+              <label className="label text-base font-light  flex gap-2 mt-3">
                 Business Address
               </label>
               <input
@@ -127,8 +127,8 @@ export default function Saveprofile() {
             </div>
 
             <div className="grid gap-2">
-              <label className="label text flex gap-2 mt-3">
-                Confirm business email
+              <label className="label text-base font-light flex gap-2 mt-3">
+                Confirm Business Email
               </label>
               <input
                 type="text"
@@ -141,9 +141,9 @@ export default function Saveprofile() {
               />
             </div>
             <div className="grid gap-2">
-              <label className="label text flex gap-2 mt-3">
+              <label className="label text-base font-light  flex gap-2 mt-3">
                 
-                Business phone number
+                Business Phone Number
               </label>
               <input
                 type="tel"
@@ -157,7 +157,7 @@ export default function Saveprofile() {
             </div>
 
             <div className="grid gap-2">
-              <label className="label text flex gap-2 mt-3">
+              <label className="label text-base font-light flex gap-2 mt-3">
                 
                 Hours of Availability
               </label>
@@ -172,30 +172,36 @@ export default function Saveprofile() {
                 className="input  w-[50px] h-[30px]"
               />
 
-              <Link to="http://localhost:5173/cancelprofilecard">
+             <div className="m-10 "> 
+             <Link to="http://localhost:5173/cancelprofilecard"  >
               <button
-                className="text-[#909090] mr-5 border-black text-[12px] w-[120px] rounded-[3px] py-[8px] px-[10px]"
+                className="text-[#909090]  border-black text-[12px]  rounded-[3px] py-[8px] px-[10px]"
               >
                 Cancel
               </button>
               </Link>
 
               <button
-                className="bg-[#145062]  text-[rgb(0,15,8)]  ml-[150px] mb-5 text-[12px] w-[120px] rounded-[3px] py-[8px] px-[10px]"
+                className="bg-[#145062] ml-10 text-[rgb(0,15,8)]   text-[12px] w-[120px] rounded-[3px] py-[8px] px-[10px]"
                 type="submit"
                 onClick={handleSubmit}
               >
                 Save changes
               </button>
+             </div>
             </div>
           </form>
         </div>
       </div>
 
+      <div className="m-auto">
       <span>
         {errorMessage && <Profilerror message={errorMessage} />}
         {successMessage && <Profilesuccess message={successMessage} />}
       </span>
+      </div>
     </>
+
+    
   );
 }
