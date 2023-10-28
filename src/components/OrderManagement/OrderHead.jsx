@@ -32,7 +32,7 @@ const OrderHead = (props) => {
           <Link to="/outgoing" className="flex items-center justify-center gap-1 px-2 py-2">
            <p>Outgoing</p>
            <div className="w-6 text-xs leading-6 text-center rounded-full bg-bg-order-notify text-slate-100">
-           8
+           7
           </div>
           </Link>
         </li>

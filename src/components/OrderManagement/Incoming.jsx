@@ -5,6 +5,7 @@ import OrderHead from "./OrderHead";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoginNav from "../LoginNav";
+import NewNavBar from '../NewNav/NewNavBar';
 
 function Incoming() {
   const [popUp, SetPopUp] = useState(false);
@@ -53,6 +54,7 @@ function Incoming() {
   return (
     <div>
       <div className="sticky top-0 mb-6">
+        {/* < NewNavBar /> */}
         <LoginNav title={'Order Management'}/>       
         <OrderHead number={accept.length}/>
       </div>
