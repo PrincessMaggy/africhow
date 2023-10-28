@@ -138,7 +138,7 @@ function onSubmit(data) {
         <ToastContainer/>
 
         <div className="grid gap-6 min-[391px]:w-4/5 max-[398px]:w-[358px] min[391px]:text-[16px] mx-auto relative">
-        <Header/>
+         <div className="screen"><Header/></div> 
         <div className="grid items-end">
             <OnboardingWelcome
               title={"Create your business account"}

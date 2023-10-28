@@ -177,7 +177,7 @@ export default function OnBoardingSignUpForm() {
       <div className="relative" />
 
       <div className=" mx-auto min-[391px]:w-4/5 max-[390px]:w-[358px] flex flex-col gap-3">
-        <Header />
+        <div className="screen"><Header /></div>
         <OnboardingWelcome
           title={"Complete account setup"}
           text={"You're one-step away from selling your product to 1M+ people"}
@@ -353,7 +353,7 @@ export default function OnBoardingSignUpForm() {
 function Terms({isChecked, setIsChecked}) {
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2 screen">
       <input type="checkbox" value={isChecked} onChange={() => setIsChecked(prev => !prev)}/>
       <p>
         Creating an account means you're okay with our{" "}
