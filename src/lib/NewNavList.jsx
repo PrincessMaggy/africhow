@@ -1,5 +1,4 @@
-import RewardIcon from '../assets/NavIcons/RewardIcon.jsx';
-
+import RewardIcon from '../assets/NavIcons/RewardIcon.jsx'; 
 const navList = [
   
   {
@@ -7,6 +6,7 @@ const navList = [
     route: "/rewards",
     icon: RewardIcon,
   },
+  
   // Add more navigation items as needed
 ];
 
