@@ -19,6 +19,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Nav from "../components/nav";
 import FormInputs from "../components/FormInputs";
 import "react-toastify/dist/ReactToastify.css";
+import { useAuth } from "../components/auth/AuthContext";
 
 const style =
   "rounded-xl px-[12px] w-[420px] line-[24px] py-[13px] text-white text-14px";
@@ -27,6 +28,8 @@ export default function Login() {
   const navigate = useNavigate();
   const location = useLocation();
   const [showPassword, setShowPassword] = useState(false);
+  const { loggedIn, setLoggedIn } = useAuth();
+
   //   const [newUser, setNewUser] = useState(
   //     location.state ? location.state.newUser : true
   //   );
@@ -60,6 +63,7 @@ export default function Login() {
       });
   };
 
+  console.log('use is', loggedIn)
   const activeWait = async () => {
     await new Promise((r) => setTimeout(r, 500));
   };
@@ -68,8 +72,11 @@ export default function Login() {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(userCredential);
+        // console.log(userCredential);
         navigate("/login%20successful");
+        console.log("login")
+        setLoggedIn(true)
+
       })
       .catch((err) => {
         console.log(err, "err");
@@ -83,6 +90,8 @@ export default function Login() {
         toast(customErrorMessage);
       })
       .finally(() => mounted.current && setIsLoading(false));
+      setLoggedIn(true)
+
     reset();
   }
 
@@ -129,7 +138,7 @@ export default function Login() {
           <div className="grid items-end">
             <OnboardingWelcome
               title={"Welcome Back!"}
-              text={"Join the AfriChow community now..."}
+              text={"Join the AfriChow community now ..."}
               className={"welcome"}
             />
             <form

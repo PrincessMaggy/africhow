@@ -17,7 +17,7 @@ const ReedeemSucess = () => {
 
   return (
     <>
-        <HomeNav />
+        <NewNavBar />
         <div className="item-details ">
                
                 <div className="body px-4 ">

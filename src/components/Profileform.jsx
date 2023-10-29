@@ -8,7 +8,7 @@ export default function Profileform() {
         <div className="grid items-end">
           <form className="grid gap-3">
             <div className="grid gap-2">
-              <label className="label text flex gap-2 mt-3">First name</label>
+              <label className="label text-base font-light  flex gap-2 mt-3">First name</label>
               <input
                 name="fName"
                 type="text"
@@ -18,7 +18,7 @@ export default function Profileform() {
             </div>
 
             <div className="grid gap-2">
-              <label className="label text flex gap-2 mt-3">Last name</label>
+              <label className="label text-base font-light  flex gap-2 mt-3">Last name</label>
               <input
                 name="lName"
                 type="text"
@@ -28,7 +28,7 @@ export default function Profileform() {
             </div>
 
             <div className="grid gap-2">
-              <label className="label text flex gap-2 mt-3">
+              <label className="label text-base font-light  flex gap-2 mt-3">
                 business name
               </label>
               <input
@@ -40,7 +40,7 @@ export default function Profileform() {
             </div>
 
             <div className="grid gap-2">
-              <label className="label text flex gap-2 mt-3">
+              <label className="label text-base font-light  flex gap-2 mt-3">
                 Business Address
               </label>
               <input
@@ -52,7 +52,7 @@ export default function Profileform() {
             </div>
 
             <div className="grid gap-2">
-              <label className="label text flex gap-2 mt-3">
+              <label className="label text-base font-light  flex gap-2 mt-3">
                 Business email
               </label>
               <input
@@ -63,7 +63,7 @@ export default function Profileform() {
             </div>
 
             <div className="grid gap-2">
-              <label className="label text flex gap-2 mt-3">
+              <label className="label text-base font-light  flex gap-2 mt-3">
                 Comfirm business email
               </label>
               <input
@@ -75,7 +75,7 @@ export default function Profileform() {
             </div>
 
             <div className="grid gap-2">
-              <label className="label text flex gap-2 mt-3">
+              <label className="label text-base font-light  flex gap-2 mt-3">
                 Business phone number
               </label>
               <input

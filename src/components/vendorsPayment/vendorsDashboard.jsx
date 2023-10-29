@@ -6,8 +6,8 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recha
 import weeklyTransaction from '../../lib/weeklyTransaction';
 //imports transaction data object
 import transactionsdata from '../../lib/vendorsTransData';
-import HomeNav from "../homeNav";
 
+import NewNavbar from '../NewNav/NewNavBar';
 
 const VendorsDashboard = () => {
 
@@ -18,7 +18,7 @@ const VendorsDashboard = () => {
 
     return (
         <>
-        <HomeNav />
+        <NewNavbar />
         <div className='sm:px-8 px-4'>
             <div className='text-start sm:p-10 p-4 bg-[#145062]'>
                 <div className=''>
@@ -30,7 +30,7 @@ const VendorsDashboard = () => {
                     <button className='rounded text-sm p-2 bg-[#33CC9F]'>Payout method</button>
                     </Link>
                     <Link to='/vendors-transaction'>
-                    <button className='rounded text-sm p-2 sm:ms-6 sm:ms-4 ms-2 bg-white'>Transactions</button>
+                    <button className='rounded text-sm p-2 sm:m-6 sm:ms-4 ms-2 bg-white'>Transactions</button>
                     </Link>
                 </div>
 
