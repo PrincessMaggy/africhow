@@ -20,7 +20,7 @@ function History() {
     <div className="mb-10">
       <div className="sticky top-0">
       <LoginNav title={'Order Management'}/>
-      <OrderHead />
+      <OrderHead number={8} />
       </div>
       {FoodList.map((item, index) => (
         <div key={index} item={item}>
