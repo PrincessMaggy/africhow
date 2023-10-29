@@ -9,7 +9,7 @@ function Outgoing() {
     <div>
       <div className="sticky top-0 mb-6">
       <LoginNav title={'Order Management'}/>
-      <OrderHead number={FoodList.length}n />
+      <OrderHead />
       </div>
       <div>
         {FoodList.map((item, i) => (

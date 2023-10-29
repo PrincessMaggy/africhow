@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 
 const OrderHead = (props) => {
   const location = useLocation();
@@ -17,7 +17,7 @@ const OrderHead = (props) => {
           <Link to="/incoming" className="flex items-center justify-center gap-1 px-2 py-2">
             <p>Incoming</p>
             <div className="w-6 text-xs leading-6 text-center rounded-full bg-bg-order-notify text-slate-100">
-            {props.number || 8}
+            {props.number}
           </div>
           </Link>
           
