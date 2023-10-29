@@ -158,8 +158,8 @@ function App() {
                 {/* <Route path='/vendorprofile' element={<Vendorprofile />} /> */}
                 {/* <Route path='/vendorworkhour' element={<Vendorworkhour/> }/> */}
                 {/* <Route */}
-                    path='/vendorprofilechange'
-                    // element={<Vendorprofilechange />}
+                    {/* path='/vendorprofilechange' */}
+                    {/* // element={<Vendorprofilechange />} */}
                 {/* /> */}
                 {/* <Route */}
                     {/* path='/cancelprofilecard' */}
