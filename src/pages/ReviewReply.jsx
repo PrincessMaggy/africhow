@@ -4,6 +4,7 @@ import Solomon from '../assets/Review-Images/Ellipse 8.png'; // Import Solomon i
 import Star from '../assets/Review-Images/Star 3.png'; // Import Star image
 import Joshua from '../assets/Review-Images/image 2.png';
 
+
 const ReviewReply = () => {
   const [comment, setComment] = useState('');
 
@@ -23,6 +24,7 @@ const ReviewReply = () => {
   };
   return (
     <div>
+      <navList/>
       <ReviewNav />
       <div className="w-full h-20 relative bg-emerald-400 bg-opacity-10 flex items-center">
         <img className="w-12 h-12 left-0 ml-4 rounded-full" src={Joshua} alt="Joshua" />
