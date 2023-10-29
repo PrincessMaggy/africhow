@@ -7,7 +7,7 @@ import LoginNav from "../LoginNav";
 function Outgoing() {
   return (
     <div>
-      <div className="sticky top-0 mb-6">
+      <div className="sticky top-0 z-10 mb-6">
       <LoginNav title={'Order Management'}/>
       <OrderHead number={8} />
       </div>
@@ -92,7 +92,7 @@ function Outgoing() {
                   </button>
 
                   <button
-                    className="text-gray-500 bg-primary p-2.5 cursor-default"
+                    className="text-bg-order-active bg-primary p-2.5 cursor-default opacity-70"
                     
                   >
                     Order Accepted
