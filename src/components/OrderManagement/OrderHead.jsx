@@ -1,12 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import React from "react";
 
-const OrderNav = () => {
+const OrderHead = (props) => {
   const location = useLocation();
 
   return (
     <nav>
-      <ul className="flex items-center justify-between px-6 py-2 my-5 text-sm text-gray-500 bg-bg-order-nav">
+      <ul className="flex items-center justify-between px-6 py-2 text-sm text-gray-500 bg-bg-order-nav">
         <li
           className={
             location.pathname === "/incoming"
@@ -17,7 +17,7 @@ const OrderNav = () => {
           <Link to="/incoming" className="flex items-center justify-center gap-1 px-2 py-2">
             <p>Incoming</p>
             <div className="w-6 text-xs leading-6 text-center rounded-full bg-bg-order-notify text-slate-100">
-            8
+            {props.number || 8}
           </div>
           </Link>
           
@@ -32,7 +32,7 @@ const OrderNav = () => {
           <Link to="/outgoing" className="flex items-center justify-center gap-1 px-2 py-2">
            <p>Outgoing</p>
            <div className="w-6 text-xs leading-6 text-center rounded-full bg-bg-order-notify text-slate-100">
-            8
+           7
           </div>
           </Link>
         </li>
@@ -52,4 +52,4 @@ const OrderNav = () => {
   );
 };
 
-export default OrderNav;
+export default OrderHead;

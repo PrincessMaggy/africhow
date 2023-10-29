@@ -15,7 +15,6 @@ import {
 import AuthDetails from "../components/auth/authDetails";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Nav from '../components/homeNav';
 import Header from "../components/Header";
 import { useAuth } from "../components/auth/AuthContext";
 
@@ -135,11 +134,12 @@ function onSubmit(data) {
     <>
       <div>
         {/* {newUser && <Nav setNewUserToFalse={setNewUserToFalse} />} */}
-        <Header/>
+        
         <ToastContainer/>
 
         <div className="grid gap-6 min-[391px]:w-4/5 max-[398px]:w-[358px] min[391px]:text-[16px] mx-auto relative">
-          <div className="grid items-end">
+         <div className="screen"><Header/></div> 
+        <div className="grid items-end">
             <OnboardingWelcome
               title={"Create your business account"}
               titleStyle='w-full text-[22px] font-[700] my-[15px]'

@@ -1,7 +1,19 @@
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import React from 'react'
 
-const RewardIcon = ({isActive}) => {
+const RewardIcon = () => {
+    const location = useLocation();
+    const currentPathname = location.pathname;
+    const [isActive, setIsActive] = useState(false)
+
+        useEffect(() => {
+           if(currentPathname === '/rewards'){
+        setIsActive(true)
+    }
+        }, [currentPathname])
+        
+   
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="rewarded_ads">

@@ -59,7 +59,8 @@ function Listings() {
   return (
     <>
       <div>
-      {loggedIn ? (<NewNavbar />) : (<Nav />)}
+      {loggedIn ? (<NewNavbar />) : (<HomeNav />)}
+      {/* <HomeNav /> */}
         <hr className="border-gray-400 -mt-6" />
         <div className="flex flex-col">
           <form

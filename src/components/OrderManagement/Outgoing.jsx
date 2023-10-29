@@ -2,13 +2,15 @@ import React from "react";
 import location_pin from "../../assets/Images-Order-management/location_pin.jpg";
 import FoodList from "../../lib/Foodlist";
 import OrderHead from "./OrderHead";
-import OrderNav from "./OrderNav";
+import LoginNav from "../LoginNav";
 
 function Outgoing() {
   return (
     <div>
-      <OrderNav />
-      <OrderHead />
+      <div className="sticky top-0 mb-6">
+      <LoginNav title={'Order Management'}/>
+      <OrderHead number={FoodList.length}n />
+      </div>
       <div>
         {FoodList.map((item, i) => (
           <div key={i}>
@@ -37,8 +39,9 @@ function Outgoing() {
               </div>
 
               <div className="flex items-center justify-between mx-6 text-sm font-semibold text-bg-order-active">
+              <div className="flex items-center gap-5">
                 <div>
-                  <img src={item.img1} alt="food" />
+                  <img src={item.img1} alt="food" className="w-full h-full"/>
                 </div>
                 <div>{item.Qty1}x</div>
                 <div className="text-left">
@@ -47,12 +50,14 @@ function Outgoing() {
                     {item.Desc1}
                   </div>
                 </div>
+              </div>
                 <div>${item.Price1}</div>
               </div>
 
               <div className="flex items-center justify-between mx-6 my-4 text-sm font-semibold text-bg-order-active">
+              <div className="flex items-center gap-5">
                 <div>
-                  <img src={item.img2} alt="" />
+                  <img src={item.img2} alt="food" className="w-full h-full"/>
                 </div>
                 <div>{item.Qty2}x</div>
                 <div className="text-left">
@@ -61,6 +66,7 @@ function Outgoing() {
                     {item.Desc2}
                   </div>
                 </div>
+              </div>
                 <div>${item.Price2}</div>
               </div>
 
@@ -86,7 +92,7 @@ function Outgoing() {
                   </button>
 
                   <button
-                    className="text-gray-500 bg-primary p-2.5"
+                    className="text-gray-500 bg-primary p-2.5 cursor-default"
                     
                   >
                     Order Accepted

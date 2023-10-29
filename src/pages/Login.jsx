@@ -63,6 +63,7 @@ export default function Login() {
       });
   };
 
+  console.log('use is', loggedIn)
   const activeWait = async () => {
     await new Promise((r) => setTimeout(r, 500));
   };
@@ -75,6 +76,7 @@ export default function Login() {
         navigate("/login%20successful");
         console.log("login")
         setLoggedIn(true)
+
       })
       .catch((err) => {
         console.log(err, "err");
@@ -88,48 +90,24 @@ export default function Login() {
         toast(customErrorMessage);
       })
       .finally(() => mounted.current && setIsLoading(false));
+      setLoggedIn(true)
+
     reset();
   }
 
-  // function onSubmit(data) {
-  //   const { email, password } = data;
-  //   setIsLoading(true);
-  //   signInWithEmailAndPassword(auth, email, password)
-  //     .then((userCredential) => {
-  //       console.log(userCredential);
-  //       navigate("/login%20successful");
-  //     })
-  //     .catch((err) => {
-  //       console.log(err, "err");
-  //       setLoginError(true);
-  //       let customErrorMessage = "An error occurred";
-  //       if (err.code === "auth/user-not-found") {
-  //         customErrorMessage = "User not found. Please check your email address.";
-  //       } else if (err.code === "auth/invalid-email") {
-  //         customErrorMessage = "Invalid email address format.";
-  //       }
-  //       toast(customErrorMessage)
-  //     })
-  //     .finally(() => mounted.current && setIsLoading(false));
-  //     reset();
-
-  // }
-
   function onError(errors) {
     console.log(errors);
-    //alert(errors);
   }
 
   function handleClick(e) {
     e.preventDefault();
-    reset(); //this resets the form fields on toggle between the current page and login page ////////////////
+    reset(); 
     navigate("/signup");
   }
   return (
     <>
       <div>
         <ToastContainer />
-        {/* {newUser && <Nav setNewUserToFalse={setNewUserToFalse} />} */}
         <div className="grid gap-6 min-[391px]:w-4/5 max-[398px]:w-[358px] mx-auto relative">
           <div className="grid items-end">
             <OnboardingWelcome
