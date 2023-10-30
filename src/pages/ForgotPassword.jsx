@@ -16,20 +16,6 @@ export default function ForgotPassword() {
     const {errors} = formState;
     const navigate = useNavigate();
 
-    const resetLink = async (email) => {
-        return sendPasswordResetEmail(auth, email, {
-            url: 'http://localhost:5174/login',
-        })
-            .then(() => {
-                //toast.success('Password reset email sent successfully');
-            })
-            .catch((error) => {
-                setErrorMessage(error.message);
-
-                toast.error(error);
-            });
-    };
-
     function onSubmit(data) {
         const {email} = data;
         sendPasswordResetEmail(auth, email, {
@@ -38,10 +24,11 @@ export default function ForgotPassword() {
             .then((userCredential) => {
                 console.log(userCredential);
                 // navigate("/login%20successful");
-                toast('Email sent successfully');
+                toast('Email sent. Please check your mailbox.');
                 reset();
             })
             .catch((err) => {
+                setErrorMessage(err.message);
                 let customErrorMessage = 'An error occurred';
                 if (err.code === 'auth/user-not-found') {
                     customErrorMessage =
@@ -63,13 +50,13 @@ export default function ForgotPassword() {
                 <p className='font-[700] text-[24px] text-[#000F08] mt-3 mb-3'>
                     Forgot Password?
                 </p>
-                <span className='font-[700] text-[16px] text-[rgb(82,83,82)]'>
+                <span className='font-[700] text-[16px] text-[rgb(41,95,41)]'>
                     A link will be sent to your email to reset your password.
                 </span>
             </div>
 
             {!errorMessage && <p className='text-red-500'>{errorMessage}</p>}
-            <form className='grid gap-3' onSubmit={handleSubmit(onSubmit)}>
+            <form className='grid gap-3 px-3' onSubmit={handleSubmit(onSubmit)}>
                 <label className='label text grid gap-2'>
                     Email Address
                     <input
