@@ -6,9 +6,9 @@ import Ig from '../../assets/images/Ig.png';
 import twitter from '../../assets/images/twitter.png';
 import arrow from '../../assets/images/beenhere.png';
 
-import { shareOnFacebook } from '../../utils/socialShare';
-import { shareOnTwitter } from '../../utils/socialShare';
-import { shareOnInstagram } from '../../utils/socialShare';
+import {shareOnFacebook} from '../../utils/socialShare';
+import {shareOnTwitter} from '../../utils/socialShare';
+import {shareOnInstagram} from '../../utils/socialShare';
 import NewNavbar from '../NewNav/NewNavBar';
 
 const AchievementsPage = () => {
@@ -44,12 +44,19 @@ const AchievementsPage = () => {
                         media
                     </p>
                     <div className='social_share flex  w-4/6 mx-auto gap-6 justify-around my-4'>
-                        <img src={fb} alt='facebook' onClick={shareOnFacebook} />
+                        <img
+                            src={fb}
+                            alt='facebook'
+                            onClick={shareOnFacebook}
+                        />
                         <img src={Ig} alt='Ig' onClick={shareOnInstagram} />
-                        <img src={twitter} alt='twitter' onClick={shareOnTwitter} />
+                        <img
+                            src={twitter}
+                            alt='twitter'
+                            onClick={shareOnTwitter}
+                        />
                     </div>
                 </div>
-
             </div>
         </>
     );

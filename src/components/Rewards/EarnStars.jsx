@@ -1,5 +1,4 @@
 import RewardNav from './RewardNav';
-import HomeNav from '../homeNav';
 
 import './rewards.css';
 import NewNavbar from '../NewNav/NewNavBar';
