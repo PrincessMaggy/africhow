@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { db, auth } from '../../firebase';
-import Meal1 from "../assets/meals/fishtacos.jpg"
+import {useState, useEffect} from 'react';
+import {collection, getDocs} from 'firebase/firestore';
+import {db, auth} from '../../firebase';
 
 function FetchMealItem() {
     const [mealData, setMealData] = useState([]);
@@ -19,24 +18,33 @@ function FetchMealItem() {
                         setUserId(auth.currentUser.uid);
                     }
 
-                    const cachedMealData = localStorage.getItem('cachedMealData');
+                    const cachedMealData =
+                        localStorage.getItem('cachedMealData');
 
                     if (cachedMealData) {
                         // If cached data is available, use it
                         setMealData(JSON.parse(cachedMealData));
                     } else {
-                        const userMealsRef = collection(db, 'users', userId, 'meals');
+                        const userMealsRef = collection(
+                            db,
+                            'users',
+                            userId,
+                            'meals',
+                        );
                         const querySnapshot = await getDocs(userMealsRef);
 
                         const mealData = [];
                         querySnapshot.forEach((doc) => {
-                            mealData.push({ id: doc.id, ...doc.data() });
+                            mealData.push({id: doc.id, ...doc.data()});
                         });
 
                         setMealData(mealData);
 
                         // Store the fetched data in local storage
-                        localStorage.setItem('cachedMealData', JSON.stringify(mealData));
+                        localStorage.setItem(
+                            'cachedMealData',
+                            JSON.stringify(mealData),
+                        );
                     }
                 }
             } catch (error) {
@@ -52,13 +60,16 @@ function FetchMealItem() {
             {mealData.map((meal) => (
                 <div
                     key={meal.id}
-                    className='bg-white rounded-lg overflow-hidden shadow-md flex items-center gap-3 mx-8 '>
+                    className='bg-white rounded-lg overflow-hidden shadow-md flex items-center gap-3 mx-8 '
+                >
                     <div className='meal-image flex-basis-[33%]'>
-                        {<img
-                            src= {meal.imageUrl}
-                            alt='Meal'
-                            className='h-32 object-cover ml-4 py-3'
-                        />}
+                        {
+                            <img
+                                src={meal.imageUrl}
+                                alt='Meal'
+                                className='h-32 object-cover ml-4 py-3'
+                            />
+                        }
                     </div>
                     <div className='p-4 text-left flex-basis-[66%]'>
                         <strong className='text-gray-500 text-[0.7rem] capitalize font-semibold mb-2 block '>
@@ -67,14 +78,19 @@ function FetchMealItem() {
                         <p className='text-gray-400 mb-2 text-[0.6rem] md:text-xs lg:text-sm uppercase'>
                             {meal.category}
                         </p>
-                        <p className="text-black mb-2 flex items-center">
-                            <span className="mr-1">{meal.currency}</span>{meal.cost}
+                        <p className='text-black mb-2 flex items-center'>
+                            <span className='mr-1'>{meal.currency}</span>
+                            {meal.cost}
                         </p>
-                                                
+
                         <div className='flex items-center'>
-                            <div className={`w-2 h-2 md:w-3 md:h-3 sm:w-2 sm:h-2 rounded-full ${
-                            meal.status === 'Available' ? 'bg-green-500' : 'bg-red-500'} mr-2`}>
-                            </div>
+                            <div
+                                className={`w-2 h-2 md:w-3 md:h-3 sm:w-2 sm:h-2 rounded-full ${
+                                    meal.status === 'Available'
+                                        ? 'bg-green-500'
+                                        : 'bg-red-500'
+                                } mr-2`}
+                            ></div>
                             <p className='text-gray-600 text-[0.6rem] md:base sm:text-xs'>
                                 {meal.status}
                             </p>
@@ -87,4 +103,3 @@ function FetchMealItem() {
 }
 
 export default FetchMealItem;
-
