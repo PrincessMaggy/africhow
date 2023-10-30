@@ -7,9 +7,9 @@ import LoginNav from "../LoginNav";
 function Outgoing() {
   return (
     <div>
-      <div className="sticky top-0 mb-6">
+      <div className="sticky top-0 z-10 mb-6">
       <LoginNav title={'Order Management'}/>
-      <OrderHead number={FoodList.length}n />
+      <OrderHead number={8} />
       </div>
       <div>
         {FoodList.map((item, i) => (
@@ -41,22 +41,6 @@ function Outgoing() {
               <div className="flex items-center justify-between mx-6 text-sm font-semibold text-bg-order-active">
               <div className="flex items-center gap-5">
                 <div>
-                  <img src={item.img1} alt="food" className="w-full h-full"/>
-                </div>
-                <div>{item.Qty1}x</div>
-                <div className="text-left">
-                  <div>{item.Foodname1}</div>
-                  <div className="text-xs font-normal text-gray-500 ">
-                    {item.Desc1}
-                  </div>
-                </div>
-              </div>
-                <div>${item.Price1}</div>
-              </div>
-
-              <div className="flex items-center justify-between mx-6 my-4 text-sm font-semibold text-bg-order-active">
-              <div className="flex items-center gap-5">
-                <div>
                   <img src={item.img2} alt="food" className="w-full h-full"/>
                 </div>
                 <div>{item.Qty2}x</div>
@@ -68,6 +52,22 @@ function Outgoing() {
                 </div>
               </div>
                 <div>${item.Price2}</div>
+              </div>
+
+              <div className="flex items-center justify-between mx-6 my-4 text-sm font-semibold text-bg-order-active">
+              <div className="flex items-center gap-5">
+                <div>
+                  <img src={item.img1} alt="food" className="w-full h-full"/>
+                </div>
+                <div>{item.Qty1}x</div>
+                <div className="text-left">
+                  <div>{item.Foodname1}</div>
+                  <div className="text-xs font-normal text-gray-500 ">
+                    {item.Desc1}
+                  </div>
+                </div>
+              </div>
+                <div>${item.Price1}</div>
               </div>
 
               <div className="py-8 border-y-[1px] mb-8">
@@ -92,7 +92,7 @@ function Outgoing() {
                   </button>
 
                   <button
-                    className="text-gray-500 bg-primary p-2.5 cursor-default"
+                    className="text-bg-order-active bg-primary p-2.5 cursor-default opacity-70"
                     
                   >
                     Order Accepted
