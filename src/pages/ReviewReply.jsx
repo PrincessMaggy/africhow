@@ -3,6 +3,7 @@ import ReviewNav from '../components/Reviews/ReviewNav';
 import Solomon from '../assets/Review-Images/Ellipse 8.png'; // Import Solomon image
 import Star from '../assets/Review-Images/Star 3.png'; // Import Star image
 import Joshua from '../assets/Review-Images/image 2.png';
+import NewNavbar from '../components/NewNav/NewNavBar';
 
 
 const ReviewReply = () => {
@@ -23,10 +24,9 @@ const ReviewReply = () => {
     alert('Delete your comment!');
   };
   return (
-    <div>
-      <navList/>
-      <ReviewNav />
-      <div className="w-full h-20 relative bg-emerald-400 bg-opacity-10 flex items-center">
+    <>
+      <NewNavbar/>
+      <div className="w-full p-4 h-20 relative bg-emerald-400 bg-opacity-10 flex items-center">
         <img className="w-12 h-12 left-0 ml-4 rounded-full" src={Joshua} alt="Joshua" />
         <div className="w-8 h-8 ml-4 md:ml-64 mt-1 absolute" />
         <div className="ml-4 md:ml-16 text-neutral-900 text-lg font-medium font-['Manrope'] tracking-tight">Good afternoon Joshua</div>
@@ -34,7 +34,7 @@ const ReviewReply = () => {
       </div>
 
       {/* User Information */}
-      <div className="left-[0] top-[150px] absolute flex-col justify-start items-start gap-4 inline-flex">
+      <div className="left-[0] p-4 top-[150px] absolute flex-col justify-start items-start gap-4 inline-flex">
         {/* User details */}
         <div className="flex-col justify-start items-start gap-3 flex">
           {/* User profile */}
@@ -86,7 +86,7 @@ const ReviewReply = () => {
       </div>
       
       {/* User Information */}
-      <div className="left-[0] top-[350px] absolute flex-col justify-start items-start gap-4 inline-flex">
+      <div className="left-[0] p-4 top-[350px] absolute flex-col justify-start items-start gap-4 inline-flex">
         {/* User details */}
         <div className="flex-col justify-start items-start gap-3 flex">
           {/* User profile */}
@@ -133,7 +133,7 @@ const ReviewReply = () => {
         </div>
         
       {/* User Information */}
-      <div className="left-[25px] top-[500px] absolute flex-col justify-start items-start gap-4 inline-flex ">
+      <div className="left-[25px] p-4 top-[500px] absolute flex-col justify-start items-start gap-4 inline-flex ">
         {/* User details */}
         <div className="flex-col justify-start items-start gap-3 flex">
           {/* User profile */}
@@ -171,7 +171,7 @@ const ReviewReply = () => {
         </div>
         </div>
          {/* User Information */}
-      <div className="w-full left-[0] top-[650px] absolute flex-col justify-start items-start gap-4 inline-flex">
+      <div className="w-full left-[0] p-4 top-[650px] absolute flex-col justify-start items-start gap-4 inline-flex">
         {/* User details */}
         <div className="flex-col justify-start items-start gap-3 flex">
           {/* User profile */}
@@ -221,7 +221,7 @@ const ReviewReply = () => {
           <div className="Reply text-center text-white text-base font-medium font-['Manrope'] tracking-tight" onClick={handleReply}>Reply</div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
