@@ -10,9 +10,9 @@ function EmailJSForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const serviceID = 'service_zft1lfa'; // Replace with your EmailJS service ID
-        const templateID = 'template_aauvizl'; // Replace with your EmailJS template ID
-        const userID = 'Y1LM7C2Bnibun3ZAB'; // Replace with your public key
+        const serviceID = 'service_zft1lfa';
+        const templateID = 'template_aauvizl';
+        const userID = 'Y1LM7C2Bnibun3ZAB';
 
         emailjs
             .sendForm(serviceID, templateID, e.target, userID)
@@ -79,4 +79,4 @@ function EmailJSForm() {
     );
 }
 
-export default EmailJSForm
+export default EmailJSForm;
