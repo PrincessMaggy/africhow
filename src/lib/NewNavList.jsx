@@ -44,6 +44,8 @@ const navList = [
     title: 'Order Mgt.',
     route: '/incoming',
     // icon: <Contract />,
+
+}
   // Add more navigation items as needed
 ];
 
