@@ -9,7 +9,6 @@ import './index.css';
 import Home from './pages/Home';
 import Support from './pages/Support';
 import Rewards from './pages/Rewards';
-import Signup from './pages/Signup';
 import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
 
 //import Cancelprofilecard from './pages/Cancelprofilecard';
@@ -58,7 +57,6 @@ function App() {
                 <Route path='/recipes/:recipe' element={<Recipes />} />
 
                 <Route path='/' element={<Home />} />
-                <Route path='/signup' element={<Signup />} />
                 <Route path='/login' element={<Login />} />
 
                 <Route path='/contact-us' element={<Support />} />

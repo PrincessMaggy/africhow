@@ -7,7 +7,6 @@ import OnboardingWelcome from '../components/OnboardingWelcome';
 import '../onboardingloginsignup.css';
 
 import {db, auth} from '../../firebase';
-// import { createUserWithEmailAndPassword } from "firebase/auth";
 import {
     collection,
     doc,
