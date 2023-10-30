@@ -8,8 +8,6 @@ const navList = [
     route: "/rewards",
     icon: <RewardIcon />,
   },
-<<<<<<< HEAD
-=======
 
   {
     title: "Store Performance",
@@ -30,7 +28,10 @@ const navList = [
     title: "Help",
     route: "/supportsuccess",
   },
-
+{
+  title: "Reviews and Ratings",
+  route: "/review card",
+},
   {
     
     title: "Payout",
@@ -52,7 +53,6 @@ const navList = [
     route: "/incoming",
     icon: <Contract />,
   },
->>>>>>> df22700589ccb659b98411cd78c48e6da7e79298
   // Add more navigation items as needed
 ];
 
