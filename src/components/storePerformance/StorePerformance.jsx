@@ -112,7 +112,7 @@ function StorePerformance() {
                         </h3>
                     </div>
 
-                    <div className='border-none pt-10 lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green'>
+                    <div className='border-none lg:pt-10 pt-4 lg:pb-10 pb-4 p-5 mt-8 bg-light-green'>
                         <img
                             src={cart}
                             alt='cart-image'

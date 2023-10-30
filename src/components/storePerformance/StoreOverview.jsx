@@ -11,7 +11,6 @@ import NewNavbar from '../NewNav/NewNavBar';
 function StoreOverview() {
     return (
         <>
-            {' '}
             <NewNavbar />
             <section className='font-manrope mx-10'>
                 <hr />
@@ -28,7 +27,7 @@ function StoreOverview() {
                             <span className='lg:text-2xl text-base font-bold'>
                                 Complete KYC
                             </span>
-                            <br></br>{' '}
+                            <br></br>
                             <span className='lg:text-2xl text-base'>
                                 To ensure security of your store
                             </span>
