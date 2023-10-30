@@ -1,3 +1,4 @@
+import HelpIcon from '../assets/NavIcons/HelpIcon.jsx';
 import RewardIcon from '../assets/NavIcons/RewardIcon.jsx';
 
 
@@ -17,6 +18,7 @@ const navList = [
   {
     title: "Help",
     route: "/vendorsupport",
+    icon: HelpIcon,
   }
   // Add more navigation items as needed
 ];
