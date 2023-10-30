@@ -1,24 +1,26 @@
-import HelpIcon from '../assets/NavIcons/HelpIcon.jsx';
+
 import RewardIcon from '../assets/NavIcons/RewardIcon.jsx';
 
 
-const navList = [
-  
-  {
-    title: "Loyalty Rewards",
-    route: "/rewards",
-    icon: RewardIcon,
-  },
+// import RewardIcon from '../assets/NavIcons/RewardIcon.jsx';
+// import Contract from '../assets/NavIcons/Contract.jsx';
 
-  {
-    title: "Store Performance",
-    route: "/store-overview",
-  },
+
+const navList = [
+    {
+        title: 'Loyalty Rewards',
+        route: '/rewards',
+        // icon: <RewardIcon />,
+    },
+
+    {
+        title: 'Store Performance',
+        route: '/store-overview',
+    },
 
   {
     title: "Help",
     route: "/vendorsupport",
-    icon: HelpIcon,
   }
   // Add more navigation items as needed
 ];

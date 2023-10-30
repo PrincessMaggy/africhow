@@ -6,7 +6,6 @@ import arrow from '../../assets/images/beenhere.png';
 import fb from '../../assets/images/facebook.png';
 import Ig from '../../assets/images/Ig.png';
 import twitter from '../../assets/images/twitter.png';
-import HomeNav from '../homeNav';
 import RewardNav from './RewardNav';
 
 import { shareOnFacebook } from '../../utils/socialShare';
@@ -49,8 +48,7 @@ const RewardsPage = () => {
 
   return (
     <>
-      {/* <HomeNav /> */}
-      <NewNavBar navTitle="rEWARDS" />
+      <NewNavBar />
       <RewardNav />
       <div className='earn_wrapper px-4'>
         <div className='rewards_wrapper '>

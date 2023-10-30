@@ -4,7 +4,7 @@ import Arrowdown from "../../assets/Images-Order-management/keyboard_arrow_down.
 import Arrowup from "../../assets/Images-Order-management/keyboard_arrow_up.jpg";
 import FoodList from "../../lib/Foodlist";
 import location_pin from "../../assets/Images-Order-management/location_pin.jpg";
-import OrderNav from "./OrderNav";
+import LoginNav from "../LoginNav";
 import OrderHead from "./OrderHead";
 
 function History() {
@@ -18,8 +18,10 @@ function History() {
 
   return (
     <div className="mb-10">
-      <OrderNav />
-      <OrderHead />
+      <div className="sticky top-0">
+      <LoginNav title={'Order Management'}/>
+      <OrderHead number={8} />
+      </div>
       {FoodList.map((item, index) => (
         <div key={index} item={item}>
           <div className="mx-6">

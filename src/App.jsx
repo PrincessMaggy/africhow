@@ -4,17 +4,23 @@ import './index.css';
 
 // importing pages
 
+// importing pages
+
 import Home from './pages/Home';
 import Support from './pages/Support';
 import Rewards from './pages/Rewards';
 import Signup from './pages/Signup';
 import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
+
+//import Cancelprofilecard from './pages/Cancelprofilecard';
+//import Profilesavedsuccess from './pages/Profilesavedsuccess';
+//import Profileerrormessage from './pages/Profileerrormessage';
+
 import FormSuccess from './pages/FormSuccess';
 import ConfirmPassword from './pages/ConfirmPassword';
 import ForgotPassword from './pages/ForgotPassword';
-import ReviewCard from './pages/ReviewCard';
-import ReviewReply from './pages/ReviewReply';
-import Vendorprofile from './pages/Vendorprofile';
+
+//import Vendorworkhour from './pages/Vendorworkhour';
 import Achievements from './pages/Achievements';
 import Catalog from './pages/Catalog';
 import CatalogDetails from './pages/CatalogDetails';
@@ -26,7 +32,6 @@ import Listings from './pages/MealListing';
 import Login from './pages/Login';
 import SuccessRewards from './pages/SuccessRewards';
 import NewMeal from './pages/AddNewMeal';
-import Vendorprofilechange from './pages/Vendorprofilechange';
 
 // importing components
 import StoreOverview from './components/storePerformance/StoreOverview';
@@ -35,18 +40,12 @@ import VendorSupport from './components/VendorSupportPage/VendorSupport';
 import SupportForm from './components/VendorSupportPage/SupportForm';
 import SupportSuccess from './components/VendorSupportPage/SupportSuccess';
 import Order from './components/Order/order';
+
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
+
 import Blog from './components/community/blog';
 import Recipes from './components/community/recipes';
-import Cancelprofilecard from './components/Cancelprofilecard';
-import Vendorworkhour from './components/Vendorworkhour';
-import Outgoing from './components/OrderManagement/Outgoing';
-import Incoming from './components/OrderManagement/Incoming';
-import History from './components/OrderManagement/History';
-import TestWork from './components/auth/testProfile';
-import NotificationPage from './components/Notification/notification';
-import NotificationSuccess from './components/Notification/notificationSuccesful';
 
 function App() {
     return (
@@ -56,11 +55,11 @@ function App() {
                 <Route path='/post' element={<Post />} />
                 <Route path='/blog' element={<Blog />} />
                 <Route path='/recipes' element={<Recipes />} />
+                <Route path='/recipes/:recipe' element={<Recipes />} />
 
                 <Route path='/' element={<Home />} />
                 <Route path='/signup' element={<Signup />} />
                 <Route path='/login' element={<Login />} />
-                <Route path='/contact-us' element={<Support />} />
 
                 <Route path='/contact-us' element={<Support />} />
                 <Route path='/rewards' element={<Rewards />} />
@@ -111,7 +110,7 @@ function App() {
                             text="Welcome back! You're in. Let the food journey begin."
                             buttonText='Go to dashboard'
                             title='Login Successful'
-                            onNavigate={'/meallisting/:userId'}
+                            onNavigate={'/vendors-dashboard'}
                         />
                     }
                 />
@@ -122,7 +121,7 @@ function App() {
                             text="Congratulations! You're officially part of our delicious community. Let's get started!"
                             buttonText='Go to dashboard'
                             title='Your account has been created successfully!'
-                            onNavigate={'/meallisting/:userId'}
+                            onNavigate={'/vendors-dashboard'}
                         />
                     }
                 />
@@ -139,31 +138,23 @@ function App() {
                 />
                 <Route path='/forgot password' element={<ForgotPassword />} />
                 <Route path='/reset password' element={<ConfirmPassword />} />
-                <Route path='/incoming' element={<Incoming />} />
-                <Route path='/outgoing' element={<Outgoing />} />
-                <Route path='/history' element={<History />} />
-                <Route path='/vendorprofile' element={<Vendorprofile />} />
-                <Route path='/vendorworkhour' element={<Vendorworkhour />} />
-                <Route
-                    path='/vendorprofilechange'
-                    element={<Vendorprofilechange />}
-                />
-                <Route
-                    path='/cancelprofilecard'
-                    element={<Cancelprofilecard />}
-                />
-                <Route path='/trending' element={<TrendingComponent />} />
-                <Route path='/post' element={<Post />} />
-                <Route path='/review card' element={<ReviewCard />} />
-                <Route path='/trending' element={<TrendingComponent />} />
-                <Route path='/post' element={<Post />} />
-                <Route path='/review-reply' element={<ReviewReply />} />
-                <Route path='/hours' element={<TestWork />} />
-                <Route path='/notification' element={<NotificationPage />} />
-                <Route
-                    path='/updatedSuccessfully'
-                    element={<NotificationSuccess />}
-                />
+                {/* <Route path='/incoming' element={<Incoming />} /> */}
+                {/* <Route path='/outgoing' element={<Outgoing />} /> */}
+                {/* <Route path='/history' element={<History />} /> */}
+                {/* <Route path='/vendorprofile' element={<Vendorprofile />} /> */}
+                {/* <Route path='/vendorworkhour' element={<Vendorworkhour/> }/> */}
+                {/* <Route */}
+                {/* path='/vendorprofilechange' */}
+                {/* // element={<Vendorprofilechange />} */}
+                {/* /> */}
+                {/* <Route */}
+                {/* path='/cancelprofilecard' */}
+                {/* element={<Cancelprofilecard />} */}
+                {/* /> */}
+                {/* <Route path='/trending' element={<TrendingComponent />} /> */}
+                {/* <Route path='/post' element={<Post />} /> */}
+                {/* <Route path='/review card' element={<ReviewCard />} /> */}
+                {/* <Route path='/review-reply' element={<ReviewReply />} /> */}
             </Routes>
 
             {/* the rewards page doesn't use this footer, can we import them in individual components insatead? */}

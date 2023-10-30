@@ -19,6 +19,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Nav from "../components/nav";
 import FormInputs from "../components/FormInputs";
 import "react-toastify/dist/ReactToastify.css";
+import { useAuth } from "../components/auth/AuthContext";
 
 const style =
   "rounded-xl px-[12px] w-[420px] line-[24px] py-[13px] text-white text-14px";
@@ -27,6 +28,8 @@ export default function Login() {
   const navigate = useNavigate();
   const location = useLocation();
   const [showPassword, setShowPassword] = useState(false);
+  const { loggedIn, setLoggedIn } = useAuth();
+
   //   const [newUser, setNewUser] = useState(
   //     location.state ? location.state.newUser : true
   //   );
@@ -60,6 +63,7 @@ export default function Login() {
       });
   };
 
+  console.log('use is', loggedIn)
   const activeWait = async () => {
     await new Promise((r) => setTimeout(r, 500));
   };
@@ -68,8 +72,11 @@ export default function Login() {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(userCredential);
+        // console.log(userCredential);
         navigate("/login%20successful");
+        console.log("login")
+        setLoggedIn(true)
+
       })
       .catch((err) => {
         console.log(err, "err");
@@ -83,53 +90,29 @@ export default function Login() {
         toast(customErrorMessage);
       })
       .finally(() => mounted.current && setIsLoading(false));
+      setLoggedIn(true)
+
     reset();
   }
 
-  // function onSubmit(data) {
-  //   const { email, password } = data;
-  //   setIsLoading(true);
-  //   signInWithEmailAndPassword(auth, email, password)
-  //     .then((userCredential) => {
-  //       console.log(userCredential);
-  //       navigate("/login%20successful");
-  //     })
-  //     .catch((err) => {
-  //       console.log(err, "err");
-  //       setLoginError(true);
-  //       let customErrorMessage = "An error occurred";
-  //       if (err.code === "auth/user-not-found") {
-  //         customErrorMessage = "User not found. Please check your email address.";
-  //       } else if (err.code === "auth/invalid-email") {
-  //         customErrorMessage = "Invalid email address format.";
-  //       }
-  //       toast(customErrorMessage)
-  //     })
-  //     .finally(() => mounted.current && setIsLoading(false));
-  //     reset();
-
-  // }
-
   function onError(errors) {
     console.log(errors);
-    //alert(errors);
   }
 
   function handleClick(e) {
     e.preventDefault();
-    reset(); //this resets the form fields on toggle between the current page and login page ////////////////
+    reset(); 
     navigate("/signup");
   }
   return (
     <>
       <div>
         <ToastContainer />
-        {/* {newUser && <Nav setNewUserToFalse={setNewUserToFalse} />} */}
         <div className="grid gap-6 min-[391px]:w-4/5 max-[398px]:w-[358px] mx-auto relative">
           <div className="grid items-end">
             <OnboardingWelcome
               title={"Welcome Back!"}
-              text={"Join the AfriChow community now..."}
+              text={"Join the AfriChow community now ..."}
               className={"welcome"}
             />
             <form

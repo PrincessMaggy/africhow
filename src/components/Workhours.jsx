@@ -48,7 +48,7 @@ export default function Workhours() {
               checked={isChecked[day]}
               onChange={() => handleCheckboxChange(day)}
               className="m-2"
-            />{' '}
+            />
             {day}
           </label>
 
