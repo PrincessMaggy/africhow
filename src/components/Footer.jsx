@@ -16,6 +16,7 @@ const Footer = () => {
                 <p className='text-xs md:text-base md:pr-64 lg:text-base text-left pr-16'>Experience a more efficient way to serve customers</p>
             </div>
             <div className='flex justify-between gap-4 lg:px-16 md:px-16 text-base'>
+               <Link to="./community/trending">
                 <div className='lg:px-10 flex flex-col text-left text-sm'>
                     <h3 className='pb-2 underline text-[#33CC9F]'>Links </h3>
                     <ul>
@@ -26,6 +27,7 @@ const Footer = () => {
                         ))}
                     </ul>
                 </div>
+                </Link>
                 <div className='flex flex-col text-left text-sm'>
                     <h3 className='pb-2 underline text-[#33CC9F]'>Socials</h3>
                     <ul>

@@ -4,6 +4,8 @@ import './index.css';
 
 // importing pages
 
+// importing pages
+
 import Home from './pages/Home';
 import Support from './pages/Support';
 import Rewards from './pages/Rewards';
@@ -66,11 +68,12 @@ function App() {
                 <Route path='/post' element={<Post />} />
                 <Route path='/blog' element={<Blog />} />
                 <Route path='/recipes' element={<Recipes />} />
+                <Route path='/recipes/:recipe' element={<Recipes />} />
 
                 <Route path='/' element={<Home />} />
                 <Route path='/signup' element={<Signup />} />
                 <Route path='/login' element={<Login />} />
-                <Route path='/contact-us' element={<Support />} />
+               
 
                 <Route path='/contact-us' element={<Support />} />
                 <Route path='/rewards' element={<Rewards />} />
@@ -149,35 +152,30 @@ function App() {
                 />
                 <Route path='/forgot password' element={<ForgotPassword />} />
                 <Route path='/reset password' element={<ConfirmPassword />} />
-                <Route path='/incoming' element={<Incoming />} />
-                <Route path='/outgoing' element={<Outgoing />} />
-                <Route path='/history' element={<History />} />
-                <Route path='/vendorprofile' element={<Vendorprofile />} />
-                <Route path='/vendorworkhour' element={<Vendorworkhour/> }/>
-                <Route
-                    path='/vendorprofilechange'
-                    element={<Vendorprofilechange />}
-                />
-                <Route
-                    path='/cancelprofilecard'
-                    element={<Cancelprofilecard />}
-                />
-                <Route path='/trending' element={<TrendingComponent />} />
-                <Route path='/post' element={<Post />} />
-                <Route path='/review card' element={<ReviewCard />} />
-                <Route path='/trending' element={<TrendingComponent />} />
-                <Route path='/post' element={<Post />} />
-                <Route path='/review-reply' element={<ReviewReply />} />
-                <Route path='/hours' element={<TestWork />} />
-                <Route path='/notification' element={<NotificationPage />} />
-                <Route
-                    path='/updatedSuccessfully'
-                    element={<NotificationSuccess />}
-                />
+                {/* <Route path='/incoming' element={<Incoming />} /> */}
+                {/* <Route path='/outgoing' element={<Outgoing />} /> */}
+                {/* <Route path='/history' element={<History />} /> */}
+                {/* <Route path='/vendorprofile' element={<Vendorprofile />} /> */}
+                {/* <Route path='/vendorworkhour' element={<Vendorworkhour/> }/> */}
+                {/* <Route */}
+                    {/* path='/vendorprofilechange' */}
+                    {/* // element={<Vendorprofilechange />} */}
+                {/* /> */}
+                {/* <Route */}
+                    {/* path='/cancelprofilecard' */}
+                    {/* element={<Cancelprofilecard />} */}
+                {/* /> */}
+                {/* <Route path='/trending' element={<TrendingComponent />} /> */}
+                {/* <Route path='/post' element={<Post />} /> */}
+                {/* <Route path='/review card' element={<ReviewCard />} /> */}
+                {/* <Route path='/review-reply' element={<ReviewReply />} /> */}
+    
+            
             </Routes>
 
             {/* the rewards page doesn't use this footer, can we import them in individual components insatead? */}
-        </>
+       
+       </>
     );
 }
 
