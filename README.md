@@ -104,7 +104,7 @@ The first page shows the users interest in sending a mail for support, This link
 
 - Mutiat Adepoju (https://github.com/Rike12/africhow)
 - Taofeekat Olorunkosebi (https://github.com/Taofeeqah/africhow)
-- Maria-goretti Jiwuaku [Mariajiwuaku] (https://github.com/mariajiwuaku/africhow.git)
+- Maria-goretti Jiwuaku [Mariajiwuaku](https://github.com/mariajiwuaku/africhow.git)
 
 ## Charlie team
 
