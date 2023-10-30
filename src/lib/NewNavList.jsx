@@ -1,7 +1,6 @@
 import RewardIcon from '../assets/NavIcons/RewardIcon.jsx';
 import Contract from '../assets/NavIcons/Contract.jsx';
 
-
 const navList = [
   
   {
@@ -29,7 +28,10 @@ const navList = [
     title: "Help",
     route: "/supportsuccess",
   },
-
+{
+  title: "Reviews and Ratings",
+  route: "/review card",
+},
   {
     
     title: "Payout",
