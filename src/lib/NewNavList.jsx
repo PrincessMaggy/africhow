@@ -18,6 +18,10 @@ const navList = [
         route: '/vendorsupport',
     },
     {
+        title:"Community",
+        route: 'trending',
+    },
+    {
         title: 'Reviews & Ratings',
         route: '/review card',
     },

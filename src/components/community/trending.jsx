@@ -6,6 +6,7 @@ import Family from "../../assets/images/family.png";
 import Favorite from "../../assets/images/favorite.png";
 import Comment from "../../assets/images/comment.png";
 import Ofada from "../../assets/images/ofada.png";
+import navList from '../lib/NewNavList';
 import Forward from "../../assets/images/arrow_forward.png";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
