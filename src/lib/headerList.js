@@ -1,82 +1,79 @@
 const headerList = [
     {
-      id: '/',
-      header: 'AfriChow',
+        id: '/',
+        header: 'AfriChow',
     },
 
     {
-      id: '/trending',
-      header: 'Community',
+        id: '/trending',
+        header: 'Community',
     },
 
     {
-      id: '/rewards',
-      header: 'AfriChow Rewards',
+        id: '/rewards',
+        header: 'AfriChow Rewards',
     },
     {
-      id: '/rewards/catalog',
-      header: 'AfriChow Rewards',
+        id: '/rewards/catalog',
+        header: 'AfriChow Rewards',
     },
 
     {
-      id: '/rewards/earn-stars',
-      header: 'AfriChow Rewards',
+        id: '/rewards/earn-stars',
+        header: 'AfriChow Rewards',
     },
     {
-      id: '/rewards/my-rewards',
-      header: 'AfriChow Rewards',
+        id: '/rewards/my-rewards',
+        header: 'AfriChow Rewards',
     },
     {
-      id: '/rewards/reward-details/:itemId',
-      header: 'AfriChow Rewards',
+        id: '/rewards/reward-details/:itemId',
+        header: 'AfriChow Rewards',
     },
     {
-      id: '/success/:id',
-      header: 'AfriChow Rewards',
+        id: '/success/:id',
+        header: 'AfriChow Rewards',
     },
 
     {
-      id: '/vendors-dashboard',
-      header: 'Payout',
+        id: '/vendors-dashboard',
+        header: 'Payout',
     },
 
     {
-      id: '/supportform',
-      header: 'Support',
+        id: '/supportform',
+        header: 'Support',
     },
 
     {
-      id: '/vendors-transaction',
-      header: 'Transactions',
-    },
-
-    
-
-    {
-      id: '/meallisting/:userId',
-      header: 'Dining Menu',
+        id: '/vendors-transaction',
+        header: 'Transactions',
     },
 
     {
-      id: '/add-new-meal',
-      header: 'Add meal',
+        id: '/meallisting/:userId',
+        header: 'Dining Menu',
     },
 
     {
-      id: '/store-overview',
-      header: 'Store KPIs',
+        id: '/add-new-meal',
+        header: 'Add meal',
     },
 
     {
-      id: '/order-summary',
-      header: 'Order',
+        id: '/store-overview',
+        header: 'Store KPIs',
     },
 
     {
-      id: '/vendors-payout-method',
-      header: 'Payout method',
+        id: '/order-summary',
+        header: 'Order',
     },
-    
-    ];
-    
-    export default headerList;
+
+    {
+        id: '/vendors-payout-method',
+        header: 'Payout method',
+    },
+];
+
+export default headerList;
