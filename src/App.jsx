@@ -3,23 +3,16 @@ import './App.css';
 import './index.css';
 
 // importing pages
-
-// importing pages
-
 import Home from './pages/Home';
 import Support from './pages/Support';
 import Rewards from './pages/Rewards';
 import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
-
-//import Cancelprofilecard from './pages/Cancelprofilecard';
-//import Profilesavedsuccess from './pages/Profilesavedsuccess';
-//import Profileerrormessage from './pages/Profileerrormessage';
+import Signup from './pages/Signup';
 
 import FormSuccess from './pages/FormSuccess';
 import ConfirmPassword from './pages/ConfirmPassword';
 import ForgotPassword from './pages/ForgotPassword';
 
-//import Vendorworkhour from './pages/Vendorworkhour';
 import Achievements from './pages/Achievements';
 import Catalog from './pages/Catalog';
 import CatalogDetails from './pages/CatalogDetails';
@@ -39,7 +32,7 @@ import VendorSupport from './components/VendorSupportPage/VendorSupport';
 import SupportForm from './components/VendorSupportPage/SupportForm';
 import SupportSuccess from './components/VendorSupportPage/SupportSuccess';
 import Order from './components/Order/order';
-
+import ReviewCard from './components/Reviews/ReviewContent';
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
 
@@ -68,7 +61,7 @@ function App() {
                     path='/rewards/reward-details/:itemId'
                     element={<CatalogDetails />}
                 />
-
+                <Route path='/signup' element={<Signup />} />
                 <Route path='/store-overview' element={<StoreOverview />} />
                 <Route path='/success/:id' element={<SuccessRewards />} />
                 <Route
@@ -94,7 +87,6 @@ function App() {
                 <Route path='/vendorsupport' element={<VendorSupport />} />
                 <Route path='/supportform' element={<SupportForm />} />
                 <Route path='/supportsuccess' element={<SupportSuccess />} />
-                {/* <Route path='/passwordsuccess' element={<Pass} /> */}
                 <Route path='/meallisting/:userId' element={<Listings />} />
                 <Route path='/add-new-meal' element={<NewMeal />} />
                 <Route
@@ -136,26 +128,9 @@ function App() {
                 />
                 <Route path='/forgot password' element={<ForgotPassword />} />
                 <Route path='/reset password' element={<ConfirmPassword />} />
-                {/* <Route path='/incoming' element={<Incoming />} /> */}
-                {/* <Route path='/outgoing' element={<Outgoing />} /> */}
-                {/* <Route path='/history' element={<History />} /> */}
-                {/* <Route path='/vendorprofile' element={<Vendorprofile />} /> */}
-                {/* <Route path='/vendorworkhour' element={<Vendorworkhour/> }/> */}
-                {/* <Route */}
-                {/* path='/vendorprofilechange' */}
-                {/* // element={<Vendorprofilechange />} */}
-                {/* /> */}
-                {/* <Route */}
-                {/* path='/cancelprofilecard' */}
-                {/* element={<Cancelprofilecard />} */}
-                {/* /> */}
-                {/* <Route path='/trending' element={<TrendingComponent />} /> */}
-                {/* <Route path='/post' element={<Post />} /> */}
-                {/* <Route path='/review card' element={<ReviewCard />} /> */}
-                {/* <Route path='/review-reply' element={<ReviewReply />} /> */}
-            </Routes>
 
-            {/* the rewards page doesn't use this footer, can we import them in individual components insatead? */}
+                <Route path='/review card' element={<ReviewCard />} />
+            </Routes>
         </>
     );
 }

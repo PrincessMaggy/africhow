@@ -36,11 +36,11 @@ const navList = [
         route: '/vendors-payout-method',
     },
 
-    {
-        title: 'Order Mgt.',
-        route: '/incoming',
-        // icon: <Contract />,
-    },
+    // {
+    //     title: 'Order Mgt.',
+    //     route: '/incoming',
+    //     // icon: <Contract />,
+    // },
     // Add more navigation items as needed
 ];
 
