@@ -61,7 +61,7 @@ const navBar = ({ toggleMenu, menuOpen }) => {
                        
                         <li className='cursor-pointer mb-2'>
                             <Link
-                                to='//meallisting/:userId'
+                                to='/meallisting/:userId'
                                 onClick={closeMenu}
                             >
                                 Dining Menu

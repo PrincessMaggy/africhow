@@ -35,6 +35,10 @@ const navList = [
         title: 'Payout method',
         route: '/vendors-payout-method',
     },
+    {
+        title: 'Food Menu',
+        route: '/meallisting/:userId',
+    },
 
     // {
     //     title: 'Order Mgt.',
