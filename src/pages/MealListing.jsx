@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import {collection, getDocs, where, query} from 'firebase/firestore';
 import {db, auth} from '../../firebase';
 import {useParams} from 'react-router-dom';
-import HomeNav from '../components/homeNav';
 import SearchIcon from '../assets/icons/Search Icon.svg';
 import Footer from '../components/Footer';
 import {useAuth} from '../components/auth/AuthContext';
@@ -15,6 +14,8 @@ function Listings() {
     const [userMeals, setUserMeals] = useState([]);
     const [userHasListings, setUserHasListings] = useState(false);
     const {userId} = useParams();
+
+    const {loggedIn} = useAuth();
 
     useEffect(() => {
         const fetchMeals = async () => {
@@ -50,8 +51,10 @@ function Listings() {
             }
         };
 
-        fetchMeals(userId);
-    }, []);
+        if (loggedIn) {
+            fetchMeals();
+        }
+    }, [loggedIn]);
 
     const filteredMeals = userMeals.filter((meal) => {
         if (meal && meal.name) {
@@ -59,14 +62,13 @@ function Listings() {
         }
         return false;
     });
-    const {loggedIn} = useAuth();
-    console.log(loggedIn);
 
     return (
         <>
             <div>
-                {loggedIn ? <NewNavbar /> : <HomeNav />}
+                <NewNavbar />
                 {/* <HomeNav /> */}
+                {/*<hr className='border-gray-400 -mt-6' />*/}
                 <hr className='border-gray-400 -mt-6' />
                 <div className='flex flex-col'>
                     <form
@@ -95,7 +97,7 @@ function Listings() {
                     </Link>
                 </div>
             </div>
-            {auth.currentUser ? (
+            {loggedIn ? (
                 // User is logged in
                 userHasListings ? (
                     <FetchMealItem
@@ -109,9 +111,12 @@ function Listings() {
                     </p>
                 )
             ) : (
-                // User is not logged in
-                <p className='h-full text-2xl text-center mt-8 mb-24 p-12 bg-white rounded-sm border-2 shadow-md mx-12'>
-                    2-step Log in to see all listings. Kindly log in again.
+                <p className='text-2xl text-center mt-8 mb-24 p-12 bg-white rounded-sm border-2 shadow-md mx-12'>
+                    Please{' '}
+                    <Link to='/login' className='text-[#33cc9f]'>
+                        log in
+                    </Link>{' '}
+                    to see your listings.
                 </p>
             )}
             <Footer />
