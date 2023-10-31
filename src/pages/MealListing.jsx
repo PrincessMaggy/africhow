@@ -7,7 +7,7 @@ import SearchIcon from '../assets/icons/Search Icon.svg';
 import Footer from '../components/Footer';
 import {useAuth} from '../components/auth/AuthContext';
 import NewNavbar from '../components/NewNav/NewNavBar';
-import FetchMealItem from '../components/FetchMealItem';
+import FetchMealItem from '../components/fetchMealItem';
 
 function Listings() {
     const [searchQuery, setSearchQuery] = useState('');
