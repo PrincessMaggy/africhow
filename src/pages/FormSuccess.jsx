@@ -1,8 +1,7 @@
 import ReactPlayer from 'react-player';
 import Gif from '../assets/AnimateOnboarding/animation_lo0ckjix.mp4';
 import Success from '../components/Success';
-import PropTypes from 'prop-types';
-
+    
 export default function FormSuccess({text, buttonText, title, onNavigate}) {
     return (
         <div className='grid gap-6 w-[358px] mx-auto place-items-center'>
@@ -19,10 +18,3 @@ export default function FormSuccess({text, buttonText, title, onNavigate}) {
         </div>
     );
 }
-
-FormSuccess.propTypes = {
-    text: PropTypes.string,
-    buttonText: PropTypes.string,
-    title: PropTypes.string,
-    onNavigate: PropTypes.func,
-};
