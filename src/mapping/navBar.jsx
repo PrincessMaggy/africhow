@@ -1,11 +1,9 @@
 import HamBurger from '../assets/hamburger/white.svg';
 import Close from '../assets/hamburger/Close.svg';
 import HeaderTitle from '../mapping/navHeaderTitle';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
-
-const navBar = ({ toggleMenu, menuOpen }) => {
-
+const navBar = ({toggleMenu, menuOpen}) => {
     const closeMenu = () => {
         if (menuOpen) {
             toggleMenu();
@@ -24,14 +22,13 @@ const navBar = ({ toggleMenu, menuOpen }) => {
                 />
                 <HeaderTitle />
             </div>
-               <div className='flex md:justify-center z-10'>
+            <div className='flex md:justify-center z-10'>
                 <Link to='/login'>
                     <button className='text-sm bg-[#33CC9F] rounded-sm bg-opacity-80 text-white py-1 px-5 font-black pointer'>
                         Login
                     </button>
                 </Link>
-            </div>   
-          
+            </div>
 
             {/* Close button */}
             {menuOpen && (
@@ -58,12 +55,13 @@ const navBar = ({ toggleMenu, menuOpen }) => {
                                 Join the Trybe
                             </Link>
                         </li>
-                       
+
                         <li className='cursor-pointer mb-2'>
                             <Link
                                 to='/meallisting/:userId'
                                 onClick={closeMenu}
                             >
+                            <Link to='/meallisting/:userId' onClick={closeMenu}>
                                 Dining Menu
                             </Link>
                         </li>
@@ -97,6 +95,5 @@ const navBar = ({ toggleMenu, menuOpen }) => {
         </div>
     );
 };
-
 
 export default navBar;

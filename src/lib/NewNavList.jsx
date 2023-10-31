@@ -39,7 +39,6 @@ const navList = [
         title: 'Food Menu',
         route: '/meallisting/:userId',
     },
-
     // {
     //     title: 'Order Mgt.',
     //     route: '/incoming',
