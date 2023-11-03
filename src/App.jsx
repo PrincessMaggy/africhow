@@ -134,7 +134,14 @@ function App() {
 
                 <Route path='/review card' element={<ReviewsCard />} />
                 <Route path='/review-reply' element={<ReviewReply />} />
-
+                <Route path='/incoming' element={<Incoming />} />
+                <Route path='/outgoing' element={<Outgoing />} />
+                <Route path='/history' element={<History />} />
+                <Route path='/notification' element={<NotificationPage />} />
+                <Route
+                    path='/updatedsuccesfully'
+                    element={<NotificationSuccess />}
+                />
             </Routes>
         </>
     );
