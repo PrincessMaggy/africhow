@@ -33,6 +33,7 @@ import SupportForm from './components/VendorSupportPage/SupportForm';
 import SupportSuccess from './components/VendorSupportPage/SupportSuccess';
 import Order from './components/Order/order';
 import ReviewCard from './components/Reviews/ReviewContent';
+import ReviewReply from './pages/ReviewReply';
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
 
@@ -130,6 +131,7 @@ function App() {
                 <Route path='/reset password' element={<ConfirmPassword />} />
 
                 <Route path='/review card' element={<ReviewCard />} />
+                <Route path='/review-reply' element={<ReviewReply/>}/>
             </Routes>
         </>
     );
