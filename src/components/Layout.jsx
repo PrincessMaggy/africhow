@@ -1,5 +1,5 @@
 
-import Navbar from './nav'; 
+import Navbar from './Nav'; 
 import Footer from './Footer'; 
 
 function Layout({ children }) {
