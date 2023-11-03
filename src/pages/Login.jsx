@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Login() {
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
+   
 
     const [isLoading, setIsLoading] = useState(false);
     const {register, handleSubmit, formState, reset} = useForm();
@@ -35,10 +36,13 @@ export default function Login() {
     function onSubmit(data) {
         const {email, password} = data;
         setIsLoading(true);
+
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 console.log(userCredential, 'userCredential');
                 navigate('/login%20successful');
+                navigate(`/meallisting/${userId}`);
+
             })
             .catch((err) => {
                 console.log(err, 'err');

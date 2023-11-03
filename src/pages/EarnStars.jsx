@@ -1,9 +1,9 @@
 import EarnStarsPage from '../components/Rewards/EarnStars'
-import { useAuth } from "../components/auth/AuthContext";
+import { UserAuth } from "../components/auth/AuthContext";
 import { useNavigate } from 'react-router-dom';
 
 const EarnStars = () => {
-  const { loggedIn } = useAuth();
+  const { loggedIn } = UserAuth();
     const navigate = useNavigate();
 
     if(!loggedIn){

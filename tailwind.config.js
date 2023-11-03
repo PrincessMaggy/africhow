@@ -6,6 +6,7 @@ export default {
   ],
   theme: {
     extend: {
+      textColor: ['hover', 'active'],
       
       colors: {
         primary: "#33CC9F",

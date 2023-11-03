@@ -79,6 +79,20 @@
   border: solid 1px rgb(205, 205, 205);
   padding: 44px 36px;
 }
+
+.sidenav-item {
+  transition: color 0.3s; 
+}
+
+.sidenav-item:hover {
+  color: #2d6d64; 
+}
+
+.activeLink{
+  color: #33CC9F;
+}
+
+
 .screen{
   width: 100%;
 }

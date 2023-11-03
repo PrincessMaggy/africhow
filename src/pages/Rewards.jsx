@@ -1,9 +1,9 @@
 import RewardsPage from "../components/Rewards/Rewards";
-import { useAuth } from "../components/auth/AuthContext";
+import {UserAuth } from "../components/auth/AuthContext";
 import { useNavigate } from 'react-router-dom';
 
 const Rewards = () => {
-    const { loggedIn } = useAuth();
+    const { loggedIn } = UserAuth();
     const navigate = useNavigate();
 
     if(!loggedIn){

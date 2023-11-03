@@ -1,9 +1,9 @@
 import CatalogDetailsPage from '../components/Rewards/catalog/CatalogDetails'
-import { useAuth } from "../components/auth/AuthContext";
+import { UserAuth } from "../components/auth/AuthContext";
 import { useNavigate } from 'react-router-dom';
 
 const CatalogDetails = () => {
-  const { loggedIn } = useAuth();
+  const { loggedIn } = UserAuth();
     const navigate = useNavigate();
 
     if(!loggedIn){
