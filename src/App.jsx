@@ -8,7 +8,6 @@ import Support from './pages/Support';
 import Rewards from './pages/Rewards';
 import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
 import Signup from './pages/Signup';
-import ReviewReply from './pages/ReviewReply';
 
 import FormSuccess from './pages/FormSuccess';
 import ConfirmPassword from './pages/ConfirmPassword';
@@ -132,7 +131,8 @@ function App() {
                 <Route path='/forgot password' element={<ForgotPassword />} />
                 <Route path='/reset password' element={<ConfirmPassword />} />
 
-                <Route path='/review card' element={<ReviewCard />} />
+                <Route path='/review card' element={<ReviewsCard />} />
+                <Route path='/review-reply' element={<ReviewReply />} />
             </Routes>
         </>
     );
