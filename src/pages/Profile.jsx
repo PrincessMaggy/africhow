@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { db, auth } from '../../firebase';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
-import ProfileImg from '../assets/images/Uk-location.webp';
+import ProfileImg from '../assets/images/family.png';
 import Layout from '../components/Layout';
 import Loader from '../components/LoaderOnboarding';
 
