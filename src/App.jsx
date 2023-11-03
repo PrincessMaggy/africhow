@@ -8,6 +8,7 @@ import Support from './pages/Support';
 import Rewards from './pages/Rewards';
 import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
 import Signup from './pages/Signup';
+import ReviewReply from './pages/ReviewReply';
 
 import FormSuccess from './pages/FormSuccess';
 import ConfirmPassword from './pages/ConfirmPassword';
@@ -38,6 +39,9 @@ import Post from './components/community/post';
 
 import Blog from './components/community/blog';
 import Recipes from './components/community/recipes';
+import Incoming from './components/OrderManagement/Incoming';
+import Outgoing from './components/OrderManagement/Outgoing';
+import History from './components/OrderManagement/History';
 
 function App() {
     return (
@@ -80,9 +84,6 @@ function App() {
                     path='/store-performance'
                     element={<StorePerformance />}
                 />
-                <Route path='/order-summary' element={<Order />} />
-                <Route path='/vendorsupport' element={<VendorSupport />} />
-                <Route path='/supportform' element={<SupportForm />} />
                 <Route path='/order-summary' element={<Order />} />
                 <Route path='/vendorsupport' element={<VendorSupport />} />
                 <Route path='/supportform' element={<SupportForm />} />
@@ -130,6 +131,11 @@ function App() {
                 <Route path='/reset password' element={<ConfirmPassword />} />
 
                 <Route path='/review card' element={<ReviewCard />} />
+                <Route path='/review-reply' element={<ReviewReply />} />
+
+                <Route path='/incoming' element={<Incoming />} />
+                <Route path='/outgoing' element={<Outgoing />} />
+                <Route path='/history' element={<History />} />
             </Routes>
         </>
     );
