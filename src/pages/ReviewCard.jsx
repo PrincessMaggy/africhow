@@ -17,8 +17,7 @@ const ReviewsCard = () => {
         console.log('Sending message:', message);
         // Add logic here to send the message to the server or perform other actions
 
-        // Use navigate for navigation instead of Link
-        // (replace '/review-reply' with the actual route)
+      event.preventDefault();
         navigate('/review-reply');
     };
 

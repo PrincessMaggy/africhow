@@ -25,6 +25,7 @@ import NewMeal from './pages/AddNewMeal';
 import Profile from './pages/Profile';
 
 
+
 // importing components
 
 import StoreOverview from './components/storePerformance/StoreOverview';
@@ -33,12 +34,19 @@ import VendorSupport from './components/VendorSupportPage/VendorSupport';
 import SupportForm from './components/VendorSupportPage/SupportForm';
 import SupportSuccess from './components/VendorSupportPage/SupportSuccess';
 import Order from './components/Order/order';
-import ReviewCard from './components/Reviews/ReviewContent';
+// import ReviewCard from './components/Reviews/ReviewContent';
+import ReviewsCard from './pages/ReviewCard';
+import ReviewReply from './pages/ReviewReply';
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
 import EditMeal from './components/EditMeal';
 import Blog from './components/community/blog';
 import Recipes from './components/community/recipes';
+import Incoming from './components/OrderManagement/Incoming';
+import Outgoing from './components/OrderManagement/Outgoing';
+import History from './components/OrderManagement/History';
+import NotificationPage from './components/Notification/notification';
+import NotificationSuccess from './components/Notification/notificationSuccesful';
 
 function App() {
     return (
@@ -62,9 +70,6 @@ function App() {
                 <Route path='/vendors-transaction' element={<VendorTransactions />}/>
                 <Route path='vendors-payout-method' element={<VendorPayout />}/>
                 <Route path='/store-performance' element={<StorePerformance />}/>
-                <Route path='/order-summary' element={<Order />} />
-                <Route path='/vendorsupport' element={<VendorSupport />} />
-                <Route path='/supportform' element={<SupportForm />} />
                 <Route path='/order-summary' element={<Order />} />
                 <Route path='/vendorsupport' element={<VendorSupport />} />
                 <Route path='/supportform' element={<SupportForm />} />
@@ -119,6 +124,16 @@ function App() {
                 />
                 <Route path='/forgot password' element={<ForgotPassword />} />
                 <Route path='/reset password' element={<ConfirmPassword />} />
+                <Route path='/review card' element={<ReviewsCard />} />
+                <Route path='/review-reply' element={<ReviewReply />} />
+                <Route path='/incoming' element={<Incoming />} />
+                <Route path='/outgoing' element={<Outgoing />} />
+                <Route path='/history' element={<History />} />
+                <Route path='/notification' element={<NotificationPage />} />
+                <Route
+                    path='/updatedsuccesfully'
+                    element={<NotificationSuccess />}
+                />
             </Routes>
         </>
     );
