@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FetchMeal from '../components/fetchMealItem'; 
 import Layout from '../components/Layout';
-import HomeNav from '../components/HomeNav';
-import Footer from '../components/Footer'; 
 import SearchIcon from '../assets/icons/Search Icon.svg'
 import { collection, query, onSnapshot, doc } from 'firebase/firestore';
 import { db, auth } from '../../firebase';
