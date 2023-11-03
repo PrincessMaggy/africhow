@@ -9,6 +9,7 @@ import CameraIcon from '../assets/icons/photo_camera.svg';
 import Footer from '../components/Footer';
 import { useParams } from 'react-router-dom';
 
+
 function EditMealItem () {
   const { mealId } = useParams();
   const [mealItem, setMealItem] = useState({
@@ -127,19 +128,6 @@ function EditMealItem () {
   const updateMealItem = async (e) => {
     e.preventDefault();
     setLoading(true);
-
-    if (
-      !mealItem.name ||
-      !mealItem.category ||
-      !mealItem.currency ||
-      !mealItem.cost ||
-      !mealItem.status ||
-      !mealImageFile
-    ) {
-      toast.error('Please fill in all required fields');
-      setLoading (false);
-      return;
-    }
 
     try {
       const imageUrl = await uploadImageToStorage(mealImageFile, auth.currentUser);

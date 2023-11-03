@@ -67,7 +67,7 @@ const headerList = [
 
     {
         id: '/order-summary',
-        header: 'Order',
+        header: 'Order List',
     },
 
     {
@@ -78,6 +78,26 @@ const headerList = [
     {
         id: '/meallisting/:mealId/edit',
         header: 'Update Meale',
+    },
+
+    {
+        id: '/profile/:userId',
+        header: 'Profile',
+    },
+
+    {
+        id: '/post',
+        header: 'Create Post',
+    },
+
+    {
+        id: '/recipes',
+        header: 'Topics',
+    },
+
+    {
+        id: '/recipes/:recipe',
+        header: 'Recipe',
     },
 ];
 

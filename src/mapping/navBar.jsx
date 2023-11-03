@@ -27,7 +27,7 @@ const navBar = ({toggleMenu, menuOpen}) => {
   const filteredNav = NavList.filter((item) => specificNavIDs.includes(item.id));
 
 //sideNav display
-  const specificSideNavIDs = [7, 8, 9, 10, 11, 12, 13];
+  const specificSideNavIDs = [7, 8, 9, 10, 11, 3, 13];
   const filteredSideNav = NavList.filter((item) => specificSideNavIDs.includes(item.id));
 
     return (
@@ -88,24 +88,26 @@ const navBar = ({toggleMenu, menuOpen}) => {
               <ul className='text-sm md:text-2xl font-semibold mb-5 lg:text-center md:text-center text-left'>
                 {filteredSideNav.map((item) => (
                   <li key={item.id} className='mb-5 cursor-pointer'>
-                      <div className={`flex justify-between items-center ${currentPathname === item.route
+                      <div className={`flex justify-between pl-2 items-center ${currentPathname === item.route
                           ? 'activeLink'
                           : ''
                         }`}
                       >
-                        <div className="flex items-center text-left gap-5"> 
+                      <Link to={item.route}>
+                        <div className='flex items-center gap-5'>
                           <span> 
                             {item.icon}
                           </span>
                           <span className='font-medium'
                           >
                             {item.title}
-                        </span>
+                          </span>
                         </div>
-                        <div>
-                          <MdChevronRight />
-                        </div>
+                      </Link>
+                      <div>
+                        <MdChevronRight />
                       </div>
+                    </div>
                   </li>
                 ))}
               </ul>

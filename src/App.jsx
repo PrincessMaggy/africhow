@@ -4,7 +4,6 @@ import './index.css';
 
 // importing pages
 import Home from './pages/Home';
-import Support from './pages/Support';
 import Rewards from './pages/Rewards';
 import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
 import Signup from './pages/Signup';
@@ -58,7 +57,6 @@ function App() {
                 <Route path='/blog' element={<Blog />} />
                 <Route path='/recipes' element={<Recipes />} />
                 <Route path='/recipes/:recipe' element={<Recipes />} />
-                <Route path='/contact-us' element={<Support />} />
                 <Route path='/rewards' element={<Rewards />} />
                 <Route path='/rewards/my-rewards' element={<Achievements />} />
                 <Route path='/rewards/earn-stars' element={<EarnStars />} />
@@ -77,7 +75,7 @@ function App() {
                 <Route path='/meallisting/:userId/' element={<Listings />} />
                 <Route path='/meallisting/:mealId/edit' element={<EditMeal />} />
                 <Route path='/add-new-meal' element={<NewMeal />} />
-                <Route path='/review card' element={<ReviewCard />} />
+                <Route path='/review card' element={<ReviewsCard />} />
                 <Route path='/profile/:userId' element={<Profile />} />
 
 

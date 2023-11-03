@@ -30,7 +30,7 @@ const Footer = () => {
                             >
                                 <Link to={item.route}>
                                     <div className='flex flex-col justify-center items-center'>
-                                        <div className='text-4xl'>
+                                        <div className='text-2xl sm:text-4xl'>
                                             {item.icon}
                                         </div>
                                         <div className='text-sm'>

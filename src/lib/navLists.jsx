@@ -1,11 +1,11 @@
-import { MdCurrencyExchange, MdRestaurantMenu, MdReceiptLong, MdDeliveryDining, MdPersonAddAlt, MdHome } from "react-icons/md";
+import { MdCurrencyExchange, MdRestaurantMenu, MdReceiptLong, MdDeliveryDining, MdPersonAddAlt, MdHome, MdOutlineSupportAgent } from "react-icons/md";
 import { IoAnalytics, IoTrophy } from "react-icons/io5";
 import { LiaUserFriendsSolid } from "react-icons/lia";
 
 const navList = [
     {
       id: 1,
-      title: 'ChowTybe',
+      title: 'ChowTrybe',
       icon:  <LiaUserFriendsSolid />,
       sub_title: 'Community', 
       route: '/trending',
@@ -22,8 +22,9 @@ const navList = [
     {
       id: 3,
       title: 'Support', 
+      icon: <MdOutlineSupportAgent />,
       sub_title: 'Support', 
-      route: '/',
+      route: '/supportform',
       
     },
     {
@@ -52,7 +53,7 @@ const navList = [
       id: 7,
       title: 'Dashboard', 
       icon: <IoAnalytics />, 
-      route: '/',
+      route: '/vendors-dashboard',
       
     },
     {
@@ -67,7 +68,7 @@ const navList = [
       id: 9,
       title: 'Orders Management', 
       icon: <MdReceiptLong />, 
-      route: '/',
+      route: '/order-summary',
       
     },
 
@@ -76,7 +77,7 @@ const navList = [
       id: 10,
       title: 'Transactions', 
       icon: <MdCurrencyExchange />, 
-      route: '/',
+      route: '/vendors-transaction',
       
     },
 
@@ -91,7 +92,7 @@ const navList = [
       id: 12,
       title: 'Profile', 
       icon: <MdPersonAddAlt />, 
-      route: '/',
+      route: '/profile/:userId',
       
     },
 
@@ -99,7 +100,7 @@ const navList = [
       id: 13,
       title: 'Rewards', 
       icon: <IoTrophy />, 
-      route: '/',
+      route: '/rewards',
       
     },
 

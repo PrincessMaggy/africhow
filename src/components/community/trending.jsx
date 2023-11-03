@@ -10,6 +10,7 @@ import Forward from '../../assets/images/arrow_forward.png';
 import {Link} from 'react-router-dom';
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+import Layout from '../Layout';
 
 
 const TrendingPage = () => {

@@ -1,7 +1,7 @@
 import Frame from "../../assets/images/frame.png";
 import Send from "../../assets/images/send.png";
-import Cancel from "../../assets/images/cancel.png";
-import { Link } from "react-router-dom";
+//import Cancel from "../../assets/images/cancel.png";
+//import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 
 const PostPage = () => {
@@ -10,14 +10,14 @@ const PostPage = () => {
       <Layout>
         <div className="flex justify-between px-4">
           <div className="left-2">
-            <img
+            {/*<img
               src={Cancel}
               className="w-[36px] h-[36px] absolute text-gray-400 top-6 "
-            />
+            />*/}
           </div>
-          <h1 className="text-center pt-6 pl-6  ml-8 font-bold ">Create post </h1>
+          {/*<h1 className="text-center pt-6 pl-6  ml-8 font-bold ">Create post </h1>*/}
 
-          <button className="bg-transparent hover:bg-green-500 ml-4 text-gray-800 font-semibold hover:text-white py-6 px-8 mt-3 border border-blue-500  hover:border-transparent rounded">
+          <button className="bg-transparent hover:bg-green-500 ml-4 text-gray-800 font-semibold hover:text-white py-4 px-8 mr-4 mt-3 border border-blue-500  hover:border-transparent rounded">
             post
           </button>
         </div>
