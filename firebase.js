@@ -23,7 +23,7 @@ const firebaseConfig = {
     storageBucket: "africhow-capstone-9ddf7.appspot.com",
     messagingSenderId: "716871625901",
     appId: "1:716871625901:web:06ec3a7efb7efb4d6d2a24"
-};*/}
+*/};
 
 
 // Initialize Firebase
