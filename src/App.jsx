@@ -8,7 +8,6 @@ import Support from './pages/Support';
 import Rewards from './pages/Rewards';
 import OnBoardingSignUpForm from './pages/OnBoardingSignUpForm';
 import Signup from './pages/Signup';
-import ReviewReply from './pages/ReviewReply';
 
 import FormSuccess from './pages/FormSuccess';
 import ConfirmPassword from './pages/ConfirmPassword';
@@ -32,7 +31,9 @@ import VendorSupport from './components/VendorSupportPage/VendorSupport';
 import SupportForm from './components/VendorSupportPage/SupportForm';
 import SupportSuccess from './components/VendorSupportPage/SupportSuccess';
 import Order from './components/Order/order';
-import ReviewCard from './components/Reviews/ReviewContent';
+// import ReviewCard from './components/Reviews/ReviewContent';
+import ReviewsCard from './pages/ReviewCard';
+import ReviewReply from './pages/ReviewReply';
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
 
@@ -131,17 +132,9 @@ function App() {
                 <Route path='/forgot password' element={<ForgotPassword />} />
                 <Route path='/reset password' element={<ConfirmPassword />} />
 
-                <Route path='/review card' element={<ReviewCard />} />
+                <Route path='/review card' element={<ReviewsCard />} />
                 <Route path='/review-reply' element={<ReviewReply />} />
 
-                <Route path='/incoming' element={<Incoming />} />
-                <Route path='/outgoing' element={<Outgoing />} />
-                <Route path='/history' element={<History />} />
-                <Route path='/notification' element={<NotificationPage />} />
-                <Route
-                    path='/updatedsuccesfully'
-                    element={<NotificationSuccess />}
-                />
             </Routes>
         </>
     );
