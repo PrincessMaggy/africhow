@@ -4,7 +4,7 @@ import { db, auth, storage } from '../../firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import HomeNav from '../components/HomeNav';
+//import HomeNav from '../components/HomeNav';
 import CameraIcon from '../assets/icons/photo_camera.svg';
 import Footer from '../components/Footer';
 import { useParams } from 'react-router-dom';
@@ -141,7 +141,7 @@ function EditMealItem () {
 
   return (
     <>
-      <HomeNav />
+      {/*<HomeNav />*/}
       <ToastContainer />
       <hr className="border-gray-400 -mt-6" />
 

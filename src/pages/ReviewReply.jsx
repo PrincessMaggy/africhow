@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import ReviewNav from '../components/Reviews/ReviewNav';
-import NewNavbar from '../components/NewNav/NewNavBar';
+//import NewNavbar from '../components/NewNav/NewNavBar';
 import Solomon from '../assets/Review-Images/Ellipse 8.png';
 import Star from '../assets/Review-Images/Star 3.png';
 import Joshua from '../assets/Review-Images/image 2.png';
@@ -28,7 +28,7 @@ const ReviewReply = () => {
 
   return (
     <div className='h-screen'>
-      <NewNavbar />
+      {/*<NewNavbar />*/}
       <div className="w-full h-20 relative bg-emerald-400 bg-opacity-10 flex items-center">
         <img className="w-12 h-12 left-0 ml-4 rounded-full" src={Joshua} alt="Joshua" />
         <div className="w-8 h-8 ml-4 md:ml-64 mt-1 absolute" />
