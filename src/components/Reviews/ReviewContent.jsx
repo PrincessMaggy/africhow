@@ -1,168 +1,72 @@
-// import Solomon from '../../assets/Review-Images/image 2.png';
-// import Star from '../../assets/Review-Images/Star 3.png';
-// import NewNavbar from '../NewNav/NewNavBar';
-
-// const ReviewContent = () => {
-//     return (
-//         <div>
-//             {/* User Information */}
-//             <NewNavbar />
-//             <div className='left-[0] top-[150px]  flex-col justify-start items-start gap-4 inline-flex'>
-//                 {/* User details */}
-//                 <div className='flex-col justify-start items-start gap-3 flex'>
-//                     {/* User profile */}
-//                     <div className='flex-col justify-end items-start gap-2 flex'>
-//                         {/* Profile image and user details */}
-//                         <div className='flex items-center'>
-//                             <img
-//                                 className='w-9 h-9 rounded-full'
-//                                 src={Solomon}
-//                                 alt='user'
-//                             />
-//                             <div className='flex-col justify-start items-start gap-1.5 inline-flex'>
-//                                 <div className="text-center text-zinc-950 text-base font-medium font-['Inter'] tracking-tight">
-//                                     Solomon Enahke
-//                                 </div>
-//                                 <div className='justify-center items-center gap-1 inline-flex'>
-//                                     <div className='justify-start items-start flex' />
-//                                     <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
-//                                         <img src={Star} alt='star' />
-//                                     </div>
-//                                     <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
-//                                         <img src={Star} alt='star' />
-//                                     </div>
-//                                     <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
-//                                         <img src={Star} alt='star' />
-//                                     </div>
-//                                     <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
-//                                         <img src={Star} alt='star' />
-//                                     </div>
-//                                     <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
-//                                         <img src={Star} alt='star' />
-//                                     </div>
-//                                     <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
-//                                         Rating
-//                                     </div>
-
-//                                     <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
-//                                         12/10/2023
-//                                     </div>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                     </div>
-
-//                     {/* Review content */}
-//                     <div className='w-96'>
-//                         <span className="text-neutral-600 text-sm font-normal font-['Manrope'] leading-tight tracking-tight">
-//                             Enjoyed a delightful meal at this restaurant. The
-//                             ambiance was great, and the service was excellent. I
-//                             highly recommend it! yes<br></br>
-//                         </span>
-//                         <span className="text-emerald-400 text-sm font-semibold font-['Manrope'] leading-tight tracking-tight">
-//                             See more
-//                         </span>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default ReviewContent;
-
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-// import ReviewNav from '../components/Reviews/ReviewNav';
-import Solomon from '../../assets/Review-Images/Ellipse 8.png';
+import Solomon from '../../assets/Review-Images/image 2.png';
 import Star from '../../assets/Review-Images/Star 3.png';
-
+import NewNavbar from '../NewNav/NewNavBar';
 
 const ReviewContent = () => {
-  const [message, setMessage] = useState('');
-  const history = useHistory();
+    return (
+        <div>
+            {/* User Information */}
+            <NewNavbar />
+            <div className='left-[0] top-[150px]  flex-col justify-start items-start gap-4 inline-flex'>
+                {/* User details */}
+                <div className='flex-col justify-start items-start gap-3 flex'>
+                    {/* User profile */}
+                    <div className='flex-col justify-end items-start gap-2 flex'>
+                        {/* Profile image and user details */}
+                        <div className='flex items-center'>
+                            <img
+                                className='w-9 h-9 rounded-full'
+                                src={Solomon}
+                                alt='user'
+                            />
+                            <div className='flex-col justify-start items-start gap-1.5 inline-flex'>
+                                <div className="text-center text-zinc-950 text-base font-medium font-['Inter'] tracking-tight">
+                                    Solomon Enahke
+                                </div>
+                                <div className='justify-center items-center gap-1 inline-flex'>
+                                    <div className='justify-start items-start flex' />
+                                    <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
+                                        <img src={Star} alt='star' />
+                                    </div>
+                                    <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
+                                        <img src={Star} alt='star' />
+                                    </div>
+                                    <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
+                                        <img src={Star} alt='star' />
+                                    </div>
+                                    <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
+                                        <img src={Star} alt='star' />
+                                    </div>
+                                    <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
+                                        <img src={Star} alt='star' />
+                                    </div>
+                                    <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
+                                        Rating
+                                    </div>
 
-  const handleInputChange = (event) => {
-    setMessage(event.target.value);
-  };
+                                    <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
+                                        12/10/2023
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-  const handleSendClick = () => {
-    // Handle sending the message, e.g., submit to the server
-    console.log('Sending message:', message);
-    // Add logic here to send the message to the server or perform other actions
-
-    // Use Link for navigation instead of history.push
-    // (replace '/review-reply' with the actual route)
-  };
-
-  return (
-    <div className="w-96 h-96 relative bg-white">
-      {/* <ReviewNav /> */}
-      {/* User Information */}
-      <div className="left-[16px] top-[50px] absolute flex-col justify-start items-start gap-4 inline-flex">
-        {/* User details */}
-        <div className="flex-col justify-start items-start gap-3 flex">
-          {/* User profile */}
-          <div className="flex-col justify-end items-start gap-2 flex">
-            {/* Profile image and user details */}
-            <div className="flex items-center">
-              <img className="w-9 h-9 rounded-full" src={Solomon} alt="user" />
-              <div className="flex-col justify-start items-start gap-1.5 inline-flex">
-                <div className="text-center text-zinc-950 text-base font-medium font-['Inter'] tracking-tight">Solomon Enahke</div>
-                <div className="justify-center items-center gap-1 inline-flex">
-                  <div className="justify-start items-start flex" />
-                  <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
-                    <img src={Star} />
-                  </div>
-                  <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
-                    <img src={Star} />
-                  </div>
-                  <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
-                    <img src={Star} />
-                  </div>
-                  <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
-                    <img src={Star} />
-                  </div>
-                  <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
-                    <img src={Star} />
-                  </div>
-                  <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">
-                    (Rating)
-                  </div>
-                  <div className="w-1 h-1  rounded-full" />
-                  <div className="text-center text-black text-xs font-medium font-['Manrope'] tracking-tight">12/10/2023</div>
+                    {/* Review content */}
+                    <div className='w-96'>
+                        <span className="text-neutral-600 text-sm font-normal font-['Manrope'] leading-tight tracking-tight">
+                            Enjoyed a delightful meal at this restaurant. The
+                            ambiance was great, and the service was excellent. I
+                            highly recommend it! <br></br>
+                        </span>
+                        <span className="text-emerald-400 text-sm font-semibold font-['Manrope'] leading-tight tracking-tight">
+                            See more
+                        </span>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-
-          {/* Review content */}
-          <div className="w-96">
-            <span className="text-neutral-600 text-sm font-normal font-['Manrope'] leading-tight tracking-tight">
-              Enjoyed a delightful meal at this restaurant. The ambiance was great, and the service was excellent. I highly recommend it!
-            </span>
-            <span className="text-emerald-400 text-sm font-semibold font-['Manrope'] leading-tight tracking-tight">See more</span>
-          </div>
-
-          {/* Message input */}
-          <div className="self-stretch h-28 p-4 bg-white border border-zinc-100 justify-start items-start gap-2.5 inline-flex">
-            <textarea
-              className="w-full h-full resize-none outline-none"
-              placeholder="Type your message"
-              value={message}
-              onChange={handleInputChange}
-            />
-          </div>
         </div>
-
-        {/* Send button with Link */}
-        <Link to="/review-reply" className="px-4 py-1 bg-emerald-400 justify-center items-center gap-2.5 inline-flex" style={{ cursor: 'pointer' }}>
-          <div className="text-center text-white text-base font-medium font-['Manrope'] tracking-tight">Send</div>
-        </Link>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default ReviewContent;
-
