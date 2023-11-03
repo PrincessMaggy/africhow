@@ -24,7 +24,6 @@ import Listings from './pages/MealListing';
 import Login from './pages/Login';
 import SuccessRewards from './pages/SuccessRewards';
 import NewMeal from './pages/AddNewMeal';
-
 // importing components
 import StoreOverview from './components/storePerformance/StoreOverview';
 import StorePerformance from './components/storePerformance/StorePerformance';
@@ -43,6 +42,8 @@ import Recipes from './components/community/recipes';
 import Incoming from './components/OrderManagement/Incoming';
 import Outgoing from './components/OrderManagement/Outgoing';
 import History from './components/OrderManagement/History';
+import NotificationPage from './components/Notification/notification';
+import NotificationSuccess from './components/Notification/notificationSuccesful';
 
 function App() {
     return (
@@ -133,6 +134,7 @@ function App() {
 
                 <Route path='/review card' element={<ReviewsCard />} />
                 <Route path='/review-reply' element={<ReviewReply />} />
+
             </Routes>
         </>
     );
