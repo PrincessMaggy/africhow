@@ -1,13 +1,13 @@
 import {createContext, useContext, useEffect, useState} from 'react';
-import {auth} from '../../../firebase';
-
 import {
+    getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut,
     onAuthStateChanged,
-    getAuth,
-} from 'firebase/auth';
+} from 'firebase/auth'; // Import Firebase authentication functions from the correct module
+
+import {auth} from '../../../firebase'; // Import Firebase authentication instance from your configuration
 
 const UserContext = createContext();
 
@@ -33,19 +33,22 @@ export const AuthContextProvider = ({children}) => {
     };
 
     useEffect(() => {
-        const auth = getAuth();
-        const alreadyLoggedInUser = auth.currentUser;
+        const authInstance = getAuth(); // Use getAuth() to get the Firebase authentication instance
+        const alreadyLoggedInUser = authInstance.currentUser;
 
         if (alreadyLoggedInUser) {
             setUser(alreadyLoggedInUser);
         } else {
-            const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-                if (currentUser) {
-                    setUser(currentUser);
-                } else {
-                    setUser(null); // No user is signed in
-                }
-            });
+            const unsubscribe = onAuthStateChanged(
+                authInstance,
+                (currentUser) => {
+                    if (currentUser) {
+                        setUser(currentUser);
+                    } else {
+                        setUser(null); // No user is signed in
+                    }
+                },
+            );
 
             return () => {
                 unsubscribe();
