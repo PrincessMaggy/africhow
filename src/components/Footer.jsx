@@ -4,18 +4,21 @@ import {UserAuth} from '../components/auth/AuthContext';
 
 const Footer = () => {
     const {user} = UserAuth() || {};
+    const menuItems = NavList(user);
+    // Pass the user to navList
+
     const specificFooterIDs = [1, 2, 3];
-    const filteredFooter = NavList.filter((item) =>
+    const filteredFooter = menuItems.filter((item) =>
         specificFooterIDs.includes(item.id),
     );
 
     const specificSocialIDs = [4, 5, 6];
-    const filteredSocial = NavList.filter((item) =>
+    const filteredSocial = menuItems.filter((item) =>
         specificSocialIDs.includes(item.id),
     );
 
     const specificFooterNavIDs = [12, 1, 14];
-    const filteredFooterNav = NavList.filter((item) =>
+    const filteredFooterNav = menuItems.filter((item) =>
         specificFooterNavIDs.includes(item.id),
     );
 

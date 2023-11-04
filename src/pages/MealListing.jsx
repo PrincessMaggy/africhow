@@ -3,15 +3,16 @@ import FetchMeal from '../components/fetchMealItem';
 import Layout from '../components/Layout';
 import SearchIcon from '../assets/icons/Search Icon.svg';
 import {collection, query, onSnapshot, doc} from 'firebase/firestore';
+
 import {db, auth} from '../../firebase';
 import {Link, useParams} from 'react-router-dom';
 
 const Listings = () => {
     const {userId} = useParams();
+    console.log(userId, 'userId');
     const [meals, setMeals] = useState([]);
     const [currentUser, setCurrentUser] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
-
     // Load user data and meals data from local storage on initial render
     useEffect(() => {
         const userData = window.localStorage.getItem('user');

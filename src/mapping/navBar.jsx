@@ -14,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const NavBar = ({toggleMenu, menuOpen}) => {
     const {user} = UserAuth() || {};
+    const menuItems = NavList(user); // Pass the user to navList
     const location = useLocation();
     const isHomePage = location.pathname === '/';
 
@@ -39,13 +40,13 @@ const NavBar = ({toggleMenu, menuOpen}) => {
 
     //homeNav display
     const specificNavIDs = [1, 2, 3];
-    const filteredNav = NavList.filter((item) =>
+    const filteredNav = menuItems.filter((item) =>
         specificNavIDs.includes(item.id),
     );
 
     //sideNav display
     const specificSideNavIDs = [7, 8, 9, 10, 11, 3, 13];
-    const filteredSideNav = NavList.filter((item) =>
+    const filteredSideNav = menuItems.filter((item) =>
         specificSideNavIDs.includes(item.id),
     );
 
