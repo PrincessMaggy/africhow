@@ -6,8 +6,11 @@ import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CameraIcon from '../assets/icons/photo_camera.svg';
 import Footer from '../components/Footer';
+import {useNavigate} from 'react-router-dom';
 
 function AddMealItem() {
+    const navigate = useNavigate();
+
     let currentUser = auth.currentUser;
     const initialMealItem = {
         name: '',
@@ -136,7 +139,7 @@ function AddMealItem() {
             console.log('Document written with ID: ', docId);
             toast.success('Meal created successfully!');
             setMealItem(initialMealItem);
-            window.location.href = `/meallisting/${currentUser.uid}`;
+            navigate(`/meallisting/${currentUser.uid}`);
         } catch (err) {
             toast.error(err);
         } finally {
