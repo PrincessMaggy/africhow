@@ -44,7 +44,7 @@ const RewardsPage = () => {
         return () => {
             clearInterval(progress);
         };
-    }, [endPoint, progressPercentage]);
+    }, [endPoint]);
 
     return (
         <>

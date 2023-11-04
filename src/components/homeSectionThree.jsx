@@ -2,11 +2,11 @@ import unitedKingdom from '../assets/images/location-2.webp';
 import America from '../assets/images/location-3.webp';
 import Canada from '../assets/images/location-1.webp';
 import {Link} from 'react-router-dom';
-
-//import Signup from "../components/auth/signup";
-
+import {UserAuth} from '../components/auth/AuthContext';
 
 const HomeSectionThree = () => {
+    const {user} = UserAuth() || {};
+
     return (
         <div className='w-full min-h-full bg-opacity-25 px-2'>
             <div className='relative flex flex-col justify-center px-8 lg:mx-12'>
@@ -57,13 +57,14 @@ const HomeSectionThree = () => {
                         </section>
                     </div>
                     <div className='flex justify-center'>
-                        <Link to='/signup'>
+                        <Link
+                            to={user?.email ? '/vendors-dashboard' : '/signup'}
+                        >
                             <button className='text-base bg-[#33CC9F] rounded-md bg-opacity-80 py-4 px-8 font-black pointer mb-16'>
                                 Get started today
                             </button>
                         </Link>
                     </div>
-                    {/*<Signup />*/}
                 </section>
             </div>
         </div>
