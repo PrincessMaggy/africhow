@@ -1,18 +1,7 @@
-import ReedeemSucess from "../components/Rewards/ReedeemSucess"
-import { UserAuth } from "../components/auth/AuthContext";
-import { useNavigate } from 'react-router-dom';
+import ReedeemSucess from '../components/Rewards/ReedeemSucess';
 
 const SuccessRewards = () => {
-  const { loggedIn } = UserAuth();
-    const navigate = useNavigate();
+    return <ReedeemSucess />;
+};
 
-    if(!loggedIn){
-        navigate('/login');
-        // return null;
-    }
-  return (
-    <ReedeemSucess />
-  )
-}
-
-export default SuccessRewards
+export default SuccessRewards;

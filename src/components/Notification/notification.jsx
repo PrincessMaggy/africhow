@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
-import arrow_back from '../../assets/icons/arrow_back.png';
 import Layout from '../Layout';
 
 function NotificationPage() {
@@ -52,13 +51,6 @@ function NotificationPage() {
         <>
             <Layout>
                 <div className='p-4 ml-4'>
-                    {/* <span>
-                        <img
-                            src={arrow_back}
-                            alt='arrow_back'
-                            className='arrow'
-                        />
-                    </span> */}
                     <h1 className='text-2xl text-start font-bold mt-4'>
                         Enable notification
                     </h1>
