@@ -47,7 +47,7 @@ import NotificationPage from './components/Notification/notification';
 import NotificationSuccess from './components/Notification/notificationSuccesful';
 
 function App() {
-    const {signIn} = UserAuth();
+    const {user} = UserAuth() || {};
 
     return (
         <>
@@ -56,7 +56,7 @@ function App() {
                 <Route
                     path='/trending'
                     element={
-                        signIn.email ? (
+                        user?.email ? (
                             <TrendingComponent />
                         ) : (
                             <Navigate to='/login' />
@@ -70,7 +70,7 @@ function App() {
                 <Route
                     path='/rewards'
                     element={
-                        signIn.email ? <Rewards /> : <Navigate to='/login' />
+                        user?.email ? <Rewards /> : <Navigate to='/login' />
                     }
                 />
                 <Route path='/rewards/my-rewards' element={<Achievements />} />
@@ -103,11 +103,7 @@ function App() {
                 <Route
                     path='/supportform'
                     element={
-                        signIn.email ? (
-                            <SupportForm />
-                        ) : (
-                            <Navigate to='/login' />
-                        )
+                        user?.email ? <SupportForm /> : <Navigate to='/login' />
                     }
                 />
 

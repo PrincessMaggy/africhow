@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import Nav from '../mapping/navBar';
 
 const NavBar = () => {
@@ -11,7 +11,6 @@ const NavBar = () => {
         setMenuOpen(!menuOpen);
     };
 
-
     return (
         <div>
             <Nav
@@ -22,11 +21,5 @@ const NavBar = () => {
         </div>
     );
 };
-
-{/*Nav.propTypes = {
-    toggleMenu: PropTypes.func,
-    menuOpen: PropTypes.bool,
-    toggleDropdown: PropTypes.func,
-};*/}
 
 export default NavBar;

@@ -3,7 +3,8 @@ import {Link} from 'react-router-dom';
 import {UserAuth} from '../components/auth/AuthContext';
 
 const Footer = () => {
-    const {signIn} = UserAuth();
+    const {user} = UserAuth() || {};
+    console.log(user?.email, 'user');
     const specificFooterIDs = [1, 2, 3];
     const filteredFooter = NavList.filter((item) =>
         specificFooterIDs.includes(item.id),
@@ -98,7 +99,7 @@ const Footer = () => {
 
     return (
         <div className='w-full flex flex-col pt-10 pb-4 px-10 bg-black'>
-            {signIn.email ? loggedInFooter : loggedOutFooter}
+            {user?.email ? loggedInFooter : loggedOutFooter}
         </div>
     );
 };
