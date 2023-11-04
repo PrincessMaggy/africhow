@@ -222,7 +222,7 @@ function AddMealItem() {
                         onChange={handleChange}
                         value={mealItem.category}
                         autoComplete='current-category'
-                        className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#227e63] focus:border-[#227e63] block w-full p-2.5 dark:bg-gray-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-700 dark:focus:border-green-700'
+                        className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#227e63] focus:border-[#227e63] block w-full p-2.5 dark:bg-gray-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-green-700 dark:focus:border-green-700'
                     >
                         <option value=''>Category</option>
                         <option value='north african'>
@@ -255,7 +255,7 @@ function AddMealItem() {
                         onChange={handleChange}
                         value={mealItem.currency}
                         autoComplete='current-currency'
-                        className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#227e63] focus:border-[#227e63] block p-2.5 dark:bg-gray-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-700 dark:focus:border-green-700 '
+                        className=' border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#227e63] focus:border-[#227e63] block p-2.5 dark:bg-gray-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-green-700 dark:focus:border-green-700 '
                     >
                         <option value=''> Currency </option>
                         <option value='$'> USD </option>
@@ -276,14 +276,14 @@ function AddMealItem() {
 
                 <label
                     htmlFor='status'
-                    className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
+                    className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-700'
                 ></label>
                 <select
                     id='status'
                     name='status'
                     onChange={handleChange}
                     value={mealItem.status}
-                    className='bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#227e63] focus:border-[#227e63] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-700 dark:focus:border-green-700'
+                    className='bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#227e63] focus:border-[#227e63] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-green-700 dark:focus:border-green-700'
                 >
                     <option value=''>Status</option>
                     <option value='Available'>Available</option>
@@ -292,7 +292,7 @@ function AddMealItem() {
 
                 <div className='flex items-center justify-between'>
                     <button
-                        className='bg-[#228768] hover:bg-black hover:text-[#33cc9f] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-8'
+                        className='bg-[#228768] hover:bg-black hover:text-[#33cc9f] text-gray-300 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-8'
                         type='submit'
                     >
                         Add item
