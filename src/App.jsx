@@ -99,11 +99,20 @@ function App() {
                     element={<StorePerformance />}
                 />
                 <Route path='/order-summary' element={<Order />} />
-                <Route path='/vendorsupport' element={<VendorSupport />} />
                 <Route
                     path='/supportform'
                     element={
                         user?.email ? <SupportForm /> : <Navigate to='/login' />
+                    }
+                />
+                <Route
+                    path='/vendorsupport'
+                    element={
+                        user?.email ? (
+                            <VendorSupport />
+                        ) : (
+                            <Navigate to='/login' />
+                        )
                     }
                 />
 

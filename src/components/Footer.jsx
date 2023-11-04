@@ -4,7 +4,6 @@ import {UserAuth} from '../components/auth/AuthContext';
 
 const Footer = () => {
     const {user} = UserAuth() || {};
-    console.log(user?.email, 'user');
     const specificFooterIDs = [1, 2, 3];
     const filteredFooter = NavList.filter((item) =>
         specificFooterIDs.includes(item.id),

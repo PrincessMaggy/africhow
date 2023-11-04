@@ -33,7 +33,6 @@ const NavBar = ({toggleMenu, menuOpen}) => {
                 alert(err);
             });
     };
-    console.log(user?.email, 'loggedIn');
     //headerlist display
     const targetId = location.pathname;
     const currentPathname = location.pathname;

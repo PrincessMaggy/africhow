@@ -80,9 +80,9 @@ const navList = [
 
     {
         id: 11,
-        title: 'Delivery',
+        title: 'Notification',
         icon: <MdDeliveryDining />,
-        route: '/',
+        route: '/notification',
     },
     {
         id: 12,
