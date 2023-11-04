@@ -25,14 +25,20 @@ function FetchMealItem({searchQuery}) {
                     });
 
                     // Apply search filter
-                    // const filteredMeals = mealData?.filter((meal) =>
-                    //     meal.name
-                    //         .toLowerCase()
-                    //         .includes(searchQuery.toLowerCase()),
-                    // );
+                    const filteredMeals = mealData
+                        ? searchQuery
+                            ? mealData.filter(
+                                  (meal) =>
+                                      meal.name &&
+                                      meal.name
+                                          .toLowerCase()
+                                          .includes(searchQuery.toLowerCase()),
+                              )
+                            : mealData // Return all meals when searchQuery is empty
+                        : [];
 
-                    setAllDocs(mealData);
-                    console.log(mealData);
+                    setAllDocs(filteredMeals);
+                    console.log(mealData, 'mealData');
                 } else {
                     return null;
                 }

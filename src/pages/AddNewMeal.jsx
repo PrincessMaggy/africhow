@@ -8,6 +8,7 @@ import CameraIcon from '../assets/icons/photo_camera.svg';
 import Footer from '../components/Footer';
 
 function AddMealItem() {
+    let currentUser = auth.currentUser;
     const initialMealItem = {
         name: '',
         category: '',
@@ -105,7 +106,6 @@ function AddMealItem() {
     };
 
     const addMealItem = async (e) => {
-        console.log('submitted');
         e.preventDefault();
         setLoading(true);
 
@@ -136,7 +136,7 @@ function AddMealItem() {
             console.log('Document written with ID: ', docId);
             toast.success('Meal created successfully!');
             setMealItem(initialMealItem);
-            window.location.href = '/meallisting/:userId';
+            window.location.href = `/meallisting/${currentUser.uid}`;
         } catch (err) {
             toast.error(err);
         } finally {

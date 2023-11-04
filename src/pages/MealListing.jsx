@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import FetchMeal from '../components/fetchMealItem';
 import Layout from '../components/Layout';
 import SearchIcon from '../assets/icons/Search Icon.svg';
-import {collection, query, onSnapshot, doc} from 'firebase/firestore';
+import {collection, query, onSnapshot, doc, getDocs} from 'firebase/firestore';
 
 import {db, auth} from '../../firebase';
 import {Link, useParams} from 'react-router-dom';
@@ -13,6 +13,7 @@ const Listings = () => {
     const [meals, setMeals] = useState([]);
     const [currentUser, setCurrentUser] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
+
     // Load user data and meals data from local storage on initial render
     useEffect(() => {
         const userData = window.localStorage.getItem('user');
@@ -30,36 +31,29 @@ const Listings = () => {
         if (currentUser) {
             const userRef = doc(db, 'users', currentUser.uid);
             const mealsRef = collection(userRef, 'meals');
-            const q = query(mealsRef);
 
-            // Subscribe to the query and update the state
-            const unsubscribeMeals = onSnapshot(q, (snapshot) => {
-                const mealData = [];
-                snapshot.forEach((doc) => {
-                    mealData.push({id: doc.id, ...doc.data()});
-                });
-                setMeals(mealData);
+            // Create a query to fetch the meals
+            const fetchMeals = async () => {
+                try {
+                    const querySnapshot = await getDocs(mealsRef);
+                    const mealData = [];
+                    querySnapshot.forEach((doc) => {
+                        mealData.push({id: doc.id, ...doc.data()});
+                    });
+                    setMeals(mealData);
 
-                // Save updated meals data to local storage
-                window.localStorage.setItem(
-                    'meallisting',
-                    JSON.stringify(mealData),
-                );
-            });
-
-            // Create a user snapshot to update user data in real-time
-            const userSnapshot = onSnapshot(userRef, (snapshot) => {
-                const userData = {id: snapshot.id, ...snapshot.data()};
-                setCurrentUser(userData);
-
-                // Save updated user data to local storage
-                window.localStorage.setItem('user', JSON.stringify(userData));
-            });
-
-            return () => {
-                unsubscribeMeals();
-                userSnapshot();
+                    // Save updated meals data to local storage
+                    window.localStorage.setItem(
+                        'meallisting',
+                        JSON.stringify(mealData),
+                    );
+                } catch (error) {
+                    console.error('Error fetching meals:', error);
+                }
             };
+
+            // Call the fetchMeals function
+            fetchMeals();
         }
     }, [currentUser]);
 
