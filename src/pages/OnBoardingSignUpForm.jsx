@@ -124,7 +124,7 @@ export default function OnBoardingSignUpForm() {
 
                     // Create the "meals" subcollection
                     await addDoc(mealsCollectionRef, {
-                        exampleField: 'exampleValue',
+                        
                     });
                 });
 
@@ -372,4 +372,18 @@ export default function OnBoardingSignUpForm() {
             </>
         </div>
     );
+
+}
+
+function Terms() {
+  return (
+    <div className="flex items-center gap-2">
+      <input type="checkbox" />
+      <p>
+        Creating an account means you're okay with our{" "}
+        <strong>Terms of Service, Privacy Policy</strong>, and our default{" "}
+        <strong>Notification settings</strong>
+      </p>
+    </div>
+  );
 }

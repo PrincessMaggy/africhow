@@ -1,48 +1,52 @@
-import {useState, useEffect} from 'react';
-import {collection, getDocs} from 'firebase/firestore';
-import {db, auth} from '../../firebase';
-import {Link} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../firebase';
+import { Link } from 'react-router-dom';
+import { UserAuth } from '../components/auth/AuthContext';
 
-function FetchMealItem({searchQuery}) {
-    const [allDocs, setAllDocs] = useState([]);
+function FetchMealItem({ searchQuery }) {
+  const [allDocs, setAllDocs] = useState([]);
+  const { user, logout } = UserAuth();
 
-    useEffect(() => {
-        const fetchMeals = async () => {
-            try {
-                if (auth.currentUser) {
-                  console.log(auth.currentUser,'auth.currentUser')
-                    const userMealsRef = collection(
-                        db,
-                        'users',
-                        auth.currentUser.uid,
-                        'meals',
-                    );
-                    const querySnapshot = await getDocs(userMealsRef);
+  useEffect(() => {
+    const fetchMeals = async () => {
+      try {
+        if (user) {
+          console.log("User is signed in:", user);
 
-                    const mealData = [];
-                    querySnapshot.forEach((doc) => {
-                        mealData.push({id: doc.id, ...doc.data()});
-                    });
+          const userMealsRef = collection(db, 'users', user.uid, 'meals');
+          const querySnapshot = await getDocs(userMealsRef);
+  
+          const mealData = [];
+          querySnapshot.forEach((doc) => {
+            mealData.push({ id: doc.id, ...doc.data() });
+          });
+          console.log("Fetched meals data:", mealData);
 
-                    // Apply search filter
-                    // const filteredMeals = mealData?.filter((meal) =>
-                    //     meal.name
-                    //         .toLowerCase()
-                    //         .includes(searchQuery.toLowerCase()),
-                    // );
-
-                    setAllDocs(mealData);
-                    console.log(mealData);
-                } else {
-                    return null;
-                }
-            } catch (error) {
-                console.error('Error fetching meals:', error);
-            }
-        };
-
-        fetchMeals();
-    }, [searchQuery]);
+          // Check if searchQuery exists
+          if (searchQuery) {
+            const filteredMeals = mealData.filter((meal) =>
+              meal.name?.toLowerCase().includes(searchQuery.toLowerCase())
+            );
+            console.log("Filtered meals:", filteredMeals);
+            setAllDocs(filteredMeals);
+          } else {
+            // If there's no search query, set all meals
+            console.log("No search query, displaying all meals.");
+            setAllDocs(mealData);
+          }
+        } else {
+          console.log("User is not signed in.");
+          return null; // when the user is not signed in
+        }
+      } catch (error) {
+        console.error('Error fetching meals:', error);
+      }
+    };
+  
+    fetchMeals();
+  }, [searchQuery, user]);
+  
 
     return (
         <div className='grid xs:grid-cols-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-4 mb-10 flex-wrap'>

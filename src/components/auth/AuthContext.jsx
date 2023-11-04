@@ -1,60 +1,89 @@
 import {createContext, useContext, useEffect, useState} from 'react';
 import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut,
-    onAuthStateChanged,
-} from 'firebase/auth'; // Import Firebase authentication functions from the correct module
 
-import {auth} from '../../../firebase'; // Import Firebase authentication instance from your configuration
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+  getAuth,
+} from 'firebase/auth';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { auth } from '../../../firebase';
+
 
 const UserContext = createContext();
+const db = getFirestore();
 
 export const AuthContextProvider = ({children}) => {
     const [user, setUser] = useState(null); // Start with no user
+
 
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
     };
 
-    const signIn = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password);
-    };
+  const signIn = async (email, password) => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      setUser(user);
+      return user; 
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  };
 
-    const logout = async () => {
-        signOut(auth)
-            .then(() => {
-                alert('Sign out successful');
-            })
-            .catch((err) => {
-                alert(err);
-            });
-    };
+  const logout = async () => {
+    signOut(auth)
+      .then(() => {
+          alert('Sign out successful')
+          setUser(null);
+      })
+      .catch((err) => {
+          alert(err);
+      });
+  };
 
-    useEffect(() => {
-        const authInstance = getAuth(); // Use getAuth() to get the Firebase authentication instance
-        const alreadyLoggedInUser = authInstance.currentUser;
+  // Function to fetch user details based on UID
+  const fetchUserDetailsFromDatabase = async (userId) => {
+    try {
+      const userDocRef = doc(db, 'users', userId);
+      const userDocSnapshot = await getDoc(userDocRef);
 
-        if (alreadyLoggedInUser) {
-            setUser(alreadyLoggedInUser);
+      if (userDocSnapshot.exists()) {
+        const userData = userDocSnapshot.data();
+        return userData;
+      } else {
+        return null;
+      }
+    } catch (error) {
+      console.error('Error fetching user details:', error);
+      return null;
+    }
+  };
+
+  useEffect(() => {
+    const auth = getAuth();
+    const alreadyLoggedInUser = auth.currentUser;
+
+    if (alreadyLoggedInUser) {
+      fetchUserDetailsFromDatabase(alreadyLoggedInUser.uid).then((userDetails) => {
+        setUser({ ...alreadyLoggedInUser, userDetails });
+      });
+    } else {
+      const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+        if (currentUser) {
+          const userDetails = await fetchUserDetailsFromDatabase(currentUser.uid);
+          setUser({ ...currentUser, userDetails });
         } else {
-            const unsubscribe = onAuthStateChanged(
-                authInstance,
-                (currentUser) => {
-                    if (currentUser) {
-                        setUser(currentUser);
-                    } else {
-                        setUser(null); // No user is signed in
-                    }
-                },
-            );
-
-            return () => {
-                unsubscribe();
-            };
+          setUser(null);
         }
-    }, []);
+    });
+
+        return () => unsubscribe();
+      }
+    }, []); 
 
     return (
         <UserContext.Provider value={{createUser, user, logout, signIn}}>
@@ -64,5 +93,5 @@ export const AuthContextProvider = ({children}) => {
 };
 
 export const UserAuth = () => {
-    return useContext(UserContext);
+  return useContext(UserContext);
 };
