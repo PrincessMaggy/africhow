@@ -41,7 +41,6 @@ const Listings = () => {
                         mealData.push({id: doc.id, ...doc.data()});
                     });
                     setMeals(mealData);
-
                     // Save updated meals data to local storage
                     window.localStorage.setItem(
                         'meallisting',

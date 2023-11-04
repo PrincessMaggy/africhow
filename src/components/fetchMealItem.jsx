@@ -38,6 +38,8 @@ function FetchMealItem({searchQuery}) {
                         : [];
 
                     setAllDocs(filteredMeals);
+                    console.log(filteredMeals, 'filteredMeals');
+
                     console.log(mealData, 'mealData');
                 } else {
                     return null;
