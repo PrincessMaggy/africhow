@@ -41,7 +41,7 @@ const headerList = [
     },
 
     {
-        id: '/supportform',
+        id: '/vendorsupport',
         header: 'Support',
     },
 

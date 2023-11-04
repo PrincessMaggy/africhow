@@ -37,8 +37,13 @@ function EmailForm() {
             .sendForm(serviceID, templateID, e.target, userID)
             .then((result) => {
                 console.log(result);
-                toast.success('Your email has been sent!');
-
+                toast('Your email has been sent!');
+                setFormData({
+                    from_name: '',
+                    from_email: '',
+                    email_subject: '',
+                    message: '',
+                });
                 // Delay the navigation using setTimeout
                 setTimeout(() => {
                     navigate('/supportsuccess');
