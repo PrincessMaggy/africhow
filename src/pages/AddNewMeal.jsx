@@ -4,7 +4,6 @@ import {db, auth, storage} from '../../firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import HomeNav from "../components/homeNav";
 import CameraIcon from "../assets/icons/photo_camera.svg";
 import Footer from "../components/Footer";
 
@@ -18,13 +17,6 @@ function AddMealItem() {
         cost: '',
         status: '',
     };
-
-    const currentUser = auth.currentUser;
-
-    if (!currentUser) {
-        window.location.href = '/login';
-        return null;
-      }
 
     const [mealItem, setMealItem] = useState(initialMealItem);
     const [mealImageFile, setMealImageFile] = useState(null);
@@ -67,75 +59,6 @@ function AddMealItem() {
         }
     };
 
-{/*
-    const addMealItem = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-
-        if (
-            !mealItem.name || 
-            !mealItem.category || 
-            !mealItem.currency ||
-            !mealItem.cost || 
-            !mealItem.status || 
-            !mealImageFile
-        ) {
-            toast.error('Please fill in all required fields');
-            setLoading(true);
-            return;
-        }
-
-
-        // Generate a unique filename for images
-        const timestamp = new Date().getTime();
-        const uniqueId = Math.random().toString(36).substring(7);
-        const imageFileName = `${timestamp}_${uniqueId}.jpg`;
-
-        let imageUrl = '';
-
-        // Upload the image to Firebase Storage
-        if (mealImageFile) {
-            try {
-                const imageRef = ref(storage, `meal-images/${currentUser.uid}/${imageFileName}` );
-                await uploadBytes(imageRef, mealImageFile);
-                imageUrl = await getDownloadURL(imageRef);
-                mealItem.imageUrl = imageUrl; // Add the image URL to the meal item data
-            } catch (err) {
-                alert('Error uploading image: ' + err.message);
-                setLoading(false);
-                return;
-            }
-        }
-
-        // Add the meal item to Firestore
-        
-        try {
-
-            const docRef = await addDoc(collection(db, 'meals'), {
-                userId: currentUser.uid,
-                name: mealItem.name,
-                category: mealItem.category,
-                currency: mealItem.currency,
-                cost: mealItem.cost,
-                status: mealItem.status,
-                imageUrl: imageUrl,
-            });
-
-            console.log('Document written with ID: ', docRef.id);
-            //alert('Meal created successfully!');
-            //notify('Meal created successfully!', 'success');
-            toast.success('Meal created successfully!');
-            setMealItem(initialMealItem); // Reset fields after successful submission
-            window.location.href = `/meallisting/${currentUser.uid}`;
-            
-
-        } catch (err) {
-            toast.error(err.message);
-        } finally {
-            setLoading(false);
-        }
-    };
-*/}
     const uploadImageToStorage = async (mealImageFile, currentUser) => {
         if (!mealImageFile) {
         return '';
@@ -201,7 +124,7 @@ function AddMealItem() {
         console.log('Document written with ID: ', docId);
         toast.success('Meal created successfully!');
         setMealItem(initialMealItem);
-        window.location.href = `/meallisting/${currentUser.uid}`;
+        window.location.href = '/meallisting/:userId';
         } catch (err) {
         toast.error(err);
         } finally {
@@ -214,7 +137,6 @@ function AddMealItem() {
 
     return (
         <>
-            <HomeNav />
             <ToastContainer />
             <hr className='border-gray-400 -mt-6' />
 

@@ -11,33 +11,33 @@ const headerList = [
 
     {
         id: '/rewards',
-        header: 'AfriChow Rewards',
+        header: 'Rewards',
     },
     {
         id: '/rewards/catalog',
-        header: 'AfriChow Rewards',
+        header: 'Rewards',
     },
 
     {
         id: '/rewards/earn-stars',
-        header: 'AfriChow Rewards',
+        header: 'Rewards',
     },
     {
         id: '/rewards/my-rewards',
-        header: 'AfriChow Rewards',
+        header: 'Rewards',
     },
     {
         id: '/rewards/reward-details/:itemId',
-        header: 'AfriChow Rewards',
+        header: 'Rewards',
     },
     {
         id: '/success/:id',
-        header: 'AfriChow Rewards',
+        header: 'Rewards',
     },
 
     {
         id: '/vendors-dashboard',
-        header: 'Payout',
+        header: 'Dashboard',
     },
 
     {
@@ -67,12 +67,37 @@ const headerList = [
 
     {
         id: '/order-summary',
-        header: 'Order',
+        header: 'Order List',
     },
 
     {
         id: '/vendors-payout-method',
         header: 'Payout method',
+    },
+
+    {
+        id: '/meallisting/:mealId/edit',
+        header: 'Update Meale',
+    },
+
+    {
+        id: '/profile/:userId',
+        header: 'Profile',
+    },
+
+    {
+        id: '/post',
+        header: 'Create Post',
+    },
+
+    {
+        id: '/recipes',
+        header: 'Topics',
+    },
+
+    {
+        id: '/recipes/:recipe',
+        header: 'Recipe',
     },
 ];
 

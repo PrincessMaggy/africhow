@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import NewNavbar from '../components/NewNav/NewNavBar';
+//import NewNavbar from '../components/NewNav/NewNavBar';
 // import ReviewNav from '../components/Reviews/ReviewNav';
 import Solomon from '../assets/Review-Images/Ellipse 8.png';
 import Star from '../assets/Review-Images/Star 3.png';
@@ -23,7 +23,7 @@ const ReviewsCard = () => {
 
     return (
         <div className='w-full md:w-96 lg:w-full h-96 relative bg-white'>
-            <NewNavbar />
+            {/*<NewNavbar />*/}
 
             {/* User Information */}
             <div className='left-[16px] top-[50px] absolute flex-col justify-start items-start gap-4 inline-flex'>

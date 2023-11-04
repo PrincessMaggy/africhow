@@ -1,127 +1,99 @@
-import {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
-import {collection, getDocs, where, query} from 'firebase/firestore';
-import {db, auth} from '../../firebase';
-import {useParams} from 'react-router-dom';
-import SearchIcon from '../assets/icons/Search Icon.svg';
-import Footer from '../components/Footer';
-import {useAuth} from '../components/auth/AuthContext';
-import NewNavbar from '../components/NewNav/NewNavBar';
-import FetchMealItem from '../components/fetchMealItem';
+import React, { useState, useEffect } from 'react';
+import FetchMeal from '../components/fetchMealItem'; 
+import Layout from '../components/Layout';
+import SearchIcon from '../assets/icons/Search Icon.svg'
+import { collection, query, onSnapshot, doc } from 'firebase/firestore';
+import { db, auth } from '../../firebase';
+import { Link, useParams } from 'react-router-dom';
 
-function Listings() {
-    const [searchQuery, setSearchQuery] = useState('');
-    const [userMeals, setUserMeals] = useState([]);
-    const [userHasListings, setUserHasListings] = useState(false);
-    const {userId} = useParams();
+const Listings = () => {
+  const { userId } = useParams();
+  const [meals, setMeals] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
-    const {loggedIn} = useAuth();
+  // Load user data and meals data from local storage on initial render
+  useEffect(() => {
+    const userData = window.localStorage.getItem('user');
+    if (userData) {
+      setCurrentUser(JSON.parse(userData));
+    }
 
-    useEffect(() => {
-        const fetchMeals = async () => {
-            try {
-                // Check if the user is authenticated
-                if (auth.currentUser) {
-                    const mealsRef = collection(
-                        db,
-                        'users',
-                        auth.currentUser.uid,
-                        'meals',
-                    );
-                    const q = query(
-                        mealsRef,
-                        where('userId', '==', auth.currentUser.uid),
-                    );
-                    const querySnapshot = await getDocs(q);
+    const mealsData = window.localStorage.getItem('meallisting');
+    if (mealsData) {
+      setMeals(JSON.parse(mealsData));
+    }
+  }, []);
 
-                    const mealData = [];
-                    querySnapshot.forEach((doc) => {
-                        mealData.push({id: doc.id, ...doc.data()});
-                    });
-                    setUserMeals(mealData);
+  useEffect(() => {
+    if (currentUser) {
+      const userRef = doc(db, 'users', currentUser.uid);
+      const mealsRef = collection(userRef, 'meals');
+      const q = query(mealsRef);
 
-                    if (mealData.length > 0) {
-                        setUserHasListings(true);
-                    }
+      // Subscribe to the query and update the state
+      const unsubscribeMeals = onSnapshot(q, (snapshot) => {
+        const mealData = [];
+        snapshot.forEach((doc) => {
+          mealData.push({ id: doc.id, ...doc.data() });
+        });
+        setMeals(mealData);
 
-                    console.log('Fetched meals:', mealData);
-                }
-            } catch (error) {
-                console.error('Error fetching meals:', error);
-            }
-        };
+        // Save updated meals data to local storage
+        window.localStorage.setItem('meallisting', JSON.stringify(mealData));
+      });
 
-        if (loggedIn) {
-            fetchMeals();
-        }
-    }, [loggedIn]);
+      // Create a user snapshot to update user data in real-time
+      const userSnapshot = onSnapshot(userRef, (snapshot) => {
+        const userData = { id: snapshot.id, ...snapshot.data() };
+        setCurrentUser(userData);
 
-    const filteredMeals = userMeals.filter((meal) => {
-        if (meal && meal.name) {
-            return meal.name.toLowerCase().includes(searchQuery.toLowerCase());
-        }
-        return false;
-    });
+        // Save updated user data to local storage
+        window.localStorage.setItem('user', JSON.stringify(userData));
+      });
 
-    return (
-        <>
-            <div>
-                <NewNavbar />
-                {/* <HomeNav /> */}
-                {/*<hr className='border-gray-400 -mt-6' />*/}
-                <hr className='border-gray-400 -mt-6' />
-                <div className='flex flex-col'>
-                    <form
-                        onSubmit={(e) => e.preventDefault()}
-                        className='search-box relative flex justify-between items-center mx-8 mt-4 gap-4'
-                    >
-                        <img
-                            src={SearchIcon}
-                            alt='search-box'
-                            className='absolute left-2 top-1/2 transform -translate-y-1/2 w-9 h-9 pl-4'
-                        />
-                        <input
-                            type='text'
-                            name='query'
-                            placeholder='Search'
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            className='w-full pl-14 pr-4 py-2 rounded-lg text-gray-700 border-2 border-gray-200'
-                        />
-                    </form>
-                    <Link to='/add-new-meal'>
-                        <button className='w-40 ml-8 mt-4 px-5 py-1 bg-[#33cc9f] flex items-center gap-3 mb-12'>
-                            <p className='text-[1.5rem]'>+</p>
-                            <h3>Add meal</h3>
-                        </button>
-                    </Link>
-                </div>
-            </div>
-            {loggedIn ? (
-                // User is logged in
-                userHasListings ? (
-                    <FetchMealItem
-                        userHasListings={userHasListings}
-                        allDocs={filteredMeals}
-                    />
-                ) : (
-                    // User is logged in but has no listings
-                    <p className='text-2xl text-center mt-8 mb-24'>
-                        Hurray, add your first meal!
-                    </p>
-                )
-            ) : (
-                <p className='text-2xl text-center mt-8 mb-24 p-12 bg-white rounded-sm border-2 shadow-md mx-12'>
-                    Please{' '}
-                    <Link to='/login' className='text-[#33cc9f]'>
-                        log in
-                    </Link>{' '}
-                    to see your listings.
-                </p>
-            )}
-            <Footer />
-        </>
-    );
-}
+      return () => {
+        unsubscribeMeals();
+        userSnapshot();
+      };
+    }
+  }, [currentUser]);
+
+  return (
+    <div>
+      <Layout>
+          <hr className="border-gray-400 -mt-6" />
+          <div className="flex flex-col">
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="search-box relative flex justify-between items-center mx-8 mt-4 gap-4"
+            >
+              <img
+                src={SearchIcon}
+                alt="search-box"
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 w-9 h-9 pl-4"
+              />
+              <input
+                type="text"
+                name="query"
+                placeholder="Search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-14 pr-4 py-2 rounded-lg text-gray-700 border-2 border-gray-200"
+              />
+            </form>
+            <Link to="/add-new-meal">
+              <button className="w-40 ml-8 mt-4 px-5 py-1 bg-[#33cc9f] flex items-center gap-3 mb-12">
+                <p className="text-[1.5rem]">+</p>
+                <h3>Add meal</h3>
+              </button>
+            </Link>
+          </div>
+
+          {meals && <FetchMeal searchQuery={searchQuery} />} 
+      </Layout>
+    </div>
+  );
+};
 
 export default Listings;

@@ -2,21 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate, useParams } from 'react-router-dom';
 import { db, auth } from '../../firebase';
-import { doc, setDoc, getDoc } from 'firebase/firestore';
-import OnboardingWelcome from '../components/OnboardingWelcome';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import ProfileImg from '../assets/images/family.png';
 import Layout from '../components/Layout';
 import Loader from '../components/LoaderOnboarding';
 
-
+// Replace this with your Countries data
 const Countries = [
   { id: 1, iso2: 'US', name: 'United States' },
-
+  // Add more countries as needed
 ];
 
 export default function Profile() {
+    const { userId } = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [userProfile, setUserProfile] = useState({
     Firstname: '',
@@ -24,7 +24,7 @@ export default function Profile() {
     phonenumber: '',
     Businessname: '',
     Storeaddress: '',
-    country: 'US', // Default country, change as needed
+    country: 'US', 
   });
 
   const [cities, setCities] = useState([]);
@@ -34,53 +34,105 @@ export default function Profile() {
   const { errors } = formState;
   const navigate = useNavigate();
 
+  // Load user's data and populate the form
   useEffect(() => {
-    const fetchUserData = async () => {
-      const user = auth.currentUser;
-      if (user) {
+    const user = auth.currentUser;
+    if (user) {
+        const fetchUserData = async () => {
+            try {
+                const userDocRef = doc(db, 'users', auth.currentUser.uid);
+                const userDocSnapshot = await getDoc(userDocRef);
+
+                if (userDocSnapshot.exists()) {
+                    const userData = userDocSnapshot.data();
+                    setUserProfile({
+                        Firstname: userData.Firstname,
+                        Lastname: userData.Lastname,
+                        phonenumber: userData.phonenumber,
+                        Businessname: userData.Businessname,
+                        Storeaddress: userData.Storeaddress,
+                        country: userData.country,
+                    });
+                } else {
+                    console.error('User document not found.');
+                }
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+                toast.error('Error fetching user data');
+            }
+        };
+        fetchUserData();
+    }
+}, [userId]);
+
+  const handleCountryChange = (e) => {
+    const selectedCountry = e.target.value;
+    // Update the country in the state
+    setUserProfile({ ...userProfile, country: selectedCountry });
+    
+  };
+
+  const handleCityChange = (e) => {
+    const selectedCity = e.target.value;
+    // Update the city in the state
+    setCities({ ...cities, selectedCity });
+  };
+
+  const handleButtonClick = () => {
+    if (isChecked) {
+      handleSubmit(onSubmit)();
+    } else {
+      toast.error('Please accept the terms to continue.');
+    }
+  };
+
+  const updateUserData = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+  
+    try {
+      const imageUrl = await uploadImageToStorage(mealImageFile, auth.currentUser);
+      await updateUserDataInFirestore(userProfile, auth.currentUser);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const onSubmit = async (data) => {
+    setIsLoading(true);
+
+    const updateUserProfileInFirestore = async (userProfile, currentUser) => {
         try {
-          const userUID = user.uid;
-          const userDocRef = doc(db, 'users', userUID);
-
-          const userSnapshot = await getDoc(userDocRef);
-
-          if (userSnapshot.exists()) {
-            const userData = userSnapshot.data();
-            setUserProfile({
-              Firstname: userData.Firstname || '',
-              Lastname: userData.Lastname || '',
-              phonenumber: userData.phonenumber || '',
-              Businessname: userData.Businessname || '',
-              Storeaddress: userData.Storeaddress || '',
-              country: userData.country || 'US', // Default country, change as needed
-              city: userData.city || '',
-            });
-          } else {
-            console.error('User document not found.');
-          }
+          const userDocRef = doc(db, 'users', auth.currentUser.uid);
+          await updateDoc(userDocRef, {
+            name: userProfile.firstName,
+            category: userProfile.lastName,
+            currency:userProfile.businessName,
+            cost: userProfile.storeAddress,
+          });
+    
+          toast.success('User data updated successfully.');
+          navigate('/profile-updated-successfully');
         } catch (error) {
-          console.error('Error fetching user data:', error);
-          toast.error('Error fetching user data');
-        }
-      }
+          console.error('Error updating user data:', error);
+          toast.error('Error updating user data');
+        } 
     };
 
-    fetchUserData();
-  }, []);
-
+        await updateUserProfileInFirestore(userProfile, auth.currentUser);
+        await updateUserData(e);
+  };
 
   return (
     <div>
       <ToastContainer />
       <Layout>
         <div className='relative' />
-        <div className='mx-auto min-[391px] max-[390px] w-[358px] flex flex-col gap-3'>
-          <OnboardingWelcome
-            title={'Edit Your Profile'}
-            text={'Update your profile information'}
-            className={'welcome'}
-          />
-          <form className='grid gap-3 w-full mb-12'>
+        <div className='mx-auto min-[391px] w-4/5 max-[390px] flex flex-col gap-3'>
+            <div className='flex justify-center'>
+                <img src={ProfileImg} alt="" className='w-36 h-36 rounded-full mb-12'/>
+            </div>
+          <form className='grid gap-3 w-full mb-12' onSubmit={updateUserData}>
             <div className='grid gap-2'>
               <label className='label text flex gap-2'>
                 First Name <span className='text-[#CB0000]'>*</span>
@@ -97,7 +149,10 @@ export default function Profile() {
                   },
                 })}
                 className='input'
-                defaultValue={userProfile.firstname || ''}
+                value={userProfile.firstName}
+                onChange={(e) =>
+                  setUserProfile({ ...userProfile, Firstname: e.target.value })
+                }
               />
               <span className='text-red-500 text-[12px]'>
                 {errors?.Firstname && errors?.Firstname?.message}
@@ -119,7 +174,10 @@ export default function Profile() {
                   },
                 })}
                 className='input'
-                defaultValue={userProfile.lastname || ''}
+                value={userProfile.lastName}
+                onChange={(e) =>
+                  setUserProfile({ ...userProfile, Lastname: e.target.value })
+                }
               />
               <span className='text-red-500 text-[12px]'>
                 {errors?.Lastname && errors?.Lastname?.message}
@@ -131,21 +189,21 @@ export default function Profile() {
               </label>
               <span className='flex justify-between w-full max-[390px] mx-auto'>
                 <select
-                  className='border max-[390px] w-[30%]'
-                  value={selectedCountry}
+                  className='border max-[390px] w-[71px]'
+                  value={userProfile.country}
                   onChange={handleCountryChange}
                 >
                   <option value='Country' disabled>
                     Country
                   </option>
-                  {countries?.map((country) => (
+                  {Countries.map((country) => (
                     <option key={country.id} value={country.iso2}>
                       {country.iso2}, {country.name}
                     </option>
                   ))}
                 </select>
                 <input
-                  className='max-[390px] w-[278px] border'
+                  className='max-[390px] w-[75%] border'
                   type='text'
                   id='phonenumber'
                   placeholder='08012345678'
@@ -156,7 +214,13 @@ export default function Profile() {
                       message: 'Phone number should be at least 10 characters',
                     },
                   })}
-                  defaultValue={userProfile.phonenumber || ''}
+                  value={userProfile.phonenumber}
+                  onChange={(e) =>
+                    setUserProfile({
+                      ...userProfile,
+                      phonenumber: e.target.value,
+                    })
+                  }
                 />
               </span>
               <span className='text-red-500 text-[12px]'>
@@ -175,7 +239,13 @@ export default function Profile() {
                   required: 'Required',
                 })}
                 className='input'
-                defaultValue={userProfile.businessname || ''}
+                value={userProfile.businessName}
+                onChange={(e) =>
+                  setUserProfile({
+                    ...userProfile,
+                    Businessname: e.target.value,
+                  })
+                }
               />
               <span className='text-red-500 text-[12px]'>
                 {errors?.Businessname && errors?.Businessname?.message}
@@ -197,35 +267,41 @@ export default function Profile() {
                   },
                 })}
                 className='input'
-                defaultValue={userProfile.storeaddress || ''}
+                value={userProfile.storeAddress}
+                onChange={(e) =>
+                  setUserProfile({
+                    ...userProfile,
+                    Storeaddress: e.target.value,
+                  })
+                }
               />
               <span className='text-red-500 text-[12px]'>
                 {errors?.Storeaddress && errors?.Storeaddress?.message}
               </span>
             </div>
             <div className='flex justify-between label parentinput gap-2'>
-              <label className='justify-start text-left max-[39 w-full grid'>
+              <label className='justify-start text-left max-[390px] w-full grid'>
                 Country
                 <select
                   className='max-[390px] w-4/5 border'
-                  value={selectedCountry}
+                  value={userProfile.country}
                   onChange={handleCountryChange}
                 >
                   <option value='Country' disabled>
                     Country
                   </option>
-                  {countries?.map((country) => (
+                  {Countries.map((country) => (
                     <option key={country.id} value={country.iso2}>
                       {country.iso2}, {country.name}
                     </option>
                   ))}
                 </select>
               </label>
-              <label className='justify-end text-left grid max-[390px] w-[170px]'>
+              <label className='text-left grid max-[390px] w-full'>
                 City/Province
                 <select
                   className='max-[390px] w-full border'
-                  value={selectedCity}
+                  value={userProfile.city}
                   onChange={handleCityChange}
                 >
                   <option value='City' disabled>
