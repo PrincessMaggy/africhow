@@ -10,7 +10,7 @@ function FetchMealItem({searchQuery}) {
         const fetchMeals = async () => {
             try {
                 if (auth.currentUser) {
-                  console.log(auth.currentUser,'auth.currentUser')
+                    console.log(auth.currentUser.uid, 'auth.currentUser');
                     const userMealsRef = collection(
                         db,
                         'users',
