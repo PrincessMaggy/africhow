@@ -283,7 +283,7 @@ function AddMealItem() {
                     name='status'
                     onChange={handleChange}
                     value={mealItem.status}
-                    className='bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#227e63] focus:border-[#227e63] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-green-700 dark:focus:border-green-700'
+                    className='bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#227e63] focus:border-[#227e63] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-700 dark:focus:border-green-700'
                 >
                     <option value=''>Status</option>
                     <option value='Available'>Available</option>
