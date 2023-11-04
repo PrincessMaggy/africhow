@@ -5,12 +5,12 @@ import {Link} from 'react-router-dom';
 
 function FetchMealItem({searchQuery}) {
     const [allDocs, setAllDocs] = useState([]);
-
+    const [mealData, setMealData] = useState([]);
+    // Fetch meals when the component mounts
     useEffect(() => {
         const fetchMeals = async () => {
             try {
                 if (auth.currentUser) {
-                    // console.log(auth.currentUser.uid, 'auth.currentUser');
                     const userMealsRef = collection(
                         db,
                         'users',
@@ -18,31 +18,14 @@ function FetchMealItem({searchQuery}) {
                         'meals',
                     );
                     const querySnapshot = await getDocs(userMealsRef);
+                    const meals = [];
 
-                    const mealData = [];
                     querySnapshot.forEach((doc) => {
-                        mealData.push({id: doc.id, ...doc.data()});
+                        meals.push({id: doc.id, ...doc.data()});
                     });
 
-                    // Apply search filter
-                    const filteredMeals = mealData
-                        ? searchQuery
-                            ? mealData.filter(
-                                  (meal) =>
-                                      meal.name &&
-                                      meal.name
-                                          .toLowerCase()
-                                          .includes(searchQuery.toLowerCase()),
-                              )
-                            : mealData // Return all meals when searchQuery is empty
-                        : [];
-
-                    setAllDocs(filteredMeals);
-                    console.log(filteredMeals, 'filteredMeals');
-
-                    console.log(mealData, 'mealData');
-                } else {
-                    return null;
+                    setMealData(meals);
+                    console.log(meals, 'mealData');
                 }
             } catch (error) {
                 console.error('Error fetching meals:', error);
@@ -50,7 +33,19 @@ function FetchMealItem({searchQuery}) {
         };
 
         fetchMeals();
-    }, [searchQuery]);
+    }, []);
+
+    // Apply search filter whenever searchQuery changes
+    useEffect(() => {
+        const filteredMeals = mealData.filter(
+            (meal) =>
+                meal.name &&
+                meal.name.toLowerCase().includes(searchQuery.toLowerCase()),
+        );
+
+        setAllDocs(filteredMeals);
+        console.log(filteredMeals, 'filteredMeals');
+    }, [searchQuery, mealData]);
 
     return (
         <div className='grid xs:grid-cols-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-4 mb-10 flex-wrap'>
