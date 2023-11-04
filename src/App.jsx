@@ -1,4 +1,4 @@
-import {Route, Routes} from 'react-router-dom';
+import {Route, Routes, Navigate} from 'react-router-dom';
 import './App.css';
 import './index.css';
 
@@ -22,8 +22,7 @@ import Login from './pages/Login';
 import SuccessRewards from './pages/SuccessRewards';
 import NewMeal from './pages/AddNewMeal';
 import Profile from './pages/Profile';
-
-
+import {UserAuth} from './components/auth/AuthContext';
 
 // importing components
 
@@ -48,36 +47,79 @@ import NotificationPage from './components/Notification/notification';
 import NotificationSuccess from './components/Notification/notificationSuccesful';
 
 function App() {
+    const {signIn} = UserAuth();
+
     return (
         <>
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/trending' element={<TrendingComponent />} />
+                <Route
+                    path='/trending'
+                    element={
+                        signIn.email ? (
+                            <TrendingComponent />
+                        ) : (
+                            <Navigate to='/login' />
+                        )
+                    }
+                />
                 <Route path='/post' element={<Post />} />
                 <Route path='/blog' element={<Blog />} />
                 <Route path='/recipes' element={<Recipes />} />
                 <Route path='/recipes/:recipe' element={<Recipes />} />
-                <Route path='/rewards' element={<Rewards />} />
+                <Route
+                    path='/rewards'
+                    element={
+                        signIn.email ? <Rewards /> : <Navigate to='/login' />
+                    }
+                />
                 <Route path='/rewards/my-rewards' element={<Achievements />} />
                 <Route path='/rewards/earn-stars' element={<EarnStars />} />
                 <Route path='/rewards/catalog' element={<Catalog />} />
-                <Route path='/rewards/reward-details/:itemId' element={<CatalogDetails />}/>
+                <Route
+                    path='/rewards/reward-details/:itemId'
+                    element={<CatalogDetails />}
+                />
                 <Route path='/store-overview' element={<StoreOverview />} />
                 <Route path='/success/:id' element={<SuccessRewards />} />
-                <Route path='/vendors-dashboard' element={<VendorDashboard />}/>
-                <Route path='/vendors-transaction' element={<VendorTransactions />}/>
-                <Route path='vendors-payout-method' element={<VendorPayout />}/>
-                <Route path='/store-performance' element={<StorePerformance />}/>
+                <Route
+                    path='/vendors-dashboard'
+                    element={<VendorDashboard />}
+                />
+                <Route
+                    path='/vendors-transaction'
+                    element={<VendorTransactions />}
+                />
+                <Route
+                    path='vendors-payout-method'
+                    element={<VendorPayout />}
+                />
+                <Route
+                    path='/store-performance'
+                    element={<StorePerformance />}
+                />
                 <Route path='/order-summary' element={<Order />} />
                 <Route path='/vendorsupport' element={<VendorSupport />} />
-                <Route path='/supportform' element={<SupportForm />} />
+                <Route
+                    path='/supportform'
+                    element={
+                        signIn.email ? (
+                            <SupportForm />
+                        ) : (
+                            <Navigate to='/login' />
+                        )
+                    }
+                />
+
                 <Route path='/supportsuccess' element={<SupportSuccess />} />
                 <Route path='/meallisting/:userId/' element={<Listings />} />
-                <Route path='/meallisting/:mealId/edit' element={<EditMeal />} />
+                <Route
+                    path='/meallisting/:mealId/edit'
+                    element={<EditMeal />}
+                />
                 <Route path='/add-new-meal' element={<NewMeal />} />
                 <Route path='/review card' element={<ReviewsCard />} />
                 <Route path='/profile/:userId' element={<Profile />} />
-
 
                 {/* Onboarding Pages */}
                 <Route path='/signup' element={<Signup />} />
