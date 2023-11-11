@@ -1,11 +1,9 @@
 
 import { useState, useEffect } from 'react';
-import React, {useEffect, useState} from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import {doc, getDoc } from 'firebase/firestore';
 import Layout from '../components/Layout';
 import UpdateData from '../components/UpdateData';
-import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { UserAuth } from '../components/auth/AuthContext';
 import Profilenavbar from "../components/Profilenavbar"

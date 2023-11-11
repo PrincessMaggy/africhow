@@ -1,32 +1,42 @@
-
 import HamBurger from '../assets/hamburger/white.svg';
 import Close from '../assets/hamburger/Close.svg';
-import { MdChevronRight } from "react-icons/md"; 
-import { useLocation, Link } from 'react-router-dom';
+import {MdChevronRight} from 'react-icons/md';
+import {useLocation} from 'react-router-dom';
 import headerList from '../lib/headerList';
 import NavHeader from '../lib/navHeaderData';
+import {Link} from 'react-router-dom';
 import NavList from '../lib/navLists';
 import {UserAuth} from '../components/auth/AuthContext';
+import {signOut} from 'firebase/auth';
+import {auth} from '../../firebase';
+import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const navBar = ({toggleMenu, menuOpen}) => {
-  const { user, logout } = UserAuth();
-  const location = useLocation();
-  const isHomePage = location.pathname === '/';
+const NavBar = ({toggleMenu, menuOpen}) => {
+    const {user} = UserAuth() || {};
+    const menuItems = NavList(user); // Pass the user to navList
+    const location = useLocation();
+    const isHomePage = location.pathname === '/';
 
-  const handleLogout = async () => {
-    await logout();
-  };
+    const closeMenu = () => {
+        if (menuOpen) {
+            toggleMenu();
+        }
+    };
 
-
-  const closeMenu = () => {
-    if (menuOpen) {
-      toggleMenu();
-    }
-  };
-//headerlist display
-  const targetId = location.pathname;
-  const currentPathname = location.pathname;
+    const handleLogout = () => {
+        signOut(auth)
+            .then(() => {
+                toast.success('Sign out successful');
+                window.location.href = '/';
+            })
+            .catch((err) => {
+                alert(err);
+            });
+    };
+    //headerlist display
+    const targetId = location.pathname;
+    const currentPathname = location.pathname;
 
     //homeNav display
     const specificNavIDs = [1, 2, 3];
@@ -39,7 +49,6 @@ const navBar = ({toggleMenu, menuOpen}) => {
     const filteredSideNav = menuItems.filter((item) =>
         specificSideNavIDs.includes(item.id),
     );
-
 
     return (
         <div className='px-10 py-16 bg-green-200 text-white flex justify-between items-center top-0 right-0 left-0 z-10 bg-transparent'>
@@ -54,24 +63,24 @@ const navBar = ({toggleMenu, menuOpen}) => {
                 <NavHeader data={headerList} targetId={targetId} />
             </div>
             <div className='flex md:justify-center z-10'>
-
-            {!user ? (
-                <Link to="/login">
-                  <button className="text-sm bg-[#33CC9F] rounded-sm bg-opacity-80 text-black py-1 px-5 font-black pointer">Login</button>
-                </Link>
-              ) : (
-                <div className='flex items-center justify-between gap-3'>
-                  <div className='text-black'>
-                    {user && user.name && <p>Hello! {user.name}</p>}
-                  </div>
-                  <button className="text-sm bg-[#33CC9F] rounded-sm bg-opacity-80 text-black py-1 px-5 font-black pointer" onClick={handleLogout}>
-                    Logout
-                  </button>
-                  
-                </div>
-              )}
+                {user?.email ? (
+                    <div>
+                        <button
+                            className='text-sm bg-[#33CC9F] rounded-sm bg-opacity-80 text-black py-1 px-5 font-black pointer'
+                            onClick={handleLogout} // You can add an onClick handler for logout
+                        >
+                            Logout
+                        </button>
+                        {/* <div>{user.email}</div> */}
+                    </div>
+                ) : (
+                    <Link to='/login'>
+                        <button className='text-sm bg-[#33CC9F] rounded-sm bg-opacity-80 text-black py-1 px-5 font-black pointer'>
+                            Login
+                        </button>
+                    </Link>
+                )}
             </div>
-
 
             {/* Close button */}
             {menuOpen && (
@@ -142,4 +151,4 @@ const navBar = ({toggleMenu, menuOpen}) => {
     );
 };
 
-export default navBar;
+export default NavBar;

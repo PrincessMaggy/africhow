@@ -93,7 +93,7 @@ function AddDataComponent({ collectionPath, initialData, style, storagePath, cat
         e.preventDefault();
         setLoading(true);
 
-     if (
+     {/*if (
             !data.name ||
             !data.category ||
             !data.currency ||
@@ -110,7 +110,7 @@ function AddDataComponent({ collectionPath, initialData, style, storagePath, cat
             toast.error('Please fill in all required fields');
             
             return;
-        }
+        }*/}
 
         try {
             const imageUrl = await uploadImageToStorage(
