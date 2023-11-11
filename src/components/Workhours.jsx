@@ -67,7 +67,7 @@ export default function Workhours() {
             <option value="option10">7:00pm</option>
           </select>
 
-          <img src={line} className="h-[3px] w-[20px] mt-3" />
+          <hr />
 
           <select value={selectedOptions[day]} onChange={(event) => handleDropdownChange(day, event)}>
             <option value="option1">10:00pm</option>

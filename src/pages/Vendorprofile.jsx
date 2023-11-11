@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
-
-import Profileedit from '../components/Profileedit';
+import Profile from './Profile';
 
 
 function Vendorprofile ()  { 
     return (
     <>
-         <Profileedit/>
+         <Profile />
     
    
         </>

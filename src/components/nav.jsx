@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import Nav from '../mapping/navBar';
+import Nav from '../hooks/navBar';
 
 const NavBar = () => {
     const [menuOpen, setMenuOpen] = useState(false);

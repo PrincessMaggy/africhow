@@ -7,7 +7,7 @@ export default function Profilenavbar({ text, hour, onClick }) {
 
 <Link  className="
      text-[#909090] m-auto text-[12px] w-[120px] rounded-[3px] py-[8px] px-[10px]"
-      to="http://localhost:5173/Vendorprofile"
+      to="/profile/:userId"
     >
          {text}
     </Link>
