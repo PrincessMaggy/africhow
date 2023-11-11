@@ -74,10 +74,10 @@
 }
 
 .image-preview {
-  max-width: 100%;
+  
   background-color: transparent;
   border: solid 1px rgb(205, 205, 205);
-  padding: 44px 36px;
+  
 }
 
 .sidenav-item {

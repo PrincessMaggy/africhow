@@ -22,19 +22,19 @@ import Login from './pages/Login';
 import SuccessRewards from './pages/SuccessRewards';
 import NewMeal from './pages/AddNewMeal';
 import Profile from './pages/Profile';
-import {UserAuth} from './components/auth/AuthContext';
+import ReviewsCard from './pages/ReviewCard';
+import ReviewReply from './pages/ReviewReply';
+
 
 // importing components
 
+import {UserAuth} from './components/auth/AuthContext';
 import StoreOverview from './components/storePerformance/StoreOverview';
 import StorePerformance from './components/storePerformance/StorePerformance';
 import VendorSupport from './components/VendorSupportPage/VendorSupport';
 import SupportForm from './components/VendorSupportPage/SupportForm';
 import SupportSuccess from './components/VendorSupportPage/SupportSuccess';
 import Order from './components/Order/order';
-// import ReviewCard from './components/Reviews/ReviewContent';
-import ReviewsCard from './pages/ReviewCard';
-import ReviewReply from './pages/ReviewReply';
 import TrendingComponent from './components/community/trending';
 import Post from './components/community/post';
 import EditMeal from './components/EditMeal';
@@ -45,6 +45,7 @@ import Outgoing from './components/OrderManagement/Outgoing';
 import History from './components/OrderManagement/History';
 import NotificationPage from './components/Notification/notification';
 import NotificationSuccess from './components/Notification/notificationSuccesful';
+import VendorWorkHour from './components/Vendorworkhour';
 
 function App() {
     const {user} = UserAuth() || {};
@@ -170,6 +171,11 @@ function App() {
                     path='/updatedsuccesfully'
                     element={<NotificationSuccess />}
                 />
+                <Route
+                    path='/Vendorworkhour'
+                    element={<VendorWorkHour />}
+                />
+
             </Routes>
         </>
     );

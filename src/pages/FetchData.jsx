@@ -1,26 +1,22 @@
-import { useState, useEffect } from 'react';
-import { collection, getDocs, doc, query } from 'firebase/firestore';
+import React, { useState, useEffect } from 'react';
+import { collection, query, getDocs, where } from 'firebase/firestore';
 import { db, auth } from '../../firebase';
-import { useParams } from 'react-router-dom';
+import { filterItemsBySearch } from '../utils/search';
 
-function FirebaseDataFetcher({ collectionPath, searchQuery, render }) {
-  const { userId } = useParams();
-  console.log(userId, 'userId');
-  const [currentUser, setCurrentUser] = useState(null);
+function DataFetcher({ collectionPath, render }) {
+
+  const currentUser = auth.currentUser;
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
+  const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    const userData = window.localStorage.getItem('user');
-    if (userData) {
-      setCurrentUser(JSON.parse(userData));
-    }
-
     const fetchData = async () => {
       try {
         if (currentUser) {
           const userCollectionRef = collection(db, 'users', currentUser.uid, collectionPath);
-          const q = query(userCollectionRef);
+          const q = query(userCollectionRef, where('userId', '==', currentUser.uid));
 
           const querySnapshot = await getDocs(q);
           const items = [];
@@ -29,30 +25,33 @@ function FirebaseDataFetcher({ collectionPath, searchQuery, render }) {
           });
 
           setData(items);
-          setFilteredData(items);
         }
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
+        setError(error);
+        setLoading(false);
       }
     };
 
     fetchData();
   }, [collectionPath, currentUser]);
 
-  useEffect(() => {
-    if (searchQuery) {
-      const filteredItems = data.filter(
-        (item) =>
-          item.name &&
-          item.name.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-      setFilteredData(filteredItems);
-    } else {
-      setFilteredData(data);
-    }
-  }, [searchQuery, data]);
+  // Apply the search filter using the custom function
+  const filteredData = filterItemsBySearch(data, searchQuery, 'name');
 
-  return render(filteredData);
+  if (loading) {
+    // You can render a loading indicator here if needed.
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    // Handle the error state.
+    return <div>Error: {error.message}</div>;
+  }
+
+  // Render the data using the render function provided in props.
+  return render(data, filteredData);
 }
 
-export default FirebaseDataFetcher;
+export default DataFetcher;

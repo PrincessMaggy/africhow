@@ -1,10 +1,10 @@
+import { useState } from 'react';
 import HamBurger from '../assets/hamburger/white.svg';
 import Close from '../assets/hamburger/Close.svg';
 import { MdChevronRight } from "react-icons/md"; 
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import headerList from '../lib/headerList';
 import NavHeader from '../lib/navHeaderData';
-import {Link} from 'react-router-dom';
 import NavList from '../lib/navLists';
 import {UserAuth} from '../components/auth/AuthContext';
 import {signOut} from 'firebase/auth';
@@ -20,6 +20,7 @@ const navBar = ({toggleMenu, menuOpen}) => {
   const handleLogout = async () => {
     await logout();
   };
+
 
   const closeMenu = () => {
     if (menuOpen) {
@@ -64,7 +65,7 @@ const navBar = ({toggleMenu, menuOpen}) => {
               ) : (
                 <div className='flex items-center justify-between gap-3'>
                   <div className='text-black'>
-                    <p>Hello! </p>
+                    {user && user.name && <p>Hello! {user.name}</p>}
                   </div>
                   <button className="text-sm bg-[#33CC9F] rounded-sm bg-opacity-80 text-black py-1 px-5 font-black pointer" onClick={handleLogout}>
                     Logout

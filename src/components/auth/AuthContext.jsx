@@ -18,8 +18,23 @@ export const AuthContextProvider = ({children}) => {
     const [user, setUser] = useState(null); // Start with no user
 
 
-    const createUser = (email, password) => {
-        return createUserWithEmailAndPassword(auth, email, password);
+    const createUser = async (email, password) => {
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+  
+        // Fetch the user details from Firestore
+        const userDocRef = doc(db, 'users', user.uid);
+        const userDoc = await getDoc(userDocRef);
+  
+        if (userDoc.exists()) {
+          setUser({ uid: user.uid, ...userDoc.data() });
+        } else {
+          console.error('User document not found in Firestore');
+        }
+      } catch (error) {
+        console.error('Error creating user:', error);
+      }
     };
 
   const signIn = async (email, password) => {
@@ -29,7 +44,7 @@ export const AuthContextProvider = ({children}) => {
       setUser(user);
       return user; 
     } catch (error) {
-      console.error(error);
+      console.error('Error signing in:', error);
       throw error;
     }
   };
@@ -49,12 +64,12 @@ export const AuthContextProvider = ({children}) => {
   const fetchUserDetailsFromDatabase = async (userId) => {
     try {
       const userDocRef = doc(db, 'users', userId);
-      const userDocSnapshot = await getDoc(userDocRef);
+      const userDoc = await getDoc(userDocRef);
 
-      if (userDocSnapshot.exists()) {
-        const userData = userDocSnapshot.data();
-        return userData;
+      if (userDoc.exists()) {
+        return userDoc.data();
       } else {
+        console.error('User document not found in Firestore');
         return null;
       }
     } catch (error) {
@@ -83,10 +98,17 @@ export const AuthContextProvider = ({children}) => {
 
         return () => unsubscribe();
       }
-    }, []); 
+    }, [auth]); 
 
     return (
-        <UserContext.Provider value={{createUser, user, logout, signIn}}>
+        <UserContext.Provider value={{
+          createUser, 
+          user, 
+          logout, 
+          signIn, 
+          fetchUserDetailsFromDatabase 
+          }}
+        >
             {children}
         </UserContext.Provider>
     );
