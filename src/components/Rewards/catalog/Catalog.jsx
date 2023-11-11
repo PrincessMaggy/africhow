@@ -3,35 +3,37 @@ import RewardNav from '../RewardNav';
 import stars from '../../../assets/images/stars.png';
 import catalogs from '../../../lib/catalog';
 import '../rewards.css';
-import NewNavbar from '../../NewNav/NewNavBar';
+import Layout from '../../Layout';
+
 const CatalogPage = () => {
     return (
         <>
-            <NewNavbar title='Catalog' />
-            <RewardNav />
-            <div className='catalog_wrapper mx-2 mt-14'>
-                {catalogs.map((item, i) => (
-                    <Link to={`/rewards/reward-details/${item.id}`} key={i}>
-                        <div className='catalog-card flex my-8 p-2 gap-6 rounded-md border border-#000f08 items-center'>
-                            <div className='left_side'>
-                                <img src={item.image} alt={item.title} />
-                            </div>
-                            <div className='right-side'>
-                                <div className='text-left'>
-                                    <h3 className='text-lg font-semibold'>
-                                        {item.name}
-                                    </h3>
-                                    <p className='text-sm'>{item.header}</p>
-                                    <p className='text-sm'>
-                                        {item.task}
-                                        <img src={stars} alt='rating' />
-                                    </p>
+            <Layout>
+                <RewardNav />
+                <div className='catalog_wrapper mx-2 mt-14'>
+                    {catalogs.map((item, i) => (
+                        <Link to={`/rewards/reward-details/${item.id}`} key={i}>
+                            <div className='catalog-card flex my-8 p-2 gap-6 rounded-md border border-#000f08 items-center'>
+                                <div className='left_side'>
+                                    <img src={item.image} alt={item.title} />
+                                </div>
+                                <div className='right-side'>
+                                    <div className='text-left'>
+                                        <h3 className='text-lg font-semibold'>
+                                            {item.name}
+                                        </h3>
+                                        <p className='text-sm'>{item.header}</p>
+                                        <p className='text-sm'>
+                                            {item.task}
+                                            <img src={stars} alt='rating' />
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </Link>
-                ))}
-            </div>
+                        </Link>
+                    ))}
+                </div>
+            </Layout>
         </>
     );
 };

@@ -4,49 +4,49 @@ import { db } from '../../firebase';
 import { Link } from 'react-router-dom';
 import { UserAuth } from '../components/auth/AuthContext';
 
-function FetchMealItem({ searchQuery }) {
-  const [allDocs, setAllDocs] = useState([]);
-  const { user, logout } = UserAuth();
+function FetchMealItem({searchQuery}) {
+    const [allDocs, setAllDocs] = useState([]);
+    const [mealData, setMealData] = useState([]);
+    // Fetch meals when the component mounts
+    useEffect(() => {
+        const fetchMeals = async () => {
+            try {
+                if (auth.currentUser) {
+                    const userMealsRef = collection(
+                        db,
+                        'users',
+                        auth.currentUser.uid,
+                        'meals',
+                    );
+                    const querySnapshot = await getDocs(userMealsRef);
+                    const meals = [];
 
-  useEffect(() => {
-    const fetchMeals = async () => {
-      try {
-        if (user) {
-          console.log("User is signed in:", user);
+                    querySnapshot.forEach((doc) => {
+                        meals.push({id: doc.id, ...doc.data()});
+                    });
 
-          const userMealsRef = collection(db, 'users', user.uid, 'meals');
-          const querySnapshot = await getDocs(userMealsRef);
-  
-          const mealData = [];
-          querySnapshot.forEach((doc) => {
-            mealData.push({ id: doc.id, ...doc.data() });
-          });
-          console.log("Fetched meals data:", mealData);
+                    setMealData(meals);
+                    console.log(meals, 'mealData');
+                }
+            } catch (error) {
+                console.error('Error fetching meals:', error);
+            }
+        };
 
-          // Check if searchQuery exists
-          if (searchQuery) {
-            const filteredMeals = mealData.filter((meal) =>
-              meal.name?.toLowerCase().includes(searchQuery.toLowerCase())
-            );
-            console.log("Filtered meals:", filteredMeals);
-            setAllDocs(filteredMeals);
-          } else {
-            // If there's no search query, set all meals
-            console.log("No search query, displaying all meals.");
-            setAllDocs(mealData);
-          }
-        } else {
-          console.log("User is not signed in.");
-          return null; // when the user is not signed in
-        }
-      } catch (error) {
-        console.error('Error fetching meals:', error);
-      }
-    };
-  
-    fetchMeals();
-  }, [searchQuery, user]);
-  
+        fetchMeals();
+    }, []);
+
+    // Apply search filter whenever searchQuery changes
+    useEffect(() => {
+        const filteredMeals = mealData.filter(
+            (meal) =>
+                meal.name &&
+                meal.name.toLowerCase().includes(searchQuery.toLowerCase()),
+        );
+
+        setAllDocs(filteredMeals);
+        console.log(filteredMeals, 'filteredMeals');
+    }, [searchQuery, mealData]);
 
     return (
         <div className='grid xs:grid-cols-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-4 mb-10 flex-wrap'>

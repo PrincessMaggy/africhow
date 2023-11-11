@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
-import arrow_back from '../../assets/icons/arrow_back.png';
+import Layout from '../Layout';
 
 function NotificationPage() {
     const navigate = useNavigate();
@@ -48,49 +48,50 @@ function NotificationPage() {
     }, []);
 
     return (
-        <div className='p-4'>
-            <span>
-                <img src={arrow_back} alt='arrow_back' className='arrow' />
-            </span>
-            <h1 className='text-2xl text-start font-bold mt-4'>
-                Enable notification
-            </h1>
-            <p className='text-base md:text-xl text-start mt-4'>
-                Enabling notification helps you keep track incoming orders,
-                daily store performance and updates.
-            </p>
-            <h1 className='text-2xl text-start font-semibold mt-4 mb-6'>
-                Select as many options as you like.
-            </h1>
-            {[
-                'Incoming Orders',
-                'Store performance',
-                'Reviews and ratings',
-                'Payment',
-                'Delivery updates',
-                "Customer's enquiry",
-            ]?.map((item, index) => (
-                <CustomCheckBox
-                    label={item}
-                    key={item}
-                    onChangeFunc={onToggleCheck}
-                    checked={checkedItems?.includes(item)}
-                />
-            ))}
+        <>
+            <Layout>
+                <div className='p-4 ml-4'>
+                    <h1 className='text-2xl text-start font-bold mt-4'>
+                        Enable notification
+                    </h1>
+                    <p className='text-base md:text-xl text-start mt-4'>
+                        Enabling notification helps you keep track incoming
+                        orders, daily store performance and updates.
+                    </p>
+                    <h1 className='text-2xl text-start font-semibold mt-4 mb-6'>
+                        Select as many options as you like.
+                    </h1>
+                    {[
+                        'Incoming Orders',
+                        'Store performance',
+                        'Reviews and ratings',
+                        'Payment',
+                        'Delivery updates',
+                        "Customer's enquiry",
+                    ]?.map((item, index) => (
+                        <CustomCheckBox
+                            label={item}
+                            key={item}
+                            onChangeFunc={onToggleCheck}
+                            checked={checkedItems?.includes(item)}
+                        />
+                    ))}
 
-            <div
-                role='button'
-                onClick={submitForm}
-                className='flex items-start md:items-center md:justify-center'
-            >
-                <div className='inline-block text-black lg:text-2xl text-xl mt-10 mb-4 border bg-primary lg:px-12 px-12 py-2'>
-                    Continue
+                    <div
+                        role='button'
+                        onClick={submitForm}
+                        className='flex items-start md:items-center md:justify-center'
+                    >
+                        <div className='inline-block text-black lg:text-2xl text-xl mt-10 mb-4 border bg-primary lg:px-12 px-12 py-2'>
+                            Continue
+                        </div>
+                    </div>
+                    <p className='text-start text-base md:text-2xl '>
+                        You can update this whenever you like.
+                    </p>
                 </div>
-            </div>
-            <p className='text-start text-base md:text-2xl '>
-                You can update this whenever you like.
-            </p>
-        </div>
+            </Layout>
+        </>
     );
 }
 

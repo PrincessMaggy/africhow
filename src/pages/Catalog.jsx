@@ -1,21 +1,10 @@
-import CatalogPage from '../components/Rewards/catalog/Catalog'
-import { UserAuth } from "../components/auth/AuthContext";
-import { useNavigate } from 'react-router-dom';
-
+import CatalogPage from '../components/Rewards/catalog/Catalog';
 const Catalog = () => {
-  const { loggedIn } = UserAuth();
-  const navigate = useNavigate();
+    return (
+        <>
+            <CatalogPage />
+        </>
+    );
+};
 
-  if(!loggedIn){
-      navigate('/login');
-      // return null;
-  }
-
-  return (
-    <>
-        <CatalogPage />
-    </>
-  )
-}
-
-export default Catalog
+export default Catalog;

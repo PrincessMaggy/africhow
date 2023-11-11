@@ -36,9 +36,9 @@ const RewardsPage = () => {
 
             ValueContainer.textContent = `${progressValue}`;
             progressBar.style.background = `conic-gradient(
-        #33CC9F ${progressPercentage * 3.6}deg,
-        #000 ${progressPercentage * 3.6}deg
-      )`;
+                #33CC9F ${progressPercentage}deg,
+                #000 ${progressPercentage}deg
+            )`;
         }, speed);
 
         return () => {
@@ -96,8 +96,8 @@ const RewardsPage = () => {
                         </div>
                         <div className='share_section mt-12'>
                             <p className='text-small font-medium'>
-                                Share your wins and progress with your friends on
-                                social media
+                                Share your wins and progress with your friends
+                                on social media
                             </p>
                             <div className='social_share flex  w-4/6 mx-auto gap-6 justify-around mt-4'>
                                 <img
@@ -105,7 +105,11 @@ const RewardsPage = () => {
                                     alt='facebook'
                                     onClick={shareOnFacebook}
                                 />
-                                <img src={Ig} alt='Ig' onClick={shareOnInstagram} />
+                                <img
+                                    src={Ig}
+                                    alt='Ig'
+                                    onClick={shareOnInstagram}
+                                />
                                 <img
                                     src={twitter}
                                     alt='twitter'

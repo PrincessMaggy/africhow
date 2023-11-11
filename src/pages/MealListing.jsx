@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs} from 'firebase/firestore';
 import { MdSearch } from 'react-icons/md'
@@ -111,7 +112,7 @@ const MealListing = () => {
       )}
       </Layout>
     </div>
-  );
-};
+  )
+  };
 
 export default MealListing;

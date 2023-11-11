@@ -10,7 +10,7 @@ import {
 import {IoAnalytics, IoTrophy} from 'react-icons/io5';
 import {LiaUserFriendsSolid} from 'react-icons/lia';
 
-const navList = [
+const NavList = (user) => [
     {
         id: 1,
         title: 'ChowTrybe',
@@ -61,7 +61,7 @@ const navList = [
         id: 8,
         title: 'Meals',
         icon: <MdRestaurantMenu />,
-        route: '/meallisting/:userId',
+        route: `/meallisting/${user?.uid}`,
     },
 
     {
@@ -80,15 +80,15 @@ const navList = [
 
     {
         id: 11,
-        title: 'Delivery',
+        title: 'Notification',
         icon: <MdDeliveryDining />,
-        route: '/',
+        route: '/notification',
     },
     {
         id: 12,
         title: 'Profile',
         icon: <MdPersonAddAlt />,
-        route: '/profile/:userId',
+        route: `/profile/${user?.uid}`,
     },
 
     {
@@ -106,4 +106,4 @@ const navList = [
     },
 ];
 
-export default navList;
+export default NavList;

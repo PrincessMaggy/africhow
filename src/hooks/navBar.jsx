@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import HamBurger from '../assets/hamburger/white.svg';
 import Close from '../assets/hamburger/Close.svg';
 import { MdChevronRight } from "react-icons/md"; 
@@ -7,9 +7,6 @@ import headerList from '../lib/headerList';
 import NavHeader from '../lib/navHeaderData';
 import NavList from '../lib/navLists';
 import {UserAuth} from '../components/auth/AuthContext';
-import {signOut} from 'firebase/auth';
-import {auth} from '../../firebase';
-import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const navBar = ({toggleMenu, menuOpen}) => {
@@ -33,13 +30,13 @@ const navBar = ({toggleMenu, menuOpen}) => {
 
     //homeNav display
     const specificNavIDs = [1, 2, 3];
-    const filteredNav = NavList.filter((item) =>
+    const filteredNav = menuItems.filter((item) =>
         specificNavIDs.includes(item.id),
     );
 
     //sideNav display
     const specificSideNavIDs = [7, 8, 9, 10, 11, 3, 13];
-    const filteredSideNav = NavList.filter((item) =>
+    const filteredSideNav = menuItems.filter((item) =>
         specificSideNavIDs.includes(item.id),
     );
 

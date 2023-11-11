@@ -43,7 +43,7 @@ export default function ForgotPassword() {
     }
 
     return (
-        <div className='grid gap-5 min-[391px]:w-[90%] max-[398px]:w-[358px]'>
+        <div className='grid gap-5 min-[391px]:w-[90%] max-[398px]:w-[358px] p-4'>
             <Prev onClick={handlePrev} />
             <ToastContainer />
             <div className='font-[700] text-[24px] text-[#000F08] mt-3 mb-3'>
