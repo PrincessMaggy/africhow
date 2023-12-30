@@ -60,7 +60,7 @@ function Completed() {
    </div>
       
       <div className="float-left mt-6">
-      <button class=" bg-[#33CC9F;] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      <button className=" bg-[#33CC9F;] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
   Rate us
 </button>
       </div>
