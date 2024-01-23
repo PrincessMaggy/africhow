@@ -2,6 +2,7 @@ import {Route, Routes, Navigate} from 'react-router-dom';
 import './App.css';
 import './index.css';
 
+
 // importing pages
 import Home from './pages/Home';
 import Rewards from './pages/Rewards';
@@ -45,7 +46,13 @@ import Outgoing from './components/OrderManagement/Outgoing';
 import History from './components/OrderManagement/History';
 import NotificationPage from './components/Notification/notification';
 import NotificationSuccess from './components/Notification/notificationSuccesful';
-
+import Enroute from './components/Enroute';
+import Completed from './components/Completed';
+import Pending from './components/Pending';
+import Complete from './components/Complete';
+import Cancelled from './components/Cancelled';
+import Delivered from './components/Delivered';
+import Recommendation from './components/Recommendation';
 function App() {
     const {user} = UserAuth() || {};
 
@@ -179,6 +186,13 @@ function App() {
                     path='/updatedsuccesfully'
                     element={<NotificationSuccess />}
                 />
+                <Route path="/enroute" element={<Enroute />} />
+        <Route path="/completed" element={<Completed />} />
+        <Route path="/pending" element={<Pending/>} />
+        <Route path="/complete" element={<Complete/>} />
+        <Route path="/cancelled" element={<Cancelled/>} />
+        <Route path="/delivered" element={<Delivered/>} />
+        <Route path="/recommendation" element={<Recommendation/>} />
             </Routes>
         </>
     );

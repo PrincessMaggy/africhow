@@ -1,4 +1,4 @@
-import {
+{/*import {
     MdCurrencyExchange,
     MdRestaurantMenu,
     MdReceiptLong,
@@ -9,7 +9,7 @@ import {
 } from 'react-icons/md';
 import {IoAnalytics, IoTrophy} from 'react-icons/io5';
 import {LiaUserFriendsSolid} from 'react-icons/lia';
-
+*/}
 const NavList = (user) => [
     {
         id: 1,
