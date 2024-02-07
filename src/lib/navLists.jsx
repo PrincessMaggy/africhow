@@ -32,6 +32,7 @@ const NavList = (user) => [
         sub_title: 'Support',
         route: '/vendorsupport',
     },
+
     {
         id: 4,
         title: 'Facebook',
@@ -68,7 +69,7 @@ const NavList = (user) => [
         id: 9,
         title: 'Orders Management',
         icon: <MdReceiptLong />,
-        route: '/order-summary',
+        route: '/layout',
     },
 
     {
@@ -104,6 +105,8 @@ const NavList = (user) => [
         icon: <MdHome />,
         route: '/',
     },
+
+   
 ];
 
 export default NavList;

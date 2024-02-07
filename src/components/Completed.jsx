@@ -5,7 +5,7 @@ import congrat from "/src/assets/Congrat.png";
 
 function Completed() {
   return (
-    <>
+    <div className="p-1">
       <h1 className="text-3xl font-bold  text-center text-black-600">
         AfriChow
       </h1>
@@ -64,7 +64,7 @@ function Completed() {
   Rate us
 </button>
       </div>
-    </>
+    </div>
   );
 }
 

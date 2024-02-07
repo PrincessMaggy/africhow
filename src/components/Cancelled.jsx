@@ -3,13 +3,18 @@ import food from '/src/assets/Food.png'
 import peppersoup from '/src/assets/Peppersoup.png'
 import divider from '/src/assets/Divider.png'
 import shipping from '/src/assets/Shipping.png'
+import { Link } from "react-router-dom";
 
 function Cancelled() {
     return (
      <>
      <nav className="bg-gray-100 flex justify-around p-2 cursor-pointer w-full" >
-     <div><p className="active:bg-[#145062] active-tab  transition-all ease-in-out border-0 p-2 ">Pending</p></div>
-     <div ><p className="active:bg-[#145062] active-tab  transition-all ease-in-out border-0 p-2 ">Completed</p></div>
+     <div><p className="active:bg-[#145062] active-tab  transition-all ease-in-out border-0 p-2 "><Link to= '/pending'>
+      Pending
+    </Link> </p></div>
+     <div ><p className="active:bg-[#145062] active-tab  transition-all ease-in-out border-0 p-2 ">  <Link to= '/completed'>
+      Completed
+    </Link> </p></div>
      <div><p className="bg-[#145062]  border-0 p-2">Cancelled</p></div>
      </nav>
      <div className="card">

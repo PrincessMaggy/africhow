@@ -39,6 +39,11 @@ const navList = [
         title: 'Food Menu',
         route: '/meallisting/:userId',
     },
+
+    {
+        title: 'Order Management',
+        route: '/delivered'
+    }
     // {
     //     title: 'Order Mgt.',
     //     route: '/incoming',

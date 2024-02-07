@@ -44,6 +44,7 @@ import Recipes from './components/community/recipes';
 import Incoming from './components/OrderManagement/Incoming';
 import Outgoing from './components/OrderManagement/Outgoing';
 import History from './components/OrderManagement/History';
+import Layout from './components/OrderManagement/Layout/Layout';
 import NotificationPage from './components/Notification/notification';
 import NotificationSuccess from './components/Notification/notificationSuccesful';
 import Enroute from './components/Enroute';
@@ -181,6 +182,7 @@ function App() {
                 <Route path='/incoming' element={<Incoming />} />
                 <Route path='/outgoing' element={<Outgoing />} />
                 <Route path='/history' element={<History />} />
+                <Route path='/layout' element={<Layout />} />
                 <Route path='/notification' element={<NotificationPage />} />
                 <Route
                     path='/updatedsuccesfully'

@@ -9,8 +9,10 @@ function Pending() {
      <>
      <nav className="bg-gray-100 flex justify-around p-2 cursor-pointer w-full " >
      <div><p className="bg-[#145062]  border-0 p-2 ">Pending</p></div>
-     <div ><p className="active:bg-[#145062] active-tab  transition-all ease-in-out border-0 p-2 ">Completed</p></div>
-     <div><p className="active:bg-[#145062] active-tab  transition-all ease-in-out border-0 p-2">Cancelled</p></div>
+     <div ><p className="active:bg-[#145062] active-tab  transition-all ease-in-out border-0 p-2 "><Link to ='/completed'> Completed </Link> </p></div>
+     <div><p className="active:bg-[#145062] active-tab  transition-all ease-in-out border-0 p-2"><Link to= '/cancelled'>
+      Cancelled
+    </Link> </p></div>
      </nav>
      <div className="card">
         <div><p className="mt-8 text-left text-[#909090]">#001</p></div>
