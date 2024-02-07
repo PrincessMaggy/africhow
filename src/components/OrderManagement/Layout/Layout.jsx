@@ -10,7 +10,7 @@ const Layout = () => {
                 Order Management
             </div>
             <nav>
-                <ul className="flex justify-between px-6 py-2 my-5 text-sm text-gray-500 bg-bg-order-nav items-center">
+                <ul className="lg:flex justify-between md:block px-6 py-2 my-5 text-sm text-gray-500 bg-bg-order-nav items-center">
                     <li className="flex items-center justify-center gap-1">
                         <Link to='/incoming' className="py-2">Incoming</Link> <div className="w-6 text-xs leading-6 text-center rounded-full bg-bg-order-notify text-slate-100"></div>
                     </li>
