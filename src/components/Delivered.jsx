@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import food from '/src/assets/Food.png'
 import peppersoup from '/src/assets/Peppersoup.png'
 import divider from '/src/assets/Divider.png'
@@ -6,11 +7,15 @@ import shipping from '/src/assets/Shipping.png'
 
 function Delivered() {
     return (
-     <>
+     <div className="p-2">
      <nav className="bg-gray-100 flex justify-around p-2 cursor-pointer w-full" >
-     <div><p className="active:bg-[#145062] active-tab  transition-all ease-in-out border-0 p-2 ">Pending</p></div>
+     <div><p className="active:bg-[#145062] active-tab  transition-all ease-in-out border-0 p-2 "><Link to= '/pending'>
+      Pending
+    </Link> </p></div>
      <div ><p className="bg-[#145062]  border-0 p-2 ">Completed</p></div>
-     <div><p className="active:bg-[#145062] active-tab  transition-all ease-in-out border-0 p-2">Cancelled</p></div>
+     <div><p className="active:bg-[#145062] active-tab  transition-all ease-in-out border-0 p-2"><Link to= '/cancelled'>
+      Pending
+    </Link> </p></div>
      </nav>
      <div className="card">
         <div><p className="mt-8 text-left text-[#909090]">#001</p></div>
@@ -71,7 +76,7 @@ Bradford, West Yorkshire, <br />BD4 5AD </p></div>
       />Delivered</button>
        </div>
 
-     </>
+     </div>
     )
 }
 export default Delivered;

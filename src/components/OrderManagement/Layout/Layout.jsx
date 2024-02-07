@@ -20,7 +20,24 @@ const Layout = () => {
                     <li>
                         <Link to='/history'>History</Link>
                     </li>
+
+                
+                    <li>
+                        <Link to='/pending'>Delivery Enroute</Link>
+                    </li>
+                    <li>
+                        <Link to='/complete'>Delivery Completed</Link>
+                    </li>
+                    <li>
+                        <Link to='/cancelled'>Delivery Cancelled</Link>
+                    </li>
+                    <li>
+                        <Link to='/delivered'>Delivered</Link>
+                    </li>
+                   
+                   
                 </ul>
+                
             </nav>
 
             <Outlet/>

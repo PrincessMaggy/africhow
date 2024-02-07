@@ -4,7 +4,7 @@ import line from "/src/assets/Line.png";
 
 function Enroute() {
   return (
-    <>
+    <div className="p-2">
       <h1 className="text-3xl font-bold  text-center text-black-600">
         AfriChow
       </h1>
@@ -44,7 +44,7 @@ function Enroute() {
         </div>
         <div className="font-semibold">£15.30</div>
       </div>
-    </>
+    </div>
   );
 }
 
